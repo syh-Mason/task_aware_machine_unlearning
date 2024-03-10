@@ -1,21 +1,20 @@
 # Task-aware Machine Unlearning
 
-**The paper is under review. More codes are coming.**
 
-This repo contains data and code for Task-Aware Machine Unlearning with Application to Load Forecasting. The authors are from Control and Power Research Group, Department of EEE, Imperial College London.
+**Declaration**
+This repo contains data and code for the paper **Task-Aware Machine Unlearning with Application to Load Forecasting**. The paper has been accepted by IEEE Trans on Power System and the copyright may be preserved by IEEE. The authors are from Control and Power Research Group, Department of EEE, Imperial College London.
+You can find the latest version at [arxiv preprint](https://arxiv.org/abs/2308.14412).
 
-You can find the paper by this [arxiv preprint](https://arxiv.org/abs/2308.14412).
-
-**Abstract**:
-Data privacy and security have become a non-negligible factor in load forecasting. Previous researches mainly focus on training stage enhancement. However, once the model is trained and deployed, it may need to `forget' (i.e., remove the impact of) part of training data if the data is found to be malicious or as requested by the data owner. This paper introduces machine unlearning algorithm which is specifically designed to remove the influence of part of the original dataset on an already trained forecaster. However, direct unlearning inevitably degrades the model generalization ability. To balance between unlearning completeness and performance degradation, a performance-aware algorithm is proposed by evaluating the sensitivity of local model parameter change using influence function and sample re-weighting. Moreover, we observe that the statistic criterion cannot fully reflect the operation cost of down-stream tasks. Therefore, a task-aware machine unlearning is proposed whose objective is a tri-level optimization with dispatch and redispatch problems considered. We theoretically prove the existence of the gradient of such objective, which is key to re-weighting the remaining samples. We test the unlearning algorithms on linear and neural network load forecasters with realistic load dataset. The simulation demonstrates the balance on unlearning completeness and operational cost.
+**Abstract**
+Data privacy and security have become a non-negligible factor in load forecasting. Previous researches mainly focus on training stage enhancement. However, once the model is trained and deployed, it may need to `forget' (i.e., remove the impact of) part of training data if the these data are found to be malicious or as requested by the data owner. This paper introduces the concept of machine unlearning which is specifically designed to remove the influence of part of the dataset on an already trained forecaster. However, direct unlearning inevitably degrades the model generalization ability. To balance between unlearning completeness and model performance, a performance-aware algorithm is proposed by evaluating the sensitivity of local model parameter change using influence function and sample re-weighting. Furthermore, we observe that the statistical criterion such as mean squared error, cannot fully reflect the operation cost of the downstream tasks in power system. Therefore, a task-aware machine unlearning is proposed whose objective is a trilevel optimization with dispatch and redispatch problems considered. We theoretically prove the existence of the gradient of such an objective, which is key to re-weighting the remaining samples. We tested the unlearning algorithms on linear, CNN, and MLP-Mixer based load forecasters with a realistic load dataset. The simulation demonstrates the balance between unlearning completeness and operational cost.
 
 Please cite our paper if it helps your research:
 ```
 @article{xu2023task,
   title={Task-Aware Machine Unlearning and Its Application in Load Forecasting},
   author={Xu, Wangkun and Teng, Fei},
-  journal={arXiv preprint arXiv:2308.14412},
-  year={2023}
+  journal={IEEE Trans. on Power System (accepted)},
+  year={2024}
 }
 ```
 
@@ -29,7 +28,7 @@ The key packages used in this repo include:
 - a modified [torch-influence](https://github.com/alstonlo/torch-influence) to calculate the influence function. Our implementation can be found at `torch_influence/'.
 - `gurobipy==11.0.0` (optional) for solving optimization problems.
 
-We note that the higher versions of `cvxpy` and `cvxpylayers` may not work. All the experiments are on cpu.
+We note that some higher versions of `cvxpy` and `cvxpylayers` may not work. All the experiments are on cpu.
 
 
 ## Prepare
@@ -60,7 +59,7 @@ It will generate 14 `.cxv` files in `data/data_case14` folder. We run a simple a
 
 In addition, the raw load data in the Texas Backbone Power System cannot be directly used for arbitrary IEEE test system. Therefore, we first preprocess the load data to match the load level of system under test.
 
-We have made data preprocessing flexible. You can also modify the `clean_data.py` and the `case_modifier()` function in `utils/dataaset/` to match your system. In the future, we will update the data generation procedure to support more power grid.
+We have made data preprocessing flexible. You can also modify the `clean_data.py` and the `case_modifier()` function in `utils/dataaset/` to match your system. *In the future, we will update the data generation procedure to support more power grid.*
 
 ### Train the load forecaster
 
@@ -108,3 +107,5 @@ Set the criteria property to unchange the performance of mse, mape, or cost.
 ```
 python eval_unchange.py unlearn_prop={a float number} model={linear, conv, mlpmixer} criteria={mse, mape, cost}
 ```
+
+All the figures in the paper can be generated/visualized in `analysis.ipynb`.

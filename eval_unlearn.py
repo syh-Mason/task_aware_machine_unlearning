@@ -18,8 +18,6 @@ construct the unlearning set based on the choice of {random, helpful, harmful}
 3. random: randomly select the unlearning set (less significant).
 """
 
-import json
-import argparse
 from torch.utils.data import DataLoader
 from utils import return_dataset, evaluate, reconstruct_model, flatten_model
 from func_operation import return_unlearn_datasets, return_trained_model, return_module, return_core_datasets, return_dataset_for_nn_affine

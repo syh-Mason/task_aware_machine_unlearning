@@ -3,9 +3,6 @@ __pycache__/
 *.py[cod]
 *$py.class
 delete_file/
-utils/*
-!utils/.placeholder
-func_operation.py
 *.pdf
 *.zip
 data/data_case14

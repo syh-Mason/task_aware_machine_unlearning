@@ -4,9 +4,6 @@ check the unlearnt model with the trained model (there parameters should be the 
 2. linear model upon the trained neutal network
 """
 
-import json
-import argparse
-
 # from utils.dataset import return_dataset
 # from utils.funcs import flatten_model
 from func_operation import return_unlearn_datasets, return_trained_model, return_module, return_core_datasets, return_dataset_for_nn_affine
@@ -155,14 +152,5 @@ def main(cfg: DictConfig):
 
 
 if __name__ == "__main__":
-    # parser = argparse.ArgumentParser()
-    # parser.add_argument('-u', '--unlearn_prop', type=float)
-    # parser.add_argument('-m', '--model', type=str, help='affine or nn', choices=['affine', 'nn'])
-    # args = parser.parse_args()
-
-    # with open("config.json") as f:
-    #     config = json.load(f)
-    
-    # main(args, config)
 
     main()

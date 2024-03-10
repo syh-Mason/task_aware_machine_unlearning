@@ -140,10 +140,3 @@ def main(cfg: DictConfig):
 if __name__ == '__main__':
     
     main()
-    
-    
-    # parser = argparse.ArgumentParser()
-    # # core and all are trained on the nn model. sensitive is fine tuning the last layer
-    # parser.add_argument('-d', '--dataset', type=str, help = "choose from core and all")
-    # parser.add_argument('-w', '--watch', type=str)
-    # args = parser.parse_args()
