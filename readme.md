@@ -28,7 +28,7 @@ The key packages used in this repo include:
 - a modified [torch-influence](https://github.com/alstonlo/torch-influence) to calculate the influence function. Our implementation can be found at `torch_influence/'.
 - `gurobipy==11.0.0` (optional) for solving optimization problems.
 
-We note that some higher versions of `cvxpy` and `cvxpylayers` may not work. All the experiments are on cpu.
+We note that some higher versions of `cvxpy` and `cvxpylayers` may not work. All other dependencies can be easy to handle. All the experiments are on cpu.
 
 
 ## Prepare
