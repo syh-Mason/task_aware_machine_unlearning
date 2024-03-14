@@ -3,7 +3,7 @@
 
 **Declaration**
 This repo contains data and code for the paper **Task-Aware Machine Unlearning with Application to Load Forecasting**. The paper has been accepted by IEEE Trans on Power System and the copyright may be preserved by IEEE. The authors are from Control and Power Research Group, Department of EEE, Imperial College London.
-You can find the latest version at [arxiv preprint](https://arxiv.org/abs/2308.14412).
+You can find the latest version at [arxiv preprint](https://arxiv.org/abs/2308.14412) and [IEEE early access](https://ieeexplore.ieee.org/document/10472091).
 
 **Abstract**
 Data privacy and security have become a non-negligible factor in load forecasting. Previous researches mainly focus on training stage enhancement. However, once the model is trained and deployed, it may need to `forget' (i.e., remove the impact of) part of training data if the these data are found to be malicious or as requested by the data owner. This paper introduces the concept of machine unlearning which is specifically designed to remove the influence of part of the dataset on an already trained forecaster. However, direct unlearning inevitably degrades the model generalization ability. To balance between unlearning completeness and model performance, a performance-aware algorithm is proposed by evaluating the sensitivity of local model parameter change using influence function and sample re-weighting. Furthermore, we observe that the statistical criterion such as mean squared error, cannot fully reflect the operation cost of the downstream tasks in power system. Therefore, a task-aware machine unlearning is proposed whose objective is a trilevel optimization with dispatch and redispatch problems considered. We theoretically prove the existence of the gradient of such an objective, which is key to re-weighting the remaining samples. We tested the unlearning algorithms on linear, CNN, and MLP-Mixer based load forecasters with a realistic load dataset. The simulation demonstrates the balance between unlearning completeness and operational cost.
@@ -12,12 +12,16 @@ Data privacy and security have become a non-negligible factor in load forecastin
 
 Please cite our paper if it helps your research:
 ```
-@article{xu2023task,
-  title={Task-Aware Machine Unlearning and Its Application in Load Forecasting},
+@ARTICLE{xu202task,
   author={Xu, Wangkun and Teng, Fei},
-  journal={IEEE Trans. on Power System (accepted)},
-  year={2024}
-}
+  journal={IEEE Transactions on Power Systems}, 
+  title={Task-Aware Machine Unlearning and Its Application in Load Forecasting}, 
+  year={2024},
+  volume={},
+  number={},
+  pages={1-12},
+  keywords={Training;Load modeling;Load forecasting;Power systems;Data models;Security;Task analysis;Data privacy and security;load forecasting;machine unlearning;end-to-end learning;power system operation;influence function},
+  doi={10.1109/TPWRS.2024.3376828}}
 ```
 
 ## Package
