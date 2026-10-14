@@ -1,0 +1,1524 @@
+{
+  "schema_version": 1,
+  "description": "Actual full-data case14 baseline evaluations; no inferred or paper-traced values.",
+  "plot_scaling": {
+    "mse": 1000.0,
+    "mape": 1,
+    "cost": 0.001
+  },
+  "run_manifest": {
+    "started_utc": "2026-10-14T15:15:33.376276+00:00",
+    "source_commit": "b4dd07d5632c6133b4846dc9d630f098f63be01a",
+    "python": "3.10.22 (main, Oct  3 2026, 01:32:06) [Clang 22.1.3 ]",
+    "proportions": [
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.25,
+      0.3
+    ],
+    "settings": {
+      "case": "case14",
+      "data_prop": 1,
+      "train_prop": 0.8,
+      "random_seed": 42,
+      "unlearn_mode": "helpful",
+      "core_prop": 0.3,
+      "solver": "auto"
+    },
+    "data_audit": {
+      "raw_expected_files": 730,
+      "raw_present_files": 730,
+      "raw_complete": true,
+      "raw_missing_examples": [],
+      "processed_files": 14,
+      "processed_complete": true,
+      "processed_errors": [],
+      "provenance": "Check archive against Figshare article 22144616 version 4; shape checks alone do not certify data provenance."
+    },
+    "processed_data_sha256": {
+      "bus_102.csv": "5ac0421b2799a29ad7ed9c4aa31c8e2291e8fff7628ad334ef21f6f3ccc5cd63",
+      "bus_11.csv": "0f20250bf03e4be8191927bc1437a969093caa9de1b7662c1eeb5f304a905992",
+      "bus_120.csv": "133d32732a5d2cf75c7e5b0a99309abc161b9e49ddc8b83cf3fe23c8d0f17469",
+      "bus_13.csv": "1591be04b04f0857c05dbc2c295e9b99be05a6f2d8932054ce65547a77e5dff1",
+      "bus_15.csv": "fe5126aa52f35286076023b9762dbf189e4293aa4b69cbf41be245b228943f29",
+      "bus_2.csv": "062ac394456eb2b168c8bb9d09f55ced45961ebb58180345e74514a2283c9648",
+      "bus_25.csv": "6849731277290c031dabfcbe902bd5667f3112ffeb0b433e8fac4cf469a449dc",
+      "bus_30.csv": "2e4ec3a4e69108cb3d0e2b6dcf795a82430340cb08b556ab729b52a4b6723869",
+      "bus_38.csv": "2c9660a62d1111ed625e5d856ea7b6f01428755699f44c5baecc65764317bce3",
+      "bus_49.csv": "a5c0f01c25e67d6cbdd112069f277e82e9e754cef3cd575f8dc672122f869ba3",
+      "bus_58.csv": "a61c7a72ea3a8b98282f1dfcbed63cb8937243a7918dda6835cf0af10018e5db",
+      "bus_74.csv": "f85bbca98763ecb80405262c3caa7d3cba45022bc12f5b93d88a3e42bb3787d0",
+      "bus_91.csv": "7b6507e87cbde520ed95e11ddd7f37b1eee968a285d441e2eff00e9c0fbb3d76",
+      "bus_99.csv": "7eff77eb1e3abd362ca3a8a895b97eaf59aa05d92a83a9b8a5b4bfe1143a8d0d"
+    },
+    "inputs": {
+      "linear": {
+        "model_type": "linear",
+        "influence": "/workspace/task_aware_machine_unlearning/outputs/real-full-double/influence/linear_mse.npy",
+        "influence_sha256": "686e0fef8f82af0fac951e303aa9791c984a9b3b1d07287642afbac30f05bcc2",
+        "influence_criterion": "mse",
+        "train_samples": 7008
+      },
+      "conv": {
+        "model_type": "nn_conv",
+        "influence": "/workspace/task_aware_machine_unlearning/outputs/real-conv/influence/nn_conv_cost.npy",
+        "influence_sha256": "759af29861528285e5602826088a7de74ebb02a6cef52fa432ee5337bbd64c39",
+        "influence_criterion": "cost",
+        "train_samples": 4906,
+        "checkpoint": "/workspace/task_aware_machine_unlearning/trained_model/nn_conv/core.pth",
+        "checkpoint_sha256": "6be6331a55594cc33941b645a258a8389894fbb16e0b89a9aa04afededfc3ad0"
+      },
+      "mlpmixer": {
+        "model_type": "nn_mixer",
+        "influence": "/workspace/task_aware_machine_unlearning/outputs/real-mixer/influence/nn_mixer_cost.npy",
+        "influence_sha256": "673170891b276db7b602ea04d8735607ee268e7f633e6e7b30953fa2eadc2537",
+        "influence_criterion": "cost",
+        "train_samples": 4906,
+        "checkpoint": "/workspace/task_aware_machine_unlearning/trained_model/nn_mixer/core.pth",
+        "checkpoint_sha256": "37b7ef35c5011974f0d44b41e016fbfc83f0a8c61c0b9c8db1f28defebb1802b"
+      }
+    }
+  },
+  "evaluations": {
+    "linear": [
+      {
+        "proportion": 0.05,
+        "reused": false,
+        "command": [
+          "/workspace/task_aware_machine_unlearning/.venv/bin/python",
+          "/workspace/task_aware_machine_unlearning/eval_unlearn.py",
+          "model=linear",
+          "case=case14",
+          "data.data_prop=1",
+          "data.train_prop=0.8",
+          "data.random_seed=42",
+          "data.random_split=false",
+          "unlearn_mode=helpful",
+          "unlearn_prop=0.05",
+          "model.influence_dir=/workspace/task_aware_machine_unlearning/outputs/real-full-double/influence/linear_mse.npy",
+          "simulation_dir=/workspace/task_aware_machine_unlearning/outputs/paper-proportions",
+          "hydra.run.dir=/workspace/task_aware_machine_unlearning/outputs/paper-proportions/hydra/linear-0.05"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 392.57693375,
+        "log": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/linear-0.05.log",
+        "sha256": "1c611c68ee9b6e3fa06cdb04dd41351930b16450769780eb0f01d332061486dc",
+        "result": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/linear/unlearning_0.05.npy",
+        "test_cost": {
+          "ori": 928.6036497793234,
+          "unlearn": 957.4401771378724,
+          "retrain": 957.4401332023749
+        }
+      },
+      {
+        "proportion": 0.1,
+        "reused": false,
+        "command": [
+          "/workspace/task_aware_machine_unlearning/.venv/bin/python",
+          "/workspace/task_aware_machine_unlearning/eval_unlearn.py",
+          "model=linear",
+          "case=case14",
+          "data.data_prop=1",
+          "data.train_prop=0.8",
+          "data.random_seed=42",
+          "data.random_split=false",
+          "unlearn_mode=helpful",
+          "unlearn_prop=0.1",
+          "model.influence_dir=/workspace/task_aware_machine_unlearning/outputs/real-full-double/influence/linear_mse.npy",
+          "simulation_dir=/workspace/task_aware_machine_unlearning/outputs/paper-proportions",
+          "hydra.run.dir=/workspace/task_aware_machine_unlearning/outputs/paper-proportions/hydra/linear-0.1"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 288.729880869,
+        "log": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/linear-0.1.log",
+        "sha256": "5400898428ca4fbf6b6ae760d6835fabb954ef5fd66f63de9f645ff059596b99",
+        "result": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/linear/unlearning_0.1.npy",
+        "test_cost": {
+          "ori": 928.6036497793234,
+          "unlearn": 984.0077457227499,
+          "retrain": 984.0077054679555
+        }
+      },
+      {
+        "proportion": 0.15,
+        "reused": false,
+        "command": [
+          "/workspace/task_aware_machine_unlearning/.venv/bin/python",
+          "/workspace/task_aware_machine_unlearning/eval_unlearn.py",
+          "model=linear",
+          "case=case14",
+          "data.data_prop=1",
+          "data.train_prop=0.8",
+          "data.random_seed=42",
+          "data.random_split=false",
+          "unlearn_mode=helpful",
+          "unlearn_prop=0.15",
+          "model.influence_dir=/workspace/task_aware_machine_unlearning/outputs/real-full-double/influence/linear_mse.npy",
+          "simulation_dir=/workspace/task_aware_machine_unlearning/outputs/paper-proportions",
+          "hydra.run.dir=/workspace/task_aware_machine_unlearning/outputs/paper-proportions/hydra/linear-0.15"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 260.415289927,
+        "log": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/linear-0.15.log",
+        "sha256": "289b2ef9ba4ef455b83bdd6fee12d6ab6e144105dbd8ff2bb631ce10fb9ae64a",
+        "result": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/linear/unlearning_0.15.npy",
+        "test_cost": {
+          "ori": 928.6036497793234,
+          "unlearn": 1012.2085542556723,
+          "retrain": 1012.2085545028764
+        }
+      },
+      {
+        "proportion": 0.2,
+        "reused": true,
+        "source": "/workspace/task_aware_machine_unlearning/outputs/real-full-double/simulation_result/linear/unlearning_0.2.npy",
+        "sha256": "b278e15ff543fc1dd0174503d7de8064f2d4eeeb640e7f1ec02d0fe0a7dca8f1",
+        "result": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/linear/unlearning_0.2.npy",
+        "test_cost": {
+          "ori": 928.6036497793234,
+          "unlearn": 1061.60184353442,
+          "retrain": 1061.601843360646
+        }
+      },
+      {
+        "proportion": 0.25,
+        "reused": false,
+        "command": [
+          "/workspace/task_aware_machine_unlearning/.venv/bin/python",
+          "/workspace/task_aware_machine_unlearning/eval_unlearn.py",
+          "model=linear",
+          "case=case14",
+          "data.data_prop=1",
+          "data.train_prop=0.8",
+          "data.random_seed=42",
+          "data.random_split=false",
+          "unlearn_mode=helpful",
+          "unlearn_prop=0.25",
+          "model.influence_dir=/workspace/task_aware_machine_unlearning/outputs/real-full-double/influence/linear_mse.npy",
+          "simulation_dir=/workspace/task_aware_machine_unlearning/outputs/paper-proportions",
+          "hydra.run.dir=/workspace/task_aware_machine_unlearning/outputs/paper-proportions/hydra/linear-0.25"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 283.063500164,
+        "log": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/linear-0.25.log",
+        "sha256": "4f7fbfab9c100c7c230548c35457af30d16d19e4d93641882dee914fb4ccc26f",
+        "result": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/linear/unlearning_0.25.npy",
+        "test_cost": {
+          "ori": 928.6036497793234,
+          "unlearn": 1108.116653133781,
+          "retrain": 1108.1166549698273
+        }
+      },
+      {
+        "proportion": 0.3,
+        "reused": false,
+        "command": [
+          "/workspace/task_aware_machine_unlearning/.venv/bin/python",
+          "/workspace/task_aware_machine_unlearning/eval_unlearn.py",
+          "model=linear",
+          "case=case14",
+          "data.data_prop=1",
+          "data.train_prop=0.8",
+          "data.random_seed=42",
+          "data.random_split=false",
+          "unlearn_mode=helpful",
+          "unlearn_prop=0.3",
+          "model.influence_dir=/workspace/task_aware_machine_unlearning/outputs/real-full-double/influence/linear_mse.npy",
+          "simulation_dir=/workspace/task_aware_machine_unlearning/outputs/paper-proportions",
+          "hydra.run.dir=/workspace/task_aware_machine_unlearning/outputs/paper-proportions/hydra/linear-0.3"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 307.857265522,
+        "log": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/linear-0.3.log",
+        "sha256": "711ef125411b0215f7a8f3c0974e5759d0e05830fd761234b1ad539c2f54fa53",
+        "result": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/linear/unlearning_0.3.npy",
+        "test_cost": {
+          "ori": 928.6036497793234,
+          "unlearn": 1180.6113770664413,
+          "retrain": 1180.6113767224167
+        }
+      }
+    ],
+    "nn_conv": [
+      {
+        "proportion": 0.05,
+        "reused": false,
+        "command": [
+          "/workspace/task_aware_machine_unlearning/.venv/bin/python",
+          "/workspace/task_aware_machine_unlearning/eval_unlearn.py",
+          "model=conv",
+          "case=case14",
+          "data.data_prop=1",
+          "data.train_prop=0.8",
+          "data.random_seed=42",
+          "data.random_split=false",
+          "unlearn_mode=helpful",
+          "unlearn_prop=0.05",
+          "model.influence_dir=/workspace/task_aware_machine_unlearning/outputs/real-conv/influence/nn_conv_cost.npy",
+          "simulation_dir=/workspace/task_aware_machine_unlearning/outputs/paper-proportions",
+          "hydra.run.dir=/workspace/task_aware_machine_unlearning/outputs/paper-proportions/hydra/nn_conv-0.05"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 338.837061043,
+        "log": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/nn_conv-0.05.log",
+        "sha256": "d4ceca0965ca38cd614bf06f8e63d8bdb1c10659339af8a0b67f0cb38e7eefc2",
+        "result": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/nn_conv/unlearning_0.05.npy",
+        "test_cost": {
+          "ori": 476.9444572769546,
+          "unlearn": 488.76389848204235,
+          "retrain": 488.7636948704646
+        }
+      },
+      {
+        "proportion": 0.1,
+        "reused": false,
+        "command": [
+          "/workspace/task_aware_machine_unlearning/.venv/bin/python",
+          "/workspace/task_aware_machine_unlearning/eval_unlearn.py",
+          "model=conv",
+          "case=case14",
+          "data.data_prop=1",
+          "data.train_prop=0.8",
+          "data.random_seed=42",
+          "data.random_split=false",
+          "unlearn_mode=helpful",
+          "unlearn_prop=0.1",
+          "model.influence_dir=/workspace/task_aware_machine_unlearning/outputs/real-conv/influence/nn_conv_cost.npy",
+          "simulation_dir=/workspace/task_aware_machine_unlearning/outputs/paper-proportions",
+          "hydra.run.dir=/workspace/task_aware_machine_unlearning/outputs/paper-proportions/hydra/nn_conv-0.1"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 262.764712156,
+        "log": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/nn_conv-0.1.log",
+        "sha256": "2877b172ca6aac419aeed32c9012a0df1c87998abda50400d16f7b1f1f67ae70",
+        "result": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/nn_conv/unlearning_0.1.npy",
+        "test_cost": {
+          "ori": 476.9444572769546,
+          "unlearn": 502.63270740182077,
+          "retrain": 502.63234416101415
+        }
+      },
+      {
+        "proportion": 0.15,
+        "reused": false,
+        "command": [
+          "/workspace/task_aware_machine_unlearning/.venv/bin/python",
+          "/workspace/task_aware_machine_unlearning/eval_unlearn.py",
+          "model=conv",
+          "case=case14",
+          "data.data_prop=1",
+          "data.train_prop=0.8",
+          "data.random_seed=42",
+          "data.random_split=false",
+          "unlearn_mode=helpful",
+          "unlearn_prop=0.15",
+          "model.influence_dir=/workspace/task_aware_machine_unlearning/outputs/real-conv/influence/nn_conv_cost.npy",
+          "simulation_dir=/workspace/task_aware_machine_unlearning/outputs/paper-proportions",
+          "hydra.run.dir=/workspace/task_aware_machine_unlearning/outputs/paper-proportions/hydra/nn_conv-0.15"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 241.12321511,
+        "log": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/nn_conv-0.15.log",
+        "sha256": "fd3c179cd9cdbc67714751ae0e6ce3b289b6c44404a62db46cd8242e62b85fcc",
+        "result": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/nn_conv/unlearning_0.15.npy",
+        "test_cost": {
+          "ori": 476.9444572769546,
+          "unlearn": 522.1447317421841,
+          "retrain": 522.1440950225957
+        }
+      },
+      {
+        "proportion": 0.2,
+        "reused": true,
+        "source": "/workspace/task_aware_machine_unlearning/outputs/real-conv/simulation_result/nn_conv/unlearning_0.2.npy",
+        "sha256": "35bb2ed4141665cb9e9a8d22e2dc68177a0964d8a9acc3b13ff9b91aff42b30c",
+        "result": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/nn_conv/unlearning_0.2.npy",
+        "test_cost": {
+          "ori": 476.9444572769546,
+          "unlearn": 546.2213483522912,
+          "retrain": 546.221061722838
+        }
+      },
+      {
+        "proportion": 0.25,
+        "reused": false,
+        "command": [
+          "/workspace/task_aware_machine_unlearning/.venv/bin/python",
+          "/workspace/task_aware_machine_unlearning/eval_unlearn.py",
+          "model=conv",
+          "case=case14",
+          "data.data_prop=1",
+          "data.train_prop=0.8",
+          "data.random_seed=42",
+          "data.random_split=false",
+          "unlearn_mode=helpful",
+          "unlearn_prop=0.25",
+          "model.influence_dir=/workspace/task_aware_machine_unlearning/outputs/real-conv/influence/nn_conv_cost.npy",
+          "simulation_dir=/workspace/task_aware_machine_unlearning/outputs/paper-proportions",
+          "hydra.run.dir=/workspace/task_aware_machine_unlearning/outputs/paper-proportions/hydra/nn_conv-0.25"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 228.335313973,
+        "log": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/nn_conv-0.25.log",
+        "sha256": "9e247d671ed5fe847e03c53b14801415e5bbd81cfd462f743a8cd9014448883f",
+        "result": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/nn_conv/unlearning_0.25.npy",
+        "test_cost": {
+          "ori": 476.9444572769546,
+          "unlearn": 575.9924204743301,
+          "retrain": 575.9913448998396
+        }
+      },
+      {
+        "proportion": 0.3,
+        "reused": false,
+        "command": [
+          "/workspace/task_aware_machine_unlearning/.venv/bin/python",
+          "/workspace/task_aware_machine_unlearning/eval_unlearn.py",
+          "model=conv",
+          "case=case14",
+          "data.data_prop=1",
+          "data.train_prop=0.8",
+          "data.random_seed=42",
+          "data.random_split=false",
+          "unlearn_mode=helpful",
+          "unlearn_prop=0.3",
+          "model.influence_dir=/workspace/task_aware_machine_unlearning/outputs/real-conv/influence/nn_conv_cost.npy",
+          "simulation_dir=/workspace/task_aware_machine_unlearning/outputs/paper-proportions",
+          "hydra.run.dir=/workspace/task_aware_machine_unlearning/outputs/paper-proportions/hydra/nn_conv-0.3"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 289.104718954,
+        "log": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/nn_conv-0.3.log",
+        "sha256": "54f52d1f9f65eaccda634940dcd8f06add6257b48dbd397fa9939d43ad616dc7",
+        "result": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/nn_conv/unlearning_0.3.npy",
+        "test_cost": {
+          "ori": 476.9444572769546,
+          "unlearn": 612.1967107399771,
+          "retrain": 612.1967753320796
+        }
+      }
+    ],
+    "nn_mixer": [
+      {
+        "proportion": 0.05,
+        "reused": false,
+        "command": [
+          "/workspace/task_aware_machine_unlearning/.venv/bin/python",
+          "/workspace/task_aware_machine_unlearning/eval_unlearn.py",
+          "model=mlpmixer",
+          "case=case14",
+          "data.data_prop=1",
+          "data.train_prop=0.8",
+          "data.random_seed=42",
+          "data.random_split=false",
+          "unlearn_mode=helpful",
+          "unlearn_prop=0.05",
+          "model.influence_dir=/workspace/task_aware_machine_unlearning/outputs/real-mixer/influence/nn_mixer_cost.npy",
+          "simulation_dir=/workspace/task_aware_machine_unlearning/outputs/paper-proportions",
+          "hydra.run.dir=/workspace/task_aware_machine_unlearning/outputs/paper-proportions/hydra/nn_mixer-0.05"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 211.8109176,
+        "log": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/nn_mixer-0.05.log",
+        "sha256": "06e73c9e4a39bc2ef9f08a8efe684662b1af0904fe148b3d0bc1b05473131849",
+        "result": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/nn_mixer/unlearning_0.05.npy",
+        "test_cost": {
+          "ori": 511.7286011216099,
+          "unlearn": 519.7164515668356,
+          "retrain": 519.7164132475448
+        }
+      },
+      {
+        "proportion": 0.1,
+        "reused": false,
+        "command": [
+          "/workspace/task_aware_machine_unlearning/.venv/bin/python",
+          "/workspace/task_aware_machine_unlearning/eval_unlearn.py",
+          "model=mlpmixer",
+          "case=case14",
+          "data.data_prop=1",
+          "data.train_prop=0.8",
+          "data.random_seed=42",
+          "data.random_split=false",
+          "unlearn_mode=helpful",
+          "unlearn_prop=0.1",
+          "model.influence_dir=/workspace/task_aware_machine_unlearning/outputs/real-mixer/influence/nn_mixer_cost.npy",
+          "simulation_dir=/workspace/task_aware_machine_unlearning/outputs/paper-proportions",
+          "hydra.run.dir=/workspace/task_aware_machine_unlearning/outputs/paper-proportions/hydra/nn_mixer-0.1"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 223.571986062,
+        "log": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/nn_mixer-0.1.log",
+        "sha256": "d4f78d135f88dd526b109f8936bd26dc17f6b97d16f37bc1ccd73bcae037474a",
+        "result": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/nn_mixer/unlearning_0.1.npy",
+        "test_cost": {
+          "ori": 511.7286011216099,
+          "unlearn": 528.9830933353406,
+          "retrain": 528.983085106843
+        }
+      },
+      {
+        "proportion": 0.15,
+        "reused": false,
+        "command": [
+          "/workspace/task_aware_machine_unlearning/.venv/bin/python",
+          "/workspace/task_aware_machine_unlearning/eval_unlearn.py",
+          "model=mlpmixer",
+          "case=case14",
+          "data.data_prop=1",
+          "data.train_prop=0.8",
+          "data.random_seed=42",
+          "data.random_split=false",
+          "unlearn_mode=helpful",
+          "unlearn_prop=0.15",
+          "model.influence_dir=/workspace/task_aware_machine_unlearning/outputs/real-mixer/influence/nn_mixer_cost.npy",
+          "simulation_dir=/workspace/task_aware_machine_unlearning/outputs/paper-proportions",
+          "hydra.run.dir=/workspace/task_aware_machine_unlearning/outputs/paper-proportions/hydra/nn_mixer-0.15"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 264.699266885,
+        "log": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/nn_mixer-0.15.log",
+        "sha256": "0ab2f26b735c5d15cd0d6359ebcf8f0da42dbdba3b83e5153e8595bfc76ca033",
+        "result": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/nn_mixer/unlearning_0.15.npy",
+        "test_cost": {
+          "ori": 511.7286011216099,
+          "unlearn": 543.3214937235125,
+          "retrain": 543.3216073995059
+        }
+      },
+      {
+        "proportion": 0.2,
+        "reused": true,
+        "source": "/workspace/task_aware_machine_unlearning/outputs/real-mixer/simulation_result/nn_mixer/unlearning_0.2.npy",
+        "sha256": "7234da58e7dff6659ebc30ab69fb6d20494c6e12b4c077d82d39489377c9dbfd",
+        "result": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/nn_mixer/unlearning_0.2.npy",
+        "test_cost": {
+          "ori": 511.7286011216099,
+          "unlearn": 560.1105057843051,
+          "retrain": 560.1111216874941
+        }
+      },
+      {
+        "proportion": 0.25,
+        "reused": false,
+        "command": [
+          "/workspace/task_aware_machine_unlearning/.venv/bin/python",
+          "/workspace/task_aware_machine_unlearning/eval_unlearn.py",
+          "model=mlpmixer",
+          "case=case14",
+          "data.data_prop=1",
+          "data.train_prop=0.8",
+          "data.random_seed=42",
+          "data.random_split=false",
+          "unlearn_mode=helpful",
+          "unlearn_prop=0.25",
+          "model.influence_dir=/workspace/task_aware_machine_unlearning/outputs/real-mixer/influence/nn_mixer_cost.npy",
+          "simulation_dir=/workspace/task_aware_machine_unlearning/outputs/paper-proportions",
+          "hydra.run.dir=/workspace/task_aware_machine_unlearning/outputs/paper-proportions/hydra/nn_mixer-0.25"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 209.152770434,
+        "log": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/nn_mixer-0.25.log",
+        "sha256": "329f618d0290ba6771a38903d66f3467303a4da1ab90a3d56bff39ab9abb3d14",
+        "result": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/nn_mixer/unlearning_0.25.npy",
+        "test_cost": {
+          "ori": 511.7286011216099,
+          "unlearn": 580.6739139944591,
+          "retrain": 580.6733510240878
+        }
+      },
+      {
+        "proportion": 0.3,
+        "reused": false,
+        "command": [
+          "/workspace/task_aware_machine_unlearning/.venv/bin/python",
+          "/workspace/task_aware_machine_unlearning/eval_unlearn.py",
+          "model=mlpmixer",
+          "case=case14",
+          "data.data_prop=1",
+          "data.train_prop=0.8",
+          "data.random_seed=42",
+          "data.random_split=false",
+          "unlearn_mode=helpful",
+          "unlearn_prop=0.3",
+          "model.influence_dir=/workspace/task_aware_machine_unlearning/outputs/real-mixer/influence/nn_mixer_cost.npy",
+          "simulation_dir=/workspace/task_aware_machine_unlearning/outputs/paper-proportions",
+          "hydra.run.dir=/workspace/task_aware_machine_unlearning/outputs/paper-proportions/hydra/nn_mixer-0.3"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 259.762885993,
+        "log": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/nn_mixer-0.3.log",
+        "sha256": "7144ac0c917df89c9c8708b5983b8847afbe30c3af6b96f2ba50511993df26bf",
+        "result": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/nn_mixer/unlearning_0.3.npy",
+        "test_cost": {
+          "ori": 511.7286011216099,
+          "unlearn": 603.4766148304133,
+          "retrain": 603.4760844186671
+        }
+      }
+    ]
+  },
+  "records": [
+    {
+      "model_type": "linear",
+      "unlearning_proportion": 0.05,
+      "source_file": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/linear/unlearning_0.05.npy",
+      "source_sha256": "1c611c68ee9b6e3fa06cdb04dd41351930b16450769780eb0f01d332061486dc",
+      "metrics": {
+        "mse_ori": {
+          "remain": 0.002586951420266304,
+          "unlearn": 0.004253002425625586,
+          "test": 0.0034961142386491233
+        },
+        "mse_unlearn": {
+          "remain": 0.0025841870244899695,
+          "unlearn": 0.004496950195837212,
+          "test": 0.003682441598234807
+        },
+        "mse_retrain": {
+          "remain": 0.002584187048442813,
+          "unlearn": 0.004496950165614313,
+          "test": 0.003682441474927824
+        },
+        "mape_ori": {
+          "remain": 9.57092916492829,
+          "unlearn": 13.312431178341747,
+          "test": 12.891276812989103
+        },
+        "mape_unlearn": {
+          "remain": 9.520347526257506,
+          "unlearn": 13.720564929236026,
+          "test": 13.18693932750353
+        },
+        "mape_retrain": {
+          "remain": 9.52034756074195,
+          "unlearn": 13.720565081838759,
+          "test": 13.18693955586546
+        },
+        "cost_ori": {
+          "remain": 995.6920847601345,
+          "unlearn": 1034.7529341346328,
+          "test": 928.6036497793234
+        },
+        "cost_unlearn": {
+          "remain": 975.7213202668938,
+          "unlearn": 1069.7165493047178,
+          "test": 957.4401771378724
+        },
+        "cost_retrain": {
+          "remain": 975.7212686447077,
+          "unlearn": 1069.7165625295243,
+          "test": 957.4401332023749
+        }
+      }
+    },
+    {
+      "model_type": "linear",
+      "unlearning_proportion": 0.1,
+      "source_file": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/linear/unlearning_0.1.npy",
+      "source_sha256": "5400898428ca4fbf6b6ae760d6835fabb954ef5fd66f63de9f645ff059596b99",
+      "metrics": {
+        "mse_ori": {
+          "remain": 0.002505369544394758,
+          "unlearn": 0.004155146170085534,
+          "test": 0.0034961142386491233
+        },
+        "mse_unlearn": {
+          "remain": 0.0024847445021433296,
+          "unlearn": 0.004683110116095421,
+          "test": 0.0039159036306779275
+        },
+        "mse_retrain": {
+          "remain": 0.002484744531982877,
+          "unlearn": 0.00468311006049681,
+          "test": 0.003915903609996451
+        },
+        "mape_ori": {
+          "remain": 9.39755924787372,
+          "unlearn": 13.003990795606754,
+          "test": 12.891276812989103
+        },
+        "mape_unlearn": {
+          "remain": 9.279543392725724,
+          "unlearn": 13.925909062110117,
+          "test": 13.56137601484306
+        },
+        "mape_retrain": {
+          "remain": 9.27954335658671,
+          "unlearn": 13.925909698031491,
+          "test": 13.561376536193896
+        },
+        "cost_ori": {
+          "remain": 1000.3837030482533,
+          "unlearn": 972.9443263595947,
+          "test": 928.6036497793234
+        },
+        "cost_unlearn": {
+          "remain": 951.3788811182438,
+          "unlearn": 1038.8034346195557,
+          "test": 984.0077457227499
+        },
+        "cost_retrain": {
+          "remain": 951.3788703119219,
+          "unlearn": 1038.803452137239,
+          "test": 984.0077054679555
+        }
+      }
+    },
+    {
+      "model_type": "linear",
+      "unlearning_proportion": 0.15,
+      "source_file": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/linear/unlearning_0.15.npy",
+      "source_sha256": "289b2ef9ba4ef455b83bdd6fee12d6ab6e144105dbd8ff2bb631ce10fb9ae64a",
+      "metrics": {
+        "mse_ori": {
+          "remain": 0.002425395130994558,
+          "unlearn": 0.004057463948399074,
+          "test": 0.0034961142386491233
+        },
+        "mse_unlearn": {
+          "remain": 0.0023684717099951387,
+          "unlearn": 0.004910643498794873,
+          "test": 0.004199588028844283
+        },
+        "mse_retrain": {
+          "remain": 0.0023684717099988163,
+          "unlearn": 0.004910643498941044,
+          "test": 0.00419958802893514
+        },
+        "mape_ori": {
+          "remain": 9.218994315136715,
+          "unlearn": 12.81165381279044,
+          "test": 12.891276812989103
+        },
+        "mape_unlearn": {
+          "remain": 8.989488841344215,
+          "unlearn": 14.349263588328911,
+          "test": 14.01111170311948
+        },
+        "mape_retrain": {
+          "remain": 8.9894888412624,
+          "unlearn": 14.34926358850227,
+          "test": 14.011111703222564
+        },
+        "cost_ori": {
+          "remain": 1005.8929398352188,
+          "unlearn": 950.8821928465266,
+          "test": 928.6036497793234
+        },
+        "cost_unlearn": {
+          "remain": 921.9382671347867,
+          "unlearn": 1050.8225227602502,
+          "test": 1012.2085542556723
+        },
+        "cost_retrain": {
+          "remain": 921.938266817362,
+          "unlearn": 1050.8225226401114,
+          "test": 1012.2085545028764
+        }
+      }
+    },
+    {
+      "model_type": "linear",
+      "unlearning_proportion": 0.2,
+      "source_file": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/linear/unlearning_0.2.npy",
+      "source_sha256": "b278e15ff543fc1dd0174503d7de8064f2d4eeeb640e7f1ec02d0fe0a7dca8f1",
+      "metrics": {
+        "mse_ori": {
+          "remain": 0.0022872357427435102,
+          "unlearn": 0.00420267137440339,
+          "test": 0.0034961142386491233
+        },
+        "mse_unlearn": {
+          "remain": 0.0021527425317958435,
+          "unlearn": 0.005648807436696273,
+          "test": 0.004668397810234078
+        },
+        "mse_retrain": {
+          "remain": 0.0021527425317741282,
+          "unlearn": 0.005648807435677126,
+          "test": 0.004668397809650026
+        },
+        "mape_ori": {
+          "remain": 8.946249884372369,
+          "unlearn": 13.005691785036607,
+          "test": 12.891276812989103
+        },
+        "mape_unlearn": {
+          "remain": 8.50195913059768,
+          "unlearn": 15.473158486402678,
+          "test": 14.697590145962113
+        },
+        "mape_retrain": {
+          "remain": 8.501959131103016,
+          "unlearn": 15.473158485243903,
+          "test": 14.697590145294095
+        },
+        "cost_ori": {
+          "remain": 1004.2056831172949,
+          "unlearn": 971.3777030988045,
+          "test": 928.6036497793234
+        },
+        "cost_unlearn": {
+          "remain": 872.7411637608903,
+          "unlearn": 1130.030034165835,
+          "test": 1061.60184353442
+        },
+        "cost_retrain": {
+          "remain": 872.741164156221,
+          "unlearn": 1130.0300331872716,
+          "test": 1061.601843360646
+        }
+      }
+    },
+    {
+      "model_type": "linear",
+      "unlearning_proportion": 0.25,
+      "source_file": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/linear/unlearning_0.25.npy",
+      "source_sha256": "4f7fbfab9c100c7c230548c35457af30d16d19e4d93641882dee914fb4ccc26f",
+      "metrics": {
+        "mse_ori": {
+          "remain": 0.002178893232307578,
+          "unlearn": 0.004143955808272478,
+          "test": 0.0034961142386491233
+        },
+        "mse_unlearn": {
+          "remain": 0.0019304102022002585,
+          "unlearn": 0.006205584876516248,
+          "test": 0.005213906467542877
+        },
+        "mse_retrain": {
+          "remain": 0.0019304102022375087,
+          "unlearn": 0.006205584878365994,
+          "test": 0.005213906468580311
+        },
+        "mape_ori": {
+          "remain": 8.687775722426823,
+          "unlearn": 12.967835670911404,
+          "test": 12.891276812989103
+        },
+        "mape_unlearn": {
+          "remain": 7.98222549921934,
+          "unlearn": 16.42860842739167,
+          "test": 15.461058873145106
+        },
+        "mape_retrain": {
+          "remain": 7.982225498350017,
+          "unlearn": 16.42860842944785,
+          "test": 15.461058874311792
+        },
+        "cost_ori": {
+          "remain": 1009.3133074399973,
+          "unlearn": 962.6316685933057,
+          "test": 928.6036497793234
+        },
+        "cost_unlearn": {
+          "remain": 821.5700006783087,
+          "unlearn": 1178.1758187593296,
+          "test": 1108.116653133781
+        },
+        "cost_retrain": {
+          "remain": 821.5700000172703,
+          "unlearn": 1178.1758199023907,
+          "test": 1108.1166549698273
+        }
+      }
+    },
+    {
+      "model_type": "linear",
+      "unlearning_proportion": 0.3,
+      "source_file": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/linear/unlearning_0.3.npy",
+      "source_sha256": "711ef125411b0215f7a8f3c0974e5759d0e05830fd761234b1ad539c2f54fa53",
+      "metrics": {
+        "mse_ori": {
+          "remain": 0.0020614019352318425,
+          "unlearn": 0.004090977883375163,
+          "test": 0.0034961142386491233
+        },
+        "mse_unlearn": {
+          "remain": 0.001638623523687567,
+          "unlearn": 0.006982359462445759,
+          "test": 0.005998528850925563
+        },
+        "mse_retrain": {
+          "remain": 0.0016386235236464579,
+          "unlearn": 0.006982359460092353,
+          "test": 0.005998528849643144
+        },
+        "mape_ori": {
+          "remain": 8.438169544481976,
+          "unlearn": 12.83774381887896,
+          "test": 12.891276812989103
+        },
+        "mape_unlearn": {
+          "remain": 7.3552001426428815,
+          "unlearn": 17.483171023207262,
+          "test": 16.459953435768078
+        },
+        "mape_retrain": {
+          "remain": 7.355200143642532,
+          "unlearn": 17.483171020660627,
+          "test": 16.45995343438161
+        },
+        "cost_ori": {
+          "remain": 1012.0435508320767,
+          "unlearn": 964.0322392473494,
+          "test": 928.6036497793234
+        },
+        "cost_unlearn": {
+          "remain": 759.4961597077112,
+          "unlearn": 1255.4483824445153,
+          "test": 1180.6113770664413
+        },
+        "cost_retrain": {
+          "remain": 759.4961595449149,
+          "unlearn": 1255.4483817010193,
+          "test": 1180.6113767224167
+        }
+      }
+    },
+    {
+      "model_type": "nn_conv",
+      "unlearning_proportion": 0.05,
+      "source_file": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/nn_conv/unlearning_0.05.npy",
+      "source_sha256": "d4ceca0965ca38cd614bf06f8e63d8bdb1c10659339af8a0b67f0cb38e7eefc2",
+      "metrics": {
+        "mse_ori": {
+          "remain": 0.0003991203440306167,
+          "unlearn": 0.0004862340800005909,
+          "test": 0.004187925788769595
+        },
+        "mse_unlearn": {
+          "remain": 0.00039812741355649023,
+          "unlearn": 0.0005258675451215391,
+          "test": 0.004341349987455584
+        },
+        "mse_retrain": {
+          "remain": 0.0003981274135370787,
+          "unlearn": 0.0005258676019037001,
+          "test": 0.004341345906505607
+        },
+        "mape_ori": {
+          "remain": 3.374431603470665,
+          "unlearn": 3.843973859820202,
+          "test": 9.237294604786609
+        },
+        "mape_unlearn": {
+          "remain": 3.372041245494587,
+          "unlearn": 3.989154475316197,
+          "test": 9.315259448270368
+        },
+        "mape_retrain": {
+          "remain": 3.3720415879879275,
+          "unlearn": 3.9891553097342847,
+          "test": 9.315255687174579
+        },
+        "cost_ori": {
+          "remain": 471.33254362938715,
+          "unlearn": 488.22648002949546,
+          "test": 476.9444572769546
+        },
+        "cost_unlearn": {
+          "remain": 468.3388052219314,
+          "unlearn": 506.1805908387152,
+          "test": 488.76389848204235
+        },
+        "cost_retrain": {
+          "remain": 468.3387780588878,
+          "unlearn": 506.1806421939265,
+          "test": 488.7636948704646
+        }
+      }
+    },
+    {
+      "model_type": "nn_conv",
+      "unlearning_proportion": 0.1,
+      "source_file": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/nn_conv/unlearning_0.1.npy",
+      "source_sha256": "2877b172ca6aac419aeed32c9012a0df1c87998abda50400d16f7b1f1f67ae70",
+      "metrics": {
+        "mse_ori": {
+          "remain": 0.000394744961163944,
+          "unlearn": 0.00048210923393239325,
+          "test": 0.004187925788769595
+        },
+        "mse_unlearn": {
+          "remain": 0.0003910236854980179,
+          "unlearn": 0.000555337413012331,
+          "test": 0.004554128033621696
+        },
+        "mse_retrain": {
+          "remain": 0.0003910236854157574,
+          "unlearn": 0.0005553374605332977,
+          "test": 0.004554118251615412
+        },
+        "mape_ori": {
+          "remain": 3.355812891457018,
+          "unlearn": 3.7769991239969976,
+          "test": 9.237294604786609
+        },
+        "mape_unlearn": {
+          "remain": 3.3459658178814133,
+          "unlearn": 4.035352039179599,
+          "test": 9.43775928564676
+        },
+        "mape_retrain": {
+          "remain": 3.3459659883538877,
+          "unlearn": 4.035353446781509,
+          "test": 9.437754980444497
+        },
+        "cost_ori": {
+          "remain": 471.0197309747662,
+          "unlearn": 482.5986560800665,
+          "test": 476.9444572769546
+        },
+        "cost_unlearn": {
+          "remain": 463.8147145926838,
+          "unlearn": 515.6710278819838,
+          "test": 502.63270740182077
+        },
+        "cost_retrain": {
+          "remain": 463.8146210094072,
+          "unlearn": 515.6709335045862,
+          "test": 502.63234416101415
+        }
+      }
+    },
+    {
+      "model_type": "nn_conv",
+      "unlearning_proportion": 0.15,
+      "source_file": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/nn_conv/unlearning_0.15.npy",
+      "source_sha256": "fd3c179cd9cdbc67714751ae0e6ce3b289b6c44404a62db46cd8242e62b85fcc",
+      "metrics": {
+        "mse_ori": {
+          "remain": 0.00038708778218465173,
+          "unlearn": 0.000496440998142404,
+          "test": 0.004187925788769595
+        },
+        "mse_unlearn": {
+          "remain": 0.0003771936527259469,
+          "unlearn": 0.0006261227854192924,
+          "test": 0.004864098994897119
+        },
+        "mse_retrain": {
+          "remain": 0.0003771936524876851,
+          "unlearn": 0.000626123075805488,
+          "test": 0.00486408154560793
+        },
+        "mape_ori": {
+          "remain": 3.319334471067558,
+          "unlearn": 3.843612545047533,
+          "test": 9.237294604786609
+        },
+        "mape_unlearn": {
+          "remain": 3.291434434548604,
+          "unlearn": 4.2804325023419905,
+          "test": 9.635753611293767
+        },
+        "mape_retrain": {
+          "remain": 3.2914339562254833,
+          "unlearn": 4.280435636109805,
+          "test": 9.635746158172081
+        },
+        "cost_ori": {
+          "remain": 470.57114016549946,
+          "unlearn": 481.28469092993413,
+          "test": 476.9444572769546
+        },
+        "cost_unlearn": {
+          "remain": 455.81391221704075,
+          "unlearn": 538.2589838526823,
+          "test": 522.1447317421841
+        },
+        "cost_retrain": {
+          "remain": 455.8136980943271,
+          "unlearn": 538.2588290061944,
+          "test": 522.1440950225957
+        }
+      }
+    },
+    {
+      "model_type": "nn_conv",
+      "unlearning_proportion": 0.2,
+      "source_file": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/nn_conv/unlearning_0.2.npy",
+      "source_sha256": "35bb2ed4141665cb9e9a8d22e2dc68177a0964d8a9acc3b13ff9b91aff42b30c",
+      "metrics": {
+        "mse_ori": {
+          "remain": 0.0003804425252574758,
+          "unlearn": 0.0004956068924477643,
+          "test": 0.004187925788769595
+        },
+        "mse_unlearn": {
+          "remain": 0.00036037464225032053,
+          "unlearn": 0.000692127907672005,
+          "test": 0.005208476725484446
+        },
+        "mse_retrain": {
+          "remain": 0.0003603746420201652,
+          "unlearn": 0.0006921278471855791,
+          "test": 0.005208460264205023
+        },
+        "mape_ori": {
+          "remain": 3.2863307371969066,
+          "unlearn": 3.844190780769484,
+          "test": 9.237294604786609
+        },
+        "mape_unlearn": {
+          "remain": 3.226572740916008,
+          "unlearn": 4.517665296305876,
+          "test": 9.855998085948425
+        },
+        "mape_retrain": {
+          "remain": 3.226572255226194,
+          "unlearn": 4.517668456451628,
+          "test": 9.85599697618021
+        },
+        "cost_ori": {
+          "remain": 469.6122194850797,
+          "unlearn": 482.4347726655066,
+          "test": 476.9444572769546
+        },
+        "cost_unlearn": {
+          "remain": 445.3648200455479,
+          "unlearn": 566.2186550978768,
+          "test": 546.2213483522912
+        },
+        "cost_retrain": {
+          "remain": 445.364673790644,
+          "unlearn": 566.2187278288267,
+          "test": 546.221061722838
+        }
+      }
+    },
+    {
+      "model_type": "nn_conv",
+      "unlearning_proportion": 0.25,
+      "source_file": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/nn_conv/unlearning_0.25.npy",
+      "source_sha256": "9e247d671ed5fe847e03c53b14801415e5bbd81cfd462f743a8cd9014448883f",
+      "metrics": {
+        "mse_ori": {
+          "remain": 0.0003711485240888294,
+          "unlearn": 0.0005004899710276975,
+          "test": 0.004187925788769595
+        },
+        "mse_unlearn": {
+          "remain": 0.00033444143261834327,
+          "unlearn": 0.0007885776697815408,
+          "test": 0.005692223840621135
+        },
+        "mse_retrain": {
+          "remain": 0.00033444143194832806,
+          "unlearn": 0.0007885774707083044,
+          "test": 0.005692186635705305
+        },
+        "mape_ori": {
+          "remain": 3.239358134119329,
+          "unlearn": 3.873704213599991,
+          "test": 9.237294604786609
+        },
+        "mape_unlearn": {
+          "remain": 3.1283338680168207,
+          "unlearn": 4.830088177548288,
+          "test": 10.19201787439712
+        },
+        "mape_retrain": {
+          "remain": 3.1283323071603815,
+          "unlearn": 4.83008822638711,
+          "test": 10.19200469397586
+        },
+        "cost_ori": {
+          "remain": 467.5816216814738,
+          "unlearn": 485.967459768333,
+          "test": 476.9444572769546
+        },
+        "cost_unlearn": {
+          "remain": 431.5898267165823,
+          "unlearn": 602.3373210422728,
+          "test": 575.9924204743301
+        },
+        "cost_retrain": {
+          "remain": 431.5895491647819,
+          "unlearn": 602.3368426745571,
+          "test": 575.9913448998396
+        }
+      }
+    },
+    {
+      "model_type": "nn_conv",
+      "unlearning_proportion": 0.3,
+      "source_file": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/nn_conv/unlearning_0.3.npy",
+      "source_sha256": "54f52d1f9f65eaccda634940dcd8f06add6257b48dbd397fa9939d43ad616dc7",
+      "metrics": {
+        "mse_ori": {
+          "remain": 0.00036255782330759853,
+          "unlearn": 0.0004990082597316441,
+          "test": 0.004187925788769595
+        },
+        "mse_unlearn": {
+          "remain": 0.00030079447539082063,
+          "unlearn": 0.0009079194802534414,
+          "test": 0.00631638274092674
+        },
+        "mse_retrain": {
+          "remain": 0.0003007944744471338,
+          "unlearn": 0.0009079193782571884,
+          "test": 0.006316362162657628
+        },
+        "mape_ori": {
+          "remain": 3.1858299211855274,
+          "unlearn": 3.893047940285816,
+          "test": 9.237294604786609
+        },
+        "mape_unlearn": {
+          "remain": 3.015763348747609,
+          "unlearn": 5.159669421298561,
+          "test": 10.583428303525292
+        },
+        "mape_retrain": {
+          "remain": 3.015763920244972,
+          "unlearn": 5.159677592462894,
+          "test": 10.583436171497205
+        },
+        "cost_ori": {
+          "remain": 465.96044994208097,
+          "unlearn": 486.6909095260038,
+          "test": 476.9444572769546
+        },
+        "cost_unlearn": {
+          "remain": 416.0875439974043,
+          "unlearn": 645.2301454775006,
+          "test": 612.1967107399771
+        },
+        "cost_retrain": {
+          "remain": 416.0874908498407,
+          "unlearn": 645.2305207506023,
+          "test": 612.1967753320796
+        }
+      }
+    },
+    {
+      "model_type": "nn_mixer",
+      "unlearning_proportion": 0.05,
+      "source_file": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/nn_mixer/unlearning_0.05.npy",
+      "source_sha256": "06e73c9e4a39bc2ef9f08a8efe684662b1af0904fe148b3d0bc1b05473131849",
+      "metrics": {
+        "mse_ori": {
+          "remain": 0.00030217949144003127,
+          "unlearn": 0.0003653511384386389,
+          "test": 0.004879136726119827
+        },
+        "mse_unlearn": {
+          "remain": 0.00030150208065611453,
+          "unlearn": 0.0003923264512066524,
+          "test": 0.004994043695397291
+        },
+        "mse_retrain": {
+          "remain": 0.0003015020806485179,
+          "unlearn": 0.000392326469793894,
+          "test": 0.004994042284667212
+        },
+        "mape_ori": {
+          "remain": 3.0735997902684598,
+          "unlearn": 3.4642087423573873,
+          "test": 9.730029397605042
+        },
+        "mape_unlearn": {
+          "remain": 3.070636827015524,
+          "unlearn": 3.592016919710911,
+          "test": 9.802086047481477
+        },
+        "mape_retrain": {
+          "remain": 3.0706366524032136,
+          "unlearn": 3.592017190342108,
+          "test": 9.8020848057284
+        },
+        "cost_ori": {
+          "remain": 420.8682750586635,
+          "unlearn": 442.9538540174023,
+          "test": 511.7286011216099
+        },
+        "cost_unlearn": {
+          "remain": 419.0192770179026,
+          "unlearn": 457.0558977162646,
+          "test": 519.7164515668356
+        },
+        "cost_retrain": {
+          "remain": 419.0192772350833,
+          "unlearn": 457.05594803152206,
+          "test": 519.7164132475448
+        }
+      }
+    },
+    {
+      "model_type": "nn_mixer",
+      "unlearning_proportion": 0.1,
+      "source_file": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/nn_mixer/unlearning_0.1.npy",
+      "source_sha256": "d4f78d135f88dd526b109f8936bd26dc17f6b97d16f37bc1ccd73bcae037474a",
+      "metrics": {
+        "mse_ori": {
+          "remain": 0.0002970374572281747,
+          "unlearn": 0.00038010658653027043,
+          "test": 0.004879136726119827
+        },
+        "mse_unlearn": {
+          "remain": 0.0002948471955970682,
+          "unlearn": 0.0004230320465887305,
+          "test": 0.00515998973550509
+        },
+        "mse_retrain": {
+          "remain": 0.0002948471955666187,
+          "unlearn": 0.00042303201001539124,
+          "test": 0.005159988476853535
+        },
+        "mape_ori": {
+          "remain": 3.0486942303420315,
+          "unlearn": 3.493359271690693,
+          "test": 9.730029397605042
+        },
+        "mape_unlearn": {
+          "remain": 3.03801816423926,
+          "unlearn": 3.7043798338177085,
+          "test": 9.921643831330941
+        },
+        "mape_retrain": {
+          "remain": 3.0380176771295253,
+          "unlearn": 3.7043798424640886,
+          "test": 9.92163918582274
+        },
+        "cost_ori": {
+          "remain": 419.4731207008599,
+          "unlearn": 444.48453728101435,
+          "test": 511.7286011216099
+        },
+        "cost_unlearn": {
+          "remain": 413.97951273093327,
+          "unlearn": 468.1205294106385,
+          "test": 528.9830933353406
+        },
+        "cost_retrain": {
+          "remain": 413.9795089211274,
+          "unlearn": 468.1204453828282,
+          "test": 528.983085106843
+        }
+      }
+    },
+    {
+      "model_type": "nn_mixer",
+      "unlearning_proportion": 0.15,
+      "source_file": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/nn_mixer/unlearning_0.15.npy",
+      "source_sha256": "0ab2f26b735c5d15cd0d6359ebcf8f0da42dbdba3b83e5153e8595bfc76ca033",
+      "metrics": {
+        "mse_ori": {
+          "remain": 0.0002916472994613363,
+          "unlearn": 0.0003830051053962151,
+          "test": 0.004879136726119827
+        },
+        "mse_unlearn": {
+          "remain": 0.0002862758389123697,
+          "unlearn": 0.0004522776137199944,
+          "test": 0.005398142219076562
+        },
+        "mse_retrain": {
+          "remain": 0.00028627583879534997,
+          "unlearn": 0.00045227759858363633,
+          "test": 0.005398138122834392
+        },
+        "mape_ori": {
+          "remain": 3.024482050537386,
+          "unlearn": 3.482537593914848,
+          "test": 9.730029397605042
+        },
+        "mape_unlearn": {
+          "remain": 2.999502444961918,
+          "unlearn": 3.798511620399288,
+          "test": 10.07699017483242
+        },
+        "mape_retrain": {
+          "remain": 2.99950146679447,
+          "unlearn": 3.7985133296746314,
+          "test": 10.07698186714883
+        },
+        "cost_ori": {
+          "remain": 418.16159075545596,
+          "unlearn": 443.59010781181996,
+          "test": 511.7286011216099
+        },
+        "cost_unlearn": {
+          "remain": 407.1101723313471,
+          "unlearn": 481.08331239864856,
+          "test": 543.3214937235125
+        },
+        "cost_retrain": {
+          "remain": 407.11013755791646,
+          "unlearn": 481.0833978074018,
+          "test": 543.3216073995059
+        }
+      }
+    },
+    {
+      "model_type": "nn_mixer",
+      "unlearning_proportion": 0.2,
+      "source_file": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/nn_mixer/unlearning_0.2.npy",
+      "source_sha256": "7234da58e7dff6659ebc30ab69fb6d20494c6e12b4c077d82d39489377c9dbfd",
+      "metrics": {
+        "mse_ori": {
+          "remain": 0.0002864277873544857,
+          "unlearn": 0.00038097917752609114,
+          "test": 0.004879136726119827
+        },
+        "mse_unlearn": {
+          "remain": 0.0002759564525504048,
+          "unlearn": 0.0004809677891667528,
+          "test": 0.005676255592340907
+        },
+        "mse_retrain": {
+          "remain": 0.0002759564520143695,
+          "unlearn": 0.0004809675416196387,
+          "test": 0.005676267316189852
+        },
+        "mape_ori": {
+          "remain": 2.999225797188439,
+          "unlearn": 3.468724271512974,
+          "test": 9.730029397605042
+        },
+        "mape_unlearn": {
+          "remain": 2.9513581780620917,
+          "unlearn": 3.9265026721320226,
+          "test": 10.268914922828797
+        },
+        "mape_retrain": {
+          "remain": 2.9513552697925514,
+          "unlearn": 3.9265022299000236,
+          "test": 10.2689118918532
+        },
+        "cost_ori": {
+          "remain": 415.8988536752801,
+          "unlearn": 446.2667926679102,
+          "test": 511.7286011216099
+        },
+        "cost_unlearn": {
+          "remain": 398.68690464546034,
+          "unlearn": 498.087681579797,
+          "test": 560.1105057843051
+        },
+        "cost_retrain": {
+          "remain": 398.6867810969067,
+          "unlearn": 498.0878164966217,
+          "test": 560.1111216874941
+        }
+      }
+    },
+    {
+      "model_type": "nn_mixer",
+      "unlearning_proportion": 0.25,
+      "source_file": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/nn_mixer/unlearning_0.25.npy",
+      "source_sha256": "329f618d0290ba6771a38903d66f3467303a4da1ab90a3d56bff39ab9abb3d14",
+      "metrics": {
+        "mse_ori": {
+          "remain": 0.0002776648554324323,
+          "unlearn": 0.00038838741478637915,
+          "test": 0.004879136726119827
+        },
+        "mse_unlearn": {
+          "remain": 0.0002591431104095761,
+          "unlearn": 0.0005294062389017926,
+          "test": 0.006019566492345416
+        },
+        "mse_retrain": {
+          "remain": 0.00025914310999868993,
+          "unlearn": 0.0005294058480138708,
+          "test": 0.006019552891322949
+        },
+        "mape_ori": {
+          "remain": 2.9540176352184777,
+          "unlearn": 3.5105994018881357,
+          "test": 9.730029397605042
+        },
+        "mape_unlearn": {
+          "remain": 2.872200995213304,
+          "unlearn": 4.137121700606258,
+          "test": 10.520437496549894
+        },
+        "mape_retrain": {
+          "remain": 2.872198969772657,
+          "unlearn": 4.137123802275693,
+          "test": 10.520418737555227
+        },
+        "cost_ori": {
+          "remain": 413.7531475275212,
+          "unlearn": 446.6387776357392,
+          "test": 511.7286011216099
+        },
+        "cost_unlearn": {
+          "remain": 387.89301853378385,
+          "unlearn": 516.6956408645312,
+          "test": 580.6739139944591
+        },
+        "cost_retrain": {
+          "remain": 387.8929708486905,
+          "unlearn": 516.694176591835,
+          "test": 580.6733510240878
+        }
+      }
+    },
+    {
+      "model_type": "nn_mixer",
+      "unlearning_proportion": 0.3,
+      "source_file": "/workspace/task_aware_machine_unlearning/outputs/paper-proportions/nn_mixer/unlearning_0.3.npy",
+      "source_sha256": "7144ac0c917df89c9c8708b5983b8847afbe30c3af6b96f2ba50511993df26bf",
+      "metrics": {
+        "mse_ori": {
+          "remain": 0.00026932901737613087,
+          "unlearn": 0.00038941160015801653,
+          "test": 0.004879136726119827
+        },
+        "mse_unlearn": {
+          "remain": 0.00023890265981866684,
+          "unlearn": 0.0005809452013357752,
+          "test": 0.006386130032482656
+        },
+        "mse_retrain": {
+          "remain": 0.00023890265909013076,
+          "unlearn": 0.0005809458155606466,
+          "test": 0.006386124976945954
+        },
+        "mape_ori": {
+          "remain": 2.9062033754600107,
+          "unlearn": 3.5295521207435168,
+          "test": 9.730029397605042
+        },
+        "mape_unlearn": {
+          "remain": 2.7813840948159543,
+          "unlearn": 4.356489398463351,
+          "test": 10.800487196002608
+        },
+        "mape_retrain": {
+          "remain": 2.7813836778570247,
+          "unlearn": 4.356489742116302,
+          "test": 10.800471896882653
+        },
+        "cost_ori": {
+          "remain": 410.27593061249854,
+          "unlearn": 449.28137500255724,
+          "test": 511.7286011216099
+        },
+        "cost_unlearn": {
+          "remain": 375.07299290632466,
+          "unlearn": 540.4960879112749,
+          "test": 603.4766148304133
+        },
+        "cost_retrain": {
+          "remain": 375.0729187554748,
+          "unlearn": 540.4952037786685,
+          "test": 603.4760844186671
+        }
+      }
+    }
+  ],
+  "plotter": {
+    "script_sha256": "74ce74e101c172f411b45842fb58e287f78739c4b7f9a415c3cba50910269f8f",
+    "matplotlib_version": "3.7.5",
+    "numpy_version": "1.24.4"
+  }
+}

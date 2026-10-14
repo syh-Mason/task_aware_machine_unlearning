@@ -115,3 +115,45 @@ python eval_unchange.py unlearn_prop={a float number} model={linear, conv, mlpmi
 ```
 
 All the figures in the paper can be generated/visualized in `analysis.ipynb`.
+
+### Reproduce the unlearning-proportion figures
+
+The repaired full-data cost workflow is documented in
+[`COST_REPRODUCTION_REPORT.md`](COST_REPRODUCTION_REPORT.md). After preprocessing
+the official TX-123BT data, training the two core networks, and generating the
+influence scores, run the six baseline proportions (5%, 10%, 15%, 20%, 25%, 30%):
+
+```bash
+export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1
+export XDG_CACHE_HOME=/workspace/.cache
+export MPLCONFIGDIR=/workspace/.cloud-setup/task-aware/matplotlib
+.venv/bin/python scripts/reproduce_unlearning_figures.py
+.venv/bin/python scripts/plot_unlearning_proportions.py
+```
+
+The batch script uses the full-data influence scores under
+`outputs/real-full-double/influence/linear_mse.npy`,
+`outputs/real-conv/influence/nn_conv_cost.npy`, and
+`outputs/real-mixer/influence/nn_mixer_cost.npy`, with the existing
+`trained_model/nn_conv/core.pth` and `trained_model/nn_mixer/core.pth` checkpoints.
+It records data/checkpoint/score hashes, exact commands, exit codes, and results
+in `outputs/paper-proportions`. `--jobs 1` limits evaluation concurrency.
+`--reuse-20-percent` explicitly reuses the three already verified 20% results
+from those earlier full-data runs and records their source paths and hashes.
+
+Figures appear under `figs/linear`, `figs/cnn`, and `figs/mlp`: each contains
+`unlearning_metrics.png`/`.pdf` and separate `mse`, `mape`, `cost` PNG/PDF files.
+The completed experiments, figures, and exact cost values are documented in
+[`FIGURE_REPRODUCTION_REPORT.md`](FIGURE_REPRODUCTION_REPORT.md).
+Blue/red/green denote remain/unlearn/test; dotted/solid denote original/unlearned
+models. Numerical exports are `figs/unlearning_metrics.csv` and `.json`.
+The plotter refuses missing or invalid results; axis limits retain every actual
+point. MSE is displayed in units of 10^-3 and cost in units of 10^3, as in the
+notebook. MAPE results are already percentages.
+
+Redraw the exported results without the original local `.npy` files:
+
+```bash
+.venv/bin/python scripts/plot_unlearning_proportions.py \
+  --metrics-json figs/unlearning_metrics.json --output-dir /tmp/tamu-figures
+```
