@@ -17,6 +17,13 @@ import os
 import hydra
 from omegaconf import DictConfig
 
+
+def climate_row(climate_data, bus_index):
+    """The correlation/load columns and climate rows both use zero-based indices."""
+    if not 0 <= bus_index < len(climate_data):
+        raise IndexError(f'Climate bus index {bus_index} outside {len(climate_data)} rows')
+    return climate_data.iloc[bus_index:bus_index + 1]
+
 @hydra.main(version_base=None, config_path="conf", config_name="config")
 def main(cfg: DictConfig):
 
@@ -64,7 +71,7 @@ def main(cfg: DictConfig):
         for hour in [f'Hour {i}' for i in range(1,NO_HOUR+1)]:
             climate_data_per_hour = climate_data_all.parse(hour)
             for index, bus in enumerate(BUS_INDEX):
-                climate_dict[bus] = pd.concat([climate_dict[bus], climate_data_per_hour.iloc[bus-1:bus]], ignore_index=True, axis=0)
+                climate_dict[bus] = pd.concat([climate_dict[bus], climate_row(climate_data_per_hour, bus)], ignore_index=True, axis=0)
 
     # remove bus index and normalize the climate data
     for bus in BUS_INDEX:

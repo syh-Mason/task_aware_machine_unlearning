@@ -107,27 +107,26 @@ class Stage_One_Layer(torch.nn.Module):
         prob: a cvxpy problem parameterized by load forecast
         """
         super().__init__()
-        self.layer = CvxpyLayer(prob, 
-                parameters = prob.parameters(), 
-                variables = prob.variables()
-                )
+        parameters = {p.name(): p for p in prob.parameters()}
+        variables = {v.name(): v for v in prob.variables()}
+        self.layer = CvxpyLayer(prob, parameters=[parameters['load']],
+                               variables=[variables['generation'], variables['load_shedding']])
         
-    def forward(self, load_forecast):
-        # TODO: not sure how the parameter is listed in order?
-        return self.layer(load_forecast)[0]
+    def forward(self, load_forecast, return_shedding=False):
+        outputs = self.layer(load_forecast, solver_args={'eps': 1e-7, 'max_iters': 100000})
+        return outputs if return_shedding else outputs[0]
 
 class Stage_Two_Layer(torch.nn.Module):
     def __init__(self, prob):
         super().__init__()
-        self.layer = CvxpyLayer(prob,
-                parameters = prob.parameters(),
-                variables = prob.variables()
-                )
+        parameters = {p.name(): p for p in prob.parameters()}
+        variables = {v.name(): v for v in prob.variables()}
+        self.layer = CvxpyLayer(prob, parameters=[parameters['generation'], parameters['load']],
+                               variables=[variables['load_shedding'], variables['generation_storage']])
     
     def forward(self, pg, load_true):
         # load_shedding, generator_storage
-        # TODO: not sure how the parameter is listed in order?
-        outputs = self.layer(pg, load_true)
+        outputs = self.layer(pg, load_true, solver_args={'eps': 1e-7, 'max_iters': 100000})
         # return outputs[0], outputs[1]
         return outputs[0], outputs[1]
 
@@ -147,14 +146,15 @@ class SPO(nn.Module):
     def forward(self, feature, target):
         # ! if the original data is scaled, we need to unscale it before pass it to the model
         nn_output = self.nn_model(feature) # (batch_size, no_bus) 
-        forecast_load = nn_output * self.std + self.mean
+        forecast_load = self.ReLU(nn_output * self.std + self.mean)
         target = target * self.std + self.mean
         # stage one
-        pg = self.stage_one_layer(forecast_load)
+        pg, ls_dispatch = self.stage_one_layer(forecast_load, return_shedding=True)
         
         # stage two
         ls, gs = self.stage_two_layer(pg, target)
         
         # return nn_output, pg, ls, gs: nn_output is scaled; pg, ls, gs are not scaled
         # concatenate the output to allow the backpropagation
-        return torch.cat((nn_output, pg, ls, gs), axis = 1)    
+        # Append dispatch shedding to retain all terms in cost1 + cost2.
+        return torch.cat((nn_output, pg, ls, gs, ls_dispatch), axis = 1)

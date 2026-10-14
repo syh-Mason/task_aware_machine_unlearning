@@ -9,11 +9,80 @@ from pypower.idx_bus import PD
 from pypower.idx_gen import PMAX, PMIN
 import cvxpy as cp
 import torch
+import os
+import warnings
 from utils.dataset import case_modifier
+
+try:
+    from gurobipy import GurobiError
+    SOLVER_ERRORS = (cp.error.SolverError, GurobiError)
+except ImportError:
+    SOLVER_ERRORS = (cp.error.SolverError,)
+
+
+def solve_problem(problem, solver=None):
+    """Solve the unchanged CVXPY problem and reject unusable solutions.
+
+    GUROBI and ECOS/OSQP/SCS solve the same convex QP (or its equivalent
+    conic canonicalization). No objective, coefficient or constraint changes.
+    An explicit solver never silently falls back; auto mode does.
+    """
+    selected = (solver or os.environ.get('TAMU_SOLVER', 'auto')).upper()
+    installed = cp.installed_solvers()
+    candidates = ['GUROBI', 'ECOS', 'OSQP', 'SCS'] if selected == 'AUTO' else [selected]
+    previous = getattr(problem, '_tamu_solver', None)
+    if selected == 'AUTO' and previous in candidates:
+        candidates.remove(previous)
+        candidates.insert(0, previous)
+    options = {
+        'ECOS': dict(abstol=1e-9, reltol=1e-9, feastol=1e-9, max_iters=500),
+        'OSQP': dict(eps_abs=1e-8, eps_rel=1e-8, max_iter=100000, polish=True),
+        'SCS': dict(eps=1e-6, max_iters=100000),
+    }
+    failures = []
+    for candidate in candidates:
+        if candidate not in installed:
+            failures.append(f'{candidate}: not installed')
+            continue
+        try:
+            problem.solve(solver=candidate, verbose=False, **options.get(candidate, {}))
+            if problem.status != cp.OPTIMAL:
+                raise cp.error.SolverError(f'status={problem.status}')
+            if problem.value is None or not np.isfinite(problem.value):
+                raise cp.error.SolverError('non-finite objective')
+            for variable in problem.variables():
+                if variable.value is None or not np.isfinite(variable.value).all():
+                    raise cp.error.SolverError(f'missing/non-finite variable {variable.name()}')
+            violation = max((float(np.max(c.violation())) for c in problem.constraints), default=0)
+            if violation > 1e-5:
+                raise cp.error.SolverError(f'constraint violation={violation:g}')
+        except SOLVER_ERRORS as error:
+            failures.append(f'{candidate}: {error}')
+            continue
+        problem._tamu_solver = candidate
+        if failures and selected == 'AUTO':
+            warnings.warn(f'Using {candidate} for the same optimization problem; ' + '; '.join(failures), RuntimeWarning)
+        return problem.value
+    raise cp.error.SolverError('No valid optimal solution: ' + '; '.join(failures))
+
+
+def as_batch(value, width, name):
+    """Validate a vector or a batch without flattening/truncating samples."""
+    if isinstance(value, torch.Tensor):
+        value = value.detach().cpu().numpy()
+    value = np.asarray(value, dtype=float)
+    if value.ndim == 1 and value.shape == (width,):
+        value = value[None, :]
+    if value.ndim != 2 or value.shape[1] != width or not len(value):
+        raise ValueError(f'{name} must have shape ({width},) or (batch, {width}); got {value.shape}')
+    if not np.isfinite(value).all():
+        raise ValueError(f'{name} must contain only finite values')
+    return value
 
 class Operator:
     
-    def __init__(self, case_config, theta_slack = 0):
+    def __init__(self, case_config, theta_slack = 0, solver=None):
+        self.solver = solver
         
         case = case_modifier(case_config=case_config)
         self.baseMVA = case["baseMVA"]
@@ -103,9 +172,10 @@ class Operator:
         # other parameters are fixed (constant)
         d = cp.Parameter(self.no_load, name = 'load')         # load forecast
         
-        ls = cp.Variable(self.no_load)          # load shedding (slack variable for feasibility)
-        pg = cp.Variable(self.no_gen)           # generation
-        theta = cp.Variable(self.no_bus)       # voltage angle
+        ls = cp.Variable(self.no_load, name='load_shedding')
+        pg = cp.Variable(self.no_gen, name='generation')
+        theta = cp.Variable(self.no_bus, name='voltage_angle')
+        self.load_forecast, self.generation, self.dispatch_shedding, self.dispatch_angle = d, pg, ls, theta
         
         # constraints
         constraints = []
@@ -132,9 +202,11 @@ class Operator:
     def stage_two(self):
         d = cp.Parameter(self.no_load, name = 'load')                 # ground-truth load
         pg = cp.Parameter(self.no_gen, name = 'generation')           # generation (passed from stage one)
-        ls = cp.Variable(self.no_load)          # load shedding
-        gs = cp.Variable(self.no_gen)           # generation storage
-        theta = cp.Variable(self.no_bus)        # voltage angle
+        ls = cp.Variable(self.no_load, name='load_shedding')
+        gs = cp.Variable(self.no_gen, name='generation_storage')
+        theta = cp.Variable(self.no_bus, name='voltage_angle')
+        self.load_true, self.scheduled_generation = d, pg
+        self.redispatch_shedding, self.generation_storage, self.redispatch_angle = ls, gs, theta
         
         # constraints
         constraints = []
@@ -165,60 +237,46 @@ class Operator:
             faster than solving it from scratch each time
         """
         # assert len(load_forecast.shape) == 1, "load_forecast should be a vector"
-        load_forecast = load_forecast.numpy() if isinstance(load_forecast, torch.Tensor) else load_forecast
+        load_forecast = as_batch(load_forecast, self.no_load, 'load_forecast')
         
         # assert np.all(load_forecast >= 0), "negative load detected"
         
         # clip the load forecast to have min = 0
         load_forecast = np.clip(load_forecast, 0, None)
         
-        load_forecast = load_forecast.reshape(-1, self.no_load)
-
         # allow batch solving
         p,s,theta,cost,status = [],[],[],[],[]
         for load_forecast_ in load_forecast:
-            for parameter in self.prob_1.parameters():
-                if parameter.name() == 'load':
-                    parameter.value = load_forecast_
-                else:
-                    raise ValueError("unknown parameter")
-
-            self.prob_1.solve(solver = cp.GUROBI, verbose = False)
-            p.append(self.prob_1.variables()[0].value)
-            s.append(self.prob_1.variables()[1].value)
-            theta.append(self.prob_1.variables()[2].value)
+            self.load_forecast.value = load_forecast_
+            solve_problem(self.prob_1, self.solver)
+            p.append(self.generation.value.copy())
+            s.append(self.dispatch_shedding.value.copy())
+            theta.append(self.dispatch_angle.value.copy())
             cost.append(self.prob_1.value)
             status.append(self.prob_1.status)
         
         return np.array(p), np.array(s), np.array(theta), np.array(cost), np.array(status)
     
     def solve_two(self, load_true, pg):
-        load_true = load_true.numpy() if isinstance(load_true, torch.Tensor) else load_true
-        pg = pg.numpy() if isinstance(pg, torch.Tensor) else pg
-
-        assert np.all(load_true >= 0), "negative load detected"
+        load_true = as_batch(load_true, self.no_load, 'load_true')
+        pg = as_batch(pg, self.no_gen, 'generation')
+        if len(load_true) != len(pg):
+            raise ValueError('load_true and generation batch sizes must match')
+        if np.any(load_true < 0):
+            raise ValueError('negative true load detected')
         # assert np.all(pg >= 0), "negative generation detected"
         
         pg = np.clip(pg, 0, None)
         
-        load_true = load_true.reshape(-1, self.no_load)
-        pg = pg.reshape(-1, self.no_gen)
-        
         # allow batch solving
         ls, gs, theta, cost, status = [],[],[],[],[]
         for load_true_, pg_ in zip(load_true, pg):
-            for parameter in self.prob_2.parameters():
-                if parameter.name() == 'load':
-                    parameter.value = load_true_
-                elif parameter.name() == 'generation':
-                    parameter.value = pg_
-                else:
-                    raise ValueError("unknown parameter")
-            
-            self.prob_2.solve(solver = cp.GUROBI, verbose = False)
-            ls.append(self.prob_2.variables()[0].value)
-            gs.append(self.prob_2.variables()[1].value)
-            theta.append(self.prob_2.variables()[2].value)
+            self.load_true.value = load_true_
+            self.scheduled_generation.value = pg_
+            solve_problem(self.prob_2, self.solver)
+            ls.append(self.redispatch_shedding.value.copy())
+            gs.append(self.generation_storage.value.copy())
+            theta.append(self.redispatch_angle.value.copy())
             cost.append(self.prob_2.value)
             status.append(self.prob_2.status)
         

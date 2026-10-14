@@ -10,7 +10,7 @@ based on the criteria
 """
 
 from torch.utils.data import DataLoader
-from utils import return_dataset, DatasetWithWeight, evaluate, reconstruct_model, flatten_model
+from utils import return_dataset, DatasetWithWeight, evaluate, reconstruct_model, flatten_model, load_influences
 from func_operation import return_unlearn_datasets, return_trained_model, return_module, return_core_datasets, return_dataset_for_nn_affine
 import numpy as np
 import torch
@@ -18,6 +18,8 @@ import time
 import cvxpy as cp
 import hydra
 from omegaconf import DictConfig
+from pathlib import Path
+from utils.optimization import solve_problem
 
 @hydra.main(version_base=None, config_path="conf", config_name="config")
 def main(cfg: DictConfig):
@@ -30,15 +32,16 @@ def main(cfg: DictConfig):
     l1_constraints = cfg.model.l1_constraints
     linf_constraint = 1.
     criteria = cfg.criteria
+    Path(cfg.simulation_dir, model_type).mkdir(parents=True, exist_ok=True)
     
     print(f"model type: {model_type}, unlearn prop: {unlearn_prop}")
 
     # dataset
-    influences = torch.from_numpy(np.load(influence_dir)).float()
     dataset_train, dataset_test = return_dataset(cfg)
     if 'nn' in model_type:
         dataset_core, dataset_sensitive = return_core_datasets(cfg, dataset_to_be_split=dataset_train)
         dataset_train, dataset_test = return_dataset_for_nn_affine(cfg, dataset_sensitive, dataset_test)
+    influences = load_influences(influence_dir, len(dataset_train))
     
     dataset_unlearn, dataset_remain, unlearn_index, remain_index = return_unlearn_datasets(
                                             influences=influences, 
@@ -214,7 +217,7 @@ def main(cfg: DictConfig):
         # average so that can be generalized to different dataset size
         cons = [cp.norm(eps_remain - 1, 1) <= constraint * len(dataset_remain), cp.norm(eps_remain - 1, np.inf) <= linf_constraint]
         prob = cp.Problem(obj, cons)
-        prob.solve(verbose=False, solver=cp.GUROBI)
+        solve_problem(prob)
         print('status:', prob.status)
         eps_remain = eps_remain.value
         eps_all = np.zeros(len(dataset_train))

@@ -19,7 +19,7 @@ construct the unlearning set based on the choice of {random, helpful, harmful}
 """
 
 from torch.utils.data import DataLoader
-from utils import return_dataset, evaluate, reconstruct_model, flatten_model
+from utils import return_dataset, evaluate, reconstruct_model, flatten_model, load_influences
 from func_operation import return_unlearn_datasets, return_trained_model, return_module, return_core_datasets, return_dataset_for_nn_affine
 import numpy as np
 import torch
@@ -41,11 +41,11 @@ def main(cfg: DictConfig):
         os.makedirs(save_dir)
     
     # dataset
-    influences = torch.from_numpy(np.load(influence_dir)).float()
     dataset_train, dataset_test = return_dataset(cfg)
     if 'nn' in model_type:
         dataset_core, dataset_sensitive = return_core_datasets(cfg, dataset_to_be_split=dataset_train)
         dataset_train, dataset_test = return_dataset_for_nn_affine(cfg, dataset_sensitive, dataset_test)
+    influences = load_influences(influence_dir, len(dataset_train))
     
     dataset_unlearn, dataset_remain, _, _ = return_unlearn_datasets(influences=influences, 
                                                             unlearn_prop=unlearn_prop, dataset_to_be_unlearn=dataset_train, 

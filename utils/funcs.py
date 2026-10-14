@@ -11,7 +11,19 @@ import numpy as np
 import sys
 sys.path.append(".")
 import copy
+from pathlib import Path
 from utils.optimization import Operator
+
+
+def load_influences(path, expected_size):
+    """Load scores only after the final training/sensitive dataset is known."""
+    path = Path(path)
+    if not path.is_file():
+        raise FileNotFoundError(f'Influence scores missing: {path}. Run gen_index.py with the same model, data settings and influence_dir first.')
+    scores = np.load(path, allow_pickle=False)
+    if scores.shape != (expected_size,) or not np.isfinite(scores).all():
+        raise ValueError(f'Influence scores {path} must be finite with shape ({expected_size},); got {scores.shape}. Regenerate with matching data settings.')
+    return torch.from_numpy(scores).float()
 
 class AnalyticSolverAffine:
     """
@@ -137,11 +149,17 @@ def evaluate(model, dataset_collection, loss, case_config = None,
         with torch.no_grad():
             pred = model(torch.tensor(feature))
             
-            if len(pred) == 2:
+            if isinstance(pred, (tuple, list)):
                 # extract the prediction for nn model
+                if len(pred) != 2:
+                    raise ValueError('neural model must return (features, forecast)')
                 pred = pred[1]
             
             pred = pred.numpy()
+        if pred.shape != target.shape:
+            raise ValueError(f'forecast shape {pred.shape} does not match target shape {target.shape}')
+        if not np.isfinite(pred).all() or not np.isfinite(target).all() or not len(target):
+            raise ValueError('evaluation requires a nonempty batch of finite forecasts and targets')
             
         if dataset.is_scale:
             mean = dataset.target_mean.numpy()

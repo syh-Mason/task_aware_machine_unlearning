@@ -191,6 +191,8 @@ def return_objective(loss_type_dict, is_scale, with_weight = False, **kwargs):
         """
         
         def __init__(self, operator):
+            self.no_load = operator.no_load
+            self.no_gen = operator.no_gen
             # operator is used to solve the power system operation problem
             self.second_coeff = torch.tensor(operator.second_coeff).float()
             self.first_coeff = torch.tensor(operator.first_coeff).float()
@@ -202,7 +204,7 @@ def return_objective(loss_type_dict, is_scale, with_weight = False, **kwargs):
         def train_outputs(self, model, batch):
             # ! output the forecast load as it is used during training
             output = model(batch[0], batch[1])
-            forecast_load = output[:, :14]
+            forecast_load = output[:, :self.no_load]
             return forecast_load
         
         def train_loss_on_outputs(self, outputs, batch):
@@ -215,19 +217,16 @@ def return_objective(loss_type_dict, is_scale, with_weight = False, **kwargs):
 
         def test_loss(self, model, params, batch):
             # consider the cost
-            # ! the size is (batch_size, 14 + 5 + 14 + 5)
-            # todo: the size of the output is not flexible for other power system cases
             outputs = model(batch[0], batch[1]) 
-            # forecast_load = outputs[:, :14]
-            pg = outputs[:, 14:19]
-            ls = outputs[:, 19:33]
-            gs = outputs[:, 33:]
+            _, pg, ls, gs, ls_dispatch = torch.split(
+                outputs, [self.no_load, self.no_gen, self.no_load, self.no_gen, self.no_load], dim=1)
             
             # second_pg + first_pg + second_ls + first_ls + second_gs + first_gs
-            loss_gen = torch.square(pg) @ self.second_coeff + pg @ self.first_coeff
+            loss_gen = torch.square(pg) @ self.second_coeff.to(pg) + pg @ self.first_coeff.to(pg)
             loss_ls = torch.square(ls).sum(axis = 1) * self.load_shed_coeff_second + ls.sum(axis=1) * self.load_shed_coeff
             loss_gs = torch.square(gs).sum(axis = 1) * self.gen_storage_coeff_second + gs.sum(axis=1) * self.gen_storage_coeff
-            loss = loss_gen + loss_ls + loss_gs
+            loss_dispatch_shed = ls_dispatch.sum(axis=1) * self.load_shed_coeff
+            loss = loss_gen + loss_dispatch_shed + loss_ls + loss_gs
             return torch.mean(loss)
     
     # only mse_mape requires mean and std        
