@@ -212,6 +212,8 @@ class CGInfluenceModule(BaseInfluenceModule):
             self._model_reinsert_params(self._reshape_like_params(flat_params), register=True)
 
         print("cg info (0 for success): {}".format(info))
+        if info != 0 or not np.isfinite(ihvp).all():
+            raise RuntimeError(f'Conjugate gradient did not converge (info={info}); no valid inverse-Hessian result')
         
         return torch.tensor(ihvp, device=self.device)
 

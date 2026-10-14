@@ -23,7 +23,7 @@ from utils import return_dataset, evaluate, reconstruct_model, flatten_model, lo
 from func_operation import return_unlearn_datasets, return_trained_model, return_module, return_core_datasets, return_dataset_for_nn_affine
 import numpy as np
 import torch
-import os
+from pathlib import Path
 import hydra
 from omegaconf import DictConfig
 
@@ -34,11 +34,10 @@ def main(cfg: DictConfig):
     batch_size = cfg.data.batch_size_eval
     model_type = cfg.model.type
     influence_dir = cfg.model.influence_dir
-    save_dir = cfg.simulation_dir + f"{model_type}/"
+    save_dir = Path(cfg.simulation_dir) / model_type
     train_loss = cfg.model.train_loss
 
-    if not os.path.exists(save_dir):
-        os.makedirs(save_dir)
+    save_dir.mkdir(parents=True, exist_ok=True)
     
     # dataset
     dataset_train, dataset_test = return_dataset(cfg)
@@ -120,7 +119,7 @@ def main(cfg: DictConfig):
     metric["mape_retrain"] = mape_retrain
     metric["cost_retrain"] = cost_retrain
 
-    np.save(save_dir + f"unlearning_{unlearn_prop}.npy", metric)
+    np.save(save_dir / f"unlearning_{unlearn_prop}.npy", metric)
 
 if __name__ == "__main__":
 

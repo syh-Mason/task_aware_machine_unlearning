@@ -35,7 +35,7 @@ def solve_problem(problem, solver=None):
         candidates.remove(previous)
         candidates.insert(0, previous)
     options = {
-        'ECOS': dict(abstol=1e-9, reltol=1e-9, feastol=1e-9, max_iters=500),
+        'ECOS': dict(abstol=1e-8, reltol=1e-8, feastol=1e-8, max_iters=1000),
         'OSQP': dict(eps_abs=1e-8, eps_rel=1e-8, max_iter=100000, polish=True),
         'SCS': dict(eps=1e-6, max_iters=100000),
     }

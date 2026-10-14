@@ -109,11 +109,11 @@ class ModelAffine(nn.Module):
         weight = parameter[:-1]
         bias = parameter[-1]
         self.fc = nn.Linear(len(weight), 1, bias=True)
-        self.fc.weight = nn.Parameter(torch.tensor(weight).view(1,-1).float())
-        self.fc.bias = nn.Parameter(torch.tensor(bias).float())
+        self.fc.weight = nn.Parameter(torch.tensor(weight).view(1,-1).double())
+        self.fc.bias = nn.Parameter(torch.tensor(bias).double())
     
     def forward(self,x):
-        return self.fc(x).squeeze(axis=-1)
+        return self.fc(x.to(self.fc.weight)).squeeze(axis=-1)
 
 class ModelNNAffine(nn.Module):
     """
@@ -126,11 +126,11 @@ class ModelNNAffine(nn.Module):
         weight = parameter[:, :-1]
         bias = parameter[:, -1]
         self.fc = nn.Linear(weight.shape[1], weight.shape[0], bias=True)
-        self.fc.weight = nn.Parameter(torch.tensor(weight).float())
-        self.fc.bias = nn.Parameter(torch.tensor(bias).float())
+        self.fc.weight = nn.Parameter(torch.tensor(weight).double())
+        self.fc.bias = nn.Parameter(torch.tensor(bias).double())
     
     def forward(self,x):
-        return self.fc(x)
+        return self.fc(x.to(self.fc.weight))
 
 def evaluate(model, dataset_collection, loss, case_config = None, 
             is_average = True, with_mispatch = False, is_save = False, save_dir = None):    
@@ -218,7 +218,7 @@ def reconstruct_model(model, flattened_params):
     model.eval()
     idx = 0
     for param in model.parameters():
-        param.data = torch.tensor(flattened_params[idx:idx+param.numel()]).reshape(param.shape).float()
+        param.data = torch.as_tensor(flattened_params[idx:idx+param.numel()]).reshape(param.shape).to(param)
         idx += param.numel()
     
     return model

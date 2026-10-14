@@ -205,3 +205,48 @@ def test_reweighting_problem_beyond_bundled_gurobi_size_limit(monkeypatch):
     assert np.isfinite(weights.value).all()
     assert np.linalg.norm(weights.value - 1, 1) <= 0.1 * size + 1e-5
     assert np.linalg.norm(weights.value - 1, np.inf) <= 1 + 1e-5
+
+
+def test_ecos_real_redispatch_regression(cfg):
+    import json
+    inputs = json.loads((Path(__file__).parent / 'fixtures' / 'redispatch_ecos.json').read_text())
+    operator = Operator(cfg.case, solver='ECOS')
+    _, _, _, cost, status = operator.solve_two(inputs['true'], inputs['generation'])
+    assert status[0] == cp.OPTIMAL and np.isfinite(cost).all()
+    reference = Operator(cfg.case, solver='OSQP')
+    _, _, _, reference_cost, _ = reference.solve_two(inputs['true'], inputs['generation'])
+    np.testing.assert_allclose(cost, reference_cost, rtol=2e-5, atol=1e-4)
+
+
+def test_analytic_affine_fit_has_stationary_gradient_at_full_precision(cfg):
+    from utils.funcs import AnalyticSolverAffine, ModelAffine, flatten_model, reconstruct_model
+    from utils.dataset import NewDataset
+    x = torch.linspace(-1, 1, 41)
+    features = torch.stack([x, x.square()], dim=1)
+    target = 0.123456789 * x + 0.987654321 * x.square() + 0.314159265
+    dataset = NewDataset(features, target)
+    parameters = AnalyticSolverAffine({'train': dataset}).fit_regressor('train')
+    model = ModelAffine(parameters)
+    objective = return_objective({'train': 'mse', 'test': 'mse'}, False)
+    loss = objective.train_loss(model, torch.as_tensor(parameters), (features, target))
+    gradient = torch.cat([value.flatten() for value in torch.autograd.grad(loss, tuple(model.parameters()))])
+    assert gradient.abs().max() < 1e-12
+    restored = reconstruct_model(model, flatten_model(model))
+    assert restored.fc.weight.dtype == torch.double
+    np.testing.assert_array_equal(flatten_model(restored), flatten_model(model))
+
+
+def test_nonconverged_cg_fails_and_restores_model(cfg, monkeypatch):
+    from utils.funcs import ModelAffine
+    from utils.dataset import NewDataset
+    from func_operation import return_module
+    from torch.utils.data import DataLoader
+    import torch_influence.modules as modules
+    model = ModelAffine(np.array([1.0, 0.0]))
+    dataset = NewDataset(torch.arange(4, dtype=torch.float32).reshape(4, 1), torch.arange(4, dtype=torch.float32))
+    loader = DataLoader(dataset, batch_size=4)
+    module = return_module(cfg, {'train': 'mse', 'test': 'mse'}, {'train': loader, 'test': loader}, model, 'cg')
+    monkeypatch.setattr(modules.L, 'cg', lambda **kwargs: (np.zeros_like(kwargs['b']), 1000))
+    with pytest.raises(RuntimeError, match='did not converge'):
+        module.inverse_hvp(torch.ones(2, dtype=torch.double))
+    assert not module.is_model_functional and len(list(model.parameters())) == 2

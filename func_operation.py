@@ -136,11 +136,11 @@ def return_objective(loss_type_dict, is_scale, with_weight = False, **kwargs):
 
         def train_loss_on_outputs(self, outputs, batch):
             if with_weight:
-                loss = torch.mean(F.mse_loss(outputs, batch[1], reduction = 'none'), axis = 1)
+                loss = torch.mean(F.mse_loss(outputs, batch[1].to(outputs), reduction = 'none'), axis = 1)
                 # print(loss.shape, batch[2].shape)
                 return torch.mean(loss * batch[2])
             else:
-                return F.mse_loss(outputs, batch[1])  # mean reduction required
+                return F.mse_loss(outputs, batch[1].to(outputs))  # mean reduction required
                 
         def train_regularization(self, params):
             # no regularization
@@ -149,11 +149,11 @@ def return_objective(loss_type_dict, is_scale, with_weight = False, **kwargs):
         def test_loss(self, model, params, batch):
             outputs = model(batch[0])
             if with_weight:
-                loss = torch.mean(F.mse_loss(outputs, batch[1], reduction = 'none'), axis = 1)
+                loss = torch.mean(F.mse_loss(outputs, batch[1].to(outputs), reduction = 'none'), axis = 1)
                 # print(loss.shape, batch[2].shape)
                 return torch.mean(loss * batch[2])
             else:
-                return F.mse_loss(outputs, batch[1])
+                return F.mse_loss(outputs, batch[1].to(outputs))
             
             # return F.mse_loss(model(batch[0]), batch[1])
     
@@ -172,7 +172,7 @@ def return_objective(loss_type_dict, is_scale, with_weight = False, **kwargs):
             return model(batch[0])
         
         def train_loss_on_outputs(self, outputs, batch):
-            return F.mse_loss(outputs, batch[1])
+            return F.mse_loss(outputs, batch[1].to(outputs))
         
         def train_regularization(self, params):
             # no regularization
@@ -209,7 +209,7 @@ def return_objective(loss_type_dict, is_scale, with_weight = False, **kwargs):
         
         def train_loss_on_outputs(self, outputs, batch):
             # outputs is the forecast load
-            return F.mse_loss(outputs, batch[1])  # mean reduction required
+            return F.mse_loss(outputs, batch[1].to(outputs))  # mean reduction required
 
         def train_regularization(self, params):
             # no regularization

@@ -147,7 +147,7 @@ class SPO(nn.Module):
         # ! if the original data is scaled, we need to unscale it before pass it to the model
         nn_output = self.nn_model(feature) # (batch_size, no_bus) 
         forecast_load = self.ReLU(nn_output * self.std + self.mean)
-        target = target * self.std + self.mean
+        target = (target * self.std + self.mean).to(forecast_load)
         # stage one
         pg, ls_dispatch = self.stage_one_layer(forecast_load, return_shedding=True)
         
