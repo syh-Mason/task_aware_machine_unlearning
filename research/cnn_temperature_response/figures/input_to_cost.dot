@@ -1,0 +1,24 @@
+digraph Path {
+      graph [rankdir=TB,bgcolor="white",fontname="DejaVu Sans",pad="0.2"];
+      node [shape=box,style="rounded,filled",fillcolor="#edf4fb",fontname="DejaVu Sans",fontsize=11];
+      raw [label="Official TX-123BT / case14
+14 CSVs x 10 features; feature 4 (zero-based) = Temperature"];
+      stats [label="Original 7008 training rows
+Compute selected temperature SD (ddof=0)
+No refitting of the original annual normalization"];
+      input [label="Fixed test sample: shape (1,1,14,10)
+One temperature += {-1,-0.5,0,0.5,1} x training SD"];
+      core [label="Frozen CNN core
+Conv1 -> ReLU -> Conv2 -> ReLU -> Flatten(280) -> Linear(64) -> tanh"];
+      heads [label="Four affine heads: original / direct / retrained / TAMU
+64 learned features -> 14 standardized load predictions"];
+      unscale [label="forecast_pu = output_z * target_std + target_mean
+MW = p.u. x baseMVA (100)"];
+      one [label="Original Operator.solve_one(forecast)
+Dispatch PG, LS1, angles; objective = cost1"];
+      two [label="Original Operator.solve_two(fixed actual load, PG)
+Redispatch LS2, GS, angles; objective = cost2"];
+      result [label="14 bus predictions / MSE / MAPE
+Total Cost = cost1 + cost2; solver and constraint audits"];
+      raw -> input; stats -> input; input -> core -> heads -> unscale -> one -> two -> result;
+    }

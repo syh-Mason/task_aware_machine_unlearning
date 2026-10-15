@@ -1,0 +1,9 @@
+{
+  "relative_residual": 9.246197187332093e-06,
+  "cg_tolerance": 1e-05,
+  "formula": "norm(X.T W X theta_tamu - X.T W Y) / norm(X.T W X theta_ori - X.T W Y)",
+  "effective_weight_dtype": "float32 converted to float64 for the audit",
+  "retained_rows": 3925,
+  "features_with_intercept": 65,
+  "outputs": 14
+}

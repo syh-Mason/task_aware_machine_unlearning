@@ -1,5 +1,15 @@
 # 实验图表下载
 
+## CNN 五档温度扰动与四模型对照
+
+[下载本轮完整结果 ZIP](cnn_temperature_response.zip?raw=true) ·
+[导师汇报](../research/cnn_temperature_response/导师汇报.md) ·
+[完整实验报告](../research/cnn_temperature_response/README.md)。
+
+固定一个测试样本和节点温度，按训练集标准差做 −1、−0.5、0、+0.5、+1σ 扰动；
+对比原始、20% 直接遗忘、重训预测头和 20% TAMU（L1=0.1）。
+包含三张响应图、一张流程图、完整逐节点预测/Cost 数据、冻结权重、真实输入与复算脚本。
+
 ## CNN 输入敏感性与 20% 遗忘研究
 
 [下载五项任务完整结果 ZIP](cnn_sensitivity.zip?raw=true) ·

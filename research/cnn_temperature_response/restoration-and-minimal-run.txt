@@ -1,0 +1,40 @@
+/workspace/task_aware_machine_unlearning/.venv/lib/python3.10/site-packages/hydra/_internal/defaults_list.py:251: UserWarning: In 'config': Defaults list is missing `_self_`. See https://hydra.cc/docs/1.2/upgrades/1.0_to_1.1/default_composition_order for more information
+  warnings.warn(msg, UserWarning)
+Loading model from trained_model/nn_conv//core.pth
+ave. performance change of unlearning (positive for helpful): 24.79407501220703
+time of calculating test loss grad:  0.02
+cg info (0 for success): 0
+Loading model from trained_model/nn_conv//core.pth
+Loading model from trained_model/nn_conv//core.pth
+Restricted license - for non-production use only - expires 2027-11-29
+/workspace/task_aware_machine_unlearning/utils/optimization.py:64: RuntimeWarning: Using ECOS for the same optimization problem; GUROBI: Solver 'GUROBI' failed. Try another solver, or solve with verbose=True for more information.
+  warnings.warn(f'Using {candidate} for the same optimization problem; ' + '; '.join(failures), RuntimeWarning)
+time of calculating test loss grad:  0.02
+cg info (0 for success): 0
+Official temperature audit: 100/365 days
+Official temperature audit: 200/365 days
+Official temperature audit: 300/365 days
+original: all five temperature cases optimal; zero forecast/cost deltas 0/0
+{
+  "models": [
+    "original"
+  ],
+  "scenarios": 5,
+  "qp_solves": 12,
+  "unchanged_models": {
+    "core": "b364655e006c0b53647a3416f86a12dba4f629f063a9e8f673df1cf2830a80a6",
+    "original": "2ac51cdbf92fce68723db0d5c7401b8676093724fc08e044467ead6dbfa273a0",
+    "unlearned20": "1ac88e3abf2e178a00733c1ddd99d618b0a9ace5892daf6b53032e93938a5933",
+    "retrained": "dc861fe0315c04b57323795312cae938ad5e208f24d79d52d3235dbcb1b1577d",
+    "tamu20": "ae808d22c3e970821807dff74beca73e1a30b250ed2379a7b2d4e0da8cb44a17"
+  },
+  "unchanged_target": true,
+  "zero_forecast_bit_identical": true,
+  "max_zero_cost_delta": 0.0,
+  "max_constraint_violation": 1.617309064450012e-11,
+  "max_objective_error": 1.1368683772161603e-13,
+  "statuses": [
+    "optimal"
+  ]
+}
+Saved actual temperature responses: /workspace/task_aware_machine_unlearning/outputs/temperature-minimal-final

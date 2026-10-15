@@ -1,0 +1,141 @@
+﻿grid_bus,source_file,feature_index0,feature,flattened_index0,train_mean_encoded,train_sigma_encoded_ddof0,preprocessing
+1,data/data_case14/bus_2.csv,0,Weekday_sin,0,-0.004824697358967507,0.7067542624539876,sin/cos
+1,data/data_case14/bus_2.csv,1,Weekday_cos,1,0.003847572033944195,0.7074322019483611,sin/cos
+1,data/data_case14/bus_2.csv,2,Hour_sin,2,-1.0139023055937502e-18,0.7071067728183412,sin/cos
+1,data/data_case14/bus_2.csv,3,Hour_cos,3,-2.0278046111875004e-18,0.7071067728183411,sin/cos
+1,data/data_case14/bus_2.csv,4,Temperature (k),4,0.22565956978123472,0.9354141419383923,"full-year z-score, pandas ddof=1"
+1,data/data_case14/bus_2.csv,5,Shortwave Radiation (w/m2),5,0.04356702631315842,1.0321615823892374,"full-year z-score, pandas ddof=1"
+1,data/data_case14/bus_2.csv,6,Longwave Radiation (w/m2),6,0.18751966320173757,0.9529337477745428,"full-year z-score, pandas ddof=1"
+1,data/data_case14/bus_2.csv,7,Zonal Wind Speed (m/s),7,-0.09578651603268051,0.95423032773078,"full-year z-score, pandas ddof=1"
+1,data/data_case14/bus_2.csv,8,Meridional Wind Speed (m/s),8,-0.0039018350549775934,1.0047178634756593,"full-year z-score, pandas ddof=1"
+1,data/data_case14/bus_2.csv,9,Wind Speed (m/s),9,-0.08073541716095305,0.9476729169158011,"full-year z-score, pandas ddof=1"
+2,data/data_case14/bus_11.csv,0,Weekday_sin,10,-0.004824697358967507,0.7067542624539876,sin/cos
+2,data/data_case14/bus_11.csv,1,Weekday_cos,11,0.003847572033944195,0.7074322019483611,sin/cos
+2,data/data_case14/bus_11.csv,2,Hour_sin,12,-1.0139023055937502e-18,0.7071067728183412,sin/cos
+2,data/data_case14/bus_11.csv,3,Hour_cos,13,-2.0278046111875004e-18,0.7071067728183411,sin/cos
+2,data/data_case14/bus_11.csv,4,Temperature (k),14,0.2349015535320607,0.9283220096326946,"full-year z-score, pandas ddof=1"
+2,data/data_case14/bus_11.csv,5,Shortwave Radiation (w/m2),15,0.056298302764046904,1.0446438971564593,"full-year z-score, pandas ddof=1"
+2,data/data_case14/bus_11.csv,6,Longwave Radiation (w/m2),16,0.20798174715399573,0.9647785313010818,"full-year z-score, pandas ddof=1"
+2,data/data_case14/bus_11.csv,7,Zonal Wind Speed (m/s),17,-0.07332852177473426,0.9029367161411035,"full-year z-score, pandas ddof=1"
+2,data/data_case14/bus_11.csv,8,Meridional Wind Speed (m/s),18,0.03477890178114711,0.993855296727937,"full-year z-score, pandas ddof=1"
+2,data/data_case14/bus_11.csv,9,Wind Speed (m/s),19,-0.045266541442493716,0.949107605945559,"full-year z-score, pandas ddof=1"
+3,data/data_case14/bus_13.csv,0,Weekday_sin,20,-0.004824697358967507,0.7067542624539876,sin/cos
+3,data/data_case14/bus_13.csv,1,Weekday_cos,21,0.003847572033944195,0.7074322019483611,sin/cos
+3,data/data_case14/bus_13.csv,2,Hour_sin,22,-1.0139023055937502e-18,0.7071067728183412,sin/cos
+3,data/data_case14/bus_13.csv,3,Hour_cos,23,-2.0278046111875004e-18,0.7071067728183411,sin/cos
+3,data/data_case14/bus_13.csv,4,Temperature (k),24,0.23390573882990115,0.9297594530291283,"full-year z-score, pandas ddof=1"
+3,data/data_case14/bus_13.csv,5,Shortwave Radiation (w/m2),25,0.056264535048422375,1.0446815463448658,"full-year z-score, pandas ddof=1"
+3,data/data_case14/bus_13.csv,6,Longwave Radiation (w/m2),26,0.2084540518889834,0.9650425233581358,"full-year z-score, pandas ddof=1"
+3,data/data_case14/bus_13.csv,7,Zonal Wind Speed (m/s),27,-0.07611823109428363,0.9009051003294137,"full-year z-score, pandas ddof=1"
+3,data/data_case14/bus_13.csv,8,Meridional Wind Speed (m/s),28,0.035086856417201155,0.9943371382225055,"full-year z-score, pandas ddof=1"
+3,data/data_case14/bus_13.csv,9,Wind Speed (m/s),29,-0.051594026413397644,0.9460089156650987,"full-year z-score, pandas ddof=1"
+4,data/data_case14/bus_15.csv,0,Weekday_sin,30,-0.004824697358967507,0.7067542624539876,sin/cos
+4,data/data_case14/bus_15.csv,1,Weekday_cos,31,0.003847572033944195,0.7074322019483611,sin/cos
+4,data/data_case14/bus_15.csv,2,Hour_sin,32,-1.0139023055937502e-18,0.7071067728183412,sin/cos
+4,data/data_case14/bus_15.csv,3,Hour_cos,33,-2.0278046111875004e-18,0.7071067728183411,sin/cos
+4,data/data_case14/bus_15.csv,4,Temperature (k),34,0.2319156862015264,0.9442488925032522,"full-year z-score, pandas ddof=1"
+4,data/data_case14/bus_15.csv,5,Shortwave Radiation (w/m2),35,0.05701897533359426,1.044692430051081,"full-year z-score, pandas ddof=1"
+4,data/data_case14/bus_15.csv,6,Longwave Radiation (w/m2),36,0.2089679857125781,0.9733440954900008,"full-year z-score, pandas ddof=1"
+4,data/data_case14/bus_15.csv,7,Zonal Wind Speed (m/s),37,-0.07934833053606,0.9177907902666426,"full-year z-score, pandas ddof=1"
+4,data/data_case14/bus_15.csv,8,Meridional Wind Speed (m/s),38,0.011034231621258942,1.0051026517735941,"full-year z-score, pandas ddof=1"
+4,data/data_case14/bus_15.csv,9,Wind Speed (m/s),39,-0.055121634492045664,0.926420592735331,"full-year z-score, pandas ddof=1"
+5,data/data_case14/bus_25.csv,0,Weekday_sin,40,-0.004824697358967507,0.7067542624539876,sin/cos
+5,data/data_case14/bus_25.csv,1,Weekday_cos,41,0.003847572033944195,0.7074322019483611,sin/cos
+5,data/data_case14/bus_25.csv,2,Hour_sin,42,-1.0139023055937502e-18,0.7071067728183412,sin/cos
+5,data/data_case14/bus_25.csv,3,Hour_cos,43,-2.0278046111875004e-18,0.7071067728183411,sin/cos
+5,data/data_case14/bus_25.csv,4,Temperature (k),44,0.22978022799482764,0.9331235038962291,"full-year z-score, pandas ddof=1"
+5,data/data_case14/bus_25.csv,5,Shortwave Radiation (w/m2),45,0.05030923829785955,1.0393799129389134,"full-year z-score, pandas ddof=1"
+5,data/data_case14/bus_25.csv,6,Longwave Radiation (w/m2),46,0.2055203191891812,0.9614816407377155,"full-year z-score, pandas ddof=1"
+5,data/data_case14/bus_25.csv,7,Zonal Wind Speed (m/s),47,-0.08000637664186698,0.9163603656692195,"full-year z-score, pandas ddof=1"
+5,data/data_case14/bus_25.csv,8,Meridional Wind Speed (m/s),48,0.034489756749044066,1.0186750050817164,"full-year z-score, pandas ddof=1"
+5,data/data_case14/bus_25.csv,9,Wind Speed (m/s),49,-0.03708956541121132,0.9604599162419402,"full-year z-score, pandas ddof=1"
+6,data/data_case14/bus_30.csv,0,Weekday_sin,50,-0.004824697358967507,0.7067542624539876,sin/cos
+6,data/data_case14/bus_30.csv,1,Weekday_cos,51,0.003847572033944195,0.7074322019483611,sin/cos
+6,data/data_case14/bus_30.csv,2,Hour_sin,52,-1.0139023055937502e-18,0.7071067728183412,sin/cos
+6,data/data_case14/bus_30.csv,3,Hour_cos,53,-2.0278046111875004e-18,0.7071067728183411,sin/cos
+6,data/data_case14/bus_30.csv,4,Temperature (k),54,0.22269680774506737,0.9315136344767911,"full-year z-score, pandas ddof=1"
+6,data/data_case14/bus_30.csv,5,Shortwave Radiation (w/m2),55,0.06419261943142893,1.0510673717567716,"full-year z-score, pandas ddof=1"
+6,data/data_case14/bus_30.csv,6,Longwave Radiation (w/m2),56,0.17857539070741307,0.9757801350221396,"full-year z-score, pandas ddof=1"
+6,data/data_case14/bus_30.csv,7,Zonal Wind Speed (m/s),57,-0.07444706087847835,0.9867295961571616,"full-year z-score, pandas ddof=1"
+6,data/data_case14/bus_30.csv,8,Meridional Wind Speed (m/s),58,0.10131645982312057,0.9970902162830405,"full-year z-score, pandas ddof=1"
+6,data/data_case14/bus_30.csv,9,Wind Speed (m/s),59,0.06714868072070465,1.0251686524067511,"full-year z-score, pandas ddof=1"
+7,data/data_case14/bus_38.csv,0,Weekday_sin,60,-0.004824697358967507,0.7067542624539876,sin/cos
+7,data/data_case14/bus_38.csv,1,Weekday_cos,61,0.003847572033944195,0.7074322019483611,sin/cos
+7,data/data_case14/bus_38.csv,2,Hour_sin,62,-1.0139023055937502e-18,0.7071067728183412,sin/cos
+7,data/data_case14/bus_38.csv,3,Hour_cos,63,-2.0278046111875004e-18,0.7071067728183411,sin/cos
+7,data/data_case14/bus_38.csv,4,Temperature (k),64,0.22274057995134866,0.9265720816013799,"full-year z-score, pandas ddof=1"
+7,data/data_case14/bus_38.csv,5,Shortwave Radiation (w/m2),65,0.06972675556433587,1.0539901447959334,"full-year z-score, pandas ddof=1"
+7,data/data_case14/bus_38.csv,6,Longwave Radiation (w/m2),66,0.16782295626967114,0.9743191252097145,"full-year z-score, pandas ddof=1"
+7,data/data_case14/bus_38.csv,7,Zonal Wind Speed (m/s),67,-0.012443170299216804,0.9437482546652224,"full-year z-score, pandas ddof=1"
+7,data/data_case14/bus_38.csv,8,Meridional Wind Speed (m/s),68,0.05780128002719384,0.9718272173897671,"full-year z-score, pandas ddof=1"
+7,data/data_case14/bus_38.csv,9,Wind Speed (m/s),69,-0.033560934340234015,1.0025395969377446,"full-year z-score, pandas ddof=1"
+8,data/data_case14/bus_49.csv,0,Weekday_sin,70,-0.004824697358967507,0.7067542624539876,sin/cos
+8,data/data_case14/bus_49.csv,1,Weekday_cos,71,0.003847572033944195,0.7074322019483611,sin/cos
+8,data/data_case14/bus_49.csv,2,Hour_sin,72,-1.0139023055937502e-18,0.7071067728183412,sin/cos
+8,data/data_case14/bus_49.csv,3,Hour_cos,73,-2.0278046111875004e-18,0.7071067728183411,sin/cos
+8,data/data_case14/bus_49.csv,4,Temperature (k),74,0.23517408099801848,0.9270289468639021,"full-year z-score, pandas ddof=1"
+8,data/data_case14/bus_49.csv,5,Shortwave Radiation (w/m2),75,0.05536565135843869,1.0441809797300792,"full-year z-score, pandas ddof=1"
+8,data/data_case14/bus_49.csv,6,Longwave Radiation (w/m2),76,0.2095936676622588,0.9605184402114633,"full-year z-score, pandas ddof=1"
+8,data/data_case14/bus_49.csv,7,Zonal Wind Speed (m/s),77,-0.07440011158152139,0.9028085044496025,"full-year z-score, pandas ddof=1"
+8,data/data_case14/bus_49.csv,8,Meridional Wind Speed (m/s),78,0.0399177803347857,0.9989292483494655,"full-year z-score, pandas ddof=1"
+8,data/data_case14/bus_49.csv,9,Wind Speed (m/s),79,-0.041068189800399654,0.9726234597752429,"full-year z-score, pandas ddof=1"
+9,data/data_case14/bus_58.csv,0,Weekday_sin,80,-0.004824697358967507,0.7067542624539876,sin/cos
+9,data/data_case14/bus_58.csv,1,Weekday_cos,81,0.003847572033944195,0.7074322019483611,sin/cos
+9,data/data_case14/bus_58.csv,2,Hour_sin,82,-1.0139023055937502e-18,0.7071067728183412,sin/cos
+9,data/data_case14/bus_58.csv,3,Hour_cos,83,-2.0278046111875004e-18,0.7071067728183411,sin/cos
+9,data/data_case14/bus_58.csv,4,Temperature (k),84,0.23090245822272903,0.9333275404817896,"full-year z-score, pandas ddof=1"
+9,data/data_case14/bus_58.csv,5,Shortwave Radiation (w/m2),85,0.05234705104710668,1.0407716749329403,"full-year z-score, pandas ddof=1"
+9,data/data_case14/bus_58.csv,6,Longwave Radiation (w/m2),86,0.2078155220733274,0.9615583552572525,"full-year z-score, pandas ddof=1"
+9,data/data_case14/bus_58.csv,7,Zonal Wind Speed (m/s),87,-0.08391085951437839,0.9101919474663569,"full-year z-score, pandas ddof=1"
+9,data/data_case14/bus_58.csv,8,Meridional Wind Speed (m/s),88,0.03324834113307995,1.009844646835876,"full-year z-score, pandas ddof=1"
+9,data/data_case14/bus_58.csv,9,Wind Speed (m/s),89,-0.04362305158195477,0.9644451886989704,"full-year z-score, pandas ddof=1"
+10,data/data_case14/bus_74.csv,0,Weekday_sin,90,-0.004824697358967507,0.7067542624539876,sin/cos
+10,data/data_case14/bus_74.csv,1,Weekday_cos,91,0.003847572033944195,0.7074322019483611,sin/cos
+10,data/data_case14/bus_74.csv,2,Hour_sin,92,-1.0139023055937502e-18,0.7071067728183412,sin/cos
+10,data/data_case14/bus_74.csv,3,Hour_cos,93,-2.0278046111875004e-18,0.7071067728183411,sin/cos
+10,data/data_case14/bus_74.csv,4,Temperature (k),94,0.2365360553472476,0.9337006636280153,"full-year z-score, pandas ddof=1"
+10,data/data_case14/bus_74.csv,5,Shortwave Radiation (w/m2),95,0.059096735480581884,1.0462210335392121,"full-year z-score, pandas ddof=1"
+10,data/data_case14/bus_74.csv,6,Longwave Radiation (w/m2),96,0.21614619250357212,0.9666361404436323,"full-year z-score, pandas ddof=1"
+10,data/data_case14/bus_74.csv,7,Zonal Wind Speed (m/s),97,-0.060714276442195944,0.926386861254551,"full-year z-score, pandas ddof=1"
+10,data/data_case14/bus_74.csv,8,Meridional Wind Speed (m/s),98,0.023150229462372995,0.9873582196717762,"full-year z-score, pandas ddof=1"
+10,data/data_case14/bus_74.csv,9,Wind Speed (m/s),99,-0.03745973824084804,0.9375925127108116,"full-year z-score, pandas ddof=1"
+11,data/data_case14/bus_91.csv,0,Weekday_sin,100,-0.004824697358967507,0.7067542624539876,sin/cos
+11,data/data_case14/bus_91.csv,1,Weekday_cos,101,0.003847572033944195,0.7074322019483611,sin/cos
+11,data/data_case14/bus_91.csv,2,Hour_sin,102,-1.0139023055937502e-18,0.7071067728183412,sin/cos
+11,data/data_case14/bus_91.csv,3,Hour_cos,103,-2.0278046111875004e-18,0.7071067728183411,sin/cos
+11,data/data_case14/bus_91.csv,4,Temperature (k),104,0.22159821550442935,0.9281177343535019,"full-year z-score, pandas ddof=1"
+11,data/data_case14/bus_91.csv,5,Shortwave Radiation (w/m2),105,0.07001449632151927,1.0537588126137152,"full-year z-score, pandas ddof=1"
+11,data/data_case14/bus_91.csv,6,Longwave Radiation (w/m2),106,0.16786128464386552,0.974375302049372,"full-year z-score, pandas ddof=1"
+11,data/data_case14/bus_91.csv,7,Zonal Wind Speed (m/s),107,-0.008537410405402276,0.9477400058090566,"full-year z-score, pandas ddof=1"
+11,data/data_case14/bus_91.csv,8,Meridional Wind Speed (m/s),108,0.059192661363489954,0.971550662781582,"full-year z-score, pandas ddof=1"
+11,data/data_case14/bus_91.csv,9,Wind Speed (m/s),109,-0.03332773023162211,1.002198650884099,"full-year z-score, pandas ddof=1"
+12,data/data_case14/bus_99.csv,0,Weekday_sin,110,-0.004824697358967507,0.7067542624539876,sin/cos
+12,data/data_case14/bus_99.csv,1,Weekday_cos,111,0.003847572033944195,0.7074322019483611,sin/cos
+12,data/data_case14/bus_99.csv,2,Hour_sin,112,-1.0139023055937502e-18,0.7071067728183412,sin/cos
+12,data/data_case14/bus_99.csv,3,Hour_cos,113,-2.0278046111875004e-18,0.7071067728183411,sin/cos
+12,data/data_case14/bus_99.csv,4,Temperature (k),114,0.22720075857729333,0.9293526008309781,"full-year z-score, pandas ddof=1"
+12,data/data_case14/bus_99.csv,5,Shortwave Radiation (w/m2),115,0.06971916800271527,1.053452118235217,"full-year z-score, pandas ddof=1"
+12,data/data_case14/bus_99.csv,6,Longwave Radiation (w/m2),116,0.1689233260917406,0.9756154856591263,"full-year z-score, pandas ddof=1"
+12,data/data_case14/bus_99.csv,7,Zonal Wind Speed (m/s),117,-0.013985057504586326,0.9584315819006535,"full-year z-score, pandas ddof=1"
+12,data/data_case14/bus_99.csv,8,Meridional Wind Speed (m/s),118,0.06885092201089503,0.9756778002078369,"full-year z-score, pandas ddof=1"
+12,data/data_case14/bus_99.csv,9,Wind Speed (m/s),119,-0.01477560729714121,1.0076333762525924,"full-year z-score, pandas ddof=1"
+13,data/data_case14/bus_102.csv,0,Weekday_sin,120,-0.004824697358967507,0.7067542624539876,sin/cos
+13,data/data_case14/bus_102.csv,1,Weekday_cos,121,0.003847572033944195,0.7074322019483611,sin/cos
+13,data/data_case14/bus_102.csv,2,Hour_sin,122,-1.0139023055937502e-18,0.7071067728183412,sin/cos
+13,data/data_case14/bus_102.csv,3,Hour_cos,123,-2.0278046111875004e-18,0.7071067728183411,sin/cos
+13,data/data_case14/bus_102.csv,4,Temperature (k),124,0.2569243686993391,0.8989368845733384,"full-year z-score, pandas ddof=1"
+13,data/data_case14/bus_102.csv,5,Shortwave Radiation (w/m2),125,0.061890731769933434,1.0485328293451508,"full-year z-score, pandas ddof=1"
+13,data/data_case14/bus_102.csv,6,Longwave Radiation (w/m2),126,0.20310893699402663,0.9400324620511812,"full-year z-score, pandas ddof=1"
+13,data/data_case14/bus_102.csv,7,Zonal Wind Speed (m/s),127,-0.07543347897036125,1.0078955429134717,"full-year z-score, pandas ddof=1"
+13,data/data_case14/bus_102.csv,8,Meridional Wind Speed (m/s),128,0.08576810687083881,0.9637708562662193,"full-year z-score, pandas ddof=1"
+13,data/data_case14/bus_102.csv,9,Wind Speed (m/s),129,0.045995191253682004,0.979728645675025,"full-year z-score, pandas ddof=1"
+14,data/data_case14/bus_120.csv,0,Weekday_sin,130,-0.004824697358967507,0.7067542624539876,sin/cos
+14,data/data_case14/bus_120.csv,1,Weekday_cos,131,0.003847572033944195,0.7074322019483611,sin/cos
+14,data/data_case14/bus_120.csv,2,Hour_sin,132,-1.0139023055937502e-18,0.7071067728183412,sin/cos
+14,data/data_case14/bus_120.csv,3,Hour_cos,133,-2.0278046111875004e-18,0.7071067728183411,sin/cos
+14,data/data_case14/bus_120.csv,4,Temperature (k),134,0.23969883414726972,0.9325689998484346,"full-year z-score, pandas ddof=1"
+14,data/data_case14/bus_120.csv,5,Shortwave Radiation (w/m2),135,0.06166399150710418,1.048281193369786,"full-year z-score, pandas ddof=1"
+14,data/data_case14/bus_120.csv,6,Longwave Radiation (w/m2),136,0.21107155543677436,0.9689688621516734,"full-year z-score, pandas ddof=1"
+14,data/data_case14/bus_120.csv,7,Zonal Wind Speed (m/s),137,-0.0549709102795285,0.9323695989338298,"full-year z-score, pandas ddof=1"
+14,data/data_case14/bus_120.csv,8,Meridional Wind Speed (m/s),138,0.04472534882078119,0.9909651280552187,"full-year z-score, pandas ddof=1"
+14,data/data_case14/bus_120.csv,9,Wind Speed (m/s),139,0.000886747635987588,0.9575962670984396,"full-year z-score, pandas ddof=1"

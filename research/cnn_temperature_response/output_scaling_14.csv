@@ -1,0 +1,15 @@
+﻿grid_bus,mean_pu,std_pu,baseMVA,formula
+1,0.29510071873664856,0.025863895192742348,100.0,forecast_pu = output_z * std_pu + mean_pu
+2,0.3461505174636841,0.03033798187971115,100.0,forecast_pu = output_z * std_pu + mean_pu
+3,1.5026859045028687,0.1317017376422882,100.0,forecast_pu = output_z * std_pu + mean_pu
+4,0.5530930757522583,0.11520391702651978,100.0,forecast_pu = output_z * std_pu + mean_pu
+5,0.12123164534568787,0.010625232942402363,100.0,forecast_pu = output_z * std_pu + mean_pu
+6,0.13382109999656677,0.03265618160367012,100.0,forecast_pu = output_z * std_pu + mean_pu
+7,0.568955659866333,0.1293165534734726,100.0,forecast_pu = output_z * std_pu + mean_pu
+8,0.8346776962280273,0.07315447181463242,100.0,forecast_pu = output_z * std_pu + mean_pu
+9,0.4705696702003479,0.04124259203672409,100.0,forecast_pu = output_z * std_pu + mean_pu
+10,0.10413643717765808,0.02168995887041092,100.0,forecast_pu = output_z * std_pu + mean_pu
+11,0.04068337008357048,0.009246829897165298,100.0,forecast_pu = output_z * std_pu + mean_pu
+12,0.07090657949447632,0.016116194427013397,100.0,forecast_pu = output_z * std_pu + mean_pu
+13,0.16128607094287872,0.039358485490083694,100.0,forecast_pu = output_z * std_pu + mean_pu
+14,0.1723550707101822,0.035898976027965546,100.0,forecast_pu = output_z * std_pu + mean_pu

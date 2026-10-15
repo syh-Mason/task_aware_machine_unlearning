@@ -1,0 +1,25 @@
+{
+  "models": [
+    "original",
+    "unlearned20",
+    "retrained",
+    "tamu20"
+  ],
+  "scenarios": 20,
+  "qp_solves": 48,
+  "unchanged_models": {
+    "core": "b364655e006c0b53647a3416f86a12dba4f629f063a9e8f673df1cf2830a80a6",
+    "original": "2ac51cdbf92fce68723db0d5c7401b8676093724fc08e044467ead6dbfa273a0",
+    "unlearned20": "1ac88e3abf2e178a00733c1ddd99d618b0a9ace5892daf6b53032e93938a5933",
+    "retrained": "dc861fe0315c04b57323795312cae938ad5e208f24d79d52d3235dbcb1b1577d",
+    "tamu20": "ae808d22c3e970821807dff74beca73e1a30b250ed2379a7b2d4e0da8cb44a17"
+  },
+  "unchanged_target": true,
+  "zero_forecast_bit_identical": true,
+  "max_zero_cost_delta": 0.0,
+  "max_constraint_violation": 1.694058227030837e-08,
+  "max_objective_error": 1.1368683772161603e-13,
+  "statuses": [
+    "optimal"
+  ]
+}
