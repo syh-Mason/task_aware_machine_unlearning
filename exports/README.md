@@ -1,5 +1,14 @@
 # 实验图表下载
 
+## CNN 输入敏感性与 20% 遗忘研究
+
+[下载五项任务完整结果 ZIP](cnn_sensitivity.zip?raw=true) ·
+[查看在线研究报告](../research/cnn_sensitivity/README.md)。
+
+包含原始输入140维和隐藏表示64维说明、CNN与cost流程图、逐坐标+10%扰动、遗忘前后敏感性对比、完整数值与可重放的真实输入/冻结模型快照。
+
+## 三模型六比例图表
+
 [下载完整图表 ZIP](experiment_figures.zip?raw=true)（约 1.58 MB）。
 
 解压后，图表按 `linear`、`cnn`、`mlp` 三个文件夹分类，包含：

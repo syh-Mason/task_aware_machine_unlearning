@@ -1,0 +1,22 @@
+{
+  "verified_at_shanghai": "2026-10-15T13:48:23.532818+08:00",
+  "tests_passed": 36,
+  "tests_failed": 0,
+  "tests_skipped": 0,
+  "raw_coordinate_mapping_matches_original_csv": null,
+  "weather_annual_mean_zero_sample_std_one": null,
+  "model_and_input_snapshot_hashes_valid": true,
+  "source_hashes_valid": true,
+  "study_rows": 9840,
+  "interventions": 9792,
+  "main_qp_solves": 19680,
+  "replay_qp_solves": 19680,
+  "replay_forecast_values": 137760,
+  "all_replay_forecasts_bit_identical": true,
+  "all_intervention_csv_replay_byte_identical": true,
+  "fixed_trace_targets_match_original_snapshot": true,
+  "pngs_verified": 10,
+  "pdfs_verified": 10,
+  "report_links_resolve": true,
+  "report_generator_sha256": "b99ce5c377534ef2e8b371c87a0fb13f7c68436d9d89768d3978ad71e4212490"
+}

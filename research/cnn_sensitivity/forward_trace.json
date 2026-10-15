@@ -1,0 +1,116 @@
+[
+  {
+    "layer": "conv1",
+    "module": "Conv2d",
+    "input_shape": [
+      1,
+      1,
+      14,
+      10
+    ],
+    "output_shape": [
+      1,
+      8,
+      14,
+      10
+    ]
+  },
+  {
+    "layer": "relu",
+    "module": "ReLU",
+    "input_shape": [
+      1,
+      8,
+      14,
+      10
+    ],
+    "output_shape": [
+      1,
+      8,
+      14,
+      10
+    ]
+  },
+  {
+    "layer": "conv2",
+    "module": "Conv2d",
+    "input_shape": [
+      1,
+      8,
+      14,
+      10
+    ],
+    "output_shape": [
+      1,
+      8,
+      7,
+      5
+    ]
+  },
+  {
+    "layer": "relu",
+    "module": "ReLU",
+    "input_shape": [
+      1,
+      8,
+      7,
+      5
+    ],
+    "output_shape": [
+      1,
+      8,
+      7,
+      5
+    ]
+  },
+  {
+    "layer": "flatten",
+    "module": "Flatten",
+    "input_shape": [
+      1,
+      8,
+      7,
+      5
+    ],
+    "output_shape": [
+      1,
+      280
+    ]
+  },
+  {
+    "layer": "lin1",
+    "module": "Linear",
+    "input_shape": [
+      1,
+      280
+    ],
+    "output_shape": [
+      1,
+      64
+    ]
+  },
+  {
+    "layer": "tanh",
+    "module": "Tanh",
+    "input_shape": [
+      1,
+      64
+    ],
+    "output_shape": [
+      1,
+      64
+    ]
+  },
+  {
+    "layer": "lin2",
+    "module": "Linear",
+    "input_shape": [
+      1,
+      64
+    ],
+    "output_shape": [
+      1,
+      14
+    ]
+  }
+]

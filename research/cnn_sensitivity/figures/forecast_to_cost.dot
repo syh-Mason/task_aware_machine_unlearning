@@ -1,0 +1,23 @@
+digraph COST {
+node [shape=box, style="rounded,filled", fillcolor="#edf4fb", fontname="Noto Sans CJK JP", fontsize=12]; edge [fontname="Noto Sans CJK JP",fontsize=10]; graph [fontname="Noto Sans CJK JP",bgcolor="white",pad="0.25",nodesep="0.25",ranksep="0.4"];
+    rankdir=TB;
+    pred [label="仿射头预测：y_hat (14维标准化值)"];
+    scale [label="evaluate / Operator.solve_one
+d_hat = y_hat * target_std + target_mean (p.u.)
+d_hat_clip = max(d_hat, 0)"];
+    dispatch [label="阶段一：以预测负荷调度
+min PGᵀdiag(q)PG + cᵀPG + λΣLS1
+发电限额、双向线路限额、节点功率平衡
+LS1≥0、参考节点角固定"];
+    truth [label="固定同一观测真实负荷
+d_true = target_std*y_true + target_mean
+输入扰动与机器遗忘均不修改它",fillcolor="#e8f4e5"];
+    redispatch [label="阶段二：给定PG与真实负荷再调度
+min λΣLS2 + κΣLS2² + ρΣGS + ηΣGS²
+节点平衡、双向线路限额、LS2/GS≥0、参考角固定"];
+    total [label="单样本 cost = cost1 + cost2
+响应 Δcost = cost_perturbed - cost_baseline
+每个模型与其自己的基线比较"];
+    pred -> scale -> dispatch -> redispatch -> total;
+    truth -> redispatch;
+    }

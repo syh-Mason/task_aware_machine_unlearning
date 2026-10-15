@@ -1,0 +1,213 @@
+{
+  "created_at_shanghai": "2026-10-15T13:44:51.377534+08:00",
+  "run_mode": "original_data_reconstruction",
+  "replay_source": null,
+  "source_commit": "53bc2ace418a63ac407d0ee2fc3dd1dbf536ee2c",
+  "source_sha256": {
+    "scripts/analyze_cnn_sensitivity.py": "aea6931c4b40674488d9080c52541abf301df7663440299200e0bcee7b21cd47",
+    "utils/sensitivity.py": "6fd8b7553b98bd779c36eb3cfcae606c0a0156a67fdcb763df68a8b9100bfc7f",
+    "utils/net.py": "21c7146b71e3b1a23f27ddd372132a66e3d1b1a738ca020f588c207e59289a9e",
+    "utils/optimization.py": "d03de1bd191b86bb7ba37a98923b18d067027ede012db7743462df85d929433f",
+    "utils/dataset.py": "96a7c944c38b1b1e1e2abdcb234fa2f3cf92374f88387a2eced0a5fa1f486133",
+    "utils/funcs.py": "aea65e44a0c7a77e6f0429104b6f7de1335b527f079e254079106da61d81873c",
+    "func_operation.py": "e9f75d0b8c8c56664aefaac0aa82f3b0c546066eff7953587d6f7eb7fb68e159",
+    "clean_data.py": "f7cd33bd87a4ce0422eedbaeba93ef2544fb436067a641dca487e544dce3f5ae"
+  },
+  "model_validation": {
+    "config": {
+      "case": {
+        "name": "case14",
+        "no_bus": 14,
+        "load_scale": 2,
+        "RATE_A": [
+          180,
+          110,
+          110,
+          110,
+          110,
+          50,
+          150,
+          130,
+          50,
+          60,
+          50,
+          30,
+          50,
+          100,
+          40,
+          40,
+          20,
+          50,
+          20,
+          40
+        ],
+        "second_coeff": [
+          4,
+          25,
+          1,
+          1,
+          1
+        ],
+        "first_coeff": [
+          20,
+          10,
+          50,
+          60,
+          70
+        ],
+        "load_shed_coeff_scale": 50,
+        "gen_storage_coeff_scale": 10,
+        "shunt_tap_linecharge": false
+      },
+      "model": {
+        "type": "nn_conv",
+        "is_scale": true,
+        "exp_dim": true,
+        "in_ch": 1,
+        "input_width": 10,
+        "width": 2,
+        "linear_size": 64,
+        "lr": 0.0001,
+        "epochs": 100,
+        "damp": 0.0,
+        "gnh": false,
+        "train_loss": "mse",
+        "influence_dir": "/workspace/task_aware_machine_unlearning/outputs/real-conv/influence/nn_conv_cost.npy",
+        "core_prop": 0.3,
+        "is_random_core": true,
+        "l1_constraints": [
+          0.15,
+          0.125,
+          0.1,
+          0.075,
+          0.05,
+          0.025,
+          0
+        ],
+        "dataset_choice": "core",
+        "save_dir": "trained_model/nn_conv/",
+        "watch": "train"
+      },
+      "data": {
+        "data_prop": 1,
+        "random_split": false,
+        "train_prop": 0.8,
+        "random_seed": 42,
+        "batch_size": 16,
+        "batch_size_eval": 512,
+        "no_load": 14
+      },
+      "unlearn_prop": 0.2,
+      "unlearn_mode": "helpful",
+      "influence_dir": "influence/",
+      "simulation_dir": "simulation_result/",
+      "criteria": "mse"
+    },
+    "counts": {
+      "train": 7008,
+      "test": 1752,
+      "core": 2102,
+      "sensitive": 4906,
+      "deleted": 981,
+      "remain": 3925
+    },
+    "influence_sha256": "759af29861528285e5602826088a7de74ebb02a6cef52fa432ee5337bbd64c39",
+    "checkpoint_sha256": "6be6331a55594cc33941b645a258a8389894fbb16e0b89a9aa04afededfc3ad0",
+    "processed_data_sha256": {
+      "bus_2.csv": "062ac394456eb2b168c8bb9d09f55ced45961ebb58180345e74514a2283c9648",
+      "bus_11.csv": "0f20250bf03e4be8191927bc1437a969093caa9de1b7662c1eeb5f304a905992",
+      "bus_13.csv": "1591be04b04f0857c05dbc2c295e9b99be05a6f2d8932054ce65547a77e5dff1",
+      "bus_15.csv": "fe5126aa52f35286076023b9762dbf189e4293aa4b69cbf41be245b228943f29",
+      "bus_25.csv": "6849731277290c031dabfcbe902bd5667f3112ffeb0b433e8fac4cf469a449dc",
+      "bus_30.csv": "2e4ec3a4e69108cb3d0e2b6dcf795a82430340cb08b556ab729b52a4b6723869",
+      "bus_38.csv": "2c9660a62d1111ed625e5d856ea7b6f01428755699f44c5baecc65764317bce3",
+      "bus_49.csv": "a5c0f01c25e67d6cbdd112069f277e82e9e754cef3cd575f8dc672122f869ba3",
+      "bus_58.csv": "a61c7a72ea3a8b98282f1dfcbed63cb8937243a7918dda6835cf0af10018e5db",
+      "bus_74.csv": "f85bbca98763ecb80405262c3caa7d3cba45022bc12f5b93d88a3e42bb3787d0",
+      "bus_91.csv": "7b6507e87cbde520ed95e11ddd7f37b1eee968a285d441e2eff00e9c0fbb3d76",
+      "bus_99.csv": "7eff77eb1e3abd362ca3a8a895b97eaf59aa05d92a83a9b8a5b4bfe1143a8d0d",
+      "bus_102.csv": "5ac0421b2799a29ad7ed9c4aa31c8e2291e8fff7628ad334ef21f6f3ccc5cd63",
+      "bus_120.csv": "133d32732a5d2cf75c7e5b0a99309abc161b9e49ddc8b83cf3fe23c8d0f17469"
+    },
+    "full_test_validation": {
+      "original": {
+        "mse": 0.004187925788769595,
+        "mape": 9.237294604786609
+      },
+      "unlearned20": {
+        "mse": 0.005208476725484446,
+        "mape": 9.855998085948425
+      },
+      "retrained": {
+        "mse": 0.005208460264205023,
+        "mape": 9.85599697618021
+      }
+    },
+    "cg_info": 0,
+    "max_parameter_gap_vs_retraining": 0.00036796285870124845,
+    "reference_test_index": 0,
+    "context_test_indices": [
+      0,
+      76,
+      152,
+      228,
+      304,
+      380,
+      456,
+      532,
+      609,
+      685,
+      761,
+      837,
+      913,
+      989,
+      1065,
+      1141,
+      1218,
+      1294,
+      1370,
+      1446,
+      1522,
+      1598,
+      1674,
+      1751
+    ],
+    "dataset_index_note": "Full data; test indices are annual rows 0..1751; Day=row//24+1, Hour=row%24+1. No timezone inferred."
+  },
+  "study_validation": {
+    "frozen_model_hashes": {
+      "core": "b364655e006c0b53647a3416f86a12dba4f629f063a9e8f673df1cf2830a80a6",
+      "original": "2ac51cdbf92fce68723db0d5c7401b8676093724fc08e044467ead6dbfa273a0",
+      "unlearned20": "1ac88e3abf2e178a00733c1ddd99d618b0a9ace5892daf6b53032e93938a5933"
+    },
+    "exact_latent_formula_max_error": 2.3678975447083417e-16,
+    "baseMVA": 100.0,
+    "rows": 9840,
+    "interventions": 9792,
+    "qp_solves": 19680,
+    "statuses": [
+      "optimal"
+    ],
+    "solvers": [
+      "GUROBI"
+    ],
+    "max_constraint_violation": 2.4301125012282654e-07,
+    "max_objective_decomposition_error": 2.2737367544323206e-13,
+    "coordinate_outside_encoded_bound_count": 706,
+    "unchanged_target": true,
+    "unchanged_model_hashes": true
+  },
+  "fraction": 0.1,
+  "perturbation": "x_j -> (1+fraction)*x_j; other coordinates, models and actual target fixed",
+  "limitations": [
+    "64 coordinates are learned tanh features, not named physical inputs",
+    "Raw inputs are 14 buses x 10 features; numerical +10% on encoded values is not physical +10%",
+    "Negative values become more negative and zeros stay zero; interventions can be off the feature manifold",
+    "24 evenly distributed observed test samples provide descriptive context, not population inference",
+    "Original preprocessing uses full-year feature/target statistics before the train/test split"
+  ],
+  "snapshot_sha256": {
+    "frozen_models.npz": "00a91ca99da7338b87e1184e1239a2e4fbb1b6d536f99675210331645835d686",
+    "reference_inputs.npz": "5121f9a19b49706df3cce49ebff09e442ca220f0045c7740addc760c1c7c7f97"
+  }
+}

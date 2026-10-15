@@ -1,0 +1,478 @@
+{
+  "fixed": {
+    "latent64": {
+      "prediction_mae_mw": {
+        "spearman": 0.9382783882783882,
+        "top10_overlap": 5,
+        "original_top5": [
+          {
+            "input_index1": 26,
+            "label": "z26",
+            "value": 0.254908768617446
+          },
+          {
+            "input_index1": 62,
+            "label": "z62",
+            "value": 0.1849234853002112
+          },
+          {
+            "input_index1": 9,
+            "label": "z09",
+            "value": 0.1784539497031178
+          },
+          {
+            "input_index1": 43,
+            "label": "z43",
+            "value": 0.1253316228387762
+          },
+          {
+            "input_index1": 58,
+            "label": "z58",
+            "value": 0.0983326079976262
+          }
+        ],
+        "unlearned20_top5": [
+          {
+            "input_index1": 26,
+            "label": "z26",
+            "value": 0.4144501789445862
+          },
+          {
+            "input_index1": 62,
+            "label": "z62",
+            "value": 0.286891235893668
+          },
+          {
+            "input_index1": 43,
+            "label": "z43",
+            "value": 0.2201029946699976
+          },
+          {
+            "input_index1": 10,
+            "label": "z10",
+            "value": 0.1596490075985553
+          },
+          {
+            "input_index1": 27,
+            "label": "z27",
+            "value": 0.1526250467488838
+          }
+        ]
+      },
+      "cost_delta": {
+        "spearman": 0.8044871794871793,
+        "top10_overlap": 7,
+        "original_top5": [
+          {
+            "input_index1": 26,
+            "label": "z26",
+            "value": 28.90891505197044
+          },
+          {
+            "input_index1": 62,
+            "label": "z62",
+            "value": 21.070585560634868
+          },
+          {
+            "input_index1": 43,
+            "label": "z43",
+            "value": 14.238230907141997
+          },
+          {
+            "input_index1": 9,
+            "label": "z09",
+            "value": 13.55228941608084
+          },
+          {
+            "input_index1": 3,
+            "label": "z03",
+            "value": 10.282415845056562
+          }
+        ],
+        "unlearned20_top5": [
+          {
+            "input_index1": 26,
+            "label": "z26",
+            "value": 47.74833221016775
+          },
+          {
+            "input_index1": 62,
+            "label": "z62",
+            "value": 32.39262864549198
+          },
+          {
+            "input_index1": 43,
+            "label": "z43",
+            "value": 25.410261844118736
+          },
+          {
+            "input_index1": 10,
+            "label": "z10",
+            "value": 18.45423371207596
+          },
+          {
+            "input_index1": 27,
+            "label": "z27",
+            "value": 17.602773516095226
+          }
+        ]
+      }
+    },
+    "raw140": {
+      "prediction_mae_mw": {
+        "spearman": 0.9412389844962937,
+        "top10_overlap": 9,
+        "original_top5": [
+          {
+            "input_index1": 35,
+            "label": "节点4 / Temperature (k)",
+            "value": 0.2764907012640744
+          },
+          {
+            "input_index1": 15,
+            "label": "节点2 / Temperature (k)",
+            "value": 0.1785280788481059
+          },
+          {
+            "input_index1": 95,
+            "label": "节点10 / Temperature (k)",
+            "value": 0.1674785987983894
+          },
+          {
+            "input_index1": 45,
+            "label": "节点5 / Temperature (k)",
+            "value": 0.1340370309327674
+          },
+          {
+            "input_index1": 75,
+            "label": "节点8 / Temperature (k)",
+            "value": 0.1300154801517793
+          }
+        ],
+        "unlearned20_top5": [
+          {
+            "input_index1": 35,
+            "label": "节点4 / Temperature (k)",
+            "value": 0.3641989296154472
+          },
+          {
+            "input_index1": 15,
+            "label": "节点2 / Temperature (k)",
+            "value": 0.1909783350971681
+          },
+          {
+            "input_index1": 95,
+            "label": "节点10 / Temperature (k)",
+            "value": 0.1823554689108869
+          },
+          {
+            "input_index1": 45,
+            "label": "节点5 / Temperature (k)",
+            "value": 0.1677029253164274
+          },
+          {
+            "input_index1": 135,
+            "label": "节点14 / Temperature (k)",
+            "value": 0.1500373467722323
+          }
+        ]
+      },
+      "cost_delta": {
+        "spearman": 0.8874024184907394,
+        "top10_overlap": 9,
+        "original_top5": [
+          {
+            "input_index1": 35,
+            "label": "节点4 / Temperature (k)",
+            "value": 31.686279808780228
+          },
+          {
+            "input_index1": 95,
+            "label": "节点10 / Temperature (k)",
+            "value": 19.01641907671933
+          },
+          {
+            "input_index1": 15,
+            "label": "节点2 / Temperature (k)",
+            "value": 18.751531672922056
+          },
+          {
+            "input_index1": 45,
+            "label": "节点5 / Temperature (k)",
+            "value": 15.315639805263912
+          },
+          {
+            "input_index1": 75,
+            "label": "节点8 / Temperature (k)",
+            "value": 14.818590304271083
+          }
+        ],
+        "unlearned20_top5": [
+          {
+            "input_index1": 35,
+            "label": "节点4 / Temperature (k)",
+            "value": 41.007441774711424
+          },
+          {
+            "input_index1": 95,
+            "label": "节点10 / Temperature (k)",
+            "value": 20.821483462227093
+          },
+          {
+            "input_index1": 15,
+            "label": "节点2 / Temperature (k)",
+            "value": 20.070817792491084
+          },
+          {
+            "input_index1": 45,
+            "label": "节点5 / Temperature (k)",
+            "value": 19.2044319720568
+          },
+          {
+            "input_index1": 135,
+            "label": "节点14 / Temperature (k)",
+            "value": 17.26262765358365
+          }
+        ]
+      }
+    }
+  },
+  "cohort_mean": {
+    "latent64": {
+      "prediction_mae_mw": {
+        "spearman": 0.8517399267399266,
+        "top10_overlap": 5,
+        "original_top5": [
+          {
+            "input_index1": 26,
+            "label": "z26",
+            "value": 0.23723458644464182
+          },
+          {
+            "input_index1": 62,
+            "label": "z62",
+            "value": 0.1697550781541699
+          },
+          {
+            "input_index1": 9,
+            "label": "z09",
+            "value": 0.1603290574813007
+          },
+          {
+            "input_index1": 23,
+            "label": "z23",
+            "value": 0.10920406426557135
+          },
+          {
+            "input_index1": 43,
+            "label": "z43",
+            "value": 0.09433192186108923
+          }
+        ],
+        "unlearned20_top5": [
+          {
+            "input_index1": 26,
+            "label": "z26",
+            "value": 0.3857141413263155
+          },
+          {
+            "input_index1": 62,
+            "label": "z62",
+            "value": 0.26335889187796985
+          },
+          {
+            "input_index1": 43,
+            "label": "z43",
+            "value": 0.16566240845146282
+          },
+          {
+            "input_index1": 27,
+            "label": "z27",
+            "value": 0.13756959159425966
+          },
+          {
+            "input_index1": 4,
+            "label": "z04",
+            "value": 0.13171670566691399
+          }
+        ]
+      },
+      "cost_delta": {
+        "spearman": 0.6652930402930403,
+        "top10_overlap": 6,
+        "original_top5": [
+          {
+            "input_index1": 26,
+            "label": "z26",
+            "value": 28.530085208145234
+          },
+          {
+            "input_index1": 62,
+            "label": "z62",
+            "value": 21.353811463566586
+          },
+          {
+            "input_index1": 9,
+            "label": "z09",
+            "value": 12.982428821838454
+          },
+          {
+            "input_index1": 43,
+            "label": "z43",
+            "value": 11.81916163733191
+          },
+          {
+            "input_index1": 4,
+            "label": "z04",
+            "value": 9.217660331775619
+          }
+        ],
+        "unlearned20_top5": [
+          {
+            "input_index1": 26,
+            "label": "z26",
+            "value": 49.181474234231416
+          },
+          {
+            "input_index1": 62,
+            "label": "z62",
+            "value": 33.5132130336499
+          },
+          {
+            "input_index1": 43,
+            "label": "z43",
+            "value": 22.043097688825977
+          },
+          {
+            "input_index1": 4,
+            "label": "z04",
+            "value": 18.963070677606392
+          },
+          {
+            "input_index1": 27,
+            "label": "z27",
+            "value": 17.7684081271598
+          }
+        ]
+      }
+    },
+    "raw140": {
+      "prediction_mae_mw": {
+        "spearman": 0.9657693905665744,
+        "top10_overlap": 10,
+        "original_top5": [
+          {
+            "input_index1": 35,
+            "label": "节点4 / Temperature (k)",
+            "value": 0.14570827475009301
+          },
+          {
+            "input_index1": 15,
+            "label": "节点2 / Temperature (k)",
+            "value": 0.1190470296578997
+          },
+          {
+            "input_index1": 75,
+            "label": "节点8 / Temperature (k)",
+            "value": 0.09915973098457594
+          },
+          {
+            "input_index1": 55,
+            "label": "节点6 / Temperature (k)",
+            "value": 0.08868898297421109
+          },
+          {
+            "input_index1": 95,
+            "label": "节点10 / Temperature (k)",
+            "value": 0.085865461451119
+          }
+        ],
+        "unlearned20_top5": [
+          {
+            "input_index1": 35,
+            "label": "节点4 / Temperature (k)",
+            "value": 0.18829634196710945
+          },
+          {
+            "input_index1": 15,
+            "label": "节点2 / Temperature (k)",
+            "value": 0.12791457563536363
+          },
+          {
+            "input_index1": 55,
+            "label": "节点6 / Temperature (k)",
+            "value": 0.10295757056537419
+          },
+          {
+            "input_index1": 75,
+            "label": "节点8 / Temperature (k)",
+            "value": 0.0964635078412977
+          },
+          {
+            "input_index1": 115,
+            "label": "节点12 / Temperature (k)",
+            "value": 0.0945495980935735
+          }
+        ]
+      },
+      "cost_delta": {
+        "spearman": 0.9521899805383658,
+        "top10_overlap": 8,
+        "original_top5": [
+          {
+            "input_index1": 35,
+            "label": "节点4 / Temperature (k)",
+            "value": 16.332982207146735
+          },
+          {
+            "input_index1": 15,
+            "label": "节点2 / Temperature (k)",
+            "value": 11.536142470225434
+          },
+          {
+            "input_index1": 75,
+            "label": "节点8 / Temperature (k)",
+            "value": 11.12561903725083
+          },
+          {
+            "input_index1": 55,
+            "label": "节点6 / Temperature (k)",
+            "value": 10.24211907223642
+          },
+          {
+            "input_index1": 115,
+            "label": "节点12 / Temperature (k)",
+            "value": 9.689675495132398
+          }
+        ],
+        "unlearned20_top5": [
+          {
+            "input_index1": 35,
+            "label": "节点4 / Temperature (k)",
+            "value": 21.43640761404389
+          },
+          {
+            "input_index1": 15,
+            "label": "节点2 / Temperature (k)",
+            "value": 12.690248690527403
+          },
+          {
+            "input_index1": 55,
+            "label": "节点6 / Temperature (k)",
+            "value": 12.080279691630198
+          },
+          {
+            "input_index1": 115,
+            "label": "节点12 / Temperature (k)",
+            "value": 11.107063400974624
+          },
+          {
+            "input_index1": 75,
+            "label": "节点8 / Temperature (k)",
+            "value": 10.999176268624915
+          }
+        ]
+      }
+    }
+  }
+}

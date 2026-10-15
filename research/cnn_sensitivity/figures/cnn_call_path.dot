@@ -1,0 +1,28 @@
+digraph CNN {
+node [shape=box, style="rounded,filled", fillcolor="#edf4fb", fontname="Noto Sans CJK JP", fontsize=12]; edge [fontname="Noto Sans CJK JP",fontsize=10]; graph [fontname="Noto Sans CJK JP",bgcolor="white",pad="0.25",nodesep="0.25",ranksep="0.4"];
+    rankdir=TB;
+    raw [label="TX-123BT 2019
+每日负荷 + 气候工作簿"];
+    csv [label="clean_data.py
+14个CSV：各8760行 × (10特征 + Load)"];
+    data [label="MyDataset / return_dataset
+单样本 x: (1, 1, 14, 10)，目标 y: (1, 14)"];
+    conv1 [label="NN_CONV.forward
+conv1 + ReLU → (1, 8, 14, 10)"];
+    conv2 [label="conv2 + ReLU → (1, 8, 7, 5)
+Flatten → (1, 280)"];
+    latent [label="lin1 + tanh → z: (1, 64)
+64维是学习到的隐藏表示"];
+    original [label="敏感集4906条解析拟合的仿射头
+W_original: 14×64，b: 14"];
+    unlearn [label="20%遗忘：删除981，保留3925
+CG更新最后仿射头；卷积提取器固定"];
+    native [label="core.pth自带lin2 → (1,14)
+用于核心网络训练
+遗忘评估取 feature[0] 后另拟合头",fillcolor="#eeeeee",color="gray"];
+    forecast [label="预测标准化负荷 (1,14)
+y_hat = W z + b"];
+    raw -> csv -> data -> conv1 -> conv2 -> latent;
+    latent -> original -> forecast; latent -> unlearn -> forecast;
+    latent -> native [style=dashed,color=gray];
+    }

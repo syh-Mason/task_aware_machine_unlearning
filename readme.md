@@ -157,3 +157,22 @@ Redraw the exported results without the original local `.npy` files:
 .venv/bin/python scripts/plot_unlearning_proportions.py \
   --metrics-json figs/unlearning_metrics.json --output-dir /tmp/tamu-figures
 ```
+
+### CNN input-to-cost sensitivity and 20% unlearning
+
+The completed five-task study is in
+[`research/cnn_sensitivity/README.md`](research/cnn_sensitivity/README.md), with
+feature tables, actual forward shapes, source call diagrams, separate +10%
+interventions on all 64 hidden coordinates and all 140 encoded input coordinates,
+and before/after prediction and cost comparisons. The original CNN input is
+14 buses × 10 features; the 64 values are learned tanh features.
+
+The study reuses the trained extractor and reconstructs the same original and
+20%-unlearned affine heads. It holds actual targets fixed and preserves both
+original optimization problems. Twenty-four recorded test times, 9,792
+interventions, 19,680 QP solves, complete snapshot replay, and 36 tests were
+verified. Exact results and limits are recorded in the report.
+
+[Download the complete sensitivity-study ZIP](exports/cnn_sensitivity.zip?raw=true).
+The bundle includes real frozen weights and saved inputs for replay without
+the original annual data files or neural-network retraining.

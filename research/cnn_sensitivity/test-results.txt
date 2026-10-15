@@ -1,0 +1,37 @@
+....................................                                     [100%]
+=============================== warnings summary ===============================
+../../../workspace/task_aware_machine_unlearning/.venv/lib/python3.10/site-packages/diffcp/cones.py:7
+../../../workspace/task_aware_machine_unlearning/.venv/lib/python3.10/site-packages/diffcp/cones.py:7
+  /workspace/task_aware_machine_unlearning/.venv/lib/python3.10/site-packages/diffcp/cones.py:7: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    if StrictVersion(scs.__version__) >= StrictVersion('3.0.0'):
+
+torch_influence/base.py:203
+  /tmp/cnn-sensitivity-github-package/cnn_sensitivity_study/torch_influence/base.py:203: DeprecationWarning: invalid escape sequence '\m'
+    """This function simply composes :func:`inverse_hvp` with :func:`test_loss_grad`.
+
+torch_influence/base.py:227
+  /tmp/cnn-sensitivity-github-package/cnn_sensitivity_study/torch_influence/base.py:227: DeprecationWarning: invalid escape sequence '\m'
+    """Returns the influence scores of a set of training data points with respect to
+
+tests/test_cost.py: 16 warnings
+tests/test_sensitivity.py: 1 warning
+  /workspace/task_aware_machine_unlearning/.venv/lib/python3.10/site-packages/hydra/_internal/defaults_list.py:251: UserWarning: In 'config': Defaults list is missing `_self_`. See https://hydra.cc/docs/1.2/upgrades/1.0_to_1.1/default_composition_order for more information
+    warnings.warn(msg, UserWarning)
+
+tests/test_cost.py::test_differentiable_cost_includes_dispatch_shedding
+tests/test_cost.py::test_differentiable_cost_includes_dispatch_shedding
+tests/test_cost.py::test_differentiable_cost_includes_dispatch_shedding
+tests/test_cost.py::test_differentiable_cost_includes_dispatch_shedding
+tests/test_cost.py::test_negative_forecast_clipping_matches_differentiable_path
+tests/test_cost.py::test_negative_forecast_clipping_matches_differentiable_path
+tests/test_cost.py::test_negative_forecast_clipping_matches_differentiable_path
+tests/test_cost.py::test_negative_forecast_clipping_matches_differentiable_path
+  /workspace/task_aware_machine_unlearning/.venv/lib/python3.10/site-packages/diffcp/cone_program.py:259: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    if StrictVersion(scs.__version__) < StrictVersion('3.0.0'):
+
+tests/test_cost.py::test_reweighting_problem_beyond_bundled_gurobi_size_limit
+  /tmp/cnn-sensitivity-github-package/cnn_sensitivity_study/utils/optimization.py:64: RuntimeWarning: Using ECOS for the same optimization problem; GUROBI: Solver 'GUROBI' failed. Try another solver, or solve with verbose=True for more information.
+    warnings.warn(f'Using {candidate} for the same optimization problem; ' + '; '.join(failures), RuntimeWarning)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+36 passed, 30 warnings in 3.30s
