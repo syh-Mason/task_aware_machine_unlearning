@@ -1,5 +1,14 @@
 # 实验图表下载
 
+## CNN 输出节点 Cost 诊断与多日期验证
+
+[下载本轮完整结果 ZIP](cnn_cost_attribution.zip?raw=true) ·
+[导师汇报](../research/cnn_cost_attribution/导师汇报.md) ·
+[完整报告](../research/cnn_cost_attribution/README.md)。
+
+包含五档温度扰动的两阶段成本、四种冻结模型对照、输出节点隔离/复位与抽样 Shapley，
+以及 27 个分层日期加原参考点的 28 日期实验。全部实际预测、成本、求解轨迹和复算脚本均保存。
+
 ## CNN 五档温度扰动与四模型对照
 
 [下载本轮完整结果 ZIP](cnn_temperature_response.zip?raw=true) ·

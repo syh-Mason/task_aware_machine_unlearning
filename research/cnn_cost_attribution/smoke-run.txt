@@ -1,0 +1,33 @@
+Restricted license - for non-production use only - expires 2027-11-29
+Context 1/1: test 0, 2019-01-01, reference; four models, five levels and node diagnostics solved
+{
+  "contexts": 1,
+  "stratified_contexts": 0,
+  "scenario_rows": 20,
+  "forecast_values": 280,
+  "node_counterfactual_rows": 56,
+  "coalition_rows": 464,
+  "cost_calls": 480,
+  "qp_solves": 960,
+  "max_constraint_violation": 1.694058227030837e-08,
+  "max_objective_error": 2.2737367544323206e-13,
+  "statuses": [
+    "optimal"
+  ],
+  "solvers": [
+    "GUROBI"
+  ],
+  "zero_forecast_exact": true,
+  "zero_cost_max_error": 0.0,
+  "unchanged_model_hashes": {
+    "core": "b364655e006c0b53647a3416f86a12dba4f629f063a9e8f673df1cf2830a80a6",
+    "original": "2ac51cdbf92fce68723db0d5c7401b8676093724fc08e044467ead6dbfa273a0",
+    "unlearned20": "1ac88e3abf2e178a00733c1ddd99d618b0a9ace5892daf6b53032e93938a5933",
+    "retrained": "dc861fe0315c04b57323795312cae938ad5e208f24d79d52d3235dbcb1b1577d",
+    "tamu20": "ae808d22c3e970821807dff74beca73e1a30b250ed2379a7b2d4e0da8cb44a17"
+  },
+  "unchanged_target": true,
+  "shapley_pairs": 4,
+  "shapley_permutations": 8,
+  "shapley_seed": 42
+}

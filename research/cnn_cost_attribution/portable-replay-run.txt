@@ -1,0 +1,60 @@
+Restricted license - for non-production use only - expires 2027-11-29
+Context 1/28: test 0, 2019-01-01, reference; four models, five levels and node diagnostics solved
+Context 2/28: test 411, 2019-01-18, low; four models, five levels and node diagnostics solved
+Context 3/28: test 129, 2019-01-06, low; four models, five levels and node diagnostics solved
+Context 4/28: test 567, 2019-01-24, low; four models, five levels and node diagnostics solved
+Context 5/28: test 278, 2019-01-12, middle; four models, five levels and node diagnostics solved
+Context 6/28: test 392, 2019-01-17, middle; four models, five levels and node diagnostics solved
+Context 7/28: test 456, 2019-01-20, middle; four models, five levels and node diagnostics solved
+Context 8/28: test 695, 2019-01-29, high; four models, five levels and node diagnostics solved
+Context 9/28: test 29, 2019-01-02, high; four models, five levels and node diagnostics solved
+Context 10/28: test 79, 2019-01-04, high; four models, five levels and node diagnostics solved
+Context 11/28: test 889, 2019-02-07, low; four models, five levels and node diagnostics solved
+Context 12/28: test 775, 2019-02-02, low; four models, five levels and node diagnostics solved
+Context 13/28: test 1068, 2019-02-14, low; four models, five levels and node diagnostics solved
+Context 14/28: test 1216, 2019-02-20, middle; four models, five levels and node diagnostics solved
+Context 15/28: test 1333, 2019-02-25, middle; four models, five levels and node diagnostics solved
+Context 16/28: test 1302, 2019-02-24, middle; four models, five levels and node diagnostics solved
+Context 17/28: test 1242, 2019-02-21, high; four models, five levels and node diagnostics solved
+Context 18/28: test 1041, 2019-02-13, high; four models, five levels and node diagnostics solved
+Context 19/28: test 943, 2019-02-09, high; four models, five levels and node diagnostics solved
+Context 20/28: test 1637, 2019-03-10, low; four models, five levels and node diagnostics solved
+Context 21/28: test 1615, 2019-03-09, low; four models, five levels and node diagnostics solved
+Context 22/28: test 1686, 2019-03-12, low; four models, five levels and node diagnostics solved
+Context 23/28: test 1581, 2019-03-07, middle; four models, five levels and node diagnostics solved
+Context 24/28: test 1448, 2019-03-02, middle; four models, five levels and node diagnostics solved
+Context 25/28: test 1664, 2019-03-11, middle; four models, five levels and node diagnostics solved
+Context 26/28: test 1426, 2019-03-01, high; four models, five levels and node diagnostics solved
+Context 27/28: test 1488, 2019-03-04, high; four models, five levels and node diagnostics solved
+Context 28/28: test 1520, 2019-03-05, high; four models, five levels and node diagnostics solved
+{
+  "contexts": 28,
+  "stratified_contexts": 27,
+  "scenario_rows": 560,
+  "forecast_values": 7840,
+  "node_counterfactual_rows": 1568,
+  "coalition_rows": 8232,
+  "cost_calls": 8680,
+  "qp_solves": 17360,
+  "max_constraint_violation": 7.380637007114998e-08,
+  "max_objective_error": 4.547473508864641e-13,
+  "statuses": [
+    "optimal"
+  ],
+  "solvers": [
+    "GUROBI"
+  ],
+  "zero_forecast_exact": true,
+  "zero_cost_max_error": 0.0,
+  "unchanged_model_hashes": {
+    "core": "b364655e006c0b53647a3416f86a12dba4f629f063a9e8f673df1cf2830a80a6",
+    "original": "2ac51cdbf92fce68723db0d5c7401b8676093724fc08e044467ead6dbfa273a0",
+    "unlearned20": "1ac88e3abf2e178a00733c1ddd99d618b0a9ace5892daf6b53032e93938a5933",
+    "retrained": "dc861fe0315c04b57323795312cae938ad5e208f24d79d52d3235dbcb1b1577d",
+    "tamu20": "ae808d22c3e970821807dff74beca73e1a30b250ed2379a7b2d4e0da8cb44a17"
+  },
+  "unchanged_target": true,
+  "shapley_pairs": 64,
+  "shapley_permutations": 128,
+  "shapley_seed": 42
+}

@@ -1,0 +1,282 @@
+[
+  {
+    "test_index": 0,
+    "date": "2019-01-01",
+    "source_hour": 1,
+    "month": 1,
+    "load_group": "reference",
+    "role": "reference",
+    "true_total_mw": 488.259294629097,
+    "selection_quantile": null
+  },
+  {
+    "test_index": 411,
+    "date": "2019-01-18",
+    "source_hour": 4,
+    "month": 1,
+    "load_group": "low",
+    "role": "stratified",
+    "true_total_mw": 452.2039009258151,
+    "selection_quantile": 0.1
+  },
+  {
+    "test_index": 129,
+    "date": "2019-01-06",
+    "source_hour": 10,
+    "month": 1,
+    "load_group": "low",
+    "role": "stratified",
+    "true_total_mw": 472.15704284608364,
+    "selection_quantile": 0.5
+  },
+  {
+    "test_index": 567,
+    "date": "2019-01-24",
+    "source_hour": 16,
+    "month": 1,
+    "load_group": "low",
+    "role": "stratified",
+    "true_total_mw": 483.60456079244614,
+    "selection_quantile": 0.9
+  },
+  {
+    "test_index": 278,
+    "date": "2019-01-12",
+    "source_hour": 15,
+    "month": 1,
+    "load_group": "middle",
+    "role": "stratified",
+    "true_total_mw": 487.94207759201527,
+    "selection_quantile": 0.1
+  },
+  {
+    "test_index": 392,
+    "date": "2019-01-17",
+    "source_hour": 9,
+    "month": 1,
+    "load_group": "middle",
+    "role": "stratified",
+    "true_total_mw": 494.78559605777264,
+    "selection_quantile": 0.5
+  },
+  {
+    "test_index": 456,
+    "date": "2019-01-20",
+    "source_hour": 1,
+    "month": 1,
+    "load_group": "middle",
+    "role": "stratified",
+    "true_total_mw": 504.87292259931564,
+    "selection_quantile": 0.9
+  },
+  {
+    "test_index": 695,
+    "date": "2019-01-29",
+    "source_hour": 24,
+    "month": 1,
+    "load_group": "high",
+    "role": "stratified",
+    "true_total_mw": 511.2008787691593,
+    "selection_quantile": 0.1
+  },
+  {
+    "test_index": 29,
+    "date": "2019-01-02",
+    "source_hour": 6,
+    "month": 1,
+    "load_group": "high",
+    "role": "stratified",
+    "true_total_mw": 526.685281842947,
+    "selection_quantile": 0.5
+  },
+  {
+    "test_index": 79,
+    "date": "2019-01-04",
+    "source_hour": 8,
+    "month": 1,
+    "load_group": "high",
+    "role": "stratified",
+    "true_total_mw": 558.1949718296528,
+    "selection_quantile": 0.9
+  },
+  {
+    "test_index": 889,
+    "date": "2019-02-07",
+    "source_hour": 2,
+    "month": 2,
+    "load_group": "low",
+    "role": "stratified",
+    "true_total_mw": 438.1710149347782,
+    "selection_quantile": 0.1
+  },
+  {
+    "test_index": 775,
+    "date": "2019-02-02",
+    "source_hour": 8,
+    "month": 2,
+    "load_group": "low",
+    "role": "stratified",
+    "true_total_mw": 466.204222291708,
+    "selection_quantile": 0.5
+  },
+  {
+    "test_index": 1068,
+    "date": "2019-02-14",
+    "source_hour": 13,
+    "month": 2,
+    "load_group": "low",
+    "role": "stratified",
+    "true_total_mw": 475.162186101079,
+    "selection_quantile": 0.9
+  },
+  {
+    "test_index": 1216,
+    "date": "2019-02-20",
+    "source_hour": 17,
+    "month": 2,
+    "load_group": "middle",
+    "role": "stratified",
+    "true_total_mw": 480.2159234881401,
+    "selection_quantile": 0.1
+  },
+  {
+    "test_index": 1333,
+    "date": "2019-02-25",
+    "source_hour": 14,
+    "month": 2,
+    "load_group": "middle",
+    "role": "stratified",
+    "true_total_mw": 489.0879385173321,
+    "selection_quantile": 0.5
+  },
+  {
+    "test_index": 1302,
+    "date": "2019-02-24",
+    "source_hour": 7,
+    "month": 2,
+    "load_group": "middle",
+    "role": "stratified",
+    "true_total_mw": 497.85212744027376,
+    "selection_quantile": 0.9
+  },
+  {
+    "test_index": 1242,
+    "date": "2019-02-21",
+    "source_hour": 19,
+    "month": 2,
+    "load_group": "high",
+    "role": "stratified",
+    "true_total_mw": 504.60365675389767,
+    "selection_quantile": 0.1
+  },
+  {
+    "test_index": 1041,
+    "date": "2019-02-13",
+    "source_hour": 10,
+    "month": 2,
+    "load_group": "high",
+    "role": "stratified",
+    "true_total_mw": 520.302202180028,
+    "selection_quantile": 0.5
+  },
+  {
+    "test_index": 943,
+    "date": "2019-02-09",
+    "source_hour": 8,
+    "month": 2,
+    "load_group": "high",
+    "role": "stratified",
+    "true_total_mw": 557.7097211033106,
+    "selection_quantile": 0.9
+  },
+  {
+    "test_index": 1637,
+    "date": "2019-03-10",
+    "source_hour": 6,
+    "month": 3,
+    "load_group": "low",
+    "role": "stratified",
+    "true_total_mw": 444.87462118268013,
+    "selection_quantile": 0.1
+  },
+  {
+    "test_index": 1615,
+    "date": "2019-03-09",
+    "source_hour": 8,
+    "month": 3,
+    "load_group": "low",
+    "role": "stratified",
+    "true_total_mw": 463.17154690623283,
+    "selection_quantile": 0.5
+  },
+  {
+    "test_index": 1686,
+    "date": "2019-03-12",
+    "source_hour": 7,
+    "month": 3,
+    "load_group": "low",
+    "role": "stratified",
+    "true_total_mw": 478.32858338952065,
+    "selection_quantile": 0.9
+  },
+  {
+    "test_index": 1581,
+    "date": "2019-03-07",
+    "source_hour": 22,
+    "month": 3,
+    "load_group": "middle",
+    "role": "stratified",
+    "true_total_mw": 482.898548617959,
+    "selection_quantile": 0.1
+  },
+  {
+    "test_index": 1448,
+    "date": "2019-03-02",
+    "source_hour": 9,
+    "month": 3,
+    "load_group": "middle",
+    "role": "stratified",
+    "true_total_mw": 492.9655261337757,
+    "selection_quantile": 0.5
+  },
+  {
+    "test_index": 1664,
+    "date": "2019-03-11",
+    "source_hour": 9,
+    "month": 3,
+    "load_group": "middle",
+    "role": "stratified",
+    "true_total_mw": 501.24245658516884,
+    "selection_quantile": 0.9
+  },
+  {
+    "test_index": 1426,
+    "date": "2019-03-01",
+    "source_hour": 11,
+    "month": 3,
+    "load_group": "high",
+    "role": "stratified",
+    "true_total_mw": 510.0727453827858,
+    "selection_quantile": 0.1
+  },
+  {
+    "test_index": 1488,
+    "date": "2019-03-04",
+    "source_hour": 1,
+    "month": 3,
+    "load_group": "high",
+    "role": "stratified",
+    "true_total_mw": 551.0668974369764,
+    "selection_quantile": 0.5
+  },
+  {
+    "test_index": 1520,
+    "date": "2019-03-05",
+    "source_hour": 9,
+    "month": 3,
+    "load_group": "high",
+    "role": "stratified",
+    "true_total_mw": 608.7713159620762,
+    "selection_quantile": 0.9
+  }
+]

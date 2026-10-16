@@ -1,5 +1,9 @@
 # Task-aware Machine Unlearning
 
+最新进展：[CNN 输出节点 Cost 诊断与多日期验证](research/cnn_cost_attribution/README.md) ·
+[导师简报](research/cnn_cost_attribution/导师汇报.md) ·
+[下载结果 ZIP](exports/cnn_cost_attribution.zip?raw=true)。
+
 本轮新增：[CNN 五档温度扰动导师汇报](research/cnn_temperature_response/导师汇报.md) ·
 [三张响应图与完整报告](research/cnn_temperature_response/README.md) ·
 [下载结果 ZIP](exports/cnn_temperature_response.zip?raw=true)。
