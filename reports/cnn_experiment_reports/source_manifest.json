@@ -1,0 +1,109 @@
+{
+  "compiled_date_shanghai": "2026-10-17",
+  "experiment1_commit": "b5fd9f13296382a787f28cacbcb498dd9fff07bc",
+  "experiment2_commit": "b527981a9b5f6c1820a442a44f59ed6a9d446356",
+  "purpose": "Two separate experiment reports plus one group-meeting report with editable slides and speaker manuscript",
+  "new_experiments_run": false,
+  "model_training_performed": false,
+  "source_evidence": [
+    {
+      "copy": "evidence/experiment1_results.csv",
+      "source": "research/cnn_temperature_response/results.csv",
+      "sha256": "38e1ba2ef6fbb93fb332645d5394ca3665dbe40b1379e2d1a8d9b17c84761459"
+    },
+    {
+      "copy": "evidence/experiment1_predictions_14_buses.csv",
+      "source": "research/cnn_temperature_response/predictions_14_buses.csv",
+      "sha256": "02f8528c07cd728c1c1e8ebd354357d88724b37c87db8eba4cec1cef95355757"
+    },
+    {
+      "copy": "evidence/experiment1_validation.json",
+      "source": "research/cnn_temperature_response/validation.json",
+      "sha256": "b911674f522bc9380dba1c928634f57cdb9f330a7d85df9e75c682f11fa267a7"
+    },
+    {
+      "copy": "evidence/experiment1_summary.json",
+      "source": "research/cnn_temperature_response/summary.json",
+      "sha256": "b2cb42182bc9c2fa6a3b18107e1000f96dac9809206ca276b8ee36314f160cad"
+    },
+    {
+      "copy": "evidence/experiment1_cost_traces.json",
+      "source": "research/cnn_temperature_response/cost_traces.json",
+      "sha256": "3707bfc6d27c0967c0312d5af333f87548a1d6a9791c1a18597c061d7c8dac86"
+    },
+    {
+      "copy": "evidence/experiment2_results.csv",
+      "source": "research/cnn_cost_attribution/results.csv",
+      "sha256": "b368d62940be2c69eb768cd857d4500bd61836a9be428a1adf1a8aa321b07271"
+    },
+    {
+      "copy": "evidence/experiment2_cohort_summary.csv",
+      "source": "research/cnn_cost_attribution/cohort_summary.csv",
+      "sha256": "ad96b96dfb323ebdabc224ddb18b4e8d65f73066c6f270ab754803eb6f0bc9f5"
+    },
+    {
+      "copy": "evidence/experiment2_paired_model_costs.csv",
+      "source": "research/cnn_cost_attribution/paired_model_costs.csv",
+      "sha256": "3951abe7597ad69a79f50ad42186dac4fa469e4d6d381d324ca5c42c289ca570"
+    },
+    {
+      "copy": "evidence/experiment2_reference_shapley.csv",
+      "source": "research/cnn_cost_attribution/reference_shapley.csv",
+      "sha256": "9e8f931f2cf2d13b8307605a0b94c058241f051bad63d937dfa5b2973ad09b53"
+    },
+    {
+      "copy": "evidence/experiment2_node_rank_comparison.csv",
+      "source": "research/cnn_cost_attribution/node_rank_comparison.csv",
+      "sha256": "daea1fdbcf4b77fc18a6ae41240073dfe87b1d3ec97d40dd8ff485894afa7422"
+    },
+    {
+      "copy": "evidence/experiment2_selection.json",
+      "source": "research/cnn_cost_attribution/selection.json",
+      "sha256": "cec690e342914743ebf7f2145d49cc12505937ad13fe263c65ce58fbcc1c2384"
+    },
+    {
+      "copy": "evidence/experiment2_validation.json",
+      "source": "research/cnn_cost_attribution/validation.json",
+      "sha256": "b2be285d8ec0c71c9d021a7cbc409906c5fe3cf8fdfbda136ec5e370eb6648dd"
+    },
+    {
+      "copy": "evidence/experiment2_checks.json",
+      "source": "research/cnn_cost_attribution/checks.json",
+      "sha256": "c59e6bbf35cb778bb2d8034efd3d374cf0fe18fcfbaee9a01149c12d5210da12"
+    },
+    {
+      "copy": "evidence/experiment2_counterexamples.csv",
+      "source": "research/cnn_cost_attribution/economic_counterexamples.csv",
+      "sha256": "da06b65ce711571186f9a59d3bf21756030a95431c282fabc5cb8d1428ee54bc"
+    }
+  ],
+  "experiments": {
+    "single_sample": {
+      "scenarios": 20,
+      "tests_passed_at_that_stage": 49,
+      "qp_solves": 48
+    },
+    "cohort": {
+      "contexts": 28,
+      "stratified_dates": 27,
+      "scenarios": 560,
+      "forecast_values": 7840,
+      "qp_solves": 17360,
+      "cumulative_tests_passed": 57,
+      "nonzero_paired_cases": 108,
+      "tamu_lower_than_direct": 106
+    }
+  },
+  "slides": 15,
+  "document_tool_versions": {
+    "python-docx": "1.2.0",
+    "python-pptx": "1.0.2",
+    "matplotlib": "3.10.8",
+    "pandas": "2.2.3",
+    "numpy": "2.3.5",
+    "Pillow": "12.3.0",
+    "PyMuPDF": "1.26.6"
+  },
+  "builder_sha256": "ebf40988434896d1187f90ad2b02fe32c6c4b99ce354ad3bb59936108c5f5546",
+  "report_chart_note": "Charts redrawn from the saved CSV/JSON for readable document and slide typography; no values or experiments changed"
+}

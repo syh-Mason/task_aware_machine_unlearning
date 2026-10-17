@@ -1,5 +1,13 @@
 # 实验图表下载
 
+## 两次实验报告与组会汇报
+
+[下载三份报告完整包 ZIP](cnn_experiment_reports.zip?raw=true) ·
+[文档目录](../reports/cnn_experiment_reports/README.md)。
+
+包含两份独立实验报告（Word/PDF），一份15页组会PPT及PDF，以及逐页讲稿与答疑备忘（Word/PDF）。
+附实际数值表、图表和溯源记录，未重新训练或重新生成实验结果。
+
 ## CNN 输出节点 Cost 诊断与多日期验证
 
 [下载本轮完整结果 ZIP](cnn_cost_attribution.zip?raw=true) ·

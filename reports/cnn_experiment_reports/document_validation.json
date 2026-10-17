@@ -1,0 +1,57 @@
+{
+  "compiled_date_shanghai": "2026-10-17",
+  "new_experiments_run": false,
+  "source_evidence_files_verified": 14,
+  "report1_all_20_metric_rows_match_csv": true,
+  "report2_all_5_cohort_rows_match_csv": true,
+  "report2_all_14_shapley_rows_match_csv": true,
+  "counterexample_matches_paired_results": true,
+  "cumulative_test_counts_not_summed": true,
+  "docx_files": [
+    {
+      "file": "01_single_sample/实验报告一_单样本温度扰动.docx",
+      "tables": 11,
+      "paragraphs": 73
+    },
+    {
+      "file": "02_cost_attribution/实验报告二_节点成本诊断与多日期验证.docx",
+      "tables": 10,
+      "paragraphs": 81
+    },
+    {
+      "file": "03_group_meeting/组会汇报_讲稿.docx",
+      "tables": 0,
+      "paragraphs": 56
+    }
+  ],
+  "pdf_files": [
+    {
+      "file": "01_single_sample/实验报告一_单样本温度扰动.pdf",
+      "pages": 9,
+      "sha256": "afa42e48a53cdfd414586dca75f052c740ea850f7c61648839a1cff06d343335"
+    },
+    {
+      "file": "02_cost_attribution/实验报告二_节点成本诊断与多日期验证.pdf",
+      "pages": 10,
+      "sha256": "82017dfd847ecf93bc2d595f9cea3c68da4fd72a5f81b73553ddac93ba735f55"
+    },
+    {
+      "file": "03_group_meeting/组会汇报_CNN输入影响路径.pdf",
+      "pages": 15,
+      "sha256": "625cdf877ba52f6b83104a3a8d97d6c82ba5c2bab442e8079f25b26e95310ce4"
+    },
+    {
+      "file": "03_group_meeting/组会汇报_讲稿.pdf",
+      "pages": 6,
+      "sha256": "71a5679f832019e312984f2fc3eae1aec1855cd2b8b9b25c2768177eb75199f9"
+    }
+  ],
+  "pptx_slides": 15,
+  "pptx_all_slides_have_speaker_notes": true,
+  "pdf_missing_native_slide_text_chunks": 0,
+  "pdf_outside_page_text_spans": 0,
+  "replacement_characters": 0,
+  "all_pdf_pages_rendered_and_contact_sheets_visually_reviewed": true,
+  "renderer_sha256": "d58daa27129b26c8fcbfef7ba452aba827452f39f8960fced3e066071118a704",
+  "validator_sha256": "c674d42eae75cc3cd10dd7462b8b7234c09f2bdb623b662b444cdece074de0fb"
+}

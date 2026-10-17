@@ -1,5 +1,8 @@
 # Task-aware Machine Unlearning
 
+报告材料：[两次实验报告与组会汇报目录](reports/cnn_experiment_reports/README.md) ·
+[下载 Word / PDF / PPT 完整包](exports/cnn_experiment_reports.zip?raw=true)。
+
 最新进展：[CNN 输出节点 Cost 诊断与多日期验证](research/cnn_cost_attribution/README.md) ·
 [导师简报](research/cnn_cost_attribution/导师汇报.md) ·
 [下载结果 ZIP](exports/cnn_cost_attribution.zip?raw=true)。

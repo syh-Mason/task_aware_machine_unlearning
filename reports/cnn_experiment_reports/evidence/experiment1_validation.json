@@ -1,0 +1,30 @@
+{
+  "scenarios": 20,
+  "forecast_values": 280,
+  "frozen_input_shape": [
+    1,
+    1,
+    14,
+    10
+  ],
+  "all_14_outputs_finite": true,
+  "only_selected_temperature_changes": true,
+  "unchanged_actual_load": true,
+  "zero_forecast_exact": true,
+  "zero_cost_max_error": 0.0,
+  "original_seven_cost_components_verified": true,
+  "all_statuses_optimal": true,
+  "max_constraint_violation": 1.6940582270308372e-08,
+  "snapshot_and_source_checksums_valid": true,
+  "pngs_verified": 4,
+  "pdfs_verified": 4,
+  "relative_report_links_valid": true,
+  "replay_verified": true,
+  "report_generator_sha256": "873f2606162aa401c982ebb56cacf8e7549a4dd3918a7a782889ca1a85bffa44",
+  "validator_sha256": "fcd915832c3fe2ffd0a83aa0300246de629d1497553c39a0e2b08def44515b3c",
+  "replay_all_forecasts_bit_identical": true,
+  "replay_results_and_cost_traces_byte_identical": true,
+  "tests_passed": 49,
+  "tests_skipped": 0,
+  "tests_failed": 0
+}
