@@ -1,0 +1,182 @@
+{
+  "docx_native_equations": 234,
+  "distinct_hyperlink_targets": 46,
+  "pdf_pages": 21,
+  "page_details": [
+    {
+      "page": 1,
+      "characters": 560
+    },
+    {
+      "page": 2,
+      "characters": 991
+    },
+    {
+      "page": 3,
+      "characters": 1105
+    },
+    {
+      "page": 4,
+      "characters": 1477
+    },
+    {
+      "page": 5,
+      "characters": 1263
+    },
+    {
+      "page": 6,
+      "characters": 795
+    },
+    {
+      "page": 7,
+      "characters": 944
+    },
+    {
+      "page": 8,
+      "characters": 925
+    },
+    {
+      "page": 9,
+      "characters": 888
+    },
+    {
+      "page": 10,
+      "characters": 1025
+    },
+    {
+      "page": 11,
+      "characters": 727
+    },
+    {
+      "page": 12,
+      "characters": 774
+    },
+    {
+      "page": 13,
+      "characters": 884
+    },
+    {
+      "page": 14,
+      "characters": 954
+    },
+    {
+      "page": 15,
+      "characters": 753
+    },
+    {
+      "page": 16,
+      "characters": 855
+    },
+    {
+      "page": 17,
+      "characters": 1150
+    },
+    {
+      "page": 18,
+      "characters": 1154
+    },
+    {
+      "page": 19,
+      "characters": 1127
+    },
+    {
+      "page": 20,
+      "characters": 924
+    },
+    {
+      "page": 21,
+      "characters": 759
+    }
+  ],
+  "out_of_page_text": [],
+  "primary_paper_full_text_obtained": false,
+  "source_limitation_disclosed": true,
+  "evidence": {
+    "reference_rows_verified": 4,
+    "nonzero_cohort_scenarios_verified": 108,
+    "tamu_below_direct": 106,
+    "counterexample_verified": true,
+    "source_hashes_verified": true
+  },
+  "teaching_checks": {
+    "scope": "Teaching examples, not new power-grid experiments",
+    "passed": 10,
+    "failed": 0,
+    "checks": [
+      {
+        "name": "remaining_Newton_equals_refit",
+        "passed": true,
+        "original": 0.35714285714285715,
+        "newton": 1.0,
+        "refit": 1.0
+      },
+      {
+        "name": "full_Hessian_does_not_give_exact_remaining_update",
+        "passed": true,
+        "value": 0.7015306122448979
+      },
+      {
+        "name": "classical_local_deletion_approximation",
+        "passed": true,
+        "value": 0.5867346938775511
+      },
+      {
+        "name": "sample_weight_parameter_derivative",
+        "passed": true,
+        "max_abs_error": 5.502855983385846e-12
+      },
+      {
+        "name": "sample_weight_outer_loss_derivative",
+        "passed": true,
+        "max_abs_error": 6.294314028321146e-12
+      },
+      {
+        "name": "weighted_quadratic_Newton_equals_weighted_refit",
+        "passed": true,
+        "max_abs_error": 1.1102230246251565e-16
+      },
+      {
+        "name": "linear_weight_budget_example",
+        "passed": true,
+        "weights": [
+          0.0,
+          1.0,
+          1.0
+        ],
+        "objective": -0.5,
+        "baseline": 1.5
+      },
+      {
+        "name": "active_set_KKT_sensitivity",
+        "passed": true,
+        "derivative": [
+          1.0,
+          0.0,
+          -2.0
+        ],
+        "max_abs_error": 3.130673498219494e-11
+      },
+      {
+        "name": "adjoint_equals_forward_sensitivity",
+        "passed": true,
+        "adjoint": 1.3
+      },
+      {
+        "name": "equal_MSE_unequal_teaching_cost",
+        "passed": true,
+        "forecasts": [
+          0.9,
+          1.1
+        ],
+        "squared_errors": [
+          0.01,
+          0.01
+        ],
+        "costs": [
+          10.899999999999999,
+          2.100000000000001
+        ]
+      }
+    ]
+  }
+}

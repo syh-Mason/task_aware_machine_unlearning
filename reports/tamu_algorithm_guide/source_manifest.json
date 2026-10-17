@@ -1,0 +1,103 @@
+{
+  "compiled_utc": "2026-10-17T08:55:59.921106+00:00",
+  "base_commit": "d166da3416f2431766251a77a535d873d3c07195",
+  "primary_paper_full_text_obtained": false,
+  "prerequisite_papers_full_text_obtained": false,
+  "limitation": "arxiv.org, export.arxiv.org, ar5iv.labs.arxiv.org, ieeexplore.ieee.org, proceedings.mlr.press and other publication sites: proxy 403. GitHub sources succeeded.",
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/xuwkk/task_aware_machine_unlearning/master/readme.md",
+      "status": "read_successfully",
+      "bytes": 7158,
+      "sha256": "24bc21dbdd2fc266fbee7e89c4dd1302bd1a3edb6d6d5ee2d32ba6c0648c0a4a"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/kohpangwei/influence-release/master/README.md",
+      "status": "read_successfully",
+      "bytes": 1843,
+      "sha256": "84bb0db8c53c2088404441edc7d2d20c207e8a8059594f06f40691d2abb8d9cb"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/locuslab/optnet/master/README.md",
+      "status": "read_successfully",
+      "bytes": 4191,
+      "sha256": "1a3bd18ee1e338096481aaf9335ac2e65396ab5f81e97a6cfd0457ae1f0aa6ca"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/cvxgrp/cvxpylayers/master/README.md",
+      "status": "read_successfully",
+      "bytes": 10021,
+      "sha256": "d1082785ad94be77ce49b29ff344f31b97014b9e965b84b40f961ad7df0b7b7a"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/locuslab/e2e-model-learning/master/README.md",
+      "status": "read_successfully",
+      "bytes": 5271,
+      "sha256": "b1fe0b6e0197dea3bbe1bf396e55bc7aa2a77d23c5094db5863d43b040b94311"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/facebookresearch/certified-removal/master/README.md",
+      "status": "read_successfully",
+      "bytes": 2035,
+      "sha256": "277d2d8961f21a6fcba9b00e4c1d22ad6efb65d7fde8ebb61316f66d206d4e8e"
+    },
+    {
+      "url": "https://github.com/xuwkk/blog/blob/5d1d5cf018c350174670efcd5de3ec25068b0a83/docs/posts/learning/autometic_differentiation/differetiable_convex_layer.html",
+      "status": "read_successfully",
+      "bytes": 40921,
+      "sha256": "a02b07ba379483cf0770e17309ea653e5eca42f8ebbfab088e16e7e91822d5bb"
+    },
+    {
+      "file": "readme.md",
+      "sha256": "9d61a2fefcfb8dd9f557918b33fb46b2a6cf54382282f842c1c07dc6f38b7814"
+    },
+    {
+      "file": "eval_unlearn.py",
+      "sha256": "ef6ffffd898653cca4e9e8a5972bdea217109a4cc2978652be4a94024b1d4f8b"
+    },
+    {
+      "file": "eval_unchange.py",
+      "sha256": "ceab976bfe77b09726dc90b0a32dba49753756379af580054e462d8dfbe5263f"
+    },
+    {
+      "file": "gen_index.py",
+      "sha256": "7e711675104f6964db200983b7b22d40333fb8d61f7e9fa2f9b6659762b7eb8e"
+    },
+    {
+      "file": "func_operation.py",
+      "sha256": "e9f75d0b8c8c56664aefaac0aa82f3b0c546066eff7953587d6f7eb7fb68e159"
+    },
+    {
+      "file": "utils/net.py",
+      "sha256": "21c7146b71e3b1a23f27ddd372132a66e3d1b1a738ca020f588c207e59289a9e"
+    },
+    {
+      "file": "utils/optimization.py",
+      "sha256": "d03de1bd191b86bb7ba37a98923b18d067027ede012db7743462df85d929433f"
+    },
+    {
+      "file": "utils/funcs.py",
+      "sha256": "aea65e44a0c7a77e6f0429104b6f7de1335b527f079e254079106da61d81873c"
+    },
+    {
+      "file": "torch_influence/base.py",
+      "sha256": "51b6c0cc1b550b71fd8bff18c138737915d906dd18ad20e4071e9428776b70c7"
+    },
+    {
+      "file": "torch_influence/modules.py",
+      "sha256": "5f01811b2fc0f61e90fd3aa3e7dc675dad0e93fdbf5ec6bf94f135aa6eb72e9e"
+    },
+    {
+      "file": "conf/model/conv.yaml",
+      "sha256": "3f1ebbdf49f166039e95c7bd358aaf66289c2653fb99209ace6e5bbddccf780b"
+    },
+    {
+      "file": "research/cnn_temperature_response/results.csv",
+      "sha256": "38e1ba2ef6fbb93fb332645d5394ca3665dbe40b1379e2d1a8d9b17c84761459"
+    },
+    {
+      "file": "research/cnn_cost_attribution/paired_model_costs.csv",
+      "sha256": "3951abe7597ad69a79f50ad42186dac4fa469e4d6d381d324ca5c42c289ca570"
+    }
+  ]
+}

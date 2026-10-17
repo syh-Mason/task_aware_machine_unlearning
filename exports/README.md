@@ -1,5 +1,14 @@
 # 实验图表下载
 
+## TAMU 算法推导与先修文献
+
+[下载 Word / PDF 讲义 ZIP](tamu_algorithm_guide.zip?raw=true) ·
+[阅读说明与单独下载](../reports/tamu_algorithm_guide/README.md)。
+
+包含先修文献链接、直接遗忘/PAMU/TAMU 数学推导、KKT/伴随求导、完整两阶段 Cost 与代码对应。
+**这是代码核对版：当前代理阻止取得论文全文，尚未完成原文定理、公式编号的逐项核验。**
+文档首页已披露来源限制，附 10 项教学数值检查，未新增或改写实验数据。
+
 ## 两次实验报告与组会汇报
 
 [下载三份报告完整包 ZIP](cnn_experiment_reports.zip?raw=true) ·
