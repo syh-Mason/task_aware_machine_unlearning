@@ -1,5 +1,14 @@
 # 实验图表下载
 
+## CNN 模型内部层作用路径
+
+[下载层结构、激活、归因和内部消融完整包](cnn_layer_paths.zip?raw=true) ·
+[七页Word/PDF与结果目录](../research/cnn_layer_paths/README.md)。
+
+固定已有输入，分析 Conv1/ReLU/Conv2/Flatten/全连接/Tanh/预测头。
+采用官方 Captum v0.7.0，完成四模型逐层记录、320次内部置零消融；不是温度输入扰动实验。
+上传的 Captum ZIP 超过32 MiB读取上限，未读包内版本；使用的公开版本及解释边界已记录。
+
 ## TAMU 分层导图
 
 [下载一张总图与八张详图完整包](tamu_layered_mindmaps.zip?raw=true) ·

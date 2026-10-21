@@ -1,0 +1,486 @@
+{
+  "scope": "Fixed-input internal-layer analysis; no temperature intervention; no new training or cost solves",
+  "models": [
+    "original",
+    "unlearned20",
+    "retrained",
+    "tamu20"
+  ],
+  "stages": [
+    "conv1",
+    "relu1",
+    "conv2",
+    "relu2",
+    "flatten",
+    "lin1",
+    "tanh",
+    "head"
+  ],
+  "layer_shapes": [
+    [
+      1,
+      8,
+      14,
+      10
+    ],
+    [
+      1,
+      8,
+      14,
+      10
+    ],
+    [
+      1,
+      8,
+      7,
+      5
+    ],
+    [
+      1,
+      8,
+      7,
+      5
+    ],
+    [
+      1,
+      280
+    ],
+    [
+      1,
+      64
+    ],
+    [
+      1,
+      64
+    ],
+    [
+      1,
+      14
+    ]
+  ],
+  "model_parameters": 20006,
+  "head_parameters": 910,
+  "input_shape": [
+    1,
+    1,
+    14,
+    10
+  ],
+  "input_sha256": "2f93ad6b48a752ecaee18697f0d78c3102a417af4215e6e92e145480d5dcaf37",
+  "test_index": 0,
+  "captum_version": "0.7.0",
+  "torch_version": "2.0.1+cpu",
+  "captum_source": "https://github.com/pytorch/captum/tree/v0.7.0",
+  "captum_commit": "833d6aad27a921d2868ac0e248b4ab3ed50b13b9",
+  "uploaded_archive_read": false,
+  "uploaded_archive_limitation": "download_file rejects uploaded captum-master.zip exceeding 32 MiB; official v0.7.0 used instead, not claimed identical.",
+  "attribution_method": "LayerGradientXActivation; raw forecast MW per output; local, layer-specific views; no cross-layer summation or causal claim",
+  "internal_ablation": "Set one post-ReLU channel map or one post-tanh hidden neuron to zero; recompute downstream forecast",
+  "total_internal_ablations": 320,
+  "ablation_output_values": 4480,
+  "max_gxa_error": 0.0,
+  "max_affine_decomposition_error": 1.4210854715202004e-14,
+  "max_hidden_ablation_error": 3.26405569239796e-14,
+  "source_hashes": {
+    "/workspace/task_aware_machine_unlearning/research/cnn_temperature_response/frozen_models.npz": "efb43d039dd265823c2314404ec9406670c37b0b2968c734edeaedae7df11d05",
+    "/workspace/task_aware_machine_unlearning/research/cnn_temperature_response/reference_inputs.npz": "774bc041bd65a9d587bbf99560ffaa20cdd53a776983f8cfe6f11a646e456367"
+  },
+  "source_code_sha256": "21c7146b71e3b1a23f27ddd372132a66e3d1b1a738ca020f588c207e59289a9e",
+  "script_sha256": "4533249c05f23c94e872112ae3b38e572c98369a19a3bab37843c4b50ba53246",
+  "unchanged_model_hashes": {
+    "original": "728b1ea9de698875ce62b3e2194bbb4a85a9ce2c09c3d3d4888bedb8fc9dca15",
+    "unlearned20": "b4d0f2deb29a814cce570efad08ec146c1a1118c4908845a839702f0e1881d0a",
+    "retrained": "3bbff4353112b6346514ef10fe520ca40b7a08cee33152ea5df87eaf49643cc4",
+    "tamu20": "6dbe7f8e315962f6bf2cdcad87af1290cf842a5fcb8afcdee5a1f70f868337d0"
+  },
+  "checks_passed": 90,
+  "checks_failed": 0,
+  "checks": [
+    {
+      "name": "original_shared_relu_has_two_calls",
+      "passed": true,
+      "shapes": [
+        [
+          1,
+          8,
+          14,
+          10
+        ],
+        [
+          1,
+          8,
+          7,
+          5
+        ]
+      ]
+    },
+    {
+      "name": "original_wrapper_forecast_bit_identical",
+      "passed": true
+    },
+    {
+      "name": "original_parameter_count",
+      "passed": true
+    },
+    {
+      "name": "original_shared_core_activations_identical",
+      "passed": true
+    },
+    {
+      "name": "original_stage_shapes",
+      "passed": true
+    },
+    {
+      "name": "original_affine_head_decomposition",
+      "passed": true,
+      "error": 3.552713678800501e-15
+    },
+    {
+      "name": "original_hidden_gxa_equals_affine_contribution_output1",
+      "passed": true
+    },
+    {
+      "name": "original_hidden_gxa_equals_affine_contribution_output2",
+      "passed": true
+    },
+    {
+      "name": "original_hidden_gxa_equals_affine_contribution_output3",
+      "passed": true
+    },
+    {
+      "name": "original_hidden_gxa_equals_affine_contribution_output4",
+      "passed": true
+    },
+    {
+      "name": "original_hidden_gxa_equals_affine_contribution_output5",
+      "passed": true
+    },
+    {
+      "name": "original_hidden_gxa_equals_affine_contribution_output6",
+      "passed": true
+    },
+    {
+      "name": "original_hidden_gxa_equals_affine_contribution_output7",
+      "passed": true
+    },
+    {
+      "name": "original_hidden_gxa_equals_affine_contribution_output8",
+      "passed": true
+    },
+    {
+      "name": "original_hidden_gxa_equals_affine_contribution_output9",
+      "passed": true
+    },
+    {
+      "name": "original_hidden_gxa_equals_affine_contribution_output10",
+      "passed": true
+    },
+    {
+      "name": "original_hidden_gxa_equals_affine_contribution_output11",
+      "passed": true
+    },
+    {
+      "name": "original_hidden_gxa_equals_affine_contribution_output12",
+      "passed": true
+    },
+    {
+      "name": "original_hidden_gxa_equals_affine_contribution_output13",
+      "passed": true
+    },
+    {
+      "name": "original_hidden_gxa_equals_affine_contribution_output14",
+      "passed": true
+    },
+    {
+      "name": "original_parameters_unchanged",
+      "passed": true
+    },
+    {
+      "name": "unlearned20_wrapper_forecast_bit_identical",
+      "passed": true
+    },
+    {
+      "name": "unlearned20_parameter_count",
+      "passed": true
+    },
+    {
+      "name": "unlearned20_shared_core_activations_identical",
+      "passed": true
+    },
+    {
+      "name": "unlearned20_stage_shapes",
+      "passed": true
+    },
+    {
+      "name": "unlearned20_affine_head_decomposition",
+      "passed": true,
+      "error": 1.7763568394002505e-15
+    },
+    {
+      "name": "unlearned20_hidden_gxa_equals_affine_contribution_output1",
+      "passed": true
+    },
+    {
+      "name": "unlearned20_hidden_gxa_equals_affine_contribution_output2",
+      "passed": true
+    },
+    {
+      "name": "unlearned20_hidden_gxa_equals_affine_contribution_output3",
+      "passed": true
+    },
+    {
+      "name": "unlearned20_hidden_gxa_equals_affine_contribution_output4",
+      "passed": true
+    },
+    {
+      "name": "unlearned20_hidden_gxa_equals_affine_contribution_output5",
+      "passed": true
+    },
+    {
+      "name": "unlearned20_hidden_gxa_equals_affine_contribution_output6",
+      "passed": true
+    },
+    {
+      "name": "unlearned20_hidden_gxa_equals_affine_contribution_output7",
+      "passed": true
+    },
+    {
+      "name": "unlearned20_hidden_gxa_equals_affine_contribution_output8",
+      "passed": true
+    },
+    {
+      "name": "unlearned20_hidden_gxa_equals_affine_contribution_output9",
+      "passed": true
+    },
+    {
+      "name": "unlearned20_hidden_gxa_equals_affine_contribution_output10",
+      "passed": true
+    },
+    {
+      "name": "unlearned20_hidden_gxa_equals_affine_contribution_output11",
+      "passed": true
+    },
+    {
+      "name": "unlearned20_hidden_gxa_equals_affine_contribution_output12",
+      "passed": true
+    },
+    {
+      "name": "unlearned20_hidden_gxa_equals_affine_contribution_output13",
+      "passed": true
+    },
+    {
+      "name": "unlearned20_hidden_gxa_equals_affine_contribution_output14",
+      "passed": true
+    },
+    {
+      "name": "unlearned20_parameters_unchanged",
+      "passed": true
+    },
+    {
+      "name": "retrained_wrapper_forecast_bit_identical",
+      "passed": true
+    },
+    {
+      "name": "retrained_parameter_count",
+      "passed": true
+    },
+    {
+      "name": "retrained_shared_core_activations_identical",
+      "passed": true
+    },
+    {
+      "name": "retrained_stage_shapes",
+      "passed": true
+    },
+    {
+      "name": "retrained_affine_head_decomposition",
+      "passed": true,
+      "error": 1.4210854715202004e-14
+    },
+    {
+      "name": "retrained_hidden_gxa_equals_affine_contribution_output1",
+      "passed": true
+    },
+    {
+      "name": "retrained_hidden_gxa_equals_affine_contribution_output2",
+      "passed": true
+    },
+    {
+      "name": "retrained_hidden_gxa_equals_affine_contribution_output3",
+      "passed": true
+    },
+    {
+      "name": "retrained_hidden_gxa_equals_affine_contribution_output4",
+      "passed": true
+    },
+    {
+      "name": "retrained_hidden_gxa_equals_affine_contribution_output5",
+      "passed": true
+    },
+    {
+      "name": "retrained_hidden_gxa_equals_affine_contribution_output6",
+      "passed": true
+    },
+    {
+      "name": "retrained_hidden_gxa_equals_affine_contribution_output7",
+      "passed": true
+    },
+    {
+      "name": "retrained_hidden_gxa_equals_affine_contribution_output8",
+      "passed": true
+    },
+    {
+      "name": "retrained_hidden_gxa_equals_affine_contribution_output9",
+      "passed": true
+    },
+    {
+      "name": "retrained_hidden_gxa_equals_affine_contribution_output10",
+      "passed": true
+    },
+    {
+      "name": "retrained_hidden_gxa_equals_affine_contribution_output11",
+      "passed": true
+    },
+    {
+      "name": "retrained_hidden_gxa_equals_affine_contribution_output12",
+      "passed": true
+    },
+    {
+      "name": "retrained_hidden_gxa_equals_affine_contribution_output13",
+      "passed": true
+    },
+    {
+      "name": "retrained_hidden_gxa_equals_affine_contribution_output14",
+      "passed": true
+    },
+    {
+      "name": "retrained_parameters_unchanged",
+      "passed": true
+    },
+    {
+      "name": "tamu20_wrapper_forecast_bit_identical",
+      "passed": true
+    },
+    {
+      "name": "tamu20_parameter_count",
+      "passed": true
+    },
+    {
+      "name": "tamu20_shared_core_activations_identical",
+      "passed": true
+    },
+    {
+      "name": "tamu20_stage_shapes",
+      "passed": true
+    },
+    {
+      "name": "tamu20_affine_head_decomposition",
+      "passed": true,
+      "error": 7.105427357601002e-15
+    },
+    {
+      "name": "tamu20_hidden_gxa_equals_affine_contribution_output1",
+      "passed": true
+    },
+    {
+      "name": "tamu20_hidden_gxa_equals_affine_contribution_output2",
+      "passed": true
+    },
+    {
+      "name": "tamu20_hidden_gxa_equals_affine_contribution_output3",
+      "passed": true
+    },
+    {
+      "name": "tamu20_hidden_gxa_equals_affine_contribution_output4",
+      "passed": true
+    },
+    {
+      "name": "tamu20_hidden_gxa_equals_affine_contribution_output5",
+      "passed": true
+    },
+    {
+      "name": "tamu20_hidden_gxa_equals_affine_contribution_output6",
+      "passed": true
+    },
+    {
+      "name": "tamu20_hidden_gxa_equals_affine_contribution_output7",
+      "passed": true
+    },
+    {
+      "name": "tamu20_hidden_gxa_equals_affine_contribution_output8",
+      "passed": true
+    },
+    {
+      "name": "tamu20_hidden_gxa_equals_affine_contribution_output9",
+      "passed": true
+    },
+    {
+      "name": "tamu20_hidden_gxa_equals_affine_contribution_output10",
+      "passed": true
+    },
+    {
+      "name": "tamu20_hidden_gxa_equals_affine_contribution_output11",
+      "passed": true
+    },
+    {
+      "name": "tamu20_hidden_gxa_equals_affine_contribution_output12",
+      "passed": true
+    },
+    {
+      "name": "tamu20_hidden_gxa_equals_affine_contribution_output13",
+      "passed": true
+    },
+    {
+      "name": "tamu20_hidden_gxa_equals_affine_contribution_output14",
+      "passed": true
+    },
+    {
+      "name": "tamu20_parameters_unchanged",
+      "passed": true
+    },
+    {
+      "name": "captum_activations_match_trace",
+      "passed": true,
+      "max_error": 0.0
+    },
+    {
+      "name": "captum_gxa_matches_direct_autograd",
+      "passed": true,
+      "max_error": 0.0
+    },
+    {
+      "name": "all_outputs_finite",
+      "passed": true
+    },
+    {
+      "name": "hidden_neuron_ablation_matches_exact_head",
+      "passed": true,
+      "max_error": 3.26405569239796e-14
+    },
+    {
+      "name": "source_files_unchanged",
+      "passed": true
+    },
+    {
+      "name": "original_earlier_baseline_reproduced",
+      "passed": true
+    },
+    {
+      "name": "unlearned20_earlier_baseline_reproduced",
+      "passed": true
+    },
+    {
+      "name": "retrained_earlier_baseline_reproduced",
+      "passed": true
+    },
+    {
+      "name": "tamu20_earlier_baseline_reproduced",
+      "passed": true
+    }
+  ],
+  "independent_replay": {
+    "csv_byte_identical": true,
+    "all_layer_arrays_bit_identical": true,
+    "array_count": 492
+  }
+}
