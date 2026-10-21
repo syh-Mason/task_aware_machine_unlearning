@@ -1,0 +1,31 @@
+digraph study {
+graph [rankdir=LR, bgcolor="white", nodesep=0.18, ranksep=0.38, pad=0.22, splines=polyline, outputorder=edgesfirst];
+graph [label="学习分层（非原文章节号）｜原文全文未取得；依据作者摘要、代码与标准推导整理", labelloc=b, fontsize=11, fontname="Noto Sans CJK SC", fontcolor="#526675"];
+node [shape=box, style="rounded,filled", fontname="Noto Sans CJK SC", fontsize=18, margin="0.17,0.12", color="#B5C6D0", fillcolor="white", penwidth=1.2];
+edge [arrowhead=none, color="#8AA3B1", penwidth=1.4];
+root [label="第07层\n实验与证据分层", fontsize=22, fillcolor="#7856A0", fontcolor="white", color="#7856A0"];
+b0 [label="作者摘要 / 仓库复现", color="#7856A0", fillcolor="#EFF5F8", penwidth=1.8];
+root -> b0 [color="#7856A0"];
+b0_l0 [label="预测器比较\nLinear / CNN / MLP-Mixer", tooltip="作者摘要明确这些模型；发表版全部实验设置、结果和图号仍需原文核对。"];
+b0 -> b0_l0 [color="#7856A0"];
+b0_l1 [label="指标与对照\nMSE、MAPE、Cost、重拟合", tooltip="仓库实现直接遗忘与 PAMU/TAMU 入口；当前复现保存六档遗忘比例结果。"];
+b0 -> b0_l1 [color="#7856A0"];
+b0_l2 [label="求解与复现质量\n状态、约束、费用及恢复", tooltip="项目已有成本修复、状态检查和重放记录；工程检查通过不能替代原文理论核验。"];
+b0 -> b0_l2 [color="#7856A0"];
+b1 [label="你的扩展实验一", color="#7856A0", fillcolor="#EFF5F8", penwidth=1.8];
+root -> b1 [color="#7856A0"];
+b1_l0 [label="单输入温度\n1 样本 × 5 档 × 4 模型", tooltip="固定每个模型的参数、其他输入和真实负荷，改变输入节点1温度 ±1、±0.5、0 个训练标准差。"];
+b1 -> b1_l0 [color="#7856A0"];
+b1_l1 [label="完整影响路径\n温度 → 14 输出 → Cost", tooltip="参考点原始 CNN 的 +1σ 总预测变化 −0.827542 MW，总 Cost 变化 −6.778363。"];
+b1 -> b1_l1 [color="#7856A0"];
+b1_l2 [label="响应对照\n原始 / 直接 / 重拟合 / TAMU", tooltip="共享冻结 CNN 核心；TAMU 不是逐个温度水平重新调权。绝对成本与敏感性应分开。"];
+b1 -> b1_l2 [color="#7856A0"];
+b2 [label="你的扩展实验二", color="#7856A0", fillcolor="#EFF5F8", penwidth=1.8];
+root -> b2 [color="#7856A0"];
+b2_l0 [label="28 日期节点诊断\n隔离 / 复位 / 参考点 Shapley", tooltip="28×4=112 组原始 CNN 非零扰动对照的峰值节点一致；这是本批观察，不是数学必然。"];
+b2 -> b2_l0 [color="#7856A0"];
+b2_l1 [label="27 新日期经济性\n106 / 108 低于直接遗忘", tooltip="27 个新日期各一个小时级样本，按月与负荷层预选；参考点不计入该汇总。"];
+b2 -> b2_l1 [color="#7856A0"];
+b2_l2 [label="保留反例\nTAMU 曾贵 60.929210", tooltip="2019-03-12、test1686、−1σ 场景出现该差异，不能把平均改善说成逐场景保证。"];
+b2 -> b2_l2 [color="#7856A0"];
+}

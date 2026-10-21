@@ -1,0 +1,71 @@
+{
+  "learning_layers": 8,
+  "maps": [
+    {
+      "name": "00_overview",
+      "nodes": 17,
+      "title": "Task-Aware\nMachine Unlearning\n任务感知机器遗忘"
+    },
+    {
+      "name": "01_layer",
+      "nodes": 13,
+      "title": "第01层\n研究动机与问题"
+    },
+    {
+      "name": "02_layer",
+      "nodes": 13,
+      "title": "第02层\n数据与预测模型"
+    },
+    {
+      "name": "03_layer",
+      "nodes": 13,
+      "title": "第03层\n直接遗忘与影响函数"
+    },
+    {
+      "name": "04_layer",
+      "nodes": 13,
+      "title": "第04层\nPAMU：性能感知重加权"
+    },
+    {
+      "name": "05_layer",
+      "nodes": 13,
+      "title": "第05层\n下游任务：两阶段电网成本"
+    },
+    {
+      "name": "06_layer",
+      "nodes": 13,
+      "title": "第06层\nTAMU：成本梯度与调权"
+    },
+    {
+      "name": "07_layer",
+      "nodes": 13,
+      "title": "第07层\n实验与证据分层"
+    },
+    {
+      "name": "08_layer",
+      "nodes": 13,
+      "title": "第08层\n结论、局限与后续"
+    }
+  ],
+  "map_pdf_pages": 9,
+  "map_page_characters": [
+    439,
+    203,
+    240,
+    246,
+    268,
+    289,
+    285,
+    311,
+    263
+  ],
+  "word_pdf_pages": 11,
+  "out_of_page_text": [],
+  "primary_paper_full_text_obtained": false,
+  "extension_results_verified": true,
+  "all_figures_have_source_disclaimer": true,
+  "interactive_html_self_contained": true,
+  "interactive_javascript_syntax_checked": true,
+  "html_runtime_browser_tested": false,
+  "interactive_browser_limitation": "No browser runtime test claimed; standalone files and script syntax checked."
+}

@@ -1,0 +1,1716 @@
+<!DOCTYPE html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TAMU 分层交互导图</title><style>
+*{box-sizing:border-box}body{margin:0;background:#f3f6f8;color:#19354b;font:15px/1.65 system-ui,"Noto Sans CJK SC",sans-serif}
+header{padding:16px 22px;background:#19354b;color:white}header h1{margin:0;font-size:23px}.limit{margin:6px 0 0;color:#f1d4a0;font-size:13px}
+.layout{display:grid;grid-template-columns:230px minmax(0,1fr);min-height:75vh}nav{padding:16px;background:#e8f0f4}.tab{display:block;width:100%;text-align:left;border:0;border-radius:7px;padding:12px;margin-bottom:6px;background:transparent;color:#19354b;font-size:15px;cursor:pointer}.tab:hover,.tab.selected{background:#19354b;color:white}
+main{min-width:0;padding:16px}.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px}.toolbar button{padding:8px 14px;border:1px solid #a9bdca;border-radius:6px;background:white;cursor:pointer}input{padding:8px;border:1px solid #a9bdca;border-radius:6px;min-width:210px}.status{font-size:13px;color:#526675}
+.canvas{height:71vh;min-height:480px;border:1px solid #cad7df;background:white;border-radius:9px;overflow:hidden}.pane{display:none;width:100%;height:100%;touch-action:none}.pane.visible{display:block}.pane svg{width:100%;height:100%;display:block;cursor:grab}.pane svg:active{cursor:grabbing}.node.matched polygon,.node.matched path{stroke:#e08022!important;stroke-width:3px!important;fill:#fff0c4!important}
+.notes{display:none;background:white;padding:22px;margin-top:16px;border:1px solid #d3dfe6;border-radius:9px}.notes.visible{display:block}.notes h2{margin-top:0}.notes li{margin-bottom:7px}.formula{padding:10px;background:#edf5f6;border-left:3px solid #167d8d}a{color:#2460a6}
+@media(max-width:760px){.layout{display:block}nav{display:flex;overflow:auto;padding:8px}.tab{min-width:155px;width:auto;margin:0 5px 0 0;padding:8px}.canvas{height:63vh}.limit{font-size:12px}}@media print{nav,.toolbar{display:none}.layout{display:block}.canvas{height:80vh}.notes{page-break-before:always}}
+</style><header><h1>Task-Aware Machine Unlearning｜分层交互导图</h1><p class="limit">学习分层（非原文章节号）｜原文全文未取得；依据作者摘要、代码与标准推导整理</p></header>
+<div class="layout"><nav><button class="tab selected" data-index="0">总导图</button><button class="tab" data-index="1">01 研究动机与问题</button><button class="tab" data-index="2">02 数据与预测模型</button><button class="tab" data-index="3">03 直接遗忘与影响函数</button><button class="tab" data-index="4">04 PAMU：性能感知重加权</button><button class="tab" data-index="5">05 下游任务：两阶段电网成本</button><button class="tab" data-index="6">06 TAMU：成本梯度与调权</button><button class="tab" data-index="7">07 实验与证据分层</button><button class="tab" data-index="8">08 结论、局限与后续</button></nav><main><div class="toolbar"><button id="plus">放大＋</button><button id="minus">缩小－</button><button id="reset">复位</button><input id="search" placeholder="搜索当前图，例如 Cost / Hessian" aria-label="搜索当前图"><span class="status">滚轮缩放 · 拖动平移 · 图下有逐项解释</span></div><div class="canvas"><section class="pane visible" data-index="0"><svg width="913pt" height="607pt"
+ viewBox="0.00 0.00 912.68 606.68" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(15.84 590.84)">
+<title>study</title>
+<polygon fill="white" stroke="transparent" points="-15.84,15.84 -15.84,-590.84 896.84,-590.84 896.84,15.84 -15.84,15.84"/>
+<text text-anchor="middle" x="440.5" y="-7.2" font-family="Noto Sans CJK SC" font-size="11.00" fill="#526675">学习分层（非原文章节号）｜原文全文未取得；依据作者摘要、代码与标准推导整理</text>
+<!-- root&#45;&gt;b0 -->
+<g id="edge1" class="edge">
+<title>root&#45;&gt;b0</title>
+<path fill="none" stroke="#2460a6" stroke-width="1.4" d="M146.34,-342.12C187.85,-404.91 258,-511 258,-511 258,-511 278.68,-517.06 302.84,-524.13"/>
+</g>
+<!-- root&#45;&gt;b1 -->
+<g id="edge3" class="edge">
+<title>root&#45;&gt;b1</title>
+<path fill="none" stroke="#167d8d" stroke-width="1.4" d="M161.27,-342.25C202.73,-384.14 258,-440 258,-440 258,-440 278.68,-446.06 302.84,-453.13"/>
+</g>
+<!-- root&#45;&gt;b2 -->
+<g id="edge5" class="edge">
+<title>root&#45;&gt;b2</title>
+<path fill="none" stroke="#8c5a19" stroke-width="1.4" d="M205.31,-342.19C233.74,-356.66 258,-369 258,-369 258,-369 269.24,-372.29 284.82,-376.85"/>
+</g>
+<!-- root&#45;&gt;b3 -->
+<g id="edge7" class="edge">
+<title>root&#45;&gt;b3</title>
+<path fill="none" stroke="#5f52a3" stroke-width="1.4" d="M231.36,-312.84C244.08,-314.6 257,-316.38 269.63,-318.12"/>
+</g>
+<!-- root&#45;&gt;b4 -->
+<g id="edge9" class="edge">
+<title>root&#45;&gt;b4</title>
+<path fill="none" stroke="#1d7562" stroke-width="1.4" d="M231.36,-281.6C240.11,-280.42 248.96,-279.24 257.74,-278.06"/>
+</g>
+<!-- root&#45;&gt;b5 -->
+<g id="edge11" class="edge">
+<title>root&#45;&gt;b5</title>
+<path fill="none" stroke="#b2533b" stroke-width="1.4" d="M207.71,-251.88C235.09,-238.33 258,-227 258,-227 258,-227 267.45,-224.15 281.04,-220.06"/>
+</g>
+<!-- root&#45;&gt;b6 -->
+<g id="edge13" class="edge">
+<title>root&#45;&gt;b6</title>
+<path fill="none" stroke="#7856a0" stroke-width="1.4" d="M161.66,-252C203.07,-210.73 258,-156 258,-156 258,-156 278.68,-149.77 302.84,-142.49"/>
+</g>
+<!-- root&#45;&gt;b7 -->
+<g id="edge15" class="edge">
+<title>root&#45;&gt;b7</title>
+<path fill="none" stroke="#526675" stroke-width="1.4" d="M146.68,-251.78C188.24,-189.52 258,-85 258,-85 258,-85 273.77,-80.25 293.85,-74.2"/>
+</g>
+<!-- b0&#45;&gt;b0_l0 -->
+<g id="edge2" class="edge">
+<title>b0&#45;&gt;b0_l0</title>
+<path fill="none" stroke="#2460a6" stroke-width="1.4" d="M454.01,-546C476.64,-546 502.53,-546 528.85,-546"/>
+</g>
+<!-- b1&#45;&gt;b1_l0 -->
+<g id="edge4" class="edge">
+<title>b1&#45;&gt;b1_l0</title>
+<path fill="none" stroke="#167d8d" stroke-width="1.4" d="M454.01,-475C476.09,-475 501.25,-475 526.9,-475"/>
+</g>
+<!-- b2&#45;&gt;b2_l0 -->
+<g id="edge6" class="edge">
+<title>b2&#45;&gt;b2_l0</title>
+<path fill="none" stroke="#8c5a19" stroke-width="1.4" d="M472.06,-404C489.86,-404 509.04,-404 528.46,-404"/>
+</g>
+<!-- b3&#45;&gt;b3_l0 -->
+<g id="edge8" class="edge">
+<title>b3&#45;&gt;b3_l0</title>
+<path fill="none" stroke="#5f52a3" stroke-width="1.4" d="M487.05,-333C499.63,-333 512.69,-333 525.89,-333"/>
+</g>
+<!-- b4&#45;&gt;b4_l0 -->
+<g id="edge10" class="edge">
+<title>b4&#45;&gt;b4_l0</title>
+<path fill="none" stroke="#1d7562" stroke-width="1.4" d="M499.31,-262C509.01,-262 518.92,-262 528.89,-262"/>
+</g>
+<!-- b5&#45;&gt;b5_l0 -->
+<g id="edge12" class="edge">
+<title>b5&#45;&gt;b5_l0</title>
+<path fill="none" stroke="#b2533b" stroke-width="1.4" d="M487.05,-191C502.01,-191 517.67,-191 533.42,-191"/>
+</g>
+<!-- b6&#45;&gt;b6_l0 -->
+<g id="edge14" class="edge">
+<title>b6&#45;&gt;b6_l0</title>
+<path fill="none" stroke="#7856a0" stroke-width="1.4" d="M454.01,-120C476.64,-120 502.53,-120 528.85,-120"/>
+</g>
+<!-- b7&#45;&gt;b7_l0 -->
+<g id="edge16" class="edge">
+<title>b7&#45;&gt;b7_l0</title>
+<path fill="none" stroke="#526675" stroke-width="1.4" d="M463.1,-49C483.47,-49 506.02,-49 528.9,-49"/>
+</g>
+<!-- root -->
+<g id="node1" class="node">
+<title>root</title>
+<path fill="#19354b" stroke="#19354b" stroke-width="1.2" d="M219,-342C219,-342 12,-342 12,-342 6,-342 0,-336 0,-330 0,-330 0,-264 0,-264 0,-258 6,-252 12,-252 12,-252 219,-252 219,-252 225,-252 231,-258 231,-264 231,-264 231,-330 231,-330 231,-336 225,-342 219,-342"/>
+<text text-anchor="middle" x="115.5" y="-315.4" font-family="Noto Sans CJK SC" font-size="22.00" fill="white">Task&#45;Aware</text>
+<text text-anchor="middle" x="115.5" y="-291.4" font-family="Noto Sans CJK SC" font-size="22.00" fill="white">Machine Unlearning</text>
+<text text-anchor="middle" x="115.5" y="-267.4" font-family="Noto Sans CJK SC" font-size="22.00" fill="white">任务感知机器遗忘</text>
+</g>
+<!-- b0 -->
+<g id="node2" class="node">
+<title>b0</title>
+<path fill="#eff5f8" stroke="#2460a6" stroke-width="1.8" d="M442,-575C442,-575 315,-575 315,-575 309,-575 303,-569 303,-563 303,-563 303,-529 303,-529 303,-523 309,-517 315,-517 315,-517 442,-517 442,-517 448,-517 454,-523 454,-529 454,-529 454,-563 454,-563 454,-569 448,-575 442,-575"/>
+<text text-anchor="middle" x="378.5" y="-551.6" font-family="Noto Sans CJK SC" font-size="18.00">第01层</text>
+<text text-anchor="middle" x="378.5" y="-531.6" font-family="Noto Sans CJK SC" font-size="18.00">研究动机与问题</text>
+</g>
+<!-- b0_l0 -->
+<g id="node3" class="node">
+<title>b0_l0</title>
+<g id="a_node3"><a xlink:title="三个问题依次是：怎样删、怎样减轻预测性能损失、怎样控制下游运行代价。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M866,-575C866,-575 541,-575 541,-575 535,-575 529,-569 529,-563 529,-563 529,-529 529,-529 529,-523 535,-517 541,-517 541,-517 866,-517 866,-517 872,-517 878,-523 878,-529 878,-529 878,-563 878,-563 878,-569 872,-575 866,-575"/>
+<text text-anchor="middle" x="703.5" y="-551.6" font-family="Noto Sans CJK SC" font-size="18.00">删除历史训练数据的影响，同时关注预测</text>
+<text text-anchor="middle" x="703.5" y="-531.6" font-family="Noto Sans CJK SC" font-size="18.00">性能与运行成本。</text>
+</a>
+</g>
+</g>
+<!-- b1 -->
+<g id="node4" class="node">
+<title>b1</title>
+<path fill="#eff5f8" stroke="#167d8d" stroke-width="1.8" d="M442,-504C442,-504 315,-504 315,-504 309,-504 303,-498 303,-492 303,-492 303,-458 303,-458 303,-452 309,-446 315,-446 315,-446 442,-446 442,-446 448,-446 454,-452 454,-458 454,-458 454,-492 454,-492 454,-498 448,-504 442,-504"/>
+<text text-anchor="middle" x="378.5" y="-480.6" font-family="Noto Sans CJK SC" font-size="18.00">第02层</text>
+<text text-anchor="middle" x="378.5" y="-460.6" font-family="Noto Sans CJK SC" font-size="18.00">数据与预测模型</text>
+</g>
+<!-- b1_l0 -->
+<g id="node5" class="node">
+<title>b1_l0</title>
+<g id="a_node5"><a xlink:title="140 是原始编码输入数，64 是学习到的隐藏维度，14 是预测输出数。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M868,-504C868,-504 539,-504 539,-504 533,-504 527,-498 527,-492 527,-492 527,-458 527,-458 527,-452 533,-446 539,-446 539,-446 868,-446 868,-446 874,-446 880,-452 880,-458 880,-458 880,-492 880,-492 880,-498 874,-504 868,-504"/>
+<text text-anchor="middle" x="703.5" y="-480.6" font-family="Noto Sans CJK SC" font-size="18.00">原始特征进入预测器；CNN 核心与可更新</text>
+<text text-anchor="middle" x="703.5" y="-460.6" font-family="Noto Sans CJK SC" font-size="18.00">预测头分开。</text>
+</a>
+</g>
+</g>
+<!-- b2 -->
+<g id="node6" class="node">
+<title>b2</title>
+<path fill="#eff5f8" stroke="#8c5a19" stroke-width="1.8" d="M460,-433C460,-433 297,-433 297,-433 291,-433 285,-427 285,-421 285,-421 285,-387 285,-387 285,-381 291,-375 297,-375 297,-375 460,-375 460,-375 466,-375 472,-381 472,-387 472,-387 472,-421 472,-421 472,-427 466,-433 460,-433"/>
+<text text-anchor="middle" x="378.5" y="-409.6" font-family="Noto Sans CJK SC" font-size="18.00">第03层</text>
+<text text-anchor="middle" x="378.5" y="-389.6" font-family="Noto Sans CJK SC" font-size="18.00">直接遗忘与影响函数</text>
+</g>
+<!-- b2_l0 -->
+<g id="node7" class="node">
+<title>b2_l0</title>
+<g id="a_node7"><a xlink:title="增权与删除符号相反；直接删除中 H_R 与 H_D 不能随意互换。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M866.5,-433C866.5,-433 540.5,-433 540.5,-433 534.5,-433 528.5,-427 528.5,-421 528.5,-421 528.5,-387 528.5,-387 528.5,-381 534.5,-375 540.5,-375 540.5,-375 866.5,-375 866.5,-375 872.5,-375 878.5,-381 878.5,-387 878.5,-387 878.5,-421 878.5,-421 878.5,-427 872.5,-433 866.5,-433"/>
+<text text-anchor="middle" x="703.5" y="-409.6" font-family="Noto Sans CJK SC" font-size="18.00">用剩余集 Newton 更新删除影响；用影响</text>
+<text text-anchor="middle" x="703.5" y="-389.6" font-family="Noto Sans CJK SC" font-size="18.00">函数估计局部作用。</text>
+</a>
+</g>
+</g>
+<!-- b3 -->
+<g id="node8" class="node">
+<title>b3</title>
+<path fill="#eff5f8" stroke="#5f52a3" stroke-width="1.8" d="M475,-362C475,-362 282,-362 282,-362 276,-362 270,-356 270,-350 270,-350 270,-316 270,-316 270,-310 276,-304 282,-304 282,-304 475,-304 475,-304 481,-304 487,-310 487,-316 487,-316 487,-350 487,-350 487,-356 481,-362 475,-362"/>
+<text text-anchor="middle" x="378.5" y="-338.6" font-family="Noto Sans CJK SC" font-size="18.00">第04层</text>
+<text text-anchor="middle" x="378.5" y="-318.6" font-family="Noto Sans CJK SC" font-size="18.00">PAMU：性能感知重加权</text>
+</g>
+<!-- b3_l0 -->
+<g id="node9" class="node">
+<title>b3_l0</title>
+<g id="a_node9"><a xlink:title="调权看 MSE/MAPE，拟合仍用 MSE；样本权重 w 不等于模型参数 θ。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M869,-362C869,-362 538,-362 538,-362 532,-362 526,-356 526,-350 526,-350 526,-316 526,-316 526,-310 532,-304 538,-304 538,-304 869,-304 869,-304 875,-304 881,-310 881,-316 881,-316 881,-350 881,-350 881,-356 875,-362 869,-362"/>
+<text text-anchor="middle" x="703.5" y="-338.6" font-family="Noto Sans CJK SC" font-size="18.00">根据 MSE/MAPE 的局部影响，为剩余训练</text>
+<text text-anchor="middle" x="703.5" y="-318.6" font-family="Noto Sans CJK SC" font-size="18.00">样本选择权重。</text>
+</a>
+</g>
+</g>
+<!-- b4 -->
+<g id="node10" class="node">
+<title>b4</title>
+<path fill="#eff5f8" stroke="#1d7562" stroke-width="1.8" d="M487,-291C487,-291 270,-291 270,-291 264,-291 258,-285 258,-279 258,-279 258,-245 258,-245 258,-239 264,-233 270,-233 270,-233 487,-233 487,-233 493,-233 499,-239 499,-245 499,-245 499,-279 499,-279 499,-285 493,-291 487,-291"/>
+<text text-anchor="middle" x="378.5" y="-267.6" font-family="Noto Sans CJK SC" font-size="18.00">第05层</text>
+<text text-anchor="middle" x="378.5" y="-247.6" font-family="Noto Sans CJK SC" font-size="18.00">下游任务：两阶段电网成本</text>
+</g>
+<!-- b4_l0 -->
+<g id="node11" class="node">
+<title>b4_l0</title>
+<g id="a_node11"><a xlink:title="同样 MSE 可以造成不同调度费用；人工输入扰动时真实负荷固定。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M866,-291C866,-291 541,-291 541,-291 535,-291 529,-285 529,-279 529,-279 529,-245 529,-245 529,-239 535,-233 541,-233 541,-233 866,-233 866,-233 872,-233 878,-239 878,-245 878,-245 878,-279 878,-279 878,-285 872,-291 866,-291"/>
+<text text-anchor="middle" x="703.5" y="-267.6" font-family="Noto Sans CJK SC" font-size="18.00">预测决定阶段一发电；真实负荷与已排发</text>
+<text text-anchor="middle" x="703.5" y="-247.6" font-family="Noto Sans CJK SC" font-size="18.00">电决定阶段二费用。</text>
+</a>
+</g>
+</g>
+<!-- b5 -->
+<g id="node12" class="node">
+<title>b5</title>
+<path fill="#eff5f8" stroke="#b2533b" stroke-width="1.8" d="M475,-220C475,-220 282,-220 282,-220 276,-220 270,-214 270,-208 270,-208 270,-174 270,-174 270,-168 276,-162 282,-162 282,-162 475,-162 475,-162 481,-162 487,-168 487,-174 487,-174 487,-208 487,-208 487,-214 481,-220 475,-220"/>
+<text text-anchor="middle" x="378.5" y="-196.6" font-family="Noto Sans CJK SC" font-size="18.00">第06层</text>
+<text text-anchor="middle" x="378.5" y="-176.6" font-family="Noto Sans CJK SC" font-size="18.00">TAMU：成本梯度与调权</text>
+</g>
+<!-- b5_l0 -->
+<g id="node13" class="node">
+<title>b5_l0</title>
+<g id="a_node13"><a xlink:title="Cost 梯度指导选权；训练 Hessian 来自 MSE；平均目标不保证逐场景经济性。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M861.5,-220C861.5,-220 545.5,-220 545.5,-220 539.5,-220 533.5,-214 533.5,-208 533.5,-208 533.5,-174 533.5,-174 533.5,-168 539.5,-162 545.5,-162 545.5,-162 861.5,-162 861.5,-162 867.5,-162 873.5,-168 873.5,-174 873.5,-174 873.5,-208 873.5,-208 873.5,-214 867.5,-220 861.5,-220"/>
+<text text-anchor="middle" x="703.5" y="-196.6" font-family="Noto Sans CJK SC" font-size="18.00">以完整 Cost 梯度替换性能梯度，其余评</text>
+<text text-anchor="middle" x="703.5" y="-176.6" font-family="Noto Sans CJK SC" font-size="18.00">分和重加权框架相连。</text>
+</a>
+</g>
+</g>
+<!-- b6 -->
+<g id="node14" class="node">
+<title>b6</title>
+<path fill="#eff5f8" stroke="#7856a0" stroke-width="1.8" d="M442,-149C442,-149 315,-149 315,-149 309,-149 303,-143 303,-137 303,-137 303,-103 303,-103 303,-97 309,-91 315,-91 315,-91 442,-91 442,-91 448,-91 454,-97 454,-103 454,-103 454,-137 454,-137 454,-143 448,-149 442,-149"/>
+<text text-anchor="middle" x="378.5" y="-125.6" font-family="Noto Sans CJK SC" font-size="18.00">第07层</text>
+<text text-anchor="middle" x="378.5" y="-105.6" font-family="Noto Sans CJK SC" font-size="18.00">实验与证据分层</text>
+</g>
+<!-- b6_l0 -->
+<g id="node15" class="node">
+<title>b6_l0</title>
+<g id="a_node15"><a xlink:title="实验一打通输入路径；实验二检查节点贡献和多日期稳定性。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M866,-149C866,-149 541,-149 541,-149 535,-149 529,-143 529,-137 529,-137 529,-103 529,-103 529,-97 535,-91 541,-91 541,-91 866,-91 866,-91 872,-91 878,-97 878,-103 878,-103 878,-137 878,-137 878,-143 872,-149 866,-149"/>
+<text text-anchor="middle" x="703.5" y="-125.6" font-family="Noto Sans CJK SC" font-size="18.00">作者研究范围、仓库复现、你的温度扩展</text>
+<text text-anchor="middle" x="703.5" y="-105.6" font-family="Noto Sans CJK SC" font-size="18.00">具有不同证据来源。</text>
+</a>
+</g>
+</g>
+<!-- b7 -->
+<g id="node16" class="node">
+<title>b7</title>
+<path fill="#eff5f8" stroke="#526675" stroke-width="1.8" d="M451,-78C451,-78 306,-78 306,-78 300,-78 294,-72 294,-66 294,-66 294,-32 294,-32 294,-26 300,-20 306,-20 306,-20 451,-20 451,-20 457,-20 463,-26 463,-32 463,-32 463,-66 463,-66 463,-72 457,-78 451,-78"/>
+<text text-anchor="middle" x="378.5" y="-54.6" font-family="Noto Sans CJK SC" font-size="18.00">第08层</text>
+<text text-anchor="middle" x="378.5" y="-34.6" font-family="Noto Sans CJK SC" font-size="18.00">结论、局限与后续</text>
+</g>
+<!-- b7_l0 -->
+<g id="node17" class="node">
+<title>b7_l0</title>
+<g id="a_node17"><a xlink:title="局部优化代理、精确头部拟合、逐场景经济性、认证遗忘是不同层次的结论。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M866,-78C866,-78 541,-78 541,-78 535,-78 529,-72 529,-66 529,-66 529,-32 529,-32 529,-26 535,-20 541,-20 541,-20 866,-20 866,-20 872,-20 878,-26 878,-32 878,-32 878,-66 878,-66 878,-72 872,-78 866,-78"/>
+<text text-anchor="middle" x="703.5" y="-54.6" font-family="Noto Sans CJK SC" font-size="18.00">遗忘、预测性能、运行经济性和输入敏感</text>
+<text text-anchor="middle" x="703.5" y="-34.6" font-family="Noto Sans CJK SC" font-size="18.00">性需要分别评价。</text>
+</a>
+</g>
+</g>
+</g>
+</svg>
+</section><section class="pane" data-index="1"><svg width="601pt" height="678pt"
+ viewBox="0.00 0.00 600.68 677.68" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(15.84 661.84)">
+<title>study</title>
+<polygon fill="white" stroke="transparent" points="-15.84,15.84 -15.84,-661.84 584.84,-661.84 584.84,15.84 -15.84,15.84"/>
+<text text-anchor="middle" x="284.5" y="-7.2" font-family="Noto Sans CJK SC" font-size="11.00" fill="#526675">学习分层（非原文章节号）｜原文全文未取得；依据作者摘要、代码与标准推导整理</text>
+<!-- root&#45;&gt;b0 -->
+<g id="edge1" class="edge">
+<title>root&#45;&gt;b0</title>
+<path fill="none" stroke="#2460a6" stroke-width="1.4" d="M123.36,-366.29C160.73,-403.04 219.61,-460.95 249.97,-490.79"/>
+</g>
+<!-- root&#45;&gt;b1 -->
+<g id="edge5" class="edge">
+<title>root&#45;&gt;b1</title>
+<path fill="none" stroke="#2460a6" stroke-width="1.4" d="M177.13,-333C186.16,-333 195.22,-333 203.95,-333"/>
+</g>
+<!-- root&#45;&gt;b2 -->
+<g id="edge9" class="edge">
+<title>root&#45;&gt;b2</title>
+<path fill="none" stroke="#2460a6" stroke-width="1.4" d="M123.36,-299.71C160.73,-262.96 219.61,-205.05 249.97,-175.21"/>
+</g>
+<!-- b0&#45;&gt;b0_l0 -->
+<g id="edge2" class="edge">
+<title>b0&#45;&gt;b0_l0</title>
+<path fill="none" stroke="#2460a6" stroke-width="1.4" d="M296.29,-529.29C323.69,-550.62 364,-582 364,-582 364,-582 370.95,-584.4 381.22,-587.94"/>
+</g>
+<!-- b0&#45;&gt;b0_l1 -->
+<g id="edge3" class="edge">
+<title>b0&#45;&gt;b0_l1</title>
+<path fill="none" stroke="#2460a6" stroke-width="1.4" d="M337.18,-522.19C351.47,-524.84 366.78,-527.68 381.66,-530.44"/>
+</g>
+<!-- b0&#45;&gt;b0_l2 -->
+<g id="edge4" class="edge">
+<title>b0&#45;&gt;b0_l2</title>
+<path fill="none" stroke="#2460a6" stroke-width="1.4" d="M337.18,-498.15C348.61,-496.09 360.69,-493.91 372.69,-491.74"/>
+</g>
+<!-- b1&#45;&gt;b1_l0 -->
+<g id="edge6" class="edge">
+<title>b1&#45;&gt;b1_l0</title>
+<path fill="none" stroke="#2460a6" stroke-width="1.4" d="M320.46,-352.05C342.65,-360.69 364,-369 364,-369 364,-369 370.95,-371.4 381.22,-374.94"/>
+</g>
+<!-- b1&#45;&gt;b1_l1 -->
+<g id="edge7" class="edge">
+<title>b1&#45;&gt;b1_l1</title>
+<path fill="none" stroke="#2460a6" stroke-width="1.4" d="M337.18,-333C354.44,-333 373.18,-333 390.87,-333"/>
+</g>
+<!-- b1&#45;&gt;b1_l2 -->
+<g id="edge8" class="edge">
+<title>b1&#45;&gt;b1_l2</title>
+<path fill="none" stroke="#2460a6" stroke-width="1.4" d="M321.81,-313.96C343.51,-305.75 364,-298 364,-298 364,-298 372.03,-295.15 383.57,-291.06"/>
+</g>
+<!-- b2&#45;&gt;b2_l0 -->
+<g id="edge10" class="edge">
+<title>b2&#45;&gt;b2_l0</title>
+<path fill="none" stroke="#2460a6" stroke-width="1.4" d="M337.18,-167.85C351.47,-170.43 366.78,-173.19 381.66,-175.87"/>
+</g>
+<!-- b2&#45;&gt;b2_l1 -->
+<g id="edge11" class="edge">
+<title>b2&#45;&gt;b2_l1</title>
+<path fill="none" stroke="#2460a6" stroke-width="1.4" d="M337.18,-143.81C354.44,-140.61 373.18,-137.13 390.87,-133.85"/>
+</g>
+<!-- b2&#45;&gt;b2_l2 -->
+<g id="edge12" class="edge">
+<title>b2&#45;&gt;b2_l2</title>
+<path fill="none" stroke="#2460a6" stroke-width="1.4" d="M296.29,-136.97C323.69,-115.94 364,-85 364,-85 364,-85 373.3,-81.7 386.27,-77.1"/>
+</g>
+<!-- root -->
+<g id="node1" class="node">
+<title>root</title>
+<path fill="#2460a6" stroke="#2460a6" stroke-width="1.2" d="M165,-366C165,-366 12,-366 12,-366 6,-366 0,-360 0,-354 0,-354 0,-312 0,-312 0,-306 6,-300 12,-300 12,-300 165,-300 165,-300 171,-300 177,-306 177,-312 177,-312 177,-354 177,-354 177,-360 171,-366 165,-366"/>
+<text text-anchor="middle" x="88.5" y="-339.4" font-family="Noto Sans CJK SC" font-size="22.00" fill="white">第01层</text>
+<text text-anchor="middle" x="88.5" y="-315.4" font-family="Noto Sans CJK SC" font-size="22.00" fill="white">研究动机与问题</text>
+</g>
+<!-- b0 -->
+<g id="node2" class="node">
+<title>b0</title>
+<path fill="#eff5f8" stroke="#2460a6" stroke-width="1.8" d="M325,-529C325,-529 216,-529 216,-529 210,-529 204,-523 204,-517 204,-517 204,-503 204,-503 204,-497 210,-491 216,-491 216,-491 325,-491 325,-491 331,-491 337,-497 337,-503 337,-503 337,-517 337,-517 337,-523 331,-529 325,-529"/>
+<text text-anchor="middle" x="270.5" y="-505.6" font-family="Noto Sans CJK SC" font-size="18.00">问题从哪里来</text>
+</g>
+<!-- b0_l0 -->
+<g id="node3" class="node">
+<title>b0_l0</title>
+<g id="a_node3"><a xlink:title="删除对象是历史训练样本的影响，不是删除一个温度特征，也不是要求模型无法预测该样本。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M557,-646C557,-646 376,-646 376,-646 370,-646 364,-640 364,-634 364,-634 364,-600 364,-600 364,-594 370,-588 376,-588 376,-588 557,-588 557,-588 563,-588 569,-594 569,-600 569,-600 569,-634 569,-634 569,-640 563,-646 557,-646"/>
+<text text-anchor="middle" x="466.5" y="-622.6" font-family="Noto Sans CJK SC" font-size="18.00">隐私撤回</text>
+<text text-anchor="middle" x="466.5" y="-602.6" font-family="Noto Sans CJK SC" font-size="18.00">指定数据不再参与学习</text>
+</a>
+</g>
+</g>
+<!-- b0_l1 -->
+<g id="node4" class="node">
+<title>b0_l1</title>
+<g id="a_node4"><a xlink:title="作者摘要列出恶意数据等删除动机；是否有害要依据实际数据和评价标准判断。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M539,-575C539,-575 394,-575 394,-575 388,-575 382,-569 382,-563 382,-563 382,-529 382,-529 382,-523 388,-517 394,-517 394,-517 539,-517 539,-517 545,-517 551,-523 551,-529 551,-529 551,-563 551,-563 551,-569 545,-575 539,-575"/>
+<text text-anchor="middle" x="466.5" y="-551.6" font-family="Noto Sans CJK SC" font-size="18.00">数据质量</text>
+<text text-anchor="middle" x="466.5" y="-531.6" font-family="Noto Sans CJK SC" font-size="18.00">恶意或不可靠样本</text>
+</a>
+</g>
+</g>
+<!-- b0_l2 -->
+<g id="node5" class="node">
+<title>b0_l2</title>
+<g id="a_node5"><a xlink:title="从文件中删掉原始记录，并不会自动更新已经训练出来的模型参数。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M548,-504C548,-504 385,-504 385,-504 379,-504 373,-498 373,-492 373,-492 373,-458 373,-458 373,-452 379,-446 385,-446 385,-446 548,-446 548,-446 554,-446 560,-452 560,-458 560,-458 560,-492 560,-492 560,-498 554,-504 548,-504"/>
+<text text-anchor="middle" x="466.5" y="-480.6" font-family="Noto Sans CJK SC" font-size="18.00">部署之后</text>
+<text text-anchor="middle" x="466.5" y="-460.6" font-family="Noto Sans CJK SC" font-size="18.00">模型已经学习过数据</text>
+</a>
+</g>
+</g>
+<!-- b1 -->
+<g id="node6" class="node">
+<title>b1</title>
+<path fill="#eff5f8" stroke="#2460a6" stroke-width="1.8" d="M325,-352C325,-352 216,-352 216,-352 210,-352 204,-346 204,-340 204,-340 204,-326 204,-326 204,-320 210,-314 216,-314 216,-314 325,-314 325,-314 331,-314 337,-320 337,-326 337,-326 337,-340 337,-340 337,-346 331,-352 325,-352"/>
+<text text-anchor="middle" x="270.5" y="-328.6" font-family="Noto Sans CJK SC" font-size="18.00">必须比较什么</text>
+</g>
+<!-- b1_l0 -->
+<g id="node7" class="node">
+<title>b1_l0</title>
+<g id="a_node7"><a xlink:title="需要先明确重训算法、删除集合和保证定义，不能只以误差变化判断是否遗忘成功。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M548,-433C548,-433 385,-433 385,-433 379,-433 373,-427 373,-421 373,-421 373,-387 373,-387 373,-381 379,-375 385,-375 385,-375 548,-375 548,-375 554,-375 560,-381 560,-387 560,-387 560,-421 560,-421 560,-427 554,-433 548,-433"/>
+<text text-anchor="middle" x="466.5" y="-409.6" font-family="Noto Sans CJK SC" font-size="18.00">遗忘结果</text>
+<text text-anchor="middle" x="466.5" y="-389.6" font-family="Noto Sans CJK SC" font-size="18.00">与剩余数据重训比较</text>
+</a>
+</g>
+</g>
+<!-- b1_l1 -->
+<g id="node8" class="node">
+<title>b1_l1</title>
+<g id="a_node8"><a xlink:title="影响函数和 Newton 更新提供减少某些重新拟合计算的途径；实际速度仍取决于规模与数值求解。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M530,-362C530,-362 403,-362 403,-362 397,-362 391,-356 391,-350 391,-350 391,-316 391,-316 391,-310 397,-304 403,-304 403,-304 530,-304 530,-304 536,-304 542,-310 542,-316 542,-316 542,-350 542,-350 542,-356 536,-362 530,-362"/>
+<text text-anchor="middle" x="466.5" y="-338.6" font-family="Noto Sans CJK SC" font-size="18.00">计算代价</text>
+<text text-anchor="middle" x="466.5" y="-318.6" font-family="Noto Sans CJK SC" font-size="18.00">更新与从头拟合</text>
+</a>
+</g>
+</g>
+<!-- b1_l2 -->
+<g id="node9" class="node">
+<title>b1_l2</title>
+<g id="a_node9"><a xlink:title="删掉有帮助的样本可能损伤预测或运行表现；性能与成本是不同评价维度。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M539,-291C539,-291 394,-291 394,-291 388,-291 382,-285 382,-279 382,-279 382,-245 382,-245 382,-239 388,-233 394,-233 394,-233 539,-233 539,-233 545,-233 551,-239 551,-245 551,-245 551,-279 551,-279 551,-285 545,-291 539,-291"/>
+<text text-anchor="middle" x="466.5" y="-267.6" font-family="Noto Sans CJK SC" font-size="18.00">保留效用</text>
+<text text-anchor="middle" x="466.5" y="-247.6" font-family="Noto Sans CJK SC" font-size="18.00">预测指标与经济性</text>
+</a>
+</g>
+</g>
+<!-- b2 -->
+<g id="node10" class="node">
+<title>b2</title>
+<path fill="#eff5f8" stroke="#2460a6" stroke-width="1.8" d="M325,-175C325,-175 216,-175 216,-175 210,-175 204,-169 204,-163 204,-163 204,-149 204,-149 204,-143 210,-137 216,-137 216,-137 325,-137 325,-137 331,-137 337,-143 337,-149 337,-149 337,-163 337,-163 337,-169 331,-175 325,-175"/>
+<text text-anchor="middle" x="270.5" y="-151.6" font-family="Noto Sans CJK SC" font-size="18.00">方法逐层递进</text>
+</g>
+<!-- b2_l0 -->
+<g id="node11" class="node">
+<title>b2_l0</title>
+<g id="a_node11"><a xlink:title="先建立可核对的删除更新，再与剩余数据重新拟合比较。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M539,-220C539,-220 394,-220 394,-220 388,-220 382,-214 382,-208 382,-208 382,-174 382,-174 382,-168 388,-162 394,-162 394,-162 539,-162 539,-162 545,-162 551,-168 551,-174 551,-174 551,-208 551,-208 551,-214 545,-220 539,-220"/>
+<text text-anchor="middle" x="466.5" y="-196.6" font-family="Noto Sans CJK SC" font-size="18.00">直接遗忘</text>
+<text text-anchor="middle" x="466.5" y="-176.6" font-family="Noto Sans CJK SC" font-size="18.00">更新剩余集预测头</text>
+</a>
+</g>
+</g>
+<!-- b2_l1 -->
+<g id="node12" class="node">
+<title>b2_l1</title>
+<g id="a_node12"><a xlink:title="在剩余样本重加权时关注 MSE 或 MAPE 的局部影响。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M530,-149C530,-149 403,-149 403,-149 397,-149 391,-143 391,-137 391,-137 391,-103 391,-103 391,-97 397,-91 403,-91 403,-91 530,-91 530,-91 536,-91 542,-97 542,-103 542,-103 542,-137 542,-137 542,-143 536,-149 530,-149"/>
+<text text-anchor="middle" x="466.5" y="-125.6" font-family="Noto Sans CJK SC" font-size="18.00">PAMU</text>
+<text text-anchor="middle" x="466.5" y="-105.6" font-family="Noto Sans CJK SC" font-size="18.00">按预测指标调权</text>
+</a>
+</g>
+</g>
+<!-- b2_l2 -->
+<g id="node13" class="node">
+<title>b2_l2</title>
+<g id="a_node13"><a xlink:title="将下游调度代价引入评分，讨论删除后的经济性。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M534.5,-78C534.5,-78 398.5,-78 398.5,-78 392.5,-78 386.5,-72 386.5,-66 386.5,-66 386.5,-32 386.5,-32 386.5,-26 392.5,-20 398.5,-20 398.5,-20 534.5,-20 534.5,-20 540.5,-20 546.5,-26 546.5,-32 546.5,-32 546.5,-66 546.5,-66 546.5,-72 540.5,-78 534.5,-78"/>
+<text text-anchor="middle" x="466.5" y="-54.6" font-family="Noto Sans CJK SC" font-size="18.00">TAMU</text>
+<text text-anchor="middle" x="466.5" y="-34.6" font-family="Noto Sans CJK SC" font-size="18.00">按电网 Cost 调权</text>
+</a>
+</g>
+</g>
+</g>
+</svg>
+</section><section class="pane" data-index="2"><svg width="603pt" height="678pt"
+ viewBox="0.00 0.00 602.68 677.68" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(15.84 661.84)">
+<title>study</title>
+<polygon fill="white" stroke="transparent" points="-15.84,15.84 -15.84,-661.84 586.84,-661.84 586.84,15.84 -15.84,15.84"/>
+<text text-anchor="middle" x="285.5" y="-7.2" font-family="Noto Sans CJK SC" font-size="11.00" fill="#526675">学习分层（非原文章节号）｜原文全文未取得；依据作者摘要、代码与标准推导整理</text>
+<!-- root&#45;&gt;b0 -->
+<g id="edge1" class="edge">
+<title>root&#45;&gt;b0</title>
+<path fill="none" stroke="#167d8d" stroke-width="1.4" d="M123.36,-366.29C160.73,-403.04 219.61,-460.95 249.97,-490.79"/>
+</g>
+<!-- root&#45;&gt;b1 -->
+<g id="edge5" class="edge">
+<title>root&#45;&gt;b1</title>
+<path fill="none" stroke="#167d8d" stroke-width="1.4" d="M177.13,-333C186.16,-333 195.22,-333 203.95,-333"/>
+</g>
+<!-- root&#45;&gt;b2 -->
+<g id="edge9" class="edge">
+<title>root&#45;&gt;b2</title>
+<path fill="none" stroke="#167d8d" stroke-width="1.4" d="M123.36,-299.71C160.73,-262.96 219.61,-205.05 249.97,-175.21"/>
+</g>
+<!-- b0&#45;&gt;b0_l0 -->
+<g id="edge2" class="edge">
+<title>b0&#45;&gt;b0_l0</title>
+<path fill="none" stroke="#167d8d" stroke-width="1.4" d="M296.29,-529.29C323.69,-550.62 364,-582 364,-582 364,-582 371.66,-584.62 382.8,-588.42"/>
+</g>
+<!-- b0&#45;&gt;b0_l1 -->
+<g id="edge3" class="edge">
+<title>b0&#45;&gt;b0_l1</title>
+<path fill="none" stroke="#167d8d" stroke-width="1.4" d="M337.25,-522.14C352.5,-524.95 368.93,-527.99 384.78,-530.91"/>
+</g>
+<!-- b0&#45;&gt;b0_l2 -->
+<g id="edge4" class="edge">
+<title>b0&#45;&gt;b0_l2</title>
+<path fill="none" stroke="#167d8d" stroke-width="1.4" d="M337.25,-498.2C346.2,-496.59 355.56,-494.91 364.97,-493.22"/>
+</g>
+<!-- b1&#45;&gt;b1_l0 -->
+<g id="edge6" class="edge">
+<title>b1&#45;&gt;b1_l0</title>
+<path fill="none" stroke="#167d8d" stroke-width="1.4" d="M320.46,-352.05C342.65,-360.69 364,-369 364,-369 364,-369 380.75,-374.72 400.72,-381.54"/>
+</g>
+<!-- b1&#45;&gt;b1_l1 -->
+<g id="edge7" class="edge">
+<title>b1&#45;&gt;b1_l1</title>
+<path fill="none" stroke="#167d8d" stroke-width="1.4" d="M337.25,-333C351.84,-333 367.5,-333 382.71,-333"/>
+</g>
+<!-- b1&#45;&gt;b1_l2 -->
+<g id="edge8" class="edge">
+<title>b1&#45;&gt;b1_l2</title>
+<path fill="none" stroke="#167d8d" stroke-width="1.4" d="M321.81,-313.96C343.51,-305.75 364,-298 364,-298 364,-298 377.82,-293.15 395.31,-287"/>
+</g>
+<!-- b2&#45;&gt;b2_l0 -->
+<g id="edge10" class="edge">
+<title>b2&#45;&gt;b2_l0</title>
+<path fill="none" stroke="#167d8d" stroke-width="1.4" d="M328.16,-166.17C345.26,-169.24 364.39,-172.67 382.85,-175.99"/>
+</g>
+<!-- b2&#45;&gt;b2_l1 -->
+<g id="edge11" class="edge">
+<title>b2&#45;&gt;b2_l1</title>
+<path fill="none" stroke="#167d8d" stroke-width="1.4" d="M328.16,-145.54C350.43,-141.43 376.16,-136.68 399.35,-132.4"/>
+</g>
+<!-- b2&#45;&gt;b2_l2 -->
+<g id="edge12" class="edge">
+<title>b2&#45;&gt;b2_l2</title>
+<path fill="none" stroke="#167d8d" stroke-width="1.4" d="M296.29,-136.97C323.69,-115.94 364,-85 364,-85 364,-85 372.11,-82.15 383.76,-78.06"/>
+</g>
+<!-- root -->
+<g id="node1" class="node">
+<title>root</title>
+<path fill="#167d8d" stroke="#167d8d" stroke-width="1.2" d="M165,-366C165,-366 12,-366 12,-366 6,-366 0,-360 0,-354 0,-354 0,-312 0,-312 0,-306 6,-300 12,-300 12,-300 165,-300 165,-300 171,-300 177,-306 177,-312 177,-312 177,-354 177,-354 177,-360 171,-366 165,-366"/>
+<text text-anchor="middle" x="88.5" y="-339.4" font-family="Noto Sans CJK SC" font-size="22.00" fill="white">第02层</text>
+<text text-anchor="middle" x="88.5" y="-315.4" font-family="Noto Sans CJK SC" font-size="22.00" fill="white">数据与预测模型</text>
+</g>
+<!-- b0 -->
+<g id="node2" class="node">
+<title>b0</title>
+<path fill="#eff5f8" stroke="#167d8d" stroke-width="1.8" d="M325,-529C325,-529 216,-529 216,-529 210,-529 204,-523 204,-517 204,-517 204,-503 204,-503 204,-497 210,-491 216,-491 216,-491 325,-491 325,-491 331,-491 337,-497 337,-503 337,-503 337,-517 337,-517 337,-523 331,-529 325,-529"/>
+<text text-anchor="middle" x="270.5" y="-505.6" font-family="Noto Sans CJK SC" font-size="18.00">数据如何组织</text>
+</g>
+<!-- b0_l0 -->
+<g id="node3" class="node">
+<title>b0_l0</title>
+<g id="a_node3"><a xlink:title="官方数据用于构建负荷预测任务；不能将其称为已接入 ERCOT 的实际观测。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M540,-646C540,-646 395,-646 395,-646 389,-646 383,-640 383,-634 383,-634 383,-600 383,-600 383,-594 389,-588 395,-588 395,-588 540,-588 540,-588 546,-588 552,-594 552,-600 552,-600 552,-634 552,-634 552,-640 546,-646 540,-646"/>
+<text text-anchor="middle" x="467.5" y="-622.6" font-family="Noto Sans CJK SC" font-size="18.00">TX&#45;123BT</text>
+<text text-anchor="middle" x="467.5" y="-602.6" font-family="Noto Sans CJK SC" font-size="18.00">合成测试系统数据</text>
+</a>
+</g>
+</g>
+<!-- b0_l1 -->
+<g id="node4" class="node">
+<title>b0_l1</title>
+<g id="a_node4"><a xlink:title="温度等天气变量与周期时间编码为输入，Load 是预测目标。标准化和数据划分的顺序影响评估解释。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M538,-575C538,-575 397,-575 397,-575 391,-575 385,-569 385,-563 385,-563 385,-529 385,-529 385,-523 391,-517 397,-517 397,-517 538,-517 538,-517 544,-517 550,-523 550,-529 550,-529 550,-563 550,-563 550,-569 544,-575 538,-575"/>
+<text text-anchor="middle" x="467.5" y="-551.6" font-family="Noto Sans CJK SC" font-size="18.00">输入与目标</text>
+<text text-anchor="middle" x="467.5" y="-531.6" font-family="Noto Sans CJK SC" font-size="18.00">天气/时间 → 负荷</text>
+</a>
+</g>
+</g>
+<!-- b0_l2 -->
+<g id="node5" class="node">
+<title>b0_l2</title>
+<g id="a_node5"><a xlink:title="对当前神经网络头部流程，D 通常指敏感拟合集；20% 删除比例应说明其分母。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M558,-504C558,-504 377,-504 377,-504 371,-504 365,-498 365,-492 365,-492 365,-458 365,-458 365,-452 371,-446 377,-446 377,-446 558,-446 558,-446 564,-446 570,-452 570,-458 570,-458 570,-492 570,-492 570,-498 564,-504 558,-504"/>
+<text text-anchor="middle" x="467.5" y="-480.6" font-family="Noto Sans CJK SC" font-size="18.00">D = U ∪ R</text>
+<text text-anchor="middle" x="467.5" y="-460.6" font-family="Noto Sans CJK SC" font-size="18.00">原集、删除集、剩余集</text>
+</a>
+</g>
+</g>
+<!-- b1 -->
+<g id="node6" class="node">
+<title>b1</title>
+<path fill="#eff5f8" stroke="#167d8d" stroke-width="1.8" d="M325,-352C325,-352 216,-352 216,-352 210,-352 204,-346 204,-340 204,-340 204,-326 204,-326 204,-320 210,-314 216,-314 216,-314 325,-314 325,-314 331,-314 337,-320 337,-326 337,-326 337,-340 337,-340 337,-346 331,-352 325,-352"/>
+<text text-anchor="middle" x="270.5" y="-328.6" font-family="Noto Sans CJK SC" font-size="18.00">模型怎样预测</text>
+</g>
+<!-- b1_l0 -->
+<g id="node7" class="node">
+<title>b1_l0</title>
+<g id="a_node7"><a xlink:title="线性模型通过特征的仿射组合给出负荷预测。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M522,-433C522,-433 413,-433 413,-433 407,-433 401,-427 401,-421 401,-421 401,-387 401,-387 401,-381 407,-375 413,-375 413,-375 522,-375 522,-375 528,-375 534,-381 534,-387 534,-387 534,-421 534,-421 534,-427 528,-433 522,-433"/>
+<text text-anchor="middle" x="467.5" y="-409.6" font-family="Noto Sans CJK SC" font-size="18.00">Linear</text>
+<text text-anchor="middle" x="467.5" y="-389.6" font-family="Noto Sans CJK SC" font-size="18.00">仿射负荷预测</text>
+</a>
+</g>
+</g>
+<!-- b1_l1 -->
+<g id="node8" class="node">
+<title>b1_l1</title>
+<g id="a_node8"><a xlink:title="先在 core 数据上训练特征提取器，再冻结核心，准备敏感样本的隐藏特征。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M540,-362C540,-362 395,-362 395,-362 389,-362 383,-356 383,-350 383,-350 383,-316 383,-316 383,-310 389,-304 395,-304 395,-304 540,-304 540,-304 546,-304 552,-310 552,-316 552,-316 552,-350 552,-350 552,-356 546,-362 540,-362"/>
+<text text-anchor="middle" x="467.5" y="-338.6" font-family="Noto Sans CJK SC" font-size="18.00">CNN / MLP&#45;Mixer</text>
+<text text-anchor="middle" x="467.5" y="-318.6" font-family="Noto Sans CJK SC" font-size="18.00">提取共同隐藏表示</text>
+</a>
+</g>
+</g>
+<!-- b1_l2 -->
+<g id="node9" class="node">
+<title>b1_l2</title>
+<g id="a_node9"><a xlink:title="输入形状为 (N,1,14,10)，64 维 tanh 隐表示进入仿射预测头，输出 14 维标准化负荷。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M527.5,-291C527.5,-291 407.5,-291 407.5,-291 401.5,-291 395.5,-285 395.5,-279 395.5,-279 395.5,-245 395.5,-245 395.5,-239 401.5,-233 407.5,-233 407.5,-233 527.5,-233 527.5,-233 533.5,-233 539.5,-239 539.5,-245 539.5,-245 539.5,-279 539.5,-279 539.5,-285 533.5,-291 527.5,-291"/>
+<text text-anchor="middle" x="467.5" y="-267.6" font-family="Noto Sans CJK SC" font-size="18.00">当前 CNN</text>
+<text text-anchor="middle" x="467.5" y="-247.6" font-family="Noto Sans CJK SC" font-size="18.00">140 → 64 → 14</text>
+</a>
+</g>
+</g>
+<!-- b2 -->
+<g id="node10" class="node">
+<title>b2</title>
+<path fill="#eff5f8" stroke="#167d8d" stroke-width="1.8" d="M316,-175C316,-175 225,-175 225,-175 219,-175 213,-169 213,-163 213,-163 213,-149 213,-149 213,-143 219,-137 225,-137 225,-137 316,-137 316,-137 322,-137 328,-143 328,-149 328,-149 328,-163 328,-163 328,-169 322,-175 316,-175"/>
+<text text-anchor="middle" x="270.5" y="-151.6" font-family="Noto Sans CJK SC" font-size="18.00">参数与尺度</text>
+</g>
+<!-- b2_l0 -->
+<g id="node11" class="node">
+<title>b2_l0</title>
+<g id="a_node11"><a xlink:title="14×64 个连接权重和 14 个偏置；所有模型连接参数与训练样本权重 w 是不同对象。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M540,-220C540,-220 395,-220 395,-220 389,-220 383,-214 383,-208 383,-208 383,-174 383,-174 383,-168 389,-162 395,-162 395,-162 540,-162 540,-162 546,-162 552,-168 552,-174 552,-174 552,-208 552,-208 552,-214 546,-220 540,-220"/>
+<text text-anchor="middle" x="467.5" y="-196.6" font-family="Noto Sans CJK SC" font-size="18.00">预测头 θ</text>
+<text text-anchor="middle" x="467.5" y="-176.6" font-family="Noto Sans CJK SC" font-size="18.00">当前为 910 个参数</text>
+</a>
+</g>
+</g>
+<!-- b2_l1 -->
+<g id="node12" class="node">
+<title>b2_l1</title>
+<g id="a_node12"><a xlink:title="PAMU/TAMU 以其他指标指导样本调权，但最终预测头仍使用加权 MSE 拟合。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M523.5,-149C523.5,-149 411.5,-149 411.5,-149 405.5,-149 399.5,-143 399.5,-137 399.5,-137 399.5,-103 399.5,-103 399.5,-97 405.5,-91 411.5,-91 411.5,-91 523.5,-91 523.5,-91 529.5,-91 535.5,-97 535.5,-103 535.5,-103 535.5,-137 535.5,-137 535.5,-143 529.5,-149 523.5,-149"/>
+<text text-anchor="middle" x="467.5" y="-125.6" font-family="Noto Sans CJK SC" font-size="18.00">训练目标</text>
+<text text-anchor="middle" x="467.5" y="-105.6" font-family="Noto Sans CJK SC" font-size="18.00">MSE 拟合参数</text>
+</a>
+</g>
+</g>
+<!-- b2_l2 -->
+<g id="node13" class="node">
+<title>b2_l2</title>
+<g id="a_node13"><a xlink:title="模型输出先恢复为 p.u. 负荷；MW 展示再乘 baseMVA。64 个隐藏坐标不能直接当成物理天气特征。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M559,-78C559,-78 376,-78 376,-78 370,-78 364,-72 364,-66 364,-66 364,-32 364,-32 364,-26 370,-20 376,-20 376,-20 559,-20 559,-20 565,-20 571,-26 571,-32 571,-32 571,-66 571,-66 571,-72 565,-78 559,-78"/>
+<text text-anchor="middle" x="467.5" y="-54.6" font-family="Noto Sans CJK SC" font-size="18.00">反标准化</text>
+<text text-anchor="middle" x="467.5" y="-34.6" font-family="Noto Sans CJK SC" font-size="18.00">p.u. → 调度；MW 展示</text>
+</a>
+</g>
+</g>
+</g>
+</svg>
+</section><section class="pane" data-index="3"><svg width="644pt" height="678pt"
+ viewBox="0.00 0.00 643.68 677.68" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(15.84 661.84)">
+<title>study</title>
+<polygon fill="white" stroke="transparent" points="-15.84,15.84 -15.84,-661.84 627.84,-661.84 627.84,15.84 -15.84,15.84"/>
+<text text-anchor="middle" x="306" y="-7.2" font-family="Noto Sans CJK SC" font-size="11.00" fill="#526675">学习分层（非原文章节号）｜原文全文未取得；依据作者摘要、代码与标准推导整理</text>
+<!-- root&#45;&gt;b0 -->
+<g id="edge1" class="edge">
+<title>root&#45;&gt;b0</title>
+<path fill="none" stroke="#8c5a19" stroke-width="1.4" d="M148.9,-366.29C190.74,-403.04 256.66,-460.95 290.64,-490.79"/>
+</g>
+<!-- root&#45;&gt;b1 -->
+<g id="edge5" class="edge">
+<title>root&#45;&gt;b1</title>
+<path fill="none" stroke="#8c5a19" stroke-width="1.4" d="M220.01,-333C235.77,-333 251.26,-333 264.93,-333"/>
+</g>
+<!-- root&#45;&gt;b2 -->
+<g id="edge9" class="edge">
+<title>root&#45;&gt;b2</title>
+<path fill="none" stroke="#8c5a19" stroke-width="1.4" d="M148.9,-299.71C190.74,-262.96 256.66,-205.05 290.64,-175.21"/>
+</g>
+<!-- b0&#45;&gt;b0_l0 -->
+<g id="edge2" class="edge">
+<title>b0&#45;&gt;b0_l0</title>
+<path fill="none" stroke="#8c5a19" stroke-width="1.4" d="M339.29,-529.29C366.69,-550.62 407,-582 407,-582 407,-582 413.95,-584.4 424.22,-587.94"/>
+</g>
+<!-- b0&#45;&gt;b0_l1 -->
+<g id="edge3" class="edge">
+<title>b0&#45;&gt;b0_l1</title>
+<path fill="none" stroke="#8c5a19" stroke-width="1.4" d="M380.18,-522.19C391.61,-524.31 403.69,-526.55 415.69,-528.78"/>
+</g>
+<!-- b0&#45;&gt;b0_l2 -->
+<g id="edge4" class="edge">
+<title>b0&#45;&gt;b0_l2</title>
+<path fill="none" stroke="#8c5a19" stroke-width="1.4" d="M380.18,-498.15C397.44,-495.04 416.18,-491.66 433.87,-488.46"/>
+</g>
+<!-- b1&#45;&gt;b1_l0 -->
+<g id="edge6" class="edge">
+<title>b1&#45;&gt;b1_l0</title>
+<path fill="none" stroke="#8c5a19" stroke-width="1.4" d="M362.1,-351.53C384.77,-360.35 407,-369 407,-369 407,-369 413.95,-371.4 424.22,-374.94"/>
+</g>
+<!-- b1&#45;&gt;b1_l1 -->
+<g id="edge7" class="edge">
+<title>b1&#45;&gt;b1_l1</title>
+<path fill="none" stroke="#8c5a19" stroke-width="1.4" d="M362.46,-333C376.59,-333 392.62,-333 408.74,-333"/>
+</g>
+<!-- b1&#45;&gt;b1_l2 -->
+<g id="edge8" class="edge">
+<title>b1&#45;&gt;b1_l2</title>
+<path fill="none" stroke="#8c5a19" stroke-width="1.4" d="M362.1,-314.99C384.77,-306.41 407,-298 407,-298 407,-298 418.59,-293.89 433.93,-288.45"/>
+</g>
+<!-- b2&#45;&gt;b2_l0 -->
+<g id="edge10" class="edge">
+<title>b2&#45;&gt;b2_l0</title>
+<path fill="none" stroke="#8c5a19" stroke-width="1.4" d="M371.13,-166.22C396.07,-170.72 425.35,-176 450.45,-180.53"/>
+</g>
+<!-- b2&#45;&gt;b2_l1 -->
+<g id="edge11" class="edge">
+<title>b2&#45;&gt;b2_l1</title>
+<path fill="none" stroke="#8c5a19" stroke-width="1.4" d="M371.13,-145.49C389.59,-142.07 410.41,-138.2 430.17,-134.54"/>
+</g>
+<!-- b2&#45;&gt;b2_l2 -->
+<g id="edge12" class="edge">
+<title>b2&#45;&gt;b2_l2</title>
+<path fill="none" stroke="#8c5a19" stroke-width="1.4" d="M339.29,-136.97C366.69,-115.94 407,-85 407,-85 407,-85 415.03,-82.15 426.57,-78.06"/>
+</g>
+<!-- root -->
+<g id="node1" class="node">
+<title>root</title>
+<path fill="#8c5a19" stroke="#8c5a19" stroke-width="1.2" d="M208,-366C208,-366 12,-366 12,-366 6,-366 0,-360 0,-354 0,-354 0,-312 0,-312 0,-306 6,-300 12,-300 12,-300 208,-300 208,-300 214,-300 220,-306 220,-312 220,-312 220,-354 220,-354 220,-360 214,-366 208,-366"/>
+<text text-anchor="middle" x="110" y="-339.4" font-family="Noto Sans CJK SC" font-size="22.00" fill="white">第03层</text>
+<text text-anchor="middle" x="110" y="-315.4" font-family="Noto Sans CJK SC" font-size="22.00" fill="white">直接遗忘与影响函数</text>
+</g>
+<!-- b0 -->
+<g id="node2" class="node">
+<title>b0</title>
+<path fill="#eff5f8" stroke="#8c5a19" stroke-width="1.8" d="M368,-529C368,-529 259,-529 259,-529 253,-529 247,-523 247,-517 247,-517 247,-503 247,-503 247,-497 253,-491 259,-491 259,-491 368,-491 368,-491 374,-491 380,-497 380,-503 380,-503 380,-517 380,-517 380,-523 374,-529 368,-529"/>
+<text text-anchor="middle" x="313.5" y="-505.6" font-family="Noto Sans CJK SC" font-size="18.00">影响函数起点</text>
+</g>
+<!-- b0_l0 -->
+<g id="node3" class="node">
+<title>b0_l0</title>
+<g id="a_node3"><a xlink:title="对选定训练目标和参数定义驻点条件，再对样本增权量求导。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M600,-646C600,-646 419,-646 419,-646 413,-646 407,-640 407,-634 407,-634 407,-600 407,-600 407,-594 413,-588 419,-588 419,-588 600,-588 600,-588 606,-588 612,-594 612,-600 612,-600 612,-634 612,-634 612,-640 606,-646 600,-646"/>
+<text text-anchor="middle" x="509.5" y="-622.6" font-family="Noto Sans CJK SC" font-size="18.00">经验风险最小化</text>
+<text text-anchor="middle" x="509.5" y="-602.6" font-family="Noto Sans CJK SC" font-size="18.00">训练梯度在最优点为零</text>
+</a>
+</g>
+</g>
+<!-- b0_l1 -->
+<g id="node4" class="node">
+<title>b0_l1</title>
+<g id="a_node4"><a xlink:title="梯度是该样本损失对参数的局部导数，不是温度对预测输出的 Jacobian。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M591,-575C591,-575 428,-575 428,-575 422,-575 416,-569 416,-563 416,-563 416,-529 416,-529 416,-523 422,-517 428,-517 428,-517 591,-517 591,-517 597,-517 603,-523 603,-529 603,-529 603,-563 603,-563 603,-569 597,-575 591,-575"/>
+<text text-anchor="middle" x="509.5" y="-551.6" font-family="Noto Sans CJK SC" font-size="18.00">梯度 g_i</text>
+<text text-anchor="middle" x="509.5" y="-531.6" font-family="Noto Sans CJK SC" font-size="18.00">样本推动参数的方向</text>
+</a>
+</g>
+</g>
+<!-- b0_l2 -->
+<g id="node5" class="node">
+<title>b0_l2</title>
+<g id="a_node5"><a xlink:title="单样本额外增权的局部参数导数为 −H⁻¹g_i；完整权重约定还含样本数归一化。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M573,-504C573,-504 446,-504 446,-504 440,-504 434,-498 434,-492 434,-492 434,-458 434,-458 434,-452 440,-446 446,-446 446,-446 573,-446 573,-446 579,-446 585,-452 585,-458 585,-458 585,-492 585,-492 585,-498 579,-504 573,-504"/>
+<text text-anchor="middle" x="509.5" y="-480.6" font-family="Noto Sans CJK SC" font-size="18.00">Hessian H</text>
+<text text-anchor="middle" x="509.5" y="-460.6" font-family="Noto Sans CJK SC" font-size="18.00">用曲率校正更新</text>
+</a>
+</g>
+</g>
+<!-- b1 -->
+<g id="node6" class="node">
+<title>b1</title>
+<path fill="#eff5f8" stroke="#8c5a19" stroke-width="1.8" d="M350,-352C350,-352 277,-352 277,-352 271,-352 265,-346 265,-340 265,-340 265,-326 265,-326 265,-320 271,-314 277,-314 277,-314 350,-314 350,-314 356,-314 362,-320 362,-326 362,-326 362,-340 362,-340 362,-346 356,-352 350,-352"/>
+<text text-anchor="middle" x="313.5" y="-328.6" font-family="Noto Sans CJK SC" font-size="18.00">删除更新</text>
+</g>
+<!-- b1_l0 -->
+<g id="node7" class="node">
+<title>b1_l0</title>
+<g id="a_node7"><a xlink:title="计算剩余集平均 MSE 的梯度 g_R 与 Hessian H_R。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M585,-433C585,-433 434,-433 434,-433 428,-433 422,-427 422,-421 422,-421 422,-387 422,-387 422,-381 428,-375 434,-375 434,-375 585,-375 585,-375 591,-375 597,-381 597,-387 597,-387 597,-421 597,-421 597,-427 591,-433 585,-433"/>
+<text text-anchor="middle" x="509.5" y="-409.6" font-family="Noto Sans CJK SC" font-size="18.00">剩余目标 L_R</text>
+<text text-anchor="middle" x="509.5" y="-389.6" font-family="Noto Sans CJK SC" font-size="18.00">在旧参数 θ₀ 处计算</text>
+</a>
+</g>
+</g>
+<!-- b1_l1 -->
+<g id="node8" class="node">
+<title>b1_l1</title>
+<g id="a_node8"><a xlink:title="实现通常求解线性系统，而非显式构造整个逆矩阵。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M598,-362C598,-362 421,-362 421,-362 415,-362 409,-356 409,-350 409,-350 409,-316 409,-316 409,-310 415,-304 421,-304 421,-304 598,-304 598,-304 604,-304 610,-310 610,-316 610,-316 610,-350 610,-350 610,-356 604,-362 598,-362"/>
+<text text-anchor="middle" x="509.5" y="-338.6" font-family="Noto Sans CJK SC" font-size="18.00">Newton 一步</text>
+<text text-anchor="middle" x="509.5" y="-318.6" font-family="Noto Sans CJK SC" font-size="18.00">θ_del = θ₀ − H_R⁻¹g_R</text>
+</a>
+</g>
+</g>
+<!-- b1_l2 -->
+<g id="node9" class="node">
+<title>b1_l2</title>
+<g id="a_node9"><a xlink:title="二次满秩条件下可与剩余数据精确拟合一致；CG 容差、阻尼、秩亏会影响数值结果。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M573,-291C573,-291 446,-291 446,-291 440,-291 434,-285 434,-279 434,-279 434,-245 434,-245 434,-239 440,-233 446,-233 446,-233 573,-233 573,-233 579,-233 585,-239 585,-245 585,-245 585,-279 585,-279 585,-285 579,-291 573,-291"/>
+<text text-anchor="middle" x="509.5" y="-267.6" font-family="Noto Sans CJK SC" font-size="18.00">重拟合对照</text>
+<text text-anchor="middle" x="509.5" y="-247.6" font-family="Noto Sans CJK SC" font-size="18.00">检查参数和预测</text>
+</a>
+</g>
+</g>
+<!-- b2 -->
+<g id="node10" class="node">
+<title>b2</title>
+<path fill="#eff5f8" stroke="#8c5a19" stroke-width="1.8" d="M359,-175C359,-175 268,-175 268,-175 262,-175 256,-169 256,-163 256,-163 256,-149 256,-149 256,-143 262,-137 268,-137 268,-137 359,-137 359,-137 365,-137 371,-143 371,-149 371,-149 371,-163 371,-163 371,-169 365,-175 359,-175"/>
+<text text-anchor="middle" x="313.5" y="-151.6" font-family="Noto Sans CJK SC" font-size="18.00">数值与边界</text>
+</g>
+<!-- b2_l0 -->
+<g id="node11" class="node">
+<title>b2_l0</title>
+<g id="a_node11"><a xlink:title="Hessian&#45;vector product 支持 CG 计算逆 Hessian 向量积，检查收敛状态和残差。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M556.5,-220C556.5,-220 462.5,-220 462.5,-220 456.5,-220 450.5,-214 450.5,-208 450.5,-208 450.5,-174 450.5,-174 450.5,-168 456.5,-162 462.5,-162 462.5,-162 556.5,-162 556.5,-162 562.5,-162 568.5,-168 568.5,-174 568.5,-174 568.5,-208 568.5,-208 568.5,-214 562.5,-220 556.5,-220"/>
+<text text-anchor="middle" x="509.5" y="-196.6" font-family="Noto Sans CJK SC" font-size="18.00">iHVP / CG</text>
+<text text-anchor="middle" x="509.5" y="-176.6" font-family="Noto Sans CJK SC" font-size="18.00">求解 H a = v</text>
+</a>
+</g>
+</g>
+<!-- b2_l1 -->
+<g id="node12" class="node">
+<title>b2_l1</title>
+<g id="a_node12"><a xlink:title="若使用删除集平均梯度，更新可写成加号并带 k/m；评分文件的符号和分母必须核对。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M576.5,-149C576.5,-149 442.5,-149 442.5,-149 436.5,-149 430.5,-143 430.5,-137 430.5,-137 430.5,-103 430.5,-103 430.5,-97 436.5,-91 442.5,-91 442.5,-91 576.5,-91 576.5,-91 582.5,-91 588.5,-97 588.5,-103 588.5,-103 588.5,-137 588.5,-137 588.5,-143 582.5,-149 576.5,-149"/>
+<text text-anchor="middle" x="509.5" y="-125.6" font-family="Noto Sans CJK SC" font-size="18.00">正负号与缩放</text>
+<text text-anchor="middle" x="509.5" y="-105.6" font-family="Noto Sans CJK SC" font-size="18.00">增权 ≠ 删除分数</text>
+</a>
+</g>
+</g>
+<!-- b2_l2 -->
+<g id="node13" class="node">
+<title>b2_l2</title>
+<g id="a_node13"><a xlink:title="参数接近重拟合不足以推出认证隐私删除；核心曾使用删除样本时，仅更新头部也不能保证移除核心影响。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M600,-78C600,-78 419,-78 419,-78 413,-78 407,-72 407,-66 407,-66 407,-32 407,-32 407,-26 413,-20 419,-20 419,-20 600,-20 600,-20 606,-20 612,-26 612,-32 612,-32 612,-66 612,-66 612,-72 606,-78 600,-78"/>
+<text text-anchor="middle" x="509.5" y="-54.6" font-family="Noto Sans CJK SC" font-size="18.00">适用范围</text>
+<text text-anchor="middle" x="509.5" y="-34.6" font-family="Noto Sans CJK SC" font-size="18.00">二次预测头及明确假设</text>
+</a>
+</g>
+</g>
+</g>
+</svg>
+</section><section class="pane" data-index="4"><svg width="709pt" height="678pt"
+ viewBox="0.00 0.00 708.68 677.68" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(15.84 661.84)">
+<title>study</title>
+<polygon fill="white" stroke="transparent" points="-15.84,15.84 -15.84,-661.84 692.84,-661.84 692.84,15.84 -15.84,15.84"/>
+<text text-anchor="middle" x="338.5" y="-7.2" font-family="Noto Sans CJK SC" font-size="11.00" fill="#526675">学习分层（非原文章节号）｜原文全文未取得；依据作者摘要、代码与标准推导整理</text>
+<!-- root&#45;&gt;b0 -->
+<g id="edge1" class="edge">
+<title>root&#45;&gt;b0</title>
+<path fill="none" stroke="#5f52a3" stroke-width="1.4" d="M171.81,-366.08C217.78,-402.91 290.5,-461.14 327.76,-490.99"/>
+</g>
+<!-- root&#45;&gt;b1 -->
+<g id="edge5" class="edge">
+<title>root&#45;&gt;b1</title>
+<path fill="none" stroke="#5f52a3" stroke-width="1.4" d="M259.06,-333C268.27,-333 277.31,-333 285.91,-333"/>
+</g>
+<!-- root&#45;&gt;b2 -->
+<g id="edge9" class="edge">
+<title>root&#45;&gt;b2</title>
+<path fill="none" stroke="#5f52a3" stroke-width="1.4" d="M171.81,-299.92C217.78,-263.09 290.5,-204.86 327.76,-175.01"/>
+</g>
+<!-- b0&#45;&gt;b0_l0 -->
+<g id="edge2" class="edge">
+<title>b0&#45;&gt;b0_l0</title>
+<path fill="none" stroke="#5f52a3" stroke-width="1.4" d="M378.29,-529.29C405.69,-550.62 446,-582 446,-582 446,-582 459.38,-586.09 476.99,-591.47"/>
+</g>
+<!-- b0&#45;&gt;b0_l1 -->
+<g id="edge3" class="edge">
+<title>b0&#45;&gt;b0_l1</title>
+<path fill="none" stroke="#5f52a3" stroke-width="1.4" d="M419.28,-521.44C437.51,-524.61 457.55,-528.1 476.66,-531.42"/>
+</g>
+<!-- b0&#45;&gt;b0_l2 -->
+<g id="edge4" class="edge">
+<title>b0&#45;&gt;b0_l2</title>
+<path fill="none" stroke="#5f52a3" stroke-width="1.4" d="M419.28,-498.88C434.67,-496.28 451.35,-493.46 467.67,-490.7"/>
+</g>
+<!-- b1&#45;&gt;b1_l0 -->
+<g id="edge6" class="edge">
+<title>b1&#45;&gt;b1_l0</title>
+<path fill="none" stroke="#5f52a3" stroke-width="1.4" d="M402.46,-352.05C424.65,-360.69 446,-369 446,-369 446,-369 459.38,-373.09 476.99,-378.47"/>
+</g>
+<!-- b1&#45;&gt;b1_l1 -->
+<g id="edge7" class="edge">
+<title>b1&#45;&gt;b1_l1</title>
+<path fill="none" stroke="#5f52a3" stroke-width="1.4" d="M419.28,-333C434.67,-333 451.35,-333 467.67,-333"/>
+</g>
+<!-- b1&#45;&gt;b1_l2 -->
+<g id="edge8" class="edge">
+<title>b1&#45;&gt;b1_l2</title>
+<path fill="none" stroke="#5f52a3" stroke-width="1.4" d="M403.81,-313.96C425.51,-305.75 446,-298 446,-298 446,-298 455.06,-295.15 468.08,-291.06"/>
+</g>
+<!-- b2&#45;&gt;b2_l0 -->
+<g id="edge10" class="edge">
+<title>b2&#45;&gt;b2_l0</title>
+<path fill="none" stroke="#5f52a3" stroke-width="1.4" d="M410.06,-165.56C422.99,-167.75 437.16,-170.15 451.47,-172.56"/>
+</g>
+<!-- b2&#45;&gt;b2_l1 -->
+<g id="edge11" class="edge">
+<title>b2&#45;&gt;b2_l1</title>
+<path fill="none" stroke="#5f52a3" stroke-width="1.4" d="M410.06,-146.16C430.53,-142.6 454.11,-138.5 476.44,-134.62"/>
+</g>
+<!-- b2&#45;&gt;b2_l2 -->
+<g id="edge12" class="edge">
+<title>b2&#45;&gt;b2_l2</title>
+<path fill="none" stroke="#5f52a3" stroke-width="1.4" d="M378.29,-136.97C405.69,-115.94 446,-85 446,-85 446,-85 455.06,-82.15 468.08,-78.06"/>
+</g>
+<!-- root -->
+<g id="node1" class="node">
+<title>root</title>
+<path fill="#5f52a3" stroke="#5f52a3" stroke-width="1.2" d="M247,-366C247,-366 12,-366 12,-366 6,-366 0,-360 0,-354 0,-354 0,-312 0,-312 0,-306 6,-300 12,-300 12,-300 247,-300 247,-300 253,-300 259,-306 259,-312 259,-312 259,-354 259,-354 259,-360 253,-366 247,-366"/>
+<text text-anchor="middle" x="129.5" y="-339.4" font-family="Noto Sans CJK SC" font-size="22.00" fill="white">第04层</text>
+<text text-anchor="middle" x="129.5" y="-315.4" font-family="Noto Sans CJK SC" font-size="22.00" fill="white">PAMU：性能感知重加权</text>
+</g>
+<!-- b0 -->
+<g id="node2" class="node">
+<title>b0</title>
+<path fill="#eff5f8" stroke="#5f52a3" stroke-width="1.8" d="M407,-529C407,-529 298,-529 298,-529 292,-529 286,-523 286,-517 286,-517 286,-503 286,-503 286,-497 292,-491 298,-491 298,-491 407,-491 407,-491 413,-491 419,-497 419,-503 419,-503 419,-517 419,-517 419,-523 413,-529 407,-529"/>
+<text text-anchor="middle" x="352.5" y="-505.6" font-family="Noto Sans CJK SC" font-size="18.00">定义外层指标</text>
+</g>
+<!-- b0_l0 -->
+<g id="node3" class="node">
+<title>b0_l0</title>
+<g id="a_node3"><a xlink:title="先选择需要补偿的评价标准；该标准的梯度决定哪些样本增权有利。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M634,-646C634,-646 489,-646 489,-646 483,-646 477,-640 477,-634 477,-634 477,-600 477,-600 477,-594 483,-588 489,-588 489,-588 634,-588 634,-588 640,-588 646,-594 646,-600 646,-600 646,-634 646,-634 646,-640 640,-646 634,-646"/>
+<text text-anchor="middle" x="561.5" y="-622.6" font-family="Noto Sans CJK SC" font-size="18.00">J = MSE / MAPE</text>
+<text text-anchor="middle" x="561.5" y="-602.6" font-family="Noto Sans CJK SC" font-size="18.00">预测性能指导调权</text>
+</a>
+</g>
+</g>
+<!-- b0_l1 -->
+<g id="node4" class="node">
+<title>b0_l1</title>
+<g id="a_node4"><a xlink:title="它与训练样本 MSE 梯度不同；训练 Hessian 仍取自剩余数据 MSE。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M634,-575C634,-575 489,-575 489,-575 483,-575 477,-569 477,-563 477,-563 477,-529 477,-529 477,-523 483,-517 489,-517 489,-517 634,-517 634,-517 640,-517 646,-523 646,-529 646,-529 646,-563 646,-563 646,-569 640,-575 634,-575"/>
+<text text-anchor="middle" x="561.5" y="-551.6" font-family="Noto Sans CJK SC" font-size="18.00">性能梯度 ∇θJ</text>
+<text text-anchor="middle" x="561.5" y="-531.6" font-family="Noto Sans CJK SC" font-size="18.00">参数怎样影响指标</text>
+</a>
+</g>
+</g>
+<!-- b0_l2 -->
+<g id="node5" class="node">
+<title>b0_l2</title>
+<g id="a_node5"><a xlink:title="代码在原参数 θ₀ 评分并使用剩余 Hessian；理想剩余最优点的权重导数锚点不同。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M643,-504C643,-504 480,-504 480,-504 474,-504 468,-498 468,-492 468,-492 468,-458 468,-458 468,-452 474,-446 480,-446 480,-446 643,-446 643,-446 649,-446 655,-452 655,-458 655,-458 655,-492 655,-492 655,-498 649,-504 643,-504"/>
+<text text-anchor="middle" x="561.5" y="-480.6" font-family="Noto Sans CJK SC" font-size="18.00">样本分数 s_i</text>
+<text text-anchor="middle" x="561.5" y="-460.6" font-family="Noto Sans CJK SC" font-size="18.00">估计增权的局部效果</text>
+</a>
+</g>
+</g>
+<!-- b1 -->
+<g id="node6" class="node">
+<title>b1</title>
+<path fill="#eff5f8" stroke="#5f52a3" stroke-width="1.8" d="M407,-352C407,-352 298,-352 298,-352 292,-352 286,-346 286,-340 286,-340 286,-326 286,-326 286,-320 292,-314 298,-314 298,-314 407,-314 407,-314 413,-314 419,-320 419,-326 419,-326 419,-340 419,-340 419,-346 413,-352 407,-352"/>
+<text text-anchor="middle" x="352.5" y="-328.6" font-family="Noto Sans CJK SC" font-size="18.00">权重线性规划</text>
+</g>
+<!-- b1_l0 -->
+<g id="node7" class="node">
+<title>b1_l0</title>
+<g id="a_node7"><a xlink:title="局部评分为正意味着增权使该外层指标上升；最优方向还受总预算约束。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M634,-433C634,-433 489,-433 489,-433 483,-433 477,-427 477,-421 477,-421 477,-387 477,-387 477,-381 483,-375 489,-375 489,-375 634,-375 634,-375 640,-375 646,-381 646,-387 646,-387 646,-421 646,-421 646,-427 640,-433 634,-433"/>
+<text text-anchor="middle" x="561.5" y="-409.6" font-family="Noto Sans CJK SC" font-size="18.00">完整权重 w</text>
+<text text-anchor="middle" x="561.5" y="-389.6" font-family="Noto Sans CJK SC" font-size="18.00">分数正则倾向减权</text>
+</a>
+</g>
+</g>
+<!-- b1_l1 -->
+<g id="node8" class="node">
+<title>b1_l1</title>
+<g id="a_node8"><a xlink:title="当前 Linf≤1 给出 0≤w≤2；平均 L1=0.1 是权重偏离预算，不是删除 10%。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M643,-362C643,-362 480,-362 480,-362 474,-362 468,-356 468,-350 468,-350 468,-316 468,-316 468,-310 474,-304 480,-304 480,-304 643,-304 643,-304 649,-304 655,-310 655,-316 655,-316 655,-350 655,-350 655,-356 649,-362 643,-362"/>
+<text text-anchor="middle" x="561.5" y="-338.6" font-family="Noto Sans CJK SC" font-size="18.00">L1 / Linf 预算</text>
+<text text-anchor="middle" x="561.5" y="-318.6" font-family="Noto Sans CJK SC" font-size="18.00">限制整体与单点偏离</text>
+</a>
+</g>
+</g>
+<!-- b1_l2 -->
+<g id="node9" class="node">
+<title>b1_l2</title>
+<g id="a_node9"><a xlink:title="当前代码没有 Σw=m；增添这一约束会改变问题。目标中与 w 无关的常数可省略；分数共同正比例缩放不改变 LP 最优解集合。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M643,-291C643,-291 480,-291 480,-291 474,-291 468,-285 468,-279 468,-279 468,-245 468,-245 468,-239 474,-233 480,-233 480,-233 643,-233 643,-233 649,-233 655,-239 655,-245 655,-245 655,-279 655,-279 655,-285 649,-291 643,-291"/>
+<text text-anchor="middle" x="561.5" y="-267.6" font-family="Noto Sans CJK SC" font-size="18.00">LP 代理目标</text>
+<text text-anchor="middle" x="561.5" y="-247.6" font-family="Noto Sans CJK SC" font-size="18.00">没有权重和守恒约束</text>
+</a>
+</g>
+</g>
+<!-- b2 -->
+<g id="node10" class="node">
+<title>b2</title>
+<path fill="#eff5f8" stroke="#5f52a3" stroke-width="1.8" d="M398,-175C398,-175 307,-175 307,-175 301,-175 295,-169 295,-163 295,-163 295,-149 295,-149 295,-143 301,-137 307,-137 307,-137 398,-137 398,-137 404,-137 410,-143 410,-149 410,-149 410,-163 410,-163 410,-169 404,-175 398,-175"/>
+<text text-anchor="middle" x="352.5" y="-151.6" font-family="Noto Sans CJK SC" font-size="18.00">恢复预测头</text>
+</g>
+<!-- b2_l0 -->
+<g id="node11" class="node">
+<title>b2_l0</title>
+<g id="a_node11"><a xlink:title="最终更新使用所选 w 对应的 H_R,w 与 g_R,w，而非直接复用未加权 Hessian。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M659.5,-220C659.5,-220 463.5,-220 463.5,-220 457.5,-220 451.5,-214 451.5,-208 451.5,-208 451.5,-174 451.5,-174 451.5,-168 457.5,-162 463.5,-162 463.5,-162 659.5,-162 659.5,-162 665.5,-162 671.5,-168 671.5,-174 671.5,-174 671.5,-208 671.5,-208 671.5,-214 665.5,-220 659.5,-220"/>
+<text text-anchor="middle" x="561.5" y="-196.6" font-family="Noto Sans CJK SC" font-size="18.00">加权剩余 MSE</text>
+<text text-anchor="middle" x="561.5" y="-176.6" font-family="Noto Sans CJK SC" font-size="18.00">重新构造梯度与 Hessian</text>
+</a>
+</g>
+</g>
+<!-- b2_l1 -->
+<g id="node12" class="node">
+<title>b2_l1</title>
+<g id="a_node12"><a xlink:title="加权二次系统满秩且求解准确时，更新等于该加权剩余数据的精确拟合。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M634.5,-149C634.5,-149 488.5,-149 488.5,-149 482.5,-149 476.5,-143 476.5,-137 476.5,-137 476.5,-103 476.5,-103 476.5,-97 482.5,-91 488.5,-91 488.5,-91 634.5,-91 634.5,-91 640.5,-91 646.5,-97 646.5,-103 646.5,-103 646.5,-137 646.5,-137 646.5,-143 640.5,-149 634.5,-149"/>
+<text text-anchor="middle" x="561.5" y="-125.6" font-family="Noto Sans CJK SC" font-size="18.00">加权 Newton 更新</text>
+<text text-anchor="middle" x="561.5" y="-105.6" font-family="Noto Sans CJK SC" font-size="18.00">得到新预测头参数</text>
+</a>
+</g>
+</g>
+<!-- b2_l2 -->
+<g id="node13" class="node">
+<title>b2_l2</title>
+<g id="a_node13"><a xlink:title="线性代理最优不等于真实指标或全部新样本最优；PAMU 也可以评价 Cost。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M665,-78C665,-78 458,-78 458,-78 452,-78 446,-72 446,-66 446,-66 446,-32 446,-32 446,-26 452,-20 458,-20 458,-20 665,-20 665,-20 671,-20 677,-26 677,-32 677,-32 677,-66 677,-66 677,-72 671,-78 665,-78"/>
+<text text-anchor="middle" x="561.5" y="-54.6" font-family="Noto Sans CJK SC" font-size="18.00">真实评价</text>
+<text text-anchor="middle" x="561.5" y="-34.6" font-family="Noto Sans CJK SC" font-size="18.00">重新算 MSE / MAPE / Cost</text>
+</a>
+</g>
+</g>
+</g>
+</svg>
+</section><section class="pane" data-index="5"><svg width="770pt" height="678pt"
+ viewBox="0.00 0.00 769.68 677.68" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(15.84 661.84)">
+<title>study</title>
+<polygon fill="white" stroke="transparent" points="-15.84,15.84 -15.84,-661.84 753.84,-661.84 753.84,15.84 -15.84,15.84"/>
+<text text-anchor="middle" x="369" y="-7.2" font-family="Noto Sans CJK SC" font-size="11.00" fill="#526675">学习分层（非原文章节号）｜原文全文未取得；依据作者摘要、代码与标准推导整理</text>
+<!-- root&#45;&gt;b0 -->
+<g id="edge1" class="edge">
+<title>root&#45;&gt;b0</title>
+<path fill="none" stroke="#1d7562" stroke-width="1.4" d="M191.76,-366.08C244.91,-402.91 328.98,-461.14 372.06,-490.99"/>
+</g>
+<!-- root&#45;&gt;b1 -->
+<g id="edge5" class="edge">
+<title>root&#45;&gt;b1</title>
+<path fill="none" stroke="#1d7562" stroke-width="1.4" d="M286.32,-333C295.37,-333 304.32,-333 312.99,-333"/>
+</g>
+<!-- root&#45;&gt;b2 -->
+<g id="edge9" class="edge">
+<title>root&#45;&gt;b2</title>
+<path fill="none" stroke="#1d7562" stroke-width="1.4" d="M191.76,-299.92C244.91,-263.09 328.98,-204.86 372.06,-175.01"/>
+</g>
+<!-- b0&#45;&gt;b0_l0 -->
+<g id="edge2" class="edge">
+<title>b0&#45;&gt;b0_l0</title>
+<path fill="none" stroke="#1d7562" stroke-width="1.4" d="M431.62,-529.11C465.24,-550.44 515,-582 515,-582 515,-582 522.57,-584.4 533.74,-587.94"/>
+</g>
+<!-- b0&#45;&gt;b0_l1 -->
+<g id="edge3" class="edge">
+<title>b0&#45;&gt;b0_l1</title>
+<path fill="none" stroke="#1d7562" stroke-width="1.4" d="M478.59,-522.39C493.27,-524.75 508.84,-527.25 524.14,-529.71"/>
+</g>
+<!-- b0&#45;&gt;b0_l2 -->
+<g id="edge4" class="edge">
+<title>b0&#45;&gt;b0_l2</title>
+<path fill="none" stroke="#1d7562" stroke-width="1.4" d="M478.59,-497.95C493.27,-495.66 508.84,-493.23 524.14,-490.84"/>
+</g>
+<!-- b1&#45;&gt;b1_l0 -->
+<g id="edge6" class="edge">
+<title>b1&#45;&gt;b1_l0</title>
+<path fill="none" stroke="#1d7562" stroke-width="1.4" d="M461.57,-352.05C488.8,-360.69 515,-369 515,-369 515,-369 522.57,-371.4 533.74,-374.94"/>
+</g>
+<!-- b1&#45;&gt;b1_l1 -->
+<g id="edge7" class="edge">
+<title>b1&#45;&gt;b1_l1</title>
+<path fill="none" stroke="#1d7562" stroke-width="1.4" d="M488.1,-333C500.17,-333 512.65,-333 524.94,-333"/>
+</g>
+<!-- b1&#45;&gt;b1_l2 -->
+<g id="edge8" class="edge">
+<title>b1&#45;&gt;b1_l2</title>
+<path fill="none" stroke="#1d7562" stroke-width="1.4" d="M461.53,-313.97C483.69,-306.95 509.34,-298.82 533.67,-291.11"/>
+</g>
+<!-- b2&#45;&gt;b2_l0 -->
+<g id="edge10" class="edge">
+<title>b2&#45;&gt;b2_l0</title>
+<path fill="none" stroke="#1d7562" stroke-width="1.4" d="M449,-163.42C470.45,-166.77 496.68,-170.87 522.3,-174.88"/>
+</g>
+<!-- b2&#45;&gt;b2_l1 -->
+<g id="edge11" class="edge">
+<title>b2&#45;&gt;b2_l1</title>
+<path fill="none" stroke="#1d7562" stroke-width="1.4" d="M449,-148.37C470.84,-144.86 497.63,-140.55 523.68,-136.36"/>
+</g>
+<!-- b2&#45;&gt;b2_l2 -->
+<g id="edge12" class="edge">
+<title>b2&#45;&gt;b2_l2</title>
+<path fill="none" stroke="#1d7562" stroke-width="1.4" d="M431.92,-136.97C465.54,-115.94 515,-85 515,-85 515,-85 523.74,-82.15 536.31,-78.06"/>
+</g>
+<!-- root -->
+<g id="node1" class="node">
+<title>root</title>
+<path fill="#1d7562" stroke="#1d7562" stroke-width="1.2" d="M274,-366C274,-366 12,-366 12,-366 6,-366 0,-360 0,-354 0,-354 0,-312 0,-312 0,-306 6,-300 12,-300 12,-300 274,-300 274,-300 280,-300 286,-306 286,-312 286,-312 286,-354 286,-354 286,-360 280,-366 274,-366"/>
+<text text-anchor="middle" x="143" y="-339.4" font-family="Noto Sans CJK SC" font-size="22.00" fill="white">第05层</text>
+<text text-anchor="middle" x="143" y="-315.4" font-family="Noto Sans CJK SC" font-size="22.00" fill="white">下游任务：两阶段电网成本</text>
+</g>
+<!-- b0 -->
+<g id="node2" class="node">
+<title>b0</title>
+<path fill="#eff5f8" stroke="#1d7562" stroke-width="1.8" d="M466.5,-529C466.5,-529 334.5,-529 334.5,-529 328.5,-529 322.5,-523 322.5,-517 322.5,-517 322.5,-503 322.5,-503 322.5,-497 328.5,-491 334.5,-491 334.5,-491 466.5,-491 466.5,-491 472.5,-491 478.5,-497 478.5,-503 478.5,-503 478.5,-517 478.5,-517 478.5,-523 472.5,-529 466.5,-529"/>
+<text text-anchor="middle" x="400.5" y="-505.6" font-family="Noto Sans CJK SC" font-size="18.00">阶段一 Dispatch</text>
+</g>
+<!-- b0_l0 -->
+<g id="node3" class="node">
+<title>b0_l0</title>
+<g id="a_node3"><a xlink:title="先将标准化预测恢复为 p.u.，沿原逻辑将负预测截为 0。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M717,-646C717,-646 536,-646 536,-646 530,-646 524,-640 524,-634 524,-634 524,-600 524,-600 524,-594 530,-588 536,-588 536,-588 717,-588 717,-588 723,-588 729,-594 729,-600 729,-600 729,-634 729,-634 729,-640 723,-646 717,-646"/>
+<text text-anchor="middle" x="626.5" y="-622.6" font-family="Noto Sans CJK SC" font-size="18.00">输入：预测负荷</text>
+<text text-anchor="middle" x="626.5" y="-602.6" font-family="Noto Sans CJK SC" font-size="18.00">反标准化后截断为非负</text>
+</a>
+</g>
+</g>
+<!-- b0_l1 -->
+<g id="node4" class="node">
+<title>b0_l1</title>
+<g id="a_node4"><a xlink:title="满足发电范围、线路双向限额、功率平衡、LS1 非负与参考角。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M716.5,-575C716.5,-575 536.5,-575 536.5,-575 530.5,-575 524.5,-569 524.5,-563 524.5,-563 524.5,-529 524.5,-529 524.5,-523 530.5,-517 536.5,-517 536.5,-517 716.5,-517 716.5,-517 722.5,-517 728.5,-523 728.5,-529 728.5,-529 728.5,-563 728.5,-563 728.5,-569 722.5,-575 716.5,-575"/>
+<text text-anchor="middle" x="626.5" y="-551.6" font-family="Noto Sans CJK SC" font-size="18.00">决策：PG、LS1、相角</text>
+<text text-anchor="middle" x="626.5" y="-531.6" font-family="Noto Sans CJK SC" font-size="18.00">发电安排与削减</text>
+</a>
+</g>
+</g>
+<!-- b0_l2 -->
+<g id="node5" class="node">
+<title>b0_l2</title>
+<g id="a_node5"><a xlink:title="阶段一 LS1 费用是总成本及可微表达的一部分，不能遗漏。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M716.5,-504C716.5,-504 536.5,-504 536.5,-504 530.5,-504 524.5,-498 524.5,-492 524.5,-492 524.5,-458 524.5,-458 524.5,-452 530.5,-446 536.5,-446 536.5,-446 716.5,-446 716.5,-446 722.5,-446 728.5,-452 728.5,-458 728.5,-458 728.5,-492 728.5,-492 728.5,-498 722.5,-504 716.5,-504"/>
+<text text-anchor="middle" x="626.5" y="-480.6" font-family="Noto Sans CJK SC" font-size="18.00">cost1</text>
+<text text-anchor="middle" x="626.5" y="-460.6" font-family="Noto Sans CJK SC" font-size="18.00">发电费用 + 阶段一削减</text>
+</a>
+</g>
+</g>
+<!-- b1 -->
+<g id="node6" class="node">
+<title>b1</title>
+<path fill="#eff5f8" stroke="#1d7562" stroke-width="1.8" d="M476,-352C476,-352 325,-352 325,-352 319,-352 313,-346 313,-340 313,-340 313,-326 313,-326 313,-320 319,-314 325,-314 325,-314 476,-314 476,-314 482,-314 488,-320 488,-326 488,-326 488,-340 488,-340 488,-346 482,-352 476,-352"/>
+<text text-anchor="middle" x="400.5" y="-328.6" font-family="Noto Sans CJK SC" font-size="18.00">阶段二 Redispatch</text>
+</g>
+<!-- b1_l0 -->
+<g id="node7" class="node">
+<title>b1_l0</title>
+<g id="a_node7"><a xlink:title="阶段二使用数据中 ground truth，不以扰动后的温度重新生成真实负荷。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M726,-433C726,-433 527,-433 527,-433 521,-433 515,-427 515,-421 515,-421 515,-387 515,-387 515,-381 521,-375 527,-375 527,-375 726,-375 726,-375 732,-375 738,-381 738,-387 738,-387 738,-421 738,-421 738,-427 732,-433 726,-433"/>
+<text text-anchor="middle" x="626.5" y="-409.6" font-family="Noto Sans CJK SC" font-size="18.00">输入：真实负荷 + PG</text>
+<text text-anchor="middle" x="626.5" y="-389.6" font-family="Noto Sans CJK SC" font-size="18.00">同一场景保持真实值不变</text>
+</a>
+</g>
+</g>
+<!-- b1_l1 -->
+<g id="node8" class="node">
+<title>b1_l1</title>
+<g id="a_node8"><a xlink:title="当前平衡式使用 PG−GS；GS 是代码中的过量发电处理量，不是完整物理储能模型。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M716,-362C716,-362 537,-362 537,-362 531,-362 525,-356 525,-350 525,-350 525,-316 525,-316 525,-310 531,-304 537,-304 537,-304 716,-304 716,-304 722,-304 728,-310 728,-316 728,-316 728,-350 728,-350 728,-356 722,-362 716,-362"/>
+<text text-anchor="middle" x="626.5" y="-338.6" font-family="Noto Sans CJK SC" font-size="18.00">决策：LS2、GS、相角</text>
+<text text-anchor="middle" x="626.5" y="-318.6" font-family="Noto Sans CJK SC" font-size="18.00">处理短缺与过量发电</text>
+</a>
+</g>
+</g>
+<!-- b1_l2 -->
+<g id="node9" class="node">
+<title>b1_l2</title>
+<g id="a_node9"><a xlink:title="阶段二沿原线路、功率平衡、非负和参考角约束；没有额外自由增发变量。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M725,-291C725,-291 528,-291 528,-291 522,-291 516,-285 516,-279 516,-279 516,-245 516,-245 516,-239 522,-233 528,-233 528,-233 725,-233 725,-233 731,-233 737,-239 737,-245 737,-245 737,-279 737,-279 737,-285 731,-291 725,-291"/>
+<text text-anchor="middle" x="626.5" y="-267.6" font-family="Noto Sans CJK SC" font-size="18.00">cost2</text>
+<text text-anchor="middle" x="626.5" y="-247.6" font-family="Noto Sans CJK SC" font-size="18.00">LS2 / GS 的一次与二次费</text>
+</a>
+</g>
+</g>
+<!-- b2 -->
+<g id="node10" class="node">
+<title>b2</title>
+<path fill="#eff5f8" stroke="#1d7562" stroke-width="1.8" d="M437,-175C437,-175 364,-175 364,-175 358,-175 352,-169 352,-163 352,-163 352,-149 352,-149 352,-143 358,-137 364,-137 364,-137 437,-137 437,-137 443,-137 449,-143 449,-149 449,-149 449,-163 449,-163 449,-169 443,-175 437,-175"/>
+<text text-anchor="middle" x="400.5" y="-151.6" font-family="Noto Sans CJK SC" font-size="18.00">任务评价</text>
+</g>
+<!-- b2_l0 -->
+<g id="node11" class="node">
+<title>b2_l0</title>
+<g id="a_node11"><a xlink:title="当前 λ=3500、κ=1250、ρ=700、η=250；目标函数单位不能未经校准解释为实际货币。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M718.5,-220C718.5,-220 534.5,-220 534.5,-220 528.5,-220 522.5,-214 522.5,-208 522.5,-208 522.5,-174 522.5,-174 522.5,-168 528.5,-162 534.5,-162 534.5,-162 718.5,-162 718.5,-162 724.5,-162 730.5,-168 730.5,-174 730.5,-174 730.5,-208 730.5,-208 730.5,-214 724.5,-220 718.5,-220"/>
+<text text-anchor="middle" x="626.5" y="-196.6" font-family="Noto Sans CJK SC" font-size="18.00">总 Cost = cost1 + cost2</text>
+<text text-anchor="middle" x="626.5" y="-176.6" font-family="Noto Sans CJK SC" font-size="18.00">保留全部原费用项</text>
+</a>
+</g>
+</g>
+<!-- b2_l1 -->
+<g id="node12" class="node">
+<title>b2_l1</title>
+<g id="a_node12"><a xlink:title="高估/低估、节点位置、发电与线路约束会使预测误差的经济后果不同。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M717,-149C717,-149 536,-149 536,-149 530,-149 524,-143 524,-137 524,-137 524,-103 524,-103 524,-97 530,-91 536,-91 536,-91 717,-91 717,-91 723,-91 729,-97 729,-103 729,-103 729,-137 729,-137 729,-143 723,-149 717,-149"/>
+<text text-anchor="middle" x="626.5" y="-125.6" font-family="Noto Sans CJK SC" font-size="18.00">空间与方向效应</text>
+<text text-anchor="middle" x="626.5" y="-105.6" font-family="Noto Sans CJK SC" font-size="18.00">同等误差未必同等代价</text>
+</a>
+</g>
+</g>
+<!-- b2_l2 -->
+<g id="node13" class="node">
+<title>b2_l2</title>
+<g id="a_node13"><a xlink:title="兼容求解器必须求同一个问题；不能跳过 Cost，也不能为解释模型擅自加入 LS≤负荷、GS≤PG 上界。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M726,-78C726,-78 527,-78 527,-78 521,-78 515,-72 515,-66 515,-66 515,-32 515,-32 515,-26 521,-20 527,-20 527,-20 726,-20 726,-20 732,-20 738,-26 738,-32 738,-32 738,-66 738,-66 738,-72 732,-78 726,-78"/>
+<text text-anchor="middle" x="626.5" y="-54.6" font-family="Noto Sans CJK SC" font-size="18.00">数学模型不变</text>
+<text text-anchor="middle" x="626.5" y="-34.6" font-family="Noto Sans CJK SC" font-size="18.00">求解状态与可行性要检查</text>
+</a>
+</g>
+</g>
+</g>
+</svg>
+</section><section class="pane" data-index="6"><svg width="697pt" height="678pt"
+ viewBox="0.00 0.00 696.68 677.68" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(15.84 661.84)">
+<title>study</title>
+<polygon fill="white" stroke="transparent" points="-15.84,15.84 -15.84,-661.84 680.84,-661.84 680.84,15.84 -15.84,15.84"/>
+<text text-anchor="middle" x="332.5" y="-7.2" font-family="Noto Sans CJK SC" font-size="11.00" fill="#526675">学习分层（非原文章节号）｜原文全文未取得；依据作者摘要、代码与标准推导整理</text>
+<!-- root&#45;&gt;b0 -->
+<g id="edge1" class="edge">
+<title>root&#45;&gt;b0</title>
+<path fill="none" stroke="#b2533b" stroke-width="1.4" d="M171.22,-366.08C217.09,-402.91 289.64,-461.14 326.82,-490.99"/>
+</g>
+<!-- root&#45;&gt;b1 -->
+<g id="edge5" class="edge">
+<title>root&#45;&gt;b1</title>
+<path fill="none" stroke="#b2533b" stroke-width="1.4" d="M258.27,-333C270.68,-333 282.78,-333 293.91,-333"/>
+</g>
+<!-- root&#45;&gt;b2 -->
+<g id="edge9" class="edge">
+<title>root&#45;&gt;b2</title>
+<path fill="none" stroke="#b2533b" stroke-width="1.4" d="M171.22,-299.92C217.09,-263.09 289.64,-204.86 326.82,-175.01"/>
+</g>
+<!-- b0&#45;&gt;b0_l0 -->
+<g id="edge2" class="edge">
+<title>b0&#45;&gt;b0_l0</title>
+<path fill="none" stroke="#b2533b" stroke-width="1.4" d="M377.29,-529.29C404.69,-550.62 445,-582 445,-582 445,-582 452.47,-584.4 463.49,-587.94"/>
+</g>
+<!-- b0&#45;&gt;b0_l1 -->
+<g id="edge3" class="edge">
+<title>b0&#45;&gt;b0_l1</title>
+<path fill="none" stroke="#b2533b" stroke-width="1.4" d="M409.17,-520.12C427.32,-523.37 447.86,-527.04 467.65,-530.57"/>
+</g>
+<!-- b0&#45;&gt;b0_l2 -->
+<g id="edge4" class="edge">
+<title>b0&#45;&gt;b0_l2</title>
+<path fill="none" stroke="#b2533b" stroke-width="1.4" d="M409.17,-500.16C425.35,-497.35 443.42,-494.21 461.16,-491.13"/>
+</g>
+<!-- b1&#45;&gt;b1_l0 -->
+<g id="edge6" class="edge">
+<title>b1&#45;&gt;b1_l0</title>
+<path fill="none" stroke="#b2533b" stroke-width="1.4" d="M401.46,-352.05C423.65,-360.69 445,-369 445,-369 445,-369 452.47,-371.4 463.49,-374.94"/>
+</g>
+<!-- b1&#45;&gt;b1_l1 -->
+<g id="edge7" class="edge">
+<title>b1&#45;&gt;b1_l1</title>
+<path fill="none" stroke="#b2533b" stroke-width="1.4" d="M409.17,-333C425.69,-333 444.2,-333 462.3,-333"/>
+</g>
+<!-- b1&#45;&gt;b1_l2 -->
+<g id="edge8" class="edge">
+<title>b1&#45;&gt;b1_l2</title>
+<path fill="none" stroke="#b2533b" stroke-width="1.4" d="M402.81,-313.96C424.51,-305.75 445,-298 445,-298 445,-298 453.62,-295.15 466.02,-291.06"/>
+</g>
+<!-- b2&#45;&gt;b2_l0 -->
+<g id="edge10" class="edge">
+<title>b2&#45;&gt;b2_l0</title>
+<path fill="none" stroke="#b2533b" stroke-width="1.4" d="M418.2,-167.41C427.04,-168.95 436.3,-170.56 445.64,-172.18"/>
+</g>
+<!-- b2&#45;&gt;b2_l1 -->
+<g id="edge11" class="edge">
+<title>b2&#45;&gt;b2_l1</title>
+<path fill="none" stroke="#b2533b" stroke-width="1.4" d="M418.2,-144.26C431.87,-141.82 446.52,-139.2 460.95,-136.62"/>
+</g>
+<!-- b2&#45;&gt;b2_l2 -->
+<g id="edge12" class="edge">
+<title>b2&#45;&gt;b2_l2</title>
+<path fill="none" stroke="#b2533b" stroke-width="1.4" d="M377.29,-136.97C404.69,-115.94 445,-85 445,-85 445,-85 453.62,-82.15 466.02,-78.06"/>
+</g>
+<!-- root -->
+<g id="node1" class="node">
+<title>root</title>
+<path fill="#b2533b" stroke="#b2533b" stroke-width="1.2" d="M246,-366C246,-366 12,-366 12,-366 6,-366 0,-360 0,-354 0,-354 0,-312 0,-312 0,-306 6,-300 12,-300 12,-300 246,-300 246,-300 252,-300 258,-306 258,-312 258,-312 258,-354 258,-354 258,-360 252,-366 246,-366"/>
+<text text-anchor="middle" x="129" y="-339.4" font-family="Noto Sans CJK SC" font-size="22.00" fill="white">第06层</text>
+<text text-anchor="middle" x="129" y="-315.4" font-family="Noto Sans CJK SC" font-size="22.00" fill="white">TAMU：成本梯度与调权</text>
+</g>
+<!-- b0 -->
+<g id="node2" class="node">
+<title>b0</title>
+<path fill="#eff5f8" stroke="#b2533b" stroke-width="1.8" d="M397,-529C397,-529 306,-529 306,-529 300,-529 294,-523 294,-517 294,-517 294,-503 294,-503 294,-497 300,-491 306,-491 306,-491 397,-491 397,-491 403,-491 409,-497 409,-503 409,-503 409,-517 409,-517 409,-523 403,-529 397,-529"/>
+<text text-anchor="middle" x="351.5" y="-505.6" font-family="Noto Sans CJK SC" font-size="18.00">前向任务链</text>
+</g>
+<!-- b0_l0 -->
+<g id="node3" class="node">
+<title>b0_l0</title>
+<g id="a_node3"><a xlink:title="阶段二显式接收阶段一 PG；两层依赖与所有费用都必须进入计算图。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M653,-646C653,-646 457,-646 457,-646 451,-646 445,-640 445,-634 445,-634 445,-600 445,-600 445,-594 451,-588 457,-588 457,-588 653,-588 653,-588 659,-588 665,-594 665,-600 665,-600 665,-634 665,-634 665,-640 659,-646 653,-646"/>
+<text text-anchor="middle" x="555" y="-622.6" font-family="Noto Sans CJK SC" font-size="18.00">预测 → 阶段一 → 阶段二</text>
+<text text-anchor="middle" x="555" y="-602.6" font-family="Noto Sans CJK SC" font-size="18.00">计算完整 C1 + C2</text>
+</a>
+</g>
+</g>
+<!-- b0_l1 -->
+<g id="node4" class="node">
+<title>b0_l1</title>
+<g id="a_node4"><a xlink:title="权重到参数的训练映射再连接两阶段决策；将训练子问题展开后依赖层数更多，勿只依赖层数名称。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M630,-575C630,-575 480,-575 480,-575 474,-575 468,-569 468,-563 468,-563 468,-529 468,-529 468,-523 474,-517 480,-517 480,-517 630,-517 630,-517 636,-517 642,-523 642,-529 642,-529 642,-563 642,-563 642,-569 636,-575 630,-575"/>
+<text text-anchor="middle" x="555" y="-551.6" font-family="Noto Sans CJK SC" font-size="18.00">外层任务目标</text>
+<text text-anchor="middle" x="555" y="-531.6" font-family="Noto Sans CJK SC" font-size="18.00">评估样本平均 Cost</text>
+</a>
+</g>
+</g>
+<!-- b0_l2 -->
+<g id="node5" class="node">
+<title>b0_l2</title>
+<g id="a_node5"><a xlink:title="按 Cost 调权不是证明 MSE、MAPE、敏感性同时更好。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M636.5,-504C636.5,-504 473.5,-504 473.5,-504 467.5,-504 461.5,-498 461.5,-492 461.5,-492 461.5,-458 461.5,-458 461.5,-452 467.5,-446 473.5,-446 473.5,-446 636.5,-446 636.5,-446 642.5,-446 648.5,-452 648.5,-458 648.5,-458 648.5,-492 648.5,-492 648.5,-498 642.5,-504 636.5,-504"/>
+<text text-anchor="middle" x="555" y="-480.6" font-family="Noto Sans CJK SC" font-size="18.00">统计误差与经济损失</text>
+<text text-anchor="middle" x="555" y="-460.6" font-family="Noto Sans CJK SC" font-size="18.00">可分别改善或恶化</text>
+</a>
+</g>
+</g>
+<!-- b1 -->
+<g id="node6" class="node">
+<title>b1</title>
+<path fill="#eff5f8" stroke="#b2533b" stroke-width="1.8" d="M397,-352C397,-352 306,-352 306,-352 300,-352 294,-346 294,-340 294,-340 294,-326 294,-326 294,-320 300,-314 306,-314 306,-314 397,-314 397,-314 403,-314 409,-320 409,-326 409,-326 409,-340 409,-340 409,-346 403,-352 397,-352"/>
+<text text-anchor="middle" x="351.5" y="-328.6" font-family="Noto Sans CJK SC" font-size="18.00">反向梯度链</text>
+</g>
+<!-- b1_l0 -->
+<g id="node7" class="node">
+<title>b1_l0</title>
+<g id="a_node7"><a xlink:title="在合适正则条件下求解映射可微；活跃集变化、退化和截断边界需要分别处理。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M645.5,-433C645.5,-433 464.5,-433 464.5,-433 458.5,-433 452.5,-427 452.5,-421 452.5,-421 452.5,-387 452.5,-387 452.5,-381 458.5,-375 464.5,-375 464.5,-375 645.5,-375 645.5,-375 651.5,-375 657.5,-381 657.5,-387 657.5,-387 657.5,-421 657.5,-421 657.5,-427 651.5,-433 645.5,-433"/>
+<text text-anchor="middle" x="555" y="-409.6" font-family="Noto Sans CJK SC" font-size="18.00">KKT / 隐函数</text>
+<text text-anchor="middle" x="555" y="-389.6" font-family="Noto Sans CJK SC" font-size="18.00">对局部最优性关系求导</text>
+</a>
+</g>
+</g>
+<!-- b1_l1 -->
+<g id="node8" class="node">
+<title>b1_l1</title>
+<g id="a_node8"><a xlink:title="同时包含阶段一自身费用和阶段一决策影响阶段二费用的路径，仅对第一阶段最优值求导不完整。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M635.5,-362C635.5,-362 474.5,-362 474.5,-362 468.5,-362 462.5,-356 462.5,-350 462.5,-350 462.5,-316 462.5,-316 462.5,-310 468.5,-304 474.5,-304 474.5,-304 635.5,-304 635.5,-304 641.5,-304 647.5,-310 647.5,-316 647.5,-316 647.5,-350 647.5,-350 647.5,-356 641.5,-362 635.5,-362"/>
+<text text-anchor="middle" x="555" y="-338.6" font-family="Noto Sans CJK SC" font-size="18.00">伴随法 / 链式法则</text>
+<text text-anchor="middle" x="555" y="-318.6" font-family="Noto Sans CJK SC" font-size="18.00">Cost → 预测 → 参数</text>
+</a>
+</g>
+</g>
+<!-- b1_l2 -->
+<g id="node9" class="node">
+<title>b1_l2</title>
+<g id="a_node9"><a xlink:title="DPP 是参数化建模结构规则；求解器得到数值最优解不等于该调用自动具有 PyTorch 梯度。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M633.5,-291C633.5,-291 476.5,-291 476.5,-291 470.5,-291 464.5,-285 464.5,-279 464.5,-279 464.5,-245 464.5,-245 464.5,-239 470.5,-233 476.5,-233 476.5,-233 633.5,-233 633.5,-233 639.5,-233 645.5,-239 645.5,-245 645.5,-245 645.5,-279 645.5,-279 645.5,-285 639.5,-291 633.5,-291"/>
+<text text-anchor="middle" x="555" y="-267.6" font-family="Noto Sans CJK SC" font-size="18.00">CVXPYLayers / DPP</text>
+<text text-anchor="middle" x="555" y="-247.6" font-family="Noto Sans CJK SC" font-size="18.00">连接自动微分</text>
+</a>
+</g>
+</g>
+<!-- b2 -->
+<g id="node10" class="node">
+<title>b2</title>
+<path fill="#eff5f8" stroke="#b2533b" stroke-width="1.8" d="M406,-175C406,-175 297,-175 297,-175 291,-175 285,-169 285,-163 285,-163 285,-149 285,-149 285,-143 291,-137 297,-137 297,-137 406,-137 406,-137 412,-137 418,-143 418,-149 418,-149 418,-163 418,-163 418,-169 412,-175 406,-175"/>
+<text text-anchor="middle" x="351.5" y="-151.6" font-family="Noto Sans CJK SC" font-size="18.00">重加权与边界</text>
+</g>
+<!-- b2_l0 -->
+<g id="node11" class="node">
+<title>b2_l0</title>
+<g id="a_node11"><a xlink:title="与 PAMU 相同框架，主要替换外层梯度；分数锚点、数据集合和归一化仍需核对。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M652,-220C652,-220 458,-220 458,-220 452,-220 446,-214 446,-208 446,-208 446,-174 446,-174 446,-168 452,-162 458,-162 458,-162 652,-162 652,-162 658,-162 664,-168 664,-174 664,-174 664,-208 664,-208 664,-214 658,-220 652,-220"/>
+<text text-anchor="middle" x="555" y="-196.6" font-family="Noto Sans CJK SC" font-size="18.00">Cost 影响评分</text>
+<text text-anchor="middle" x="555" y="-176.6" font-family="Noto Sans CJK SC" font-size="18.00">一条样本增权怎样影响 J</text>
+</a>
+</g>
+</g>
+<!-- b2_l1 -->
+<g id="node12" class="node">
+<title>b2_l1</title>
+<g id="a_node12"><a xlink:title="得到权重后重新构造加权 MSE 系统，检查秩、CG 收敛和残差。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M637,-149C637,-149 473,-149 473,-149 467,-149 461,-143 461,-137 461,-137 461,-103 461,-103 461,-97 467,-91 473,-91 473,-91 637,-91 637,-91 643,-91 649,-97 649,-103 649,-103 649,-137 649,-137 649,-143 643,-149 637,-149"/>
+<text text-anchor="middle" x="555" y="-125.6" font-family="Noto Sans CJK SC" font-size="18.00">LP → 加权预测头</text>
+<text text-anchor="middle" x="555" y="-105.6" font-family="Noto Sans CJK SC" font-size="18.00">同样的 L1 / Linf 预算</text>
+</a>
+</g>
+</g>
+<!-- b2_l2 -->
+<g id="node13" class="node">
+<title>b2_l2</title>
+<g id="a_node13"><a xlink:title="标准充分条件可帮助理解局部导数，但不能冒充未取得原论文的定理；最终 Cost 要重新数值评价。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M645.5,-78C645.5,-78 464.5,-78 464.5,-78 458.5,-78 452.5,-72 452.5,-66 452.5,-66 452.5,-32 452.5,-32 452.5,-26 458.5,-20 464.5,-20 464.5,-20 645.5,-20 645.5,-20 651.5,-20 657.5,-26 657.5,-32 657.5,-32 657.5,-66 657.5,-66 657.5,-72 651.5,-78 645.5,-78"/>
+<text text-anchor="middle" x="555" y="-54.6" font-family="Noto Sans CJK SC" font-size="18.00">理论条件与真实复算</text>
+<text text-anchor="middle" x="555" y="-34.6" font-family="Noto Sans CJK SC" font-size="18.00">局部代理不是全局保证</text>
+</a>
+</g>
+</g>
+</g>
+</svg>
+</section><section class="pane" data-index="7"><svg width="699pt" height="678pt"
+ viewBox="0.00 0.00 698.68 677.68" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(15.84 661.84)">
+<title>study</title>
+<polygon fill="white" stroke="transparent" points="-15.84,15.84 -15.84,-661.84 682.84,-661.84 682.84,15.84 -15.84,15.84"/>
+<text text-anchor="middle" x="333.5" y="-7.2" font-family="Noto Sans CJK SC" font-size="11.00" fill="#526675">学习分层（非原文章节号）｜原文全文未取得；依据作者摘要、代码与标准推导整理</text>
+<!-- root&#45;&gt;b0 -->
+<g id="edge1" class="edge">
+<title>root&#45;&gt;b0</title>
+<path fill="none" stroke="#7856a0" stroke-width="1.4" d="M128.06,-366.29C170.62,-403.04 237.69,-460.95 272.26,-490.79"/>
+</g>
+<!-- root&#45;&gt;b1 -->
+<g id="edge5" class="edge">
+<title>root&#45;&gt;b1</title>
+<path fill="none" stroke="#7856a0" stroke-width="1.4" d="M177.03,-333C191.29,-333 205.94,-333 219.85,-333"/>
+</g>
+<!-- root&#45;&gt;b2 -->
+<g id="edge9" class="edge">
+<title>root&#45;&gt;b2</title>
+<path fill="none" stroke="#7856a0" stroke-width="1.4" d="M128.06,-299.71C170.62,-262.96 237.69,-205.05 272.26,-175.21"/>
+</g>
+<!-- b0&#45;&gt;b0_l0 -->
+<g id="edge2" class="edge">
+<title>b0&#45;&gt;b0_l0</title>
+<path fill="none" stroke="#7856a0" stroke-width="1.4" d="M327.68,-529.11C362.49,-550.44 414,-582 414,-582 414,-582 422.6,-584.4 435.29,-587.94"/>
+</g>
+<!-- b0&#45;&gt;b0_l1 -->
+<g id="edge3" class="edge">
+<title>b0&#45;&gt;b0_l1</title>
+<path fill="none" stroke="#7856a0" stroke-width="1.4" d="M387.33,-523.46C395.96,-524.73 404.81,-526.05 413.68,-527.36"/>
+</g>
+<!-- b0&#45;&gt;b0_l2 -->
+<g id="edge4" class="edge">
+<title>b0&#45;&gt;b0_l2</title>
+<path fill="none" stroke="#7856a0" stroke-width="1.4" d="M387.33,-496.92C400.81,-494.98 414.83,-492.96 428.66,-490.96"/>
+</g>
+<!-- b1&#45;&gt;b1_l0 -->
+<g id="edge6" class="edge">
+<title>b1&#45;&gt;b1_l0</title>
+<path fill="none" stroke="#7856a0" stroke-width="1.4" d="M358.69,-352.05C386.88,-360.69 414,-369 414,-369 414,-369 423.52,-371.65 437.31,-375.5"/>
+</g>
+<!-- b1&#45;&gt;b1_l1 -->
+<g id="edge7" class="edge">
+<title>b1&#45;&gt;b1_l1</title>
+<path fill="none" stroke="#7856a0" stroke-width="1.4" d="M371.06,-333C391.71,-333 414.49,-333 436.45,-333"/>
+</g>
+<!-- b1&#45;&gt;b1_l2 -->
+<g id="edge8" class="edge">
+<title>b1&#45;&gt;b1_l2</title>
+<path fill="none" stroke="#7856a0" stroke-width="1.4" d="M360.41,-313.96C387.97,-305.75 414,-298 414,-298 414,-298 423.93,-295.15 438.2,-291.06"/>
+</g>
+<!-- b2&#45;&gt;b2_l0 -->
+<g id="edge10" class="edge">
+<title>b2&#45;&gt;b2_l0</title>
+<path fill="none" stroke="#7856a0" stroke-width="1.4" d="M371.06,-166.74C385.01,-168.75 399.94,-170.9 414.93,-173.06"/>
+</g>
+<!-- b2&#45;&gt;b2_l1 -->
+<g id="edge11" class="edge">
+<title>b2&#45;&gt;b2_l1</title>
+<path fill="none" stroke="#7856a0" stroke-width="1.4" d="M371.06,-144.95C391.43,-141.94 413.88,-138.61 435.56,-135.4"/>
+</g>
+<!-- b2&#45;&gt;b2_l2 -->
+<g id="edge12" class="edge">
+<title>b2&#45;&gt;b2_l2</title>
+<path fill="none" stroke="#7856a0" stroke-width="1.4" d="M327.99,-136.97C362.79,-115.94 414,-85 414,-85 414,-85 425.21,-81.79 440.92,-77.28"/>
+</g>
+<!-- root -->
+<g id="node1" class="node">
+<title>root</title>
+<path fill="#7856a0" stroke="#7856a0" stroke-width="1.2" d="M165,-366C165,-366 12,-366 12,-366 6,-366 0,-360 0,-354 0,-354 0,-312 0,-312 0,-306 6,-300 12,-300 12,-300 165,-300 165,-300 171,-300 177,-306 177,-312 177,-312 177,-354 177,-354 177,-360 171,-366 165,-366"/>
+<text text-anchor="middle" x="88.5" y="-339.4" font-family="Noto Sans CJK SC" font-size="22.00" fill="white">第07层</text>
+<text text-anchor="middle" x="88.5" y="-315.4" font-family="Noto Sans CJK SC" font-size="22.00" fill="white">实验与证据分层</text>
+</g>
+<!-- b0 -->
+<g id="node2" class="node">
+<title>b0</title>
+<path fill="#eff5f8" stroke="#7856a0" stroke-width="1.8" d="M375,-529C375,-529 216,-529 216,-529 210,-529 204,-523 204,-517 204,-517 204,-503 204,-503 204,-497 210,-491 216,-491 216,-491 375,-491 375,-491 381,-491 387,-497 387,-503 387,-503 387,-517 387,-517 387,-523 381,-529 375,-529"/>
+<text text-anchor="middle" x="295.5" y="-505.6" font-family="Noto Sans CJK SC" font-size="18.00">作者摘要 / 仓库复现</text>
+</g>
+<!-- b0_l0 -->
+<g id="node3" class="node">
+<title>b0_l0</title>
+<g id="a_node3"><a xlink:title="作者摘要明确这些模型；发表版全部实验设置、结果和图号仍需原文核对。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M642.5,-646C642.5,-646 438.5,-646 438.5,-646 432.5,-646 426.5,-640 426.5,-634 426.5,-634 426.5,-600 426.5,-600 426.5,-594 432.5,-588 438.5,-588 438.5,-588 642.5,-588 642.5,-588 648.5,-588 654.5,-594 654.5,-600 654.5,-600 654.5,-634 654.5,-634 654.5,-640 648.5,-646 642.5,-646"/>
+<text text-anchor="middle" x="540.5" y="-622.6" font-family="Noto Sans CJK SC" font-size="18.00">预测器比较</text>
+<text text-anchor="middle" x="540.5" y="-602.6" font-family="Noto Sans CJK SC" font-size="18.00">Linear / CNN / MLP&#45;Mixer</text>
+</a>
+</g>
+</g>
+<!-- b0_l1 -->
+<g id="node4" class="node">
+<title>b0_l1</title>
+<g id="a_node4"><a xlink:title="仓库实现直接遗忘与 PAMU/TAMU 入口；当前复现保存六档遗忘比例结果。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M655,-575C655,-575 426,-575 426,-575 420,-575 414,-569 414,-563 414,-563 414,-529 414,-529 414,-523 420,-517 426,-517 426,-517 655,-517 655,-517 661,-517 667,-523 667,-529 667,-529 667,-563 667,-563 667,-569 661,-575 655,-575"/>
+<text text-anchor="middle" x="540.5" y="-551.6" font-family="Noto Sans CJK SC" font-size="18.00">指标与对照</text>
+<text text-anchor="middle" x="540.5" y="-531.6" font-family="Noto Sans CJK SC" font-size="18.00">MSE、MAPE、Cost、重拟合</text>
+</a>
+</g>
+</g>
+<!-- b0_l2 -->
+<g id="node5" class="node">
+<title>b0_l2</title>
+<g id="a_node5"><a xlink:title="项目已有成本修复、状态检查和重放记录；工程检查通过不能替代原文理论核验。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M640,-504C640,-504 441,-504 441,-504 435,-504 429,-498 429,-492 429,-492 429,-458 429,-458 429,-452 435,-446 441,-446 441,-446 640,-446 640,-446 646,-446 652,-452 652,-458 652,-458 652,-492 652,-492 652,-498 646,-504 640,-504"/>
+<text text-anchor="middle" x="540.5" y="-480.6" font-family="Noto Sans CJK SC" font-size="18.00">求解与复现质量</text>
+<text text-anchor="middle" x="540.5" y="-460.6" font-family="Noto Sans CJK SC" font-size="18.00">状态、约束、费用及恢复</text>
+</a>
+</g>
+</g>
+<!-- b1 -->
+<g id="node6" class="node">
+<title>b1</title>
+<path fill="#eff5f8" stroke="#7856a0" stroke-width="1.8" d="M359,-352C359,-352 232,-352 232,-352 226,-352 220,-346 220,-340 220,-340 220,-326 220,-326 220,-320 226,-314 232,-314 232,-314 359,-314 359,-314 365,-314 371,-320 371,-326 371,-326 371,-340 371,-340 371,-346 365,-352 359,-352"/>
+<text text-anchor="middle" x="295.5" y="-328.6" font-family="Noto Sans CJK SC" font-size="18.00">你的扩展实验一</text>
+</g>
+<!-- b1_l0 -->
+<g id="node7" class="node">
+<title>b1_l0</title>
+<g id="a_node7"><a xlink:title="固定每个模型的参数、其他输入和真实负荷，改变输入节点1温度 ±1、±0.5、0 个训练标准差。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M631.5,-433C631.5,-433 449.5,-433 449.5,-433 443.5,-433 437.5,-427 437.5,-421 437.5,-421 437.5,-387 437.5,-387 437.5,-381 443.5,-375 449.5,-375 449.5,-375 631.5,-375 631.5,-375 637.5,-375 643.5,-381 643.5,-387 643.5,-387 643.5,-421 643.5,-421 643.5,-427 637.5,-433 631.5,-433"/>
+<text text-anchor="middle" x="540.5" y="-409.6" font-family="Noto Sans CJK SC" font-size="18.00">单输入温度</text>
+<text text-anchor="middle" x="540.5" y="-389.6" font-family="Noto Sans CJK SC" font-size="18.00">1 样本 × 5 档 × 4 模型</text>
+</a>
+</g>
+</g>
+<!-- b1_l1 -->
+<g id="node8" class="node">
+<title>b1_l1</title>
+<g id="a_node8"><a xlink:title="参考点原始 CNN 的 +1σ 总预测变化 −0.827542 MW，总 Cost 变化 −6.778363。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M632.5,-362C632.5,-362 448.5,-362 448.5,-362 442.5,-362 436.5,-356 436.5,-350 436.5,-350 436.5,-316 436.5,-316 436.5,-310 442.5,-304 448.5,-304 448.5,-304 632.5,-304 632.5,-304 638.5,-304 644.5,-310 644.5,-316 644.5,-316 644.5,-350 644.5,-350 644.5,-356 638.5,-362 632.5,-362"/>
+<text text-anchor="middle" x="540.5" y="-338.6" font-family="Noto Sans CJK SC" font-size="18.00">完整影响路径</text>
+<text text-anchor="middle" x="540.5" y="-318.6" font-family="Noto Sans CJK SC" font-size="18.00">温度 → 14 输出 → Cost</text>
+</a>
+</g>
+</g>
+<!-- b1_l2 -->
+<g id="node9" class="node">
+<title>b1_l2</title>
+<g id="a_node9"><a xlink:title="共享冻结 CNN 核心；TAMU 不是逐个温度水平重新调权。绝对成本与敏感性应分开。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M649,-291C649,-291 432,-291 432,-291 426,-291 420,-285 420,-279 420,-279 420,-245 420,-245 420,-239 426,-233 432,-233 432,-233 649,-233 649,-233 655,-233 661,-239 661,-245 661,-245 661,-279 661,-279 661,-285 655,-291 649,-291"/>
+<text text-anchor="middle" x="540.5" y="-267.6" font-family="Noto Sans CJK SC" font-size="18.00">响应对照</text>
+<text text-anchor="middle" x="540.5" y="-247.6" font-family="Noto Sans CJK SC" font-size="18.00">原始 / 直接 / 重拟合 / TAMU</text>
+</a>
+</g>
+</g>
+<!-- b2 -->
+<g id="node10" class="node">
+<title>b2</title>
+<path fill="#eff5f8" stroke="#7856a0" stroke-width="1.8" d="M359,-175C359,-175 232,-175 232,-175 226,-175 220,-169 220,-163 220,-163 220,-149 220,-149 220,-143 226,-137 232,-137 232,-137 359,-137 359,-137 365,-137 371,-143 371,-149 371,-149 371,-163 371,-163 371,-169 365,-175 359,-175"/>
+<text text-anchor="middle" x="295.5" y="-151.6" font-family="Noto Sans CJK SC" font-size="18.00">你的扩展实验二</text>
+</g>
+<!-- b2_l0 -->
+<g id="node11" class="node">
+<title>b2_l0</title>
+<g id="a_node11"><a xlink:title="28×4=112 组原始 CNN 非零扰动对照的峰值节点一致；这是本批观察，不是数学必然。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M654,-220C654,-220 427,-220 427,-220 421,-220 415,-214 415,-208 415,-208 415,-174 415,-174 415,-168 421,-162 427,-162 427,-162 654,-162 654,-162 660,-162 666,-168 666,-174 666,-174 666,-208 666,-208 666,-214 660,-220 654,-220"/>
+<text text-anchor="middle" x="540.5" y="-196.6" font-family="Noto Sans CJK SC" font-size="18.00">28 日期节点诊断</text>
+<text text-anchor="middle" x="540.5" y="-176.6" font-family="Noto Sans CJK SC" font-size="18.00">隔离 / 复位 / 参考点 Shapley</text>
+</a>
+</g>
+</g>
+<!-- b2_l1 -->
+<g id="node12" class="node">
+<title>b2_l1</title>
+<g id="a_node12"><a xlink:title="27 个新日期各一个小时级样本，按月与负荷层预选；参考点不计入该汇总。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M633,-149C633,-149 448,-149 448,-149 442,-149 436,-143 436,-137 436,-137 436,-103 436,-103 436,-97 442,-91 448,-91 448,-91 633,-91 633,-91 639,-91 645,-97 645,-103 645,-103 645,-137 645,-137 645,-143 639,-149 633,-149"/>
+<text text-anchor="middle" x="540.5" y="-125.6" font-family="Noto Sans CJK SC" font-size="18.00">27 新日期经济性</text>
+<text text-anchor="middle" x="540.5" y="-105.6" font-family="Noto Sans CJK SC" font-size="18.00">106 / 108 低于直接遗忘</text>
+</a>
+</g>
+</g>
+<!-- b2_l2 -->
+<g id="node13" class="node">
+<title>b2_l2</title>
+<g id="a_node13"><a xlink:title="2019&#45;03&#45;12、test1686、−1σ 场景出现该差异，不能把平均改善说成逐场景保证。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M628,-78C628,-78 453,-78 453,-78 447,-78 441,-72 441,-66 441,-66 441,-32 441,-32 441,-26 447,-20 453,-20 453,-20 628,-20 628,-20 634,-20 640,-26 640,-32 640,-32 640,-66 640,-66 640,-72 634,-78 628,-78"/>
+<text text-anchor="middle" x="540.5" y="-54.6" font-family="Noto Sans CJK SC" font-size="18.00">保留反例</text>
+<text text-anchor="middle" x="540.5" y="-34.6" font-family="Noto Sans CJK SC" font-size="18.00">TAMU 曾贵 60.929210</text>
+</a>
+</g>
+</g>
+</g>
+</svg>
+</section><section class="pane" data-index="8"><svg width="719pt" height="678pt"
+ viewBox="0.00 0.00 718.68 677.68" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(15.84 661.84)">
+<title>study</title>
+<polygon fill="white" stroke="transparent" points="-15.84,15.84 -15.84,-661.84 702.84,-661.84 702.84,15.84 -15.84,15.84"/>
+<text text-anchor="middle" x="343.5" y="-7.2" font-family="Noto Sans CJK SC" font-size="11.00" fill="#526675">学习分层（非原文章节号）｜原文全文未取得；依据作者摘要、代码与标准推导整理</text>
+<!-- root&#45;&gt;b0 -->
+<g id="edge1" class="edge">
+<title>root&#45;&gt;b0</title>
+<path fill="none" stroke="#526675" stroke-width="1.4" d="M139.81,-366.29C183.21,-403.04 251.58,-460.95 286.82,-490.79"/>
+</g>
+<!-- root&#45;&gt;b1 -->
+<g id="edge5" class="edge">
+<title>root&#45;&gt;b1</title>
+<path fill="none" stroke="#526675" stroke-width="1.4" d="M199.19,-333C214.3,-333 229.58,-333 243.75,-333"/>
+</g>
+<!-- root&#45;&gt;b2 -->
+<g id="edge9" class="edge">
+<title>root&#45;&gt;b2</title>
+<path fill="none" stroke="#526675" stroke-width="1.4" d="M139.81,-299.71C183.21,-262.96 251.58,-205.05 286.82,-175.21"/>
+</g>
+<!-- b0&#45;&gt;b0_l0 -->
+<g id="edge2" class="edge">
+<title>b0&#45;&gt;b0_l0</title>
+<path fill="none" stroke="#526675" stroke-width="1.4" d="M340.82,-529.11C373.56,-550.44 422,-582 422,-582 422,-582 443.91,-587.83 469.85,-594.73"/>
+</g>
+<!-- b0&#45;&gt;b0_l1 -->
+<g id="edge3" class="edge">
+<title>b0&#45;&gt;b0_l1</title>
+<path fill="none" stroke="#526675" stroke-width="1.4" d="M395.12,-522.44C416.3,-525.59 439.17,-528.99 460.76,-532.2"/>
+</g>
+<!-- b0&#45;&gt;b0_l2 -->
+<g id="edge4" class="edge">
+<title>b0&#45;&gt;b0_l2</title>
+<path fill="none" stroke="#526675" stroke-width="1.4" d="M395.12,-497.91C416.3,-494.84 439.17,-491.54 460.76,-488.41"/>
+</g>
+<!-- b1&#45;&gt;b1_l0 -->
+<g id="edge6" class="edge">
+<title>b1&#45;&gt;b1_l0</title>
+<path fill="none" stroke="#526675" stroke-width="1.4" d="M369.99,-352.05C396.49,-360.69 422,-369 422,-369 422,-369 431.01,-371.4 444.31,-374.94"/>
+</g>
+<!-- b1&#45;&gt;b1_l1 -->
+<g id="edge7" class="edge">
+<title>b1&#45;&gt;b1_l1</title>
+<path fill="none" stroke="#526675" stroke-width="1.4" d="M377.31,-333C391.16,-333 406.25,-333 421.57,-333"/>
+</g>
+<!-- b1&#45;&gt;b1_l2 -->
+<g id="edge8" class="edge">
+<title>b1&#45;&gt;b1_l2</title>
+<path fill="none" stroke="#526675" stroke-width="1.4" d="M371.6,-313.96C397.52,-305.75 422,-298 422,-298 422,-298 432.4,-295.15 447.35,-291.06"/>
+</g>
+<!-- b2&#45;&gt;b2_l0 -->
+<g id="edge10" class="edge">
+<title>b2&#45;&gt;b2_l0</title>
+<path fill="none" stroke="#526675" stroke-width="1.4" d="M377.31,-165.52C397.6,-168.45 420.53,-171.77 442.98,-175.02"/>
+</g>
+<!-- b2&#45;&gt;b2_l1 -->
+<g id="edge11" class="edge">
+<title>b2&#45;&gt;b2_l1</title>
+<path fill="none" stroke="#526675" stroke-width="1.4" d="M377.31,-146.21C397.6,-143.19 420.53,-139.78 442.98,-136.44"/>
+</g>
+<!-- b2&#45;&gt;b2_l2 -->
+<g id="edge12" class="edge">
+<title>b2&#45;&gt;b2_l2</title>
+<path fill="none" stroke="#526675" stroke-width="1.4" d="M341.11,-136.97C373.84,-115.94 422,-85 422,-85 422,-85 432.4,-82.15 447.35,-78.06"/>
+</g>
+<!-- root -->
+<g id="node1" class="node">
+<title>root</title>
+<path fill="#526675" stroke="#526675" stroke-width="1.2" d="M187,-366C187,-366 12,-366 12,-366 6,-366 0,-360 0,-354 0,-354 0,-312 0,-312 0,-306 6,-300 12,-300 12,-300 187,-300 187,-300 193,-300 199,-306 199,-312 199,-312 199,-354 199,-354 199,-360 193,-366 187,-366"/>
+<text text-anchor="middle" x="99.5" y="-339.4" font-family="Noto Sans CJK SC" font-size="22.00" fill="white">第08层</text>
+<text text-anchor="middle" x="99.5" y="-315.4" font-family="Noto Sans CJK SC" font-size="22.00" fill="white">结论、局限与后续</text>
+</g>
+<!-- b0 -->
+<g id="node2" class="node">
+<title>b0</title>
+<path fill="#eff5f8" stroke="#526675" stroke-width="1.8" d="M383,-529C383,-529 238,-529 238,-529 232,-529 226,-523 226,-517 226,-517 226,-503 226,-503 226,-497 232,-491 238,-491 238,-491 383,-491 383,-491 389,-491 395,-497 395,-503 395,-503 395,-517 395,-517 395,-523 389,-529 383,-529"/>
+<text text-anchor="middle" x="310.5" y="-505.6" font-family="Noto Sans CJK SC" font-size="18.00">可以讲清楚的机制</text>
+</g>
+<!-- b0_l0 -->
+<g id="node3" class="node">
+<title>b0_l0</title>
+<g id="a_node3"><a xlink:title="二次头部的数值重拟合一致性不代表整个 CNN 的任意数据都已认证删除。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M627,-646C627,-646 482,-646 482,-646 476,-646 470,-640 470,-634 470,-634 470,-600 470,-600 470,-594 476,-588 482,-588 482,-588 627,-588 627,-588 633,-588 639,-594 639,-600 639,-600 639,-634 639,-634 639,-640 633,-646 627,-646"/>
+<text text-anchor="middle" x="554.5" y="-622.6" font-family="Noto Sans CJK SC" font-size="18.00">遗忘的参数更新</text>
+<text text-anchor="middle" x="554.5" y="-602.6" font-family="Noto Sans CJK SC" font-size="18.00">条件明确才谈精确</text>
+</a>
+</g>
+</g>
+<!-- b0_l1 -->
+<g id="node4" class="node">
+<title>b0_l1</title>
+<g id="a_node4"><a xlink:title="TAMU 的外层指标是 Cost；PAMU 则提供性能指标导向的必要比较。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M636,-575C636,-575 473,-575 473,-575 467,-575 461,-569 461,-563 461,-563 461,-529 461,-529 461,-523 467,-517 473,-517 473,-517 636,-517 636,-517 642,-517 648,-523 648,-529 648,-529 648,-563 648,-563 648,-569 642,-575 636,-575"/>
+<text text-anchor="middle" x="554.5" y="-551.6" font-family="Noto Sans CJK SC" font-size="18.00">按任务代价调权</text>
+<text text-anchor="middle" x="554.5" y="-531.6" font-family="Noto Sans CJK SC" font-size="18.00">区别于仅按预测误差</text>
+</a>
+</g>
+</g>
+<!-- b0_l2 -->
+<g id="node5" class="node">
+<title>b0_l2</title>
+<g id="a_node5"><a xlink:title="人为温度输入干预和混合输出向量，并不等同真实天气的物理因果作用。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M636,-504C636,-504 473,-504 473,-504 467,-504 461,-498 461,-492 461,-492 461,-458 461,-458 461,-452 467,-446 473,-446 473,-446 636,-446 636,-446 642,-446 648,-452 648,-458 648,-458 648,-492 648,-492 648,-498 642,-504 636,-504"/>
+<text text-anchor="middle" x="554.5" y="-480.6" font-family="Noto Sans CJK SC" font-size="18.00">输入到 Cost 的响应</text>
+<text text-anchor="middle" x="554.5" y="-460.6" font-family="Noto Sans CJK SC" font-size="18.00">模型输出反事实诊断</text>
+</a>
+</g>
+</g>
+<!-- b1 -->
+<g id="node6" class="node">
+<title>b1</title>
+<path fill="#eff5f8" stroke="#526675" stroke-width="1.8" d="M365,-352C365,-352 256,-352 256,-352 250,-352 244,-346 244,-340 244,-340 244,-326 244,-326 244,-320 250,-314 256,-314 256,-314 365,-314 365,-314 371,-314 377,-320 377,-326 377,-326 377,-340 377,-340 377,-346 371,-352 365,-352"/>
+<text text-anchor="middle" x="310.5" y="-328.6" font-family="Noto Sans CJK SC" font-size="18.00">当前解释边界</text>
+</g>
+<!-- b1_l0 -->
+<g id="node7" class="node">
+<title>b1_l0</title>
+<g id="a_node7"><a xlink:title="原协议中先全年标准化再划分，helpful/TAMU 使用测试性能信息；新增扰动控制未消除这些限制。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M663,-433C663,-433 446,-433 446,-433 440,-433 434,-427 434,-421 434,-421 434,-387 434,-387 434,-381 440,-375 446,-375 446,-375 663,-375 663,-375 669,-375 675,-381 675,-387 675,-387 675,-421 675,-421 675,-427 669,-433 663,-433"/>
+<text text-anchor="middle" x="554.5" y="-409.6" font-family="Noto Sans CJK SC" font-size="18.00">协议与范围</text>
+<text text-anchor="middle" x="554.5" y="-389.6" font-family="Noto Sans CJK SC" font-size="18.00">全年标准化、测试信息参与</text>
+</a>
+</g>
+</g>
+<!-- b1_l1 -->
+<g id="node8" class="node">
+<title>b1_l1</title>
+<g id="a_node8"><a xlink:title="当前扩展不能推出全年、夏季、其他种子或 ERCOT 的普遍结论。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M675,-362C675,-362 434,-362 434,-362 428,-362 422,-356 422,-350 422,-350 422,-316 422,-316 422,-310 428,-304 434,-304 434,-304 675,-304 675,-304 681,-304 687,-310 687,-316 687,-316 687,-350 687,-350 687,-356 681,-362 675,-362"/>
+<text text-anchor="middle" x="554.5" y="-338.6" font-family="Noto Sans CJK SC" font-size="18.00">场景有限</text>
+<text text-anchor="middle" x="554.5" y="-318.6" font-family="Noto Sans CJK SC" font-size="18.00">前73天、seed42、单温度坐标</text>
+</a>
+</g>
+</g>
+<!-- b1_l2 -->
+<g id="node9" class="node">
+<title>b1_l2</title>
+<g id="a_node9"><a xlink:title="本套图的八层是学习顺序；需要取得完整 PDF 才能逐章对应原论文。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M659,-291C659,-291 450,-291 450,-291 444,-291 438,-285 438,-279 438,-279 438,-245 438,-245 438,-239 444,-233 450,-233 450,-233 659,-233 659,-233 665,-233 671,-239 671,-245 671,-245 671,-279 671,-279 671,-285 665,-291 659,-291"/>
+<text text-anchor="middle" x="554.5" y="-267.6" font-family="Noto Sans CJK SC" font-size="18.00">原文尚待核验</text>
+<text text-anchor="middle" x="554.5" y="-247.6" font-family="Noto Sans CJK SC" font-size="18.00">章节 / 公式 / 定理不能冒认</text>
+</a>
+</g>
+</g>
+<!-- b2 -->
+<g id="node10" class="node">
+<title>b2</title>
+<path fill="#eff5f8" stroke="#526675" stroke-width="1.8" d="M365,-175C365,-175 256,-175 256,-175 250,-175 244,-169 244,-163 244,-163 244,-149 244,-149 244,-143 250,-137 256,-137 256,-137 365,-137 365,-137 371,-137 377,-143 377,-149 377,-149 377,-163 377,-163 377,-169 371,-175 365,-175"/>
+<text text-anchor="middle" x="310.5" y="-151.6" font-family="Noto Sans CJK SC" font-size="18.00">后续怎样补齐</text>
+</g>
+<!-- b2_l0 -->
+<g id="node11" class="node">
+<title>b2_l0</title>
+<g id="a_node11"><a xlink:title="当前四模型温度实验没有 PAMU，因而不能证明 TAMU 优于 PAMU。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M654,-220C654,-220 455,-220 455,-220 449,-220 443,-214 443,-208 443,-208 443,-174 443,-174 443,-168 449,-162 455,-162 455,-162 654,-162 654,-162 660,-162 666,-168 666,-174 666,-174 666,-208 666,-208 666,-214 660,-220 654,-220"/>
+<text text-anchor="middle" x="554.5" y="-196.6" font-family="Noto Sans CJK SC" font-size="18.00">增加 PAMU 对照</text>
+<text text-anchor="middle" x="554.5" y="-176.6" font-family="Noto Sans CJK SC" font-size="18.00">统一预算、删除集和评价</text>
+</a>
+</g>
+</g>
+<!-- b2_l1 -->
+<g id="node12" class="node">
+<title>b2_l1</title>
+<g id="a_node12"><a xlink:title="预先确定样本，分别报告平均成本、最差场景及输入响应，不根据结果挑选样本。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M654,-149C654,-149 455,-149 455,-149 449,-149 443,-143 443,-137 443,-137 443,-103 443,-103 443,-97 449,-91 455,-91 455,-91 654,-91 654,-91 660,-91 666,-97 666,-103 666,-103 666,-137 666,-137 666,-143 660,-149 654,-149"/>
+<text text-anchor="middle" x="554.5" y="-125.6" font-family="Noto Sans CJK SC" font-size="18.00">独立测试与稳健性</text>
+<text text-anchor="middle" x="554.5" y="-105.6" font-family="Noto Sans CJK SC" font-size="18.00">多特征、多种子、多场景</text>
+</a>
+</g>
+</g>
+<!-- b2_l2 -->
+<g id="node13" class="node">
+<title>b2_l2</title>
+<g id="a_node13"><a xlink:title="原文定理逐条核对、认证定义、ERCOT 节点映射与缩放均需单独证据；当前没有完成真实 ERCOT 成本实验。">
+<path fill="white" stroke="#b5c6d0" stroke-width="1.2" d="M654,-78C654,-78 455,-78 455,-78 449,-78 443,-72 443,-66 443,-66 443,-32 443,-32 443,-26 449,-20 455,-20 455,-20 654,-20 654,-20 660,-20 666,-26 666,-32 666,-32 666,-66 666,-66 666,-72 660,-78 654,-78"/>
+<text text-anchor="middle" x="554.5" y="-54.6" font-family="Noto Sans CJK SC" font-size="18.00">理论与跨数据集</text>
+<text text-anchor="middle" x="554.5" y="-34.6" font-family="Noto Sans CJK SC" font-size="18.00">核验原文；明确节点映射</text>
+</a>
+</g>
+</g>
+</g>
+</svg>
+</section></div><article class="notes visible" data-index="0"><h2>先看主线</h2><p>为什么删 → 删什么 → 怎样删 → 怎样保性能 → 怎样算成本 → 怎样按成本调权 → 怎样验证 → 怎样解释。</p><p>选择左侧层级查看详图。滚轮缩放，拖动平移；点击“复位”恢复全图。下方保留各层的完整解释。</p></article><article class="notes" data-index="1"><h2>研究动机与问题</h2><p>训练数据会影响已部署模型的参数。数据被要求撤回、发现恶意样本等情况，会产生删除影响的需求。重新训练可以作为比较基准，但可能有较高计算开销。该项目沿直接遗忘、性能感知、任务感知逐层增加考虑因素。</p><h3>问题从哪里来</h3><ul><li><b>隐私撤回：指定数据不再参与学习</b>：删除对象是历史训练样本的影响，不是删除一个温度特征，也不是要求模型无法预测该样本。</li><li><b>数据质量：恶意或不可靠样本</b>：作者摘要列出恶意数据等删除动机；是否有害要依据实际数据和评价标准判断。</li><li><b>部署之后：模型已经学习过数据</b>：从文件中删掉原始记录，并不会自动更新已经训练出来的模型参数。</li></ul><h3>必须比较什么</h3><ul><li><b>遗忘结果：与剩余数据重训比较</b>：需要先明确重训算法、删除集合和保证定义，不能只以误差变化判断是否遗忘成功。</li><li><b>计算代价：更新与从头拟合</b>：影响函数和 Newton 更新提供减少某些重新拟合计算的途径；实际速度仍取决于规模与数值求解。</li><li><b>保留效用：预测指标与经济性</b>：删掉有帮助的样本可能损伤预测或运行表现；性能与成本是不同评价维度。</li></ul><h3>方法逐层递进</h3><ul><li><b>直接遗忘：更新剩余集预测头</b>：先建立可核对的删除更新，再与剩余数据重新拟合比较。</li><li><b>PAMU：按预测指标调权</b>：在剩余样本重加权时关注 MSE 或 MAPE 的局部影响。</li><li><b>TAMU：按电网 Cost 调权</b>：将下游调度代价引入评分，讨论删除后的经济性。</li></ul><p><b>读懂标志：</b>三个问题依次是：怎样删、怎样减轻预测性能损失、怎样控制下游运行代价。</p><p><b>来源：</b>作者 README 摘要与代码支持；不是原文章节标题。</p><p><a href="https://arxiv.org/abs/2308.14412" target="_blank" rel="noopener">目标论文</a> · <a href="https://github.com/xuwkk/task_aware_machine_unlearning" target="_blank" rel="noopener">作者原仓库</a> · <a href="https://arxiv.org/abs/1911.03030" target="_blank" rel="noopener">Guo 等：认证删除</a></p></article><article class="notes" data-index="2"><h2>数据与预测模型</h2><p>原项目包含线性、CNN、MLP-Mixer 预测器。当前 CNN 配置的原始输入是 14 节点乘 10 特征，经冻结核心得到 64 维隐藏表示，再由 910 个仿射头参数输出 14 节点预测。神经网络核心使用 core 数据，预测头使用 sensitive 数据；删除范围应与这一训练协议对应。</p><h3>数据如何组织</h3><ul><li><b>TX-123BT：合成测试系统数据</b>：官方数据用于构建负荷预测任务；不能将其称为已接入 ERCOT 的实际观测。</li><li><b>输入与目标：天气/时间 → 负荷</b>：温度等天气变量与周期时间编码为输入，Load 是预测目标。标准化和数据划分的顺序影响评估解释。</li><li><b>D = U ∪ R：原集、删除集、剩余集</b>：对当前神经网络头部流程，D 通常指敏感拟合集；20% 删除比例应说明其分母。</li></ul><h3>模型怎样预测</h3><ul><li><b>Linear：仿射负荷预测</b>：线性模型通过特征的仿射组合给出负荷预测。</li><li><b>CNN / MLP-Mixer：提取共同隐藏表示</b>：先在 core 数据上训练特征提取器，再冻结核心，准备敏感样本的隐藏特征。</li><li><b>当前 CNN：140 → 64 → 14</b>：输入形状为 (N,1,14,10)，64 维 tanh 隐表示进入仿射预测头，输出 14 维标准化负荷。</li></ul><h3>参数与尺度</h3><ul><li><b>预测头 θ：当前为 910 个参数</b>：14×64 个连接权重和 14 个偏置；所有模型连接参数与训练样本权重 w 是不同对象。</li><li><b>训练目标：MSE 拟合参数</b>：PAMU/TAMU 以其他指标指导样本调权，但最终预测头仍使用加权 MSE 拟合。</li><li><b>反标准化：p.u. → 调度；MW 展示</b>：模型输出先恢复为 p.u. 负荷；MW 展示再乘 baseMVA。64 个隐藏坐标不能直接当成物理天气特征。</li></ul><p><b>读懂标志：</b>140 是原始编码输入数，64 是学习到的隐藏维度，14 是预测输出数。</p><p><b>来源：</b>作者实现与当前 case14/CNN 配置核对；尺寸是当前配置。</p><p><a href="https://github.com/xuwkk/task_aware_machine_unlearning" target="_blank" rel="noopener">作者原仓库</a></p></article><article class="notes" data-index="3"><h2>直接遗忘与影响函数</h2><p>影响函数从训练最优点的驻点条件出发，描述单样本增权对参数的局部导数。当前直接删除使用旧参数处剩余数据 MSE 的梯度和 Hessian，做一次 Newton 更新。二次满秩且精确求解时，这一步等于剩余集头部重新拟合；这不是整个非凸 CNN 的一般结论。</p><p class="formula">g_R = ∇L_R(θ₀)，H_R = ∇²L_R(θ₀)；求解 H_R Δ = g_R，θ_del = θ₀ − Δ。</p><h3>影响函数起点</h3><ul><li><b>经验风险最小化：训练梯度在最优点为零</b>：对选定训练目标和参数定义驻点条件，再对样本增权量求导。</li><li><b>梯度 g_i：样本推动参数的方向</b>：梯度是该样本损失对参数的局部导数，不是温度对预测输出的 Jacobian。</li><li><b>Hessian H：用曲率校正更新</b>：单样本额外增权的局部参数导数为 −H⁻¹g_i；完整权重约定还含样本数归一化。</li></ul><h3>删除更新</h3><ul><li><b>剩余目标 L_R：在旧参数 θ₀ 处计算</b>：计算剩余集平均 MSE 的梯度 g_R 与 Hessian H_R。</li><li><b>Newton 一步：θ_del = θ₀ − H_R⁻¹g_R</b>：实现通常求解线性系统，而非显式构造整个逆矩阵。</li><li><b>重拟合对照：检查参数和预测</b>：二次满秩条件下可与剩余数据精确拟合一致；CG 容差、阻尼、秩亏会影响数值结果。</li></ul><h3>数值与边界</h3><ul><li><b>iHVP / CG：求解 H a = v</b>：Hessian-vector product 支持 CG 计算逆 Hessian 向量积，检查收敛状态和残差。</li><li><b>正负号与缩放：增权 ≠ 删除分数</b>：若使用删除集平均梯度，更新可写成加号并带 k/m；评分文件的符号和分母必须核对。</li><li><b>适用范围：二次预测头及明确假设</b>：参数接近重拟合不足以推出认证隐私删除；核心曾使用删除样本时，仅更新头部也不能保证移除核心影响。</li></ul><p><b>读懂标志：</b>增权与删除符号相反；直接删除中 H_R 与 H_D 不能随意互换。</p><p><b>来源：</b>代码核对与标准数学推导；公式是学习记号，非原文编号。</p><p><a href="https://arxiv.org/abs/1703.04730" target="_blank" rel="noopener">Koh &amp; Liang：影响函数</a> · <a href="https://web.stanford.edu/~boyd/cvxbook/" target="_blank" rel="noopener">Boyd &amp; Vandenberghe：凸优化教材</a> · <a href="https://arxiv.org/abs/1911.03030" target="_blank" rel="noopener">Guo 等：认证删除</a></p></article><article class="notes" data-index="4"><h2>PAMU：性能感知重加权</h2><p>删除一批有帮助的样本可能损伤预测性能。PAMU 对剩余样本分配完整权重 w，以 MSE 或 MAPE 的外层梯度计算局部样本影响，再在权重预算中最小化线性评分。得到权重后，用加权剩余 MSE 重新拟合预测头。</p><p class="formula">代码评分 s_i = −g_i(θ₀)ᵀ H_R⁻¹∇J(θ₀)/n；min s_Rᵀw，‖w−1‖₁≤cm，‖w−1‖∞≤1。</p><h3>定义外层指标</h3><ul><li><b>J = MSE / MAPE：预测性能指导调权</b>：先选择需要补偿的评价标准；该标准的梯度决定哪些样本增权有利。</li><li><b>性能梯度 ∇θJ：参数怎样影响指标</b>：它与训练样本 MSE 梯度不同；训练 Hessian 仍取自剩余数据 MSE。</li><li><b>样本分数 s_i：估计增权的局部效果</b>：代码在原参数 θ₀ 评分并使用剩余 Hessian；理想剩余最优点的权重导数锚点不同。</li></ul><h3>权重线性规划</h3><ul><li><b>完整权重 w：分数正则倾向减权</b>：局部评分为正意味着增权使该外层指标上升；最优方向还受总预算约束。</li><li><b>L1 / Linf 预算：限制整体与单点偏离</b>：当前 Linf≤1 给出 0≤w≤2；平均 L1=0.1 是权重偏离预算，不是删除 10%。</li><li><b>LP 代理目标：没有权重和守恒约束</b>：当前代码没有 Σw=m；增添这一约束会改变问题。目标中与 w 无关的常数可省略；分数共同正比例缩放不改变 LP 最优解集合。</li></ul><h3>恢复预测头</h3><ul><li><b>加权剩余 MSE：重新构造梯度与 Hessian</b>：最终更新使用所选 w 对应的 H_R,w 与 g_R,w，而非直接复用未加权 Hessian。</li><li><b>加权 Newton 更新：得到新预测头参数</b>：加权二次系统满秩且求解准确时，更新等于该加权剩余数据的精确拟合。</li><li><b>真实评价：重新算 MSE / MAPE / Cost</b>：线性代理最优不等于真实指标或全部新样本最优；PAMU 也可以评价 Cost。</li></ul><p><b>读懂标志：</b>调权看 MSE/MAPE，拟合仍用 MSE；样本权重 w 不等于模型参数 θ。</p><p><b>来源：</b>eval_unchange.py 的实现流程核对；局部代理不是全局性能保证。</p><p><a href="https://arxiv.org/abs/1703.04730" target="_blank" rel="noopener">Koh &amp; Liang：影响函数</a> · <a href="https://web.stanford.edu/~boyd/cvxbook/" target="_blank" rel="noopener">Boyd &amp; Vandenberghe：凸优化教材</a></p></article><article class="notes" data-index="5"><h2>下游任务：两阶段电网成本</h2><p>第一阶段用预测负荷安排机组出力，第二阶段固定真实负荷，利用第一阶段发电安排处理偏差。总 Cost 必须包含阶段一发电与削减费用，以及阶段二 LS/GS 的线性和二次费用。所有功率和系数尺度必须与代码一致。</p><p class="formula">C1 = PGᵀdiag(q)PG + cᵀPG + λΣLS1；C2 = λΣLS2 + κΣLS2² + ρΣGS + ηΣGS²；C = C1 + C2。</p><h3>阶段一 Dispatch</h3><ul><li><b>输入：预测负荷：反标准化后截断为非负</b>：先将标准化预测恢复为 p.u.，沿原逻辑将负预测截为 0。</li><li><b>决策：PG、LS1、相角：发电安排与削减</b>：满足发电范围、线路双向限额、功率平衡、LS1 非负与参考角。</li><li><b>cost1：发电费用 + 阶段一削减</b>：阶段一 LS1 费用是总成本及可微表达的一部分，不能遗漏。</li></ul><h3>阶段二 Redispatch</h3><ul><li><b>输入：真实负荷 + PG：同一场景保持真实值不变</b>：阶段二使用数据中 ground truth，不以扰动后的温度重新生成真实负荷。</li><li><b>决策：LS2、GS、相角：处理短缺与过量发电</b>：当前平衡式使用 PG−GS；GS 是代码中的过量发电处理量，不是完整物理储能模型。</li><li><b>cost2：LS2 / GS 的一次与二次费</b>：阶段二沿原线路、功率平衡、非负和参考角约束；没有额外自由增发变量。</li></ul><h3>任务评价</h3><ul><li><b>总 Cost = cost1 + cost2：保留全部原费用项</b>：当前 λ=3500、κ=1250、ρ=700、η=250；目标函数单位不能未经校准解释为实际货币。</li><li><b>空间与方向效应：同等误差未必同等代价</b>：高估/低估、节点位置、发电与线路约束会使预测误差的经济后果不同。</li><li><b>数学模型不变：求解状态与可行性要检查</b>：兼容求解器必须求同一个问题；不能跳过 Cost，也不能为解释模型擅自加入 LS≤负荷、GS≤PG 上界。</li></ul><p><b>读懂标志：</b>同样 MSE 可以造成不同调度费用；人工输入扰动时真实负荷固定。</p><p><b>来源：</b>当前已修复 Operator 数学问题；没有声称逐式核对论文发表版。</p><p><a href="https://arxiv.org/abs/1703.04529" target="_blank" rel="noopener">Donti 等：任务导向学习</a> · <a href="https://web.stanford.edu/~boyd/cvxbook/" target="_blank" rel="noopener">Boyd &amp; Vandenberghe：凸优化教材</a> · <a href="https://github.com/xuwkk/task_aware_machine_unlearning" target="_blank" rel="noopener">作者原仓库</a></p></article><article class="notes" data-index="6"><h2>TAMU：成本梯度与调权</h2><p>TAMU 将外层 J 换成两阶段平均 Cost。前向得到预测与两阶段决策，反向通过可微优化层得到参数梯度 v_C，再结合剩余 MSE Hessian 和每个样本的训练梯度计算评分。LP 选择样本权重后，以加权 MSE 更新头部并真实评价。</p><p class="formula">v_C = ∇θ mean(C1+C2)；H_R a = v_C；s_i = −g_iᵀa/n；LP 选 w → 加权 MSE 更新 θ。</p><h3>前向任务链</h3><ul><li><b>预测 → 阶段一 → 阶段二：计算完整 C1 + C2</b>：阶段二显式接收阶段一 PG；两层依赖与所有费用都必须进入计算图。</li><li><b>外层任务目标：评估样本平均 Cost</b>：权重到参数的训练映射再连接两阶段决策；将训练子问题展开后依赖层数更多，勿只依赖层数名称。</li><li><b>统计误差与经济损失：可分别改善或恶化</b>：按 Cost 调权不是证明 MSE、MAPE、敏感性同时更好。</li></ul><h3>反向梯度链</h3><ul><li><b>KKT / 隐函数：对局部最优性关系求导</b>：在合适正则条件下求解映射可微；活跃集变化、退化和截断边界需要分别处理。</li><li><b>伴随法 / 链式法则：Cost → 预测 → 参数</b>：同时包含阶段一自身费用和阶段一决策影响阶段二费用的路径，仅对第一阶段最优值求导不完整。</li><li><b>CVXPYLayers / DPP：连接自动微分</b>：DPP 是参数化建模结构规则；求解器得到数值最优解不等于该调用自动具有 PyTorch 梯度。</li></ul><h3>重加权与边界</h3><ul><li><b>Cost 影响评分：一条样本增权怎样影响 J</b>：与 PAMU 相同框架，主要替换外层梯度；分数锚点、数据集合和归一化仍需核对。</li><li><b>LP → 加权预测头：同样的 L1 / Linf 预算</b>：得到权重后重新构造加权 MSE 系统，检查秩、CG 收敛和残差。</li><li><b>理论条件与真实复算：局部代理不是全局保证</b>：标准充分条件可帮助理解局部导数，但不能冒充未取得原论文的定理；最终 Cost 要重新数值评价。</li></ul><p><b>读懂标志：</b>Cost 梯度指导选权；训练 Hessian 来自 MSE；平均目标不保证逐场景经济性。</p><p><b>来源：</b>代码和标准 KKT/链式法则推导；原论文梯度存在定理全文待核验。</p><p><a href="https://arxiv.org/abs/1703.04730" target="_blank" rel="noopener">Koh &amp; Liang：影响函数</a> · <a href="https://arxiv.org/abs/1703.00443" target="_blank" rel="noopener">OptNet：KKT 与可微优化</a> · <a href="https://arxiv.org/abs/1910.12430" target="_blank" rel="noopener">CVXPYLayers：可微凸优化层</a> · <a href="https://arxiv.org/abs/1703.04529" target="_blank" rel="noopener">Donti 等：任务导向学习</a> · <a href="https://web.stanford.edu/~boyd/cvxbook/" target="_blank" rel="noopener">Boyd &amp; Vandenberghe：凸优化教材</a></p></article><article class="notes" data-index="7"><h2>实验与证据分层</h2><p>作者摘要确认比较 Linear、CNN、MLP-Mixer，并考虑遗忘、性能与运行成本。当前仓库另有已完成的复现和温度敏感性扩展。导图中所有温度实验数值归于你的新增研究，不能当作原论文实验结论。</p><h3>作者摘要 / 仓库复现</h3><ul><li><b>预测器比较：Linear / CNN / MLP-Mixer</b>：作者摘要明确这些模型；发表版全部实验设置、结果和图号仍需原文核对。</li><li><b>指标与对照：MSE、MAPE、Cost、重拟合</b>：仓库实现直接遗忘与 PAMU/TAMU 入口；当前复现保存六档遗忘比例结果。</li><li><b>求解与复现质量：状态、约束、费用及恢复</b>：项目已有成本修复、状态检查和重放记录；工程检查通过不能替代原文理论核验。</li></ul><h3>你的扩展实验一</h3><ul><li><b>单输入温度：1 样本 × 5 档 × 4 模型</b>：固定每个模型的参数、其他输入和真实负荷，改变输入节点1温度 ±1、±0.5、0 个训练标准差。</li><li><b>完整影响路径：温度 → 14 输出 → Cost</b>：参考点原始 CNN 的 +1σ 总预测变化 −0.827542 MW，总 Cost 变化 −6.778363。</li><li><b>响应对照：原始 / 直接 / 重拟合 / TAMU</b>：共享冻结 CNN 核心；TAMU 不是逐个温度水平重新调权。绝对成本与敏感性应分开。</li></ul><h3>你的扩展实验二</h3><ul><li><b>28 日期节点诊断：隔离 / 复位 / 参考点 Shapley</b>：28×4=112 组原始 CNN 非零扰动对照的峰值节点一致；这是本批观察，不是数学必然。</li><li><b>27 新日期经济性：106 / 108 低于直接遗忘</b>：27 个新日期各一个小时级样本，按月与负荷层预选；参考点不计入该汇总。</li><li><b>保留反例：TAMU 曾贵 60.929210</b>：2019-03-12、test1686、−1σ 场景出现该差异，不能把平均改善说成逐场景保证。</li></ul><p><b>读懂标志：</b>实验一打通输入路径；实验二检查节点贡献和多日期稳定性。</p><p><b>来源：</b>作者 README + 已保存复现记录；温度实验不是原论文实验。</p><p><a href="https://arxiv.org/abs/2308.14412" target="_blank" rel="noopener">目标论文</a> · <a href="https://github.com/xuwkk/task_aware_machine_unlearning" target="_blank" rel="noopener">作者原仓库</a></p></article><article class="notes" data-index="8"><h2>结论、局限与后续</h2><p>由现有证据可理解影响函数与任务成本如何指导剩余样本重加权，并可追踪输入到 Cost 的数值路径。原论文全文尚未核对，当前扩展也有时间、随机种子、输入坐标和评价协议限制。进一步研究应保留独立测试并补齐 PAMU 等对照。</p><h3>可以讲清楚的机制</h3><ul><li><b>遗忘的参数更新：条件明确才谈精确</b>：二次头部的数值重拟合一致性不代表整个 CNN 的任意数据都已认证删除。</li><li><b>按任务代价调权：区别于仅按预测误差</b>：TAMU 的外层指标是 Cost；PAMU 则提供性能指标导向的必要比较。</li><li><b>输入到 Cost 的响应：模型输出反事实诊断</b>：人为温度输入干预和混合输出向量，并不等同真实天气的物理因果作用。</li></ul><h3>当前解释边界</h3><ul><li><b>协议与范围：全年标准化、测试信息参与</b>：原协议中先全年标准化再划分，helpful/TAMU 使用测试性能信息；新增扰动控制未消除这些限制。</li><li><b>场景有限：前73天、seed42、单温度坐标</b>：当前扩展不能推出全年、夏季、其他种子或 ERCOT 的普遍结论。</li><li><b>原文尚待核验：章节 / 公式 / 定理不能冒认</b>：本套图的八层是学习顺序；需要取得完整 PDF 才能逐章对应原论文。</li></ul><h3>后续怎样补齐</h3><ul><li><b>增加 PAMU 对照：统一预算、删除集和评价</b>：当前四模型温度实验没有 PAMU，因而不能证明 TAMU 优于 PAMU。</li><li><b>独立测试与稳健性：多特征、多种子、多场景</b>：预先确定样本，分别报告平均成本、最差场景及输入响应，不根据结果挑选样本。</li><li><b>理论与跨数据集：核验原文；明确节点映射</b>：原文定理逐条核对、认证定义、ERCOT 节点映射与缩放均需单独证据；当前没有完成真实 ERCOT 成本实验。</li></ul><p><b>读懂标志：</b>局部优化代理、精确头部拟合、逐场景经济性、认证遗忘是不同层次的结论。</p><p><b>来源：</b>当前算法实现与扩展实验的解释边界；不代写原文结论。</p><p><a href="https://arxiv.org/abs/1911.03030" target="_blank" rel="noopener">Guo 等：认证删除</a> · <a href="https://arxiv.org/abs/2308.14412" target="_blank" rel="noopener">目标论文</a></p></article></main></div>
+<script>
+let current=0;const initial=new Map();let dragging=null;
+function svg(){return document.querySelector('.pane.visible svg')}
+document.querySelectorAll('.pane svg').forEach(s=>{initial.set(s,s.getAttribute('viewBox'));s.addEventListener('wheel',e=>{e.preventDefault();zoom(e.deltaY<0?.88:1.14,e.clientX,e.clientY)},{passive:false});s.addEventListener('pointerdown',e=>{if(e.button!==0)return;dragging={s,x:e.clientX,y:e.clientY,v:s.viewBox.baseVal.x,w:s.viewBox.baseVal.y};s.setPointerCapture(e.pointerId)});s.addEventListener('pointermove',e=>{if(!dragging||dragging.s!==s)return;const r=s.getBoundingClientRect(),v=s.viewBox.baseVal;s.setAttribute('viewBox',`${dragging.v-(e.clientX-dragging.x)*v.width/r.width} ${dragging.w-(e.clientY-dragging.y)*v.height/r.height} ${v.width} ${v.height}`)});s.addEventListener('pointerup',()=>dragging=null);s.addEventListener('pointercancel',()=>dragging=null)});
+function zoom(f,cx,cy){let s=svg(),v=s.viewBox.baseVal,r=s.getBoundingClientRect();let fx=cx===undefined?.5:Math.max(0,Math.min(1,(cx-r.left)/r.width)),fy=cy===undefined?.5:Math.max(0,Math.min(1,(cy-r.top)/r.height));const w=v.width*f,h=v.height*f;if(w<40||w>15000)return;s.setAttribute('viewBox',`${v.x+(v.width-w)*fx} ${v.y+(v.height-h)*fy} ${w} ${h}`)}
+function search(){const text=document.getElementById('search').value.trim().toLowerCase();svg().querySelectorAll('.node').forEach(n=>n.classList.toggle('matched',!!text&&n.textContent.toLowerCase().includes(text)))}
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{current=Number(b.dataset.index);document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('selected',x===b));document.querySelectorAll('.pane,.notes').forEach(x=>x.classList.toggle('visible',Number(x.dataset.index)===current));search()}));
+document.getElementById('plus').onclick=()=>zoom(.8);document.getElementById('minus').onclick=()=>zoom(1.25);document.getElementById('reset').onclick=()=>svg().setAttribute('viewBox',initial.get(svg()));document.getElementById('search').addEventListener('input',search);
+</script></html>

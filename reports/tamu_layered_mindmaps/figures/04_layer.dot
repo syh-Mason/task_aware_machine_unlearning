@@ -1,0 +1,31 @@
+digraph study {
+graph [rankdir=LR, bgcolor="white", nodesep=0.18, ranksep=0.38, pad=0.22, splines=polyline, outputorder=edgesfirst];
+graph [label="学习分层（非原文章节号）｜原文全文未取得；依据作者摘要、代码与标准推导整理", labelloc=b, fontsize=11, fontname="Noto Sans CJK SC", fontcolor="#526675"];
+node [shape=box, style="rounded,filled", fontname="Noto Sans CJK SC", fontsize=18, margin="0.17,0.12", color="#B5C6D0", fillcolor="white", penwidth=1.2];
+edge [arrowhead=none, color="#8AA3B1", penwidth=1.4];
+root [label="第04层\nPAMU：性能感知重加权", fontsize=22, fillcolor="#5F52A3", fontcolor="white", color="#5F52A3"];
+b0 [label="定义外层指标", color="#5F52A3", fillcolor="#EFF5F8", penwidth=1.8];
+root -> b0 [color="#5F52A3"];
+b0_l0 [label="J = MSE / MAPE\n预测性能指导调权", tooltip="先选择需要补偿的评价标准；该标准的梯度决定哪些样本增权有利。"];
+b0 -> b0_l0 [color="#5F52A3"];
+b0_l1 [label="性能梯度 ∇θJ\n参数怎样影响指标", tooltip="它与训练样本 MSE 梯度不同；训练 Hessian 仍取自剩余数据 MSE。"];
+b0 -> b0_l1 [color="#5F52A3"];
+b0_l2 [label="样本分数 s_i\n估计增权的局部效果", tooltip="代码在原参数 θ₀ 评分并使用剩余 Hessian；理想剩余最优点的权重导数锚点不同。"];
+b0 -> b0_l2 [color="#5F52A3"];
+b1 [label="权重线性规划", color="#5F52A3", fillcolor="#EFF5F8", penwidth=1.8];
+root -> b1 [color="#5F52A3"];
+b1_l0 [label="完整权重 w\n分数正则倾向减权", tooltip="局部评分为正意味着增权使该外层指标上升；最优方向还受总预算约束。"];
+b1 -> b1_l0 [color="#5F52A3"];
+b1_l1 [label="L1 / Linf 预算\n限制整体与单点偏离", tooltip="当前 Linf≤1 给出 0≤w≤2；平均 L1=0.1 是权重偏离预算，不是删除 10%。"];
+b1 -> b1_l1 [color="#5F52A3"];
+b1_l2 [label="LP 代理目标\n没有权重和守恒约束", tooltip="当前代码没有 Σw=m；增添这一约束会改变问题。目标中与 w 无关的常数可省略；分数共同正比例缩放不改变 LP 最优解集合。"];
+b1 -> b1_l2 [color="#5F52A3"];
+b2 [label="恢复预测头", color="#5F52A3", fillcolor="#EFF5F8", penwidth=1.8];
+root -> b2 [color="#5F52A3"];
+b2_l0 [label="加权剩余 MSE\n重新构造梯度与 Hessian", tooltip="最终更新使用所选 w 对应的 H_R,w 与 g_R,w，而非直接复用未加权 Hessian。"];
+b2 -> b2_l0 [color="#5F52A3"];
+b2_l1 [label="加权 Newton 更新\n得到新预测头参数", tooltip="加权二次系统满秩且求解准确时，更新等于该加权剩余数据的精确拟合。"];
+b2 -> b2_l1 [color="#5F52A3"];
+b2_l2 [label="真实评价\n重新算 MSE / MAPE / Cost", tooltip="线性代理最优不等于真实指标或全部新样本最优；PAMU 也可以评价 Cost。"];
+b2 -> b2_l2 [color="#5F52A3"];
+}

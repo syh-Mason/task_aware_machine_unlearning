@@ -1,0 +1,31 @@
+digraph study {
+graph [rankdir=LR, bgcolor="white", nodesep=0.18, ranksep=0.38, pad=0.22, splines=polyline, outputorder=edgesfirst];
+graph [label="学习分层（非原文章节号）｜原文全文未取得；依据作者摘要、代码与标准推导整理", labelloc=b, fontsize=11, fontname="Noto Sans CJK SC", fontcolor="#526675"];
+node [shape=box, style="rounded,filled", fontname="Noto Sans CJK SC", fontsize=18, margin="0.17,0.12", color="#B5C6D0", fillcolor="white", penwidth=1.2];
+edge [arrowhead=none, color="#8AA3B1", penwidth=1.4];
+root [label="第08层\n结论、局限与后续", fontsize=22, fillcolor="#526675", fontcolor="white", color="#526675"];
+b0 [label="可以讲清楚的机制", color="#526675", fillcolor="#EFF5F8", penwidth=1.8];
+root -> b0 [color="#526675"];
+b0_l0 [label="遗忘的参数更新\n条件明确才谈精确", tooltip="二次头部的数值重拟合一致性不代表整个 CNN 的任意数据都已认证删除。"];
+b0 -> b0_l0 [color="#526675"];
+b0_l1 [label="按任务代价调权\n区别于仅按预测误差", tooltip="TAMU 的外层指标是 Cost；PAMU 则提供性能指标导向的必要比较。"];
+b0 -> b0_l1 [color="#526675"];
+b0_l2 [label="输入到 Cost 的响应\n模型输出反事实诊断", tooltip="人为温度输入干预和混合输出向量，并不等同真实天气的物理因果作用。"];
+b0 -> b0_l2 [color="#526675"];
+b1 [label="当前解释边界", color="#526675", fillcolor="#EFF5F8", penwidth=1.8];
+root -> b1 [color="#526675"];
+b1_l0 [label="协议与范围\n全年标准化、测试信息参与", tooltip="原协议中先全年标准化再划分，helpful/TAMU 使用测试性能信息；新增扰动控制未消除这些限制。"];
+b1 -> b1_l0 [color="#526675"];
+b1_l1 [label="场景有限\n前73天、seed42、单温度坐标", tooltip="当前扩展不能推出全年、夏季、其他种子或 ERCOT 的普遍结论。"];
+b1 -> b1_l1 [color="#526675"];
+b1_l2 [label="原文尚待核验\n章节 / 公式 / 定理不能冒认", tooltip="本套图的八层是学习顺序；需要取得完整 PDF 才能逐章对应原论文。"];
+b1 -> b1_l2 [color="#526675"];
+b2 [label="后续怎样补齐", color="#526675", fillcolor="#EFF5F8", penwidth=1.8];
+root -> b2 [color="#526675"];
+b2_l0 [label="增加 PAMU 对照\n统一预算、删除集和评价", tooltip="当前四模型温度实验没有 PAMU，因而不能证明 TAMU 优于 PAMU。"];
+b2 -> b2_l0 [color="#526675"];
+b2_l1 [label="独立测试与稳健性\n多特征、多种子、多场景", tooltip="预先确定样本，分别报告平均成本、最差场景及输入响应，不根据结果挑选样本。"];
+b2 -> b2_l1 [color="#526675"];
+b2_l2 [label="理论与跨数据集\n核验原文；明确节点映射", tooltip="原文定理逐条核对、认证定义、ERCOT 节点映射与缩放均需单独证据；当前没有完成真实 ERCOT 成本实验。"];
+b2 -> b2_l2 [color="#526675"];
+}

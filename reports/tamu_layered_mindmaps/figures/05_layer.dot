@@ -1,0 +1,31 @@
+digraph study {
+graph [rankdir=LR, bgcolor="white", nodesep=0.18, ranksep=0.38, pad=0.22, splines=polyline, outputorder=edgesfirst];
+graph [label="学习分层（非原文章节号）｜原文全文未取得；依据作者摘要、代码与标准推导整理", labelloc=b, fontsize=11, fontname="Noto Sans CJK SC", fontcolor="#526675"];
+node [shape=box, style="rounded,filled", fontname="Noto Sans CJK SC", fontsize=18, margin="0.17,0.12", color="#B5C6D0", fillcolor="white", penwidth=1.2];
+edge [arrowhead=none, color="#8AA3B1", penwidth=1.4];
+root [label="第05层\n下游任务：两阶段电网成本", fontsize=22, fillcolor="#1D7562", fontcolor="white", color="#1D7562"];
+b0 [label="阶段一 Dispatch", color="#1D7562", fillcolor="#EFF5F8", penwidth=1.8];
+root -> b0 [color="#1D7562"];
+b0_l0 [label="输入：预测负荷\n反标准化后截断为非负", tooltip="先将标准化预测恢复为 p.u.，沿原逻辑将负预测截为 0。"];
+b0 -> b0_l0 [color="#1D7562"];
+b0_l1 [label="决策：PG、LS1、相角\n发电安排与削减", tooltip="满足发电范围、线路双向限额、功率平衡、LS1 非负与参考角。"];
+b0 -> b0_l1 [color="#1D7562"];
+b0_l2 [label="cost1\n发电费用 + 阶段一削减", tooltip="阶段一 LS1 费用是总成本及可微表达的一部分，不能遗漏。"];
+b0 -> b0_l2 [color="#1D7562"];
+b1 [label="阶段二 Redispatch", color="#1D7562", fillcolor="#EFF5F8", penwidth=1.8];
+root -> b1 [color="#1D7562"];
+b1_l0 [label="输入：真实负荷 + PG\n同一场景保持真实值不变", tooltip="阶段二使用数据中 ground truth，不以扰动后的温度重新生成真实负荷。"];
+b1 -> b1_l0 [color="#1D7562"];
+b1_l1 [label="决策：LS2、GS、相角\n处理短缺与过量发电", tooltip="当前平衡式使用 PG−GS；GS 是代码中的过量发电处理量，不是完整物理储能模型。"];
+b1 -> b1_l1 [color="#1D7562"];
+b1_l2 [label="cost2\nLS2 / GS 的一次与二次费", tooltip="阶段二沿原线路、功率平衡、非负和参考角约束；没有额外自由增发变量。"];
+b1 -> b1_l2 [color="#1D7562"];
+b2 [label="任务评价", color="#1D7562", fillcolor="#EFF5F8", penwidth=1.8];
+root -> b2 [color="#1D7562"];
+b2_l0 [label="总 Cost = cost1 + cost2\n保留全部原费用项", tooltip="当前 λ=3500、κ=1250、ρ=700、η=250；目标函数单位不能未经校准解释为实际货币。"];
+b2 -> b2_l0 [color="#1D7562"];
+b2_l1 [label="空间与方向效应\n同等误差未必同等代价", tooltip="高估/低估、节点位置、发电与线路约束会使预测误差的经济后果不同。"];
+b2 -> b2_l1 [color="#1D7562"];
+b2_l2 [label="数学模型不变\n求解状态与可行性要检查", tooltip="兼容求解器必须求同一个问题；不能跳过 Cost，也不能为解释模型擅自加入 LS≤负荷、GS≤PG 上界。"];
+b2 -> b2_l2 [color="#1D7562"];
+}

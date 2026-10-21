@@ -1,5 +1,13 @@
 # 实验图表下载
 
+## TAMU 分层导图
+
+[下载一张总图与八张详图完整包](tamu_layered_mindmaps.zip?raw=true) ·
+[图集、Word 与交互版入口](../reports/tamu_layered_mindmaps/README.md)。
+
+包含九页矢量导图PDF、高清PNG/SVG、十一页分层说明Word/PDF及可编辑导图。
+按学习逻辑分层，非原文章节号；原文全文尚未取得，所有来源范围和扩展实验均已标注。
+
 ## TAMU 算法推导与先修文献
 
 [下载 Word / PDF 讲义 ZIP](tamu_algorithm_guide.zip?raw=true) ·

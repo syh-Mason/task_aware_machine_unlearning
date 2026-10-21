@@ -1,0 +1,31 @@
+digraph study {
+graph [rankdir=LR, bgcolor="white", nodesep=0.18, ranksep=0.38, pad=0.22, splines=polyline, outputorder=edgesfirst];
+graph [label="学习分层（非原文章节号）｜原文全文未取得；依据作者摘要、代码与标准推导整理", labelloc=b, fontsize=11, fontname="Noto Sans CJK SC", fontcolor="#526675"];
+node [shape=box, style="rounded,filled", fontname="Noto Sans CJK SC", fontsize=18, margin="0.17,0.12", color="#B5C6D0", fillcolor="white", penwidth=1.2];
+edge [arrowhead=none, color="#8AA3B1", penwidth=1.4];
+root [label="第03层\n直接遗忘与影响函数", fontsize=22, fillcolor="#8C5A19", fontcolor="white", color="#8C5A19"];
+b0 [label="影响函数起点", color="#8C5A19", fillcolor="#EFF5F8", penwidth=1.8];
+root -> b0 [color="#8C5A19"];
+b0_l0 [label="经验风险最小化\n训练梯度在最优点为零", tooltip="对选定训练目标和参数定义驻点条件，再对样本增权量求导。"];
+b0 -> b0_l0 [color="#8C5A19"];
+b0_l1 [label="梯度 g_i\n样本推动参数的方向", tooltip="梯度是该样本损失对参数的局部导数，不是温度对预测输出的 Jacobian。"];
+b0 -> b0_l1 [color="#8C5A19"];
+b0_l2 [label="Hessian H\n用曲率校正更新", tooltip="单样本额外增权的局部参数导数为 −H⁻¹g_i；完整权重约定还含样本数归一化。"];
+b0 -> b0_l2 [color="#8C5A19"];
+b1 [label="删除更新", color="#8C5A19", fillcolor="#EFF5F8", penwidth=1.8];
+root -> b1 [color="#8C5A19"];
+b1_l0 [label="剩余目标 L_R\n在旧参数 θ₀ 处计算", tooltip="计算剩余集平均 MSE 的梯度 g_R 与 Hessian H_R。"];
+b1 -> b1_l0 [color="#8C5A19"];
+b1_l1 [label="Newton 一步\nθ_del = θ₀ − H_R⁻¹g_R", tooltip="实现通常求解线性系统，而非显式构造整个逆矩阵。"];
+b1 -> b1_l1 [color="#8C5A19"];
+b1_l2 [label="重拟合对照\n检查参数和预测", tooltip="二次满秩条件下可与剩余数据精确拟合一致；CG 容差、阻尼、秩亏会影响数值结果。"];
+b1 -> b1_l2 [color="#8C5A19"];
+b2 [label="数值与边界", color="#8C5A19", fillcolor="#EFF5F8", penwidth=1.8];
+root -> b2 [color="#8C5A19"];
+b2_l0 [label="iHVP / CG\n求解 H a = v", tooltip="Hessian-vector product 支持 CG 计算逆 Hessian 向量积，检查收敛状态和残差。"];
+b2 -> b2_l0 [color="#8C5A19"];
+b2_l1 [label="正负号与缩放\n增权 ≠ 删除分数", tooltip="若使用删除集平均梯度，更新可写成加号并带 k/m；评分文件的符号和分母必须核对。"];
+b2 -> b2_l1 [color="#8C5A19"];
+b2_l2 [label="适用范围\n二次预测头及明确假设", tooltip="参数接近重拟合不足以推出认证隐私删除；核心曾使用删除样本时，仅更新头部也不能保证移除核心影响。"];
+b2 -> b2_l2 [color="#8C5A19"];
+}

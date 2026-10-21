@@ -1,0 +1,31 @@
+digraph study {
+graph [rankdir=LR, bgcolor="white", nodesep=0.18, ranksep=0.38, pad=0.22, splines=polyline, outputorder=edgesfirst];
+graph [label="学习分层（非原文章节号）｜原文全文未取得；依据作者摘要、代码与标准推导整理", labelloc=b, fontsize=11, fontname="Noto Sans CJK SC", fontcolor="#526675"];
+node [shape=box, style="rounded,filled", fontname="Noto Sans CJK SC", fontsize=18, margin="0.17,0.12", color="#B5C6D0", fillcolor="white", penwidth=1.2];
+edge [arrowhead=none, color="#8AA3B1", penwidth=1.4];
+root [label="第06层\nTAMU：成本梯度与调权", fontsize=22, fillcolor="#B2533B", fontcolor="white", color="#B2533B"];
+b0 [label="前向任务链", color="#B2533B", fillcolor="#EFF5F8", penwidth=1.8];
+root -> b0 [color="#B2533B"];
+b0_l0 [label="预测 → 阶段一 → 阶段二\n计算完整 C1 + C2", tooltip="阶段二显式接收阶段一 PG；两层依赖与所有费用都必须进入计算图。"];
+b0 -> b0_l0 [color="#B2533B"];
+b0_l1 [label="外层任务目标\n评估样本平均 Cost", tooltip="权重到参数的训练映射再连接两阶段决策；将训练子问题展开后依赖层数更多，勿只依赖层数名称。"];
+b0 -> b0_l1 [color="#B2533B"];
+b0_l2 [label="统计误差与经济损失\n可分别改善或恶化", tooltip="按 Cost 调权不是证明 MSE、MAPE、敏感性同时更好。"];
+b0 -> b0_l2 [color="#B2533B"];
+b1 [label="反向梯度链", color="#B2533B", fillcolor="#EFF5F8", penwidth=1.8];
+root -> b1 [color="#B2533B"];
+b1_l0 [label="KKT / 隐函数\n对局部最优性关系求导", tooltip="在合适正则条件下求解映射可微；活跃集变化、退化和截断边界需要分别处理。"];
+b1 -> b1_l0 [color="#B2533B"];
+b1_l1 [label="伴随法 / 链式法则\nCost → 预测 → 参数", tooltip="同时包含阶段一自身费用和阶段一决策影响阶段二费用的路径，仅对第一阶段最优值求导不完整。"];
+b1 -> b1_l1 [color="#B2533B"];
+b1_l2 [label="CVXPYLayers / DPP\n连接自动微分", tooltip="DPP 是参数化建模结构规则；求解器得到数值最优解不等于该调用自动具有 PyTorch 梯度。"];
+b1 -> b1_l2 [color="#B2533B"];
+b2 [label="重加权与边界", color="#B2533B", fillcolor="#EFF5F8", penwidth=1.8];
+root -> b2 [color="#B2533B"];
+b2_l0 [label="Cost 影响评分\n一条样本增权怎样影响 J", tooltip="与 PAMU 相同框架，主要替换外层梯度；分数锚点、数据集合和归一化仍需核对。"];
+b2 -> b2_l0 [color="#B2533B"];
+b2_l1 [label="LP → 加权预测头\n同样的 L1 / Linf 预算", tooltip="得到权重后重新构造加权 MSE 系统，检查秩、CG 收敛和残差。"];
+b2 -> b2_l1 [color="#B2533B"];
+b2_l2 [label="理论条件与真实复算\n局部代理不是全局保证", tooltip="标准充分条件可帮助理解局部导数，但不能冒充未取得原论文的定理；最终 Cost 要重新数值评价。"];
+b2 -> b2_l2 [color="#B2533B"];
+}

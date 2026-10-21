@@ -1,0 +1,31 @@
+digraph study {
+graph [rankdir=LR, bgcolor="white", nodesep=0.18, ranksep=0.38, pad=0.22, splines=polyline, outputorder=edgesfirst];
+graph [label="学习分层（非原文章节号）｜原文全文未取得；依据作者摘要、代码与标准推导整理", labelloc=b, fontsize=11, fontname="Noto Sans CJK SC", fontcolor="#526675"];
+node [shape=box, style="rounded,filled", fontname="Noto Sans CJK SC", fontsize=18, margin="0.17,0.12", color="#B5C6D0", fillcolor="white", penwidth=1.2];
+edge [arrowhead=none, color="#8AA3B1", penwidth=1.4];
+root [label="第02层\n数据与预测模型", fontsize=22, fillcolor="#167D8D", fontcolor="white", color="#167D8D"];
+b0 [label="数据如何组织", color="#167D8D", fillcolor="#EFF5F8", penwidth=1.8];
+root -> b0 [color="#167D8D"];
+b0_l0 [label="TX-123BT\n合成测试系统数据", tooltip="官方数据用于构建负荷预测任务；不能将其称为已接入 ERCOT 的实际观测。"];
+b0 -> b0_l0 [color="#167D8D"];
+b0_l1 [label="输入与目标\n天气/时间 → 负荷", tooltip="温度等天气变量与周期时间编码为输入，Load 是预测目标。标准化和数据划分的顺序影响评估解释。"];
+b0 -> b0_l1 [color="#167D8D"];
+b0_l2 [label="D = U ∪ R\n原集、删除集、剩余集", tooltip="对当前神经网络头部流程，D 通常指敏感拟合集；20% 删除比例应说明其分母。"];
+b0 -> b0_l2 [color="#167D8D"];
+b1 [label="模型怎样预测", color="#167D8D", fillcolor="#EFF5F8", penwidth=1.8];
+root -> b1 [color="#167D8D"];
+b1_l0 [label="Linear\n仿射负荷预测", tooltip="线性模型通过特征的仿射组合给出负荷预测。"];
+b1 -> b1_l0 [color="#167D8D"];
+b1_l1 [label="CNN / MLP-Mixer\n提取共同隐藏表示", tooltip="先在 core 数据上训练特征提取器，再冻结核心，准备敏感样本的隐藏特征。"];
+b1 -> b1_l1 [color="#167D8D"];
+b1_l2 [label="当前 CNN\n140 → 64 → 14", tooltip="输入形状为 (N,1,14,10)，64 维 tanh 隐表示进入仿射预测头，输出 14 维标准化负荷。"];
+b1 -> b1_l2 [color="#167D8D"];
+b2 [label="参数与尺度", color="#167D8D", fillcolor="#EFF5F8", penwidth=1.8];
+root -> b2 [color="#167D8D"];
+b2_l0 [label="预测头 θ\n当前为 910 个参数", tooltip="14×64 个连接权重和 14 个偏置；所有模型连接参数与训练样本权重 w 是不同对象。"];
+b2 -> b2_l0 [color="#167D8D"];
+b2_l1 [label="训练目标\nMSE 拟合参数", tooltip="PAMU/TAMU 以其他指标指导样本调权，但最终预测头仍使用加权 MSE 拟合。"];
+b2 -> b2_l1 [color="#167D8D"];
+b2_l2 [label="反标准化\np.u. → 调度；MW 展示", tooltip="模型输出先恢复为 p.u. 负荷；MW 展示再乘 baseMVA。64 个隐藏坐标不能直接当成物理天气特征。"];
+b2 -> b2_l2 [color="#167D8D"];
+}

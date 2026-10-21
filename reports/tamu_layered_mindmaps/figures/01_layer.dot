@@ -1,0 +1,31 @@
+digraph study {
+graph [rankdir=LR, bgcolor="white", nodesep=0.18, ranksep=0.38, pad=0.22, splines=polyline, outputorder=edgesfirst];
+graph [label="学习分层（非原文章节号）｜原文全文未取得；依据作者摘要、代码与标准推导整理", labelloc=b, fontsize=11, fontname="Noto Sans CJK SC", fontcolor="#526675"];
+node [shape=box, style="rounded,filled", fontname="Noto Sans CJK SC", fontsize=18, margin="0.17,0.12", color="#B5C6D0", fillcolor="white", penwidth=1.2];
+edge [arrowhead=none, color="#8AA3B1", penwidth=1.4];
+root [label="第01层\n研究动机与问题", fontsize=22, fillcolor="#2460A6", fontcolor="white", color="#2460A6"];
+b0 [label="问题从哪里来", color="#2460A6", fillcolor="#EFF5F8", penwidth=1.8];
+root -> b0 [color="#2460A6"];
+b0_l0 [label="隐私撤回\n指定数据不再参与学习", tooltip="删除对象是历史训练样本的影响，不是删除一个温度特征，也不是要求模型无法预测该样本。"];
+b0 -> b0_l0 [color="#2460A6"];
+b0_l1 [label="数据质量\n恶意或不可靠样本", tooltip="作者摘要列出恶意数据等删除动机；是否有害要依据实际数据和评价标准判断。"];
+b0 -> b0_l1 [color="#2460A6"];
+b0_l2 [label="部署之后\n模型已经学习过数据", tooltip="从文件中删掉原始记录，并不会自动更新已经训练出来的模型参数。"];
+b0 -> b0_l2 [color="#2460A6"];
+b1 [label="必须比较什么", color="#2460A6", fillcolor="#EFF5F8", penwidth=1.8];
+root -> b1 [color="#2460A6"];
+b1_l0 [label="遗忘结果\n与剩余数据重训比较", tooltip="需要先明确重训算法、删除集合和保证定义，不能只以误差变化判断是否遗忘成功。"];
+b1 -> b1_l0 [color="#2460A6"];
+b1_l1 [label="计算代价\n更新与从头拟合", tooltip="影响函数和 Newton 更新提供减少某些重新拟合计算的途径；实际速度仍取决于规模与数值求解。"];
+b1 -> b1_l1 [color="#2460A6"];
+b1_l2 [label="保留效用\n预测指标与经济性", tooltip="删掉有帮助的样本可能损伤预测或运行表现；性能与成本是不同评价维度。"];
+b1 -> b1_l2 [color="#2460A6"];
+b2 [label="方法逐层递进", color="#2460A6", fillcolor="#EFF5F8", penwidth=1.8];
+root -> b2 [color="#2460A6"];
+b2_l0 [label="直接遗忘\n更新剩余集预测头", tooltip="先建立可核对的删除更新，再与剩余数据重新拟合比较。"];
+b2 -> b2_l0 [color="#2460A6"];
+b2_l1 [label="PAMU\n按预测指标调权", tooltip="在剩余样本重加权时关注 MSE 或 MAPE 的局部影响。"];
+b2 -> b2_l1 [color="#2460A6"];
+b2_l2 [label="TAMU\n按电网 Cost 调权", tooltip="将下游调度代价引入评分，讨论删除后的经济性。"];
+b2 -> b2_l2 [color="#2460A6"];
+}
