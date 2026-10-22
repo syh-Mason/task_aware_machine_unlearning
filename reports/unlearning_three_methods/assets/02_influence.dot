@@ -1,0 +1,19 @@
+digraph G {
+graph [bgcolor="white",rankdir=TB,nodesep=.32,ranksep=.32,pad=.15];
+node [shape=box,style="rounded,filled",fillcolor="#EDF4F6",color="#217A8A",fontname="Noto Sans CJK SC",fontsize=19,margin=".16,.12"];
+edge [color="#486375",penwidth=1.7,arrowsize=.8];
+feature [label="固定 CNN 核心\n64 维表示 + 偏置"];
+gradient [label="删除集梯度变化\n含样本数 / 正则项"];
+hessian [label="剩余目标 Hessian\n求解 Hᵣ v = Δ"];
+update [label="预测头更新 θ + v\n与直接重拟合对照"];
+forecast [label="14 节点预测\n同一真实负荷"];
+cost [label="两阶段优化\nCost + 状态 / 残差"];
+{rank=same;feature;gradient;hessian;}
+{rank=same;update;forecast;cost;}
+feature->gradient->hessian;
+update->forecast->cost;
+hessian->cost [style=invis];
+feature->update [style=invis];
+hessian->update [constraint=false,color="#B55B43"];
+update [fillcolor="#F7EEE9",color="#B55B43"];
+}

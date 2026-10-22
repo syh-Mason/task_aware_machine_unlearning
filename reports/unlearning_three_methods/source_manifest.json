@@ -1,0 +1,250 @@
+{
+  "date": "2026-10-22",
+  "timezone": "Asia/Shanghai",
+  "scope": "Three literature reports and synthetic mathematical checks; no new grid training, deletion benchmark, or cost solves",
+  "paper_access": {
+    "SISA": "author_code_read; full_text_blocked",
+    "Guo_ICML2020": "formal_full_text_11_pages_and_author_code_read",
+    "SSD": "author_code_read; full_text_blocked",
+    "surveys": "bibliographic_indices_read; survey_full_texts_blocked"
+  },
+  "sources": [
+    {
+      "title": "SISA",
+      "url": "https://github.com/cleverhans-lab/machine-unlearning/blob/50a3ada6c777f6882a1764d74a4978bfd61ec6f9/README.md",
+      "commit": "50a3ada6c777f6882a1764d74a4978bfd61ec6f9",
+      "sha256": "03072aecb28517427d7fb1aca9127e4c1a83971bbe89cca7ea67e4f46d650236",
+      "access": "read_author_code_or_README",
+      "accessed": "2026-10-22"
+    },
+    {
+      "title": "SISA",
+      "url": "https://github.com/cleverhans-lab/machine-unlearning/blob/50a3ada6c777f6882a1764d74a4978bfd61ec6f9/sisa.py",
+      "commit": "50a3ada6c777f6882a1764d74a4978bfd61ec6f9",
+      "sha256": "1c21dae3d582e57173378c9e91c3dec02fc4edb689ca6405fe4dba1034f805ae",
+      "access": "read_author_code_or_README",
+      "accessed": "2026-10-22"
+    },
+    {
+      "title": "SISA",
+      "url": "https://github.com/cleverhans-lab/machine-unlearning/blob/50a3ada6c777f6882a1764d74a4978bfd61ec6f9/sharded.py",
+      "commit": "50a3ada6c777f6882a1764d74a4978bfd61ec6f9",
+      "sha256": "f0d54099232ca1dd6377b7d5d607a56db461b3e45b5752a282c888dfccb0e811",
+      "access": "read_author_code_or_README",
+      "accessed": "2026-10-22"
+    },
+    {
+      "title": "SISA",
+      "url": "https://github.com/cleverhans-lab/machine-unlearning/blob/50a3ada6c777f6882a1764d74a4978bfd61ec6f9/aggregation.py",
+      "commit": "50a3ada6c777f6882a1764d74a4978bfd61ec6f9",
+      "sha256": "eac78eec6cde19ea0bf021775d5370df19d57133b1dc57f9137e890f3d0d5762",
+      "access": "read_author_code_or_README",
+      "accessed": "2026-10-22"
+    },
+    {
+      "title": "Certified Data Removal",
+      "url": "https://github.com/facebookresearch/certified-removal/blob/7693b260cce4416540490d77a8f79f9fb3f52cfb/README.md",
+      "commit": "7693b260cce4416540490d77a8f79f9fb3f52cfb",
+      "sha256": "277d2d8961f21a6fcba9b00e4c1d22ad6efb65d7fde8ebb61316f66d206d4e8e",
+      "access": "read_author_code_or_README",
+      "accessed": "2026-10-22"
+    },
+    {
+      "title": "Certified Data Removal",
+      "url": "https://github.com/facebookresearch/certified-removal/blob/7693b260cce4416540490d77a8f79f9fb3f52cfb/test_removal.py",
+      "commit": "7693b260cce4416540490d77a8f79f9fb3f52cfb",
+      "sha256": "73c455748ad54be70b216ad911a52f29e488e3601bbe9a7ae1b8d384046cef85",
+      "access": "read_author_code_or_README",
+      "accessed": "2026-10-22"
+    },
+    {
+      "title": "SSD",
+      "url": "https://github.com/if-loops/selective-synaptic-dampening/blob/cdfdc0e35c1908e032a6e150d882b0fa17833f85/README.md",
+      "commit": "cdfdc0e35c1908e032a6e150d882b0fa17833f85",
+      "sha256": "a665ff3681467c40a2f4c25e46b95186df91dacbc5c2f2d865c6d017afd53da9",
+      "access": "read_author_code_or_README",
+      "accessed": "2026-10-22"
+    },
+    {
+      "title": "SSD",
+      "url": "https://github.com/if-loops/selective-synaptic-dampening/blob/cdfdc0e35c1908e032a6e150d882b0fa17833f85/src/ssd.py",
+      "commit": "cdfdc0e35c1908e032a6e150d882b0fa17833f85",
+      "sha256": "b7d40626a372504453e1987e3466f78386d0dc2c7e0aab8e958c12b0cef01482",
+      "access": "read_author_code_or_README",
+      "accessed": "2026-10-22"
+    },
+    {
+      "title": "SSD",
+      "url": "https://github.com/if-loops/selective-synaptic-dampening/blob/cdfdc0e35c1908e032a6e150d882b0fa17833f85/src/forget_random_strategies.py",
+      "commit": "cdfdc0e35c1908e032a6e150d882b0fa17833f85",
+      "sha256": "186733ba1c79ebd047e0de3c18b5179219348609c370cc4b9ceb0adb5c7135ef",
+      "access": "read_author_code_or_README",
+      "accessed": "2026-10-22"
+    },
+    {
+      "title": "Guo et al., ICML 2020 formal publication",
+      "url": "https://raw.githubusercontent.com/mlresearch/v119/gh-pages/guo20c/guo20c.pdf",
+      "sha256": "58c48f54e489c736dd9d2cf7f14b4051e7e060b7213b41691a261cf592c712f4",
+      "pages": 11,
+      "access": "full_text_read",
+      "accessed": "2026-10-22"
+    },
+    {
+      "title": "author-maintained survey bibliography, not survey full text",
+      "url": "https://github.com/tamlhp/awesome-machine-unlearning",
+      "sha256": "9fcd3d9af55ee6573102f39ee77afc30d1e43c691102ef2ba4d86c9a53c47781",
+      "access": "index_read_only",
+      "accessed": "2026-10-22"
+    },
+    {
+      "title": "independent author survey bibliography used to disambiguate Jiang CSUR",
+      "url": "https://github.com/jessecu2024/unlearningsurvey",
+      "sha256": "1c636dcebbee7253cb1f1a8d46955a6a5e75dd60cba26c7140f372fb75aa90f2",
+      "access": "index_read_only",
+      "accessed": "2026-10-22"
+    },
+    {
+      "title": "third-party citation snapshot, self-reported counts not independently verified",
+      "url": "https://github.com/crayon-go/machine-unlearning-papers",
+      "sha256": "b6065a323ef61d7b35066d67c26a85aa1d3bf8b1cad78d4036d94fc1073b1a57",
+      "access": "index_read_only",
+      "accessed": "2026-10-22"
+    }
+  ],
+  "local_evidence": [
+    {
+      "file": "utils/net.py",
+      "sha256": "21c7146b71e3b1a23f27ddd372132a66e3d1b1a738ca020f588c207e59289a9e"
+    },
+    {
+      "file": "utils/funcs.py",
+      "sha256": "aea65e44a0c7a77e6f0429104b6f7de1335b527f079e254079106da61d81873c"
+    },
+    {
+      "file": "utils/dataset.py",
+      "sha256": "96a7c944c38b1b1e1e2abdcb234fa2f3cf92374f88387a2eced0a5fa1f486133"
+    },
+    {
+      "file": "clean_data.py",
+      "sha256": "f7cd33bd87a4ce0422eedbaeba93ef2544fb436067a641dca487e544dce3f5ae"
+    },
+    {
+      "file": "func_operation.py",
+      "sha256": "e9f75d0b8c8c56664aefaac0aa82f3b0c546066eff7953587d6f7eb7fb68e159"
+    },
+    {
+      "file": "utils/optimization.py",
+      "sha256": "d03de1bd191b86bb7ba37a98923b18d067027ede012db7743462df85d929433f"
+    },
+    {
+      "file": "research/cnn_layer_paths/validation.json",
+      "sha256": "da65c96b17201e89664227d73fc943e150c2da0fb64712d699ab4fe1cb468f69"
+    },
+    {
+      "file": "research/cnn_temperature_response/frozen_models.npz",
+      "sha256": "efb43d039dd265823c2314404ec9406670c37b0b2968c734edeaedae7df11d05"
+    },
+    {
+      "file": "research/cnn_temperature_response/reference_inputs.npz",
+      "sha256": "774bc041bd65a9d587bbf99560ffaa20cdd53a776983f8cfe6f11a646e456367"
+    }
+  ],
+  "blocked_access": [
+    {
+      "key": "sisa_arxiv",
+      "url": "https://arxiv.org/html/1912.03817",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "key": "sisa_usenix",
+      "url": "https://www.usenix.org/conference/usenixsecurity21/presentation/bourtoule",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "key": "guo_arxiv",
+      "url": "https://arxiv.org/html/1911.03030",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "key": "guo_pmlr",
+      "url": "https://proceedings.mlr.press/v119/guo20c.html",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "key": "ssd_arxiv",
+      "url": "https://arxiv.org/html/2308.07707",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "key": "survey_nguyen",
+      "url": "https://arxiv.org/abs/2209.02299",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "key": "survey_xu",
+      "url": "https://arxiv.org/abs/2306.03558",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "key": "github_ssd_search",
+      "url": "https://api.github.com/search/repositories?q=selective+synaptic+dampening",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "key": "openalex_sisa",
+      "url": "https://api.openalex.org/works/https://doi.org/10.48550/arXiv.1912.03817",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "key": "sisa_pdf_arxiv",
+      "url": "https://arxiv.org/pdf/1912.03817",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "key": "ssd_pdf_arxiv",
+      "url": "https://arxiv.org/pdf/2308.07707",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "key": "survey_xu_pdf",
+      "url": "https://arxiv.org/pdf/2306.03558",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "key": "survey_nguyen_pdf",
+      "url": "https://arxiv.org/pdf/2209.02299",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "key": "ssd_html_ar5iv",
+      "url": "https://ar5iv.labs.arxiv.org/html/2308.07707",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "key": "sisa_html_ar5iv",
+      "url": "https://ar5iv.labs.arxiv.org/html/1912.03817",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "key": "sisa_ieee",
+      "url": "https://ieeexplore.ieee.org/document/9519428",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "key": "citation_nguyen",
+      "url": "https://api.semanticscholar.org/graph/v1/paper/ARXIV:2209.02299?fields=title,authors,year,citationCount,venue",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "key": "citation_jiang",
+      "url": "https://api.semanticscholar.org/graph/v1/paper/DOI:10.1145/3603620?fields=title,authors,year,citationCount,venue",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "key": "survey_xu_metadata",
+      "url": "https://raw.githubusercontent.com/chenyang-wang/awesome-machine-unlearning/main/README.md",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ],
+  "citation_note": "No live citation count or ranking claimed. Any snapshot is attributed to the third-party catalog, not independently verified."
+}

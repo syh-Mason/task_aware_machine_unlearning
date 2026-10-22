@@ -1,0 +1,75 @@
+{
+  "date": "2026-10-22",
+  "documents": [
+    {
+      "file": "报告一_Exact遗忘_SISA分组重训练.pdf",
+      "pages": 10,
+      "expected_sections": 10,
+      "native_office_math_objects": 18,
+      "hyperlinks": 14,
+      "page_character_counts": [
+        753,
+        888,
+        525,
+        689,
+        690,
+        732,
+        777,
+        707,
+        726,
+        749
+      ],
+      "out_of_page_text": [],
+      "sha256": "540277c4ac91f86b25703220879f9710fc44a5a06d4dd0055da2783d07050a85",
+      "contact_sheet": "/workspace/.cloud-setup/task-aware/unlearning-three-qa/报告一_Exact遗忘_SISA分组重训练_contact.png"
+    },
+    {
+      "file": "报告二_Approximate遗忘_InfluenceFunction与认证删除.pdf",
+      "pages": 10,
+      "expected_sections": 10,
+      "native_office_math_objects": 47,
+      "hyperlinks": 12,
+      "page_character_counts": [
+        748,
+        628,
+        584,
+        657,
+        727,
+        718,
+        680,
+        649,
+        730,
+        810
+      ],
+      "out_of_page_text": [],
+      "sha256": "5091feda9fdf60e730db05674aa9d2f388826bb4cb777ed1260afca3aba88aa9",
+      "contact_sheet": "/workspace/.cloud-setup/task-aware/unlearning-three-qa/报告二_Approximate遗忘_InfluenceFunction与认证删除_contact.png"
+    },
+    {
+      "file": "报告三_Approximate遗忘_持续学习启发的SSD与模型分层.pdf",
+      "pages": 10,
+      "expected_sections": 10,
+      "native_office_math_objects": 23,
+      "hyperlinks": 14,
+      "page_character_counts": [
+        792,
+        658,
+        618,
+        701,
+        612,
+        698,
+        691,
+        613,
+        666,
+        712
+      ],
+      "out_of_page_text": [],
+      "sha256": "c2bb12c5dc49d5efdbae890fb930f59a2173c2ff1e55635e14f1520a36ecd888",
+      "contact_sheet": "/workspace/.cloud-setup/task-aware/unlearning-three-qa/报告三_Approximate遗忘_持续学习启发的SSD与模型分层_contact.png"
+    }
+  ],
+  "total_pdf_pages": 30,
+  "expected_reports": 3,
+  "synthetic_checks_passed": 14,
+  "grid_experiments_run": false
+}

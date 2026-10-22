@@ -1,0 +1,111 @@
+{
+  "scope": "Synthetic mathematical examples only; no official benchmark, grid solve, or privacy certification",
+  "random_seed": 42,
+  "checks_passed": 14,
+  "checks_failed": 0,
+  "checks": [
+    {
+      "name": "sisa_rollback_equals_same_pipeline_retraining",
+      "passed": true,
+      "max_parameter_error": 2.4424906541753444e-15,
+      "affected_shards": 1,
+      "total_shards": 3
+    },
+    {
+      "name": "sisa_unaffected_shards_bit_identical",
+      "passed": true
+    },
+    {
+      "name": "sisa_is_not_pooled_model_retraining",
+      "passed": true,
+      "max_prediction_gap": 0.3701892076725404
+    },
+    {
+      "name": "influence_upweight_derivative_has_negative_sign",
+      "passed": true,
+      "finite_difference_max_error": 1.3098398872479766e-08
+    },
+    {
+      "name": "remaining_hessian_ridge_batch_deletion_is_exact",
+      "passed": true,
+      "max_parameter_error": 4.996003610813204e-16,
+      "removed_count": 4
+    },
+    {
+      "name": "full_hessian_one_step_is_not_exact_batch_deletion",
+      "passed": true,
+      "max_parameter_error": 0.010439195799652135
+    },
+    {
+      "name": "omitting_changed_regularization_is_wrong",
+      "passed": true,
+      "max_parameter_error": 0.0763495057818806
+    },
+    {
+      "name": "logistic_newton_step_has_nonzero_residual",
+      "passed": true,
+      "residual_norm": 0.0005194763498159468,
+      "max_parameter_error": 7.222390911265641e-05
+    },
+    {
+      "name": "logistic_data_dependent_residual_bound",
+      "passed": true,
+      "residual_norm": 0.0005194763498159468,
+      "data_dependent_bound": 0.013356259318808586
+    },
+    {
+      "name": "ssd_ratio_selection_and_dampening",
+      "passed": true,
+      "selected": [
+        true,
+        false,
+        true,
+        false,
+        false
+      ],
+      "multipliers": [
+        0.1,
+        1.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "resulting_weights": [
+        0.2,
+        -3.0,
+        0.0,
+        4.0,
+        7.0
+      ]
+    },
+    {
+      "name": "ssd_preserves_unselected_parameters",
+      "passed": true
+    },
+    {
+      "name": "ssd_explicit_layer_gate_protects_frozen_core",
+      "passed": true,
+      "resulting_weights": [
+        2.0,
+        -3.0,
+        0.0,
+        4.0,
+        7.0
+      ]
+    },
+    {
+      "name": "squared_batch_gradient_differs_from_mean_squared_sample_gradients",
+      "passed": true,
+      "squared_batch_mean": 0.0,
+      "mean_sample_square": 1.0
+    },
+    {
+      "name": "ewc_penalizes_important_parameter_motion",
+      "passed": true,
+      "ewc_optimum": [
+        0.9900990099009901,
+        0.5
+      ]
+    }
+  ]
+}

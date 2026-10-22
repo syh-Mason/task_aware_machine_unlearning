@@ -1,0 +1,19 @@
+digraph G {
+graph [bgcolor="white",rankdir=TB,nodesep=.32,ranksep=.32,pad=.15];
+node [shape=box,style="rounded,filled",fillcolor="#EDF4F6",color="#217A8A",fontname="Noto Sans CJK SC",fontsize=19,margin=".16,.12"];
+edge [color="#486375",penwidth=1.7,arrowsize=.8];
+cl [label="持续学习工具\n参数重要性估计"];
+importance [label="全集 I_D / 删除集 I_f\n相同模型与损失"];
+select [label="参数选择 + 衰减\nα / λ_SSD"];
+layers [label="显式层白名单\nhead → lin1 → Conv2"];
+verify [label="核验冻结层哈希\n匹配的重训参考"];
+eval [label="预测与遗忘接近度\n两阶段 Cost"];
+{rank=same;cl;importance;select;}
+{rank=same;layers;verify;eval;}
+cl->importance->select;
+layers->verify->eval;
+select->eval [style=invis];
+cl->layers [style=invis];
+select->layers [constraint=false,color="#B55B43"];
+layers [fillcolor="#F7EEE9",color="#B55B43"];
+}

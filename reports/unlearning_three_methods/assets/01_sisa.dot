@@ -1,0 +1,19 @@
+digraph G {
+graph [bgcolor="white",rankdir=TB,nodesep=.32,ranksep=.32,pad=.15];
+node [shape=box,style="rounded,filled",fillcolor="#EDF4F6",color="#217A8A",fontname="Noto Sans CJK SC",fontsize=19,margin=".16,.12"];
+edge [color="#486375",penwidth=1.7,arrowsize=.8];
+data [label="训练集 D\n稳定样本 ID"];
+shards [label="独立分片\n每片独立模型"];
+slices [label="阶段 / 切片\n保存干净前缀状态"];
+delete [label="删除请求\n定位受影响分片"];
+replay [label="恢复并重放\n排除全部删除 ID"];
+result [label="固定规则聚合\n14 节点预测 → Cost"];
+{rank=same;data;shards;slices;}
+{rank=same;delete;replay;result;}
+data->shards->slices;
+delete->replay->result;
+slices->result [style=invis];
+data->delete [style=invis];
+slices->delete [constraint=false,color="#B55B43"];
+delete [fillcolor="#F7EEE9",color="#B55B43"];
+}

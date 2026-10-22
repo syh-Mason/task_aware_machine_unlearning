@@ -1,5 +1,14 @@
 # 实验图表下载
 
+## 三条机器遗忘路线的研究报告
+
+[下载三份 Word/PDF 报告完整包](unlearning_three_reports.zip?raw=true) ·
+[阅读目录、综述与单独下载](../reports/unlearning_three_methods/README.md)。
+
+分别分析 SISA 分组重训练、Guo 等的影响函数与认证删除、持续学习启发的 SSD 与 CNN 分层迁移。
+每份 10 页，附算法推导、源码定位、电网实验设计、流程图及 14 项合成数学校验。
+Guo 已取得正式全文；SISA、SSD 全文受限，明确依据作者代码分析。未新增电网实验或认证结论。
+
 ## CNN 模型内部层作用路径
 
 [下载层结构、激活、归因和内部消融完整包](cnn_layer_paths.zip?raw=true) ·
