@@ -1,0 +1,16 @@
+{
+  "primary_paper": "Xu & Teng, IEEE TPWRS 39(6), 7178–7189, 2024",
+  "doi": "10.1109/TPWRS.2024.3376828",
+  "uploaded_pdf_sha256": "24baa12c60fc48b88f6fc83988183d12a2991cb846b22179840f17fcf9568627",
+  "full_paper_pages": 12,
+  "requested_main_minutes": 25,
+  "planned_seconds": 1500,
+  "timing_is_measured": false,
+  "video": "https://www.bilibili.com/video/BV1WF411Y73C",
+  "video_access": "Page and API blocked by proxy; not watched; template not matched",
+  "editorial_extensions": [
+    "uniform retraining versus task-guided weighting",
+    "input sensitivity versus layer attribution versus training-feature influence"
+  ],
+  "new_experiments_run": false
+}

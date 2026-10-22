@@ -1,0 +1,84 @@
+{
+  "slides": 34,
+  "main_slides": 27,
+  "backup_slides": 7,
+  "planned_seconds": 1500,
+  "missing_text": [],
+  "out_of_page_shapes": [],
+  "notes_present": true,
+  "paper_sha256": "24baa12c60fc48b88f6fc83988183d12a2991cb846b22179840f17fcf9568627",
+  "video_viewed": false,
+  "new_experiments_run": false,
+  "original_image_checks": [
+    {
+      "slide": 2,
+      "asset": "fig1",
+      "exact_embedded_png_match": true
+    },
+    {
+      "slide": 10,
+      "asset": "fig2",
+      "exact_embedded_png_match": true
+    },
+    {
+      "slide": 14,
+      "asset": "fig2",
+      "exact_embedded_png_match": true
+    },
+    {
+      "slide": 17,
+      "asset": "fig3",
+      "exact_embedded_png_match": true
+    },
+    {
+      "slide": 20,
+      "asset": "fig4",
+      "exact_embedded_png_match": true
+    },
+    {
+      "slide": 21,
+      "asset": "fig5",
+      "exact_embedded_png_match": true
+    },
+    {
+      "slide": 22,
+      "asset": "fig6",
+      "exact_embedded_png_match": true
+    },
+    {
+      "slide": 23,
+      "asset": "fig7",
+      "exact_embedded_png_match": true
+    },
+    {
+      "slide": 24,
+      "asset": "fig8_cost_top",
+      "exact_embedded_png_match": true
+    },
+    {
+      "slide": 24,
+      "asset": "fig8_cost_bottom",
+      "exact_embedded_png_match": true
+    },
+    {
+      "slide": 28,
+      "asset": "fig8",
+      "exact_embedded_png_match": true
+    },
+    {
+      "slide": 29,
+      "asset": "fig9",
+      "exact_embedded_png_match": true
+    },
+    {
+      "slide": 33,
+      "asset": "table2",
+      "exact_embedded_png_match": true
+    },
+    {
+      "slide": 33,
+      "asset": "table3",
+      "exact_embedded_png_match": true
+    }
+  ]
+}

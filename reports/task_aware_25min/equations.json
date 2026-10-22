@@ -1,0 +1,310 @@
+[
+  {
+    "slide": "S03",
+    "equation_index": 1,
+    "latex": "$\\theta^\\star=\\arg\\min_\\theta L(\\theta)=\\arg\\min_\\theta\\frac{1}{N}\\sum_{i\\in D}\\ell_i(\\theta)$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/S03_01.png"
+  },
+  {
+    "slide": "S03",
+    "equation_index": 2,
+    "latex": "$L_{\\mathrm{test}}(\\theta)=\\frac{1}{N_{\\mathrm{test}}}\\sum_{i\\in D_{\\mathrm{test}}}\\ell^i_{\\mathrm{test}}(\\theta)$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/S03_02.png"
+  },
+  {
+    "slide": "S04",
+    "equation_index": 1,
+    "latex": "$L_{\\mathrm{mod}}(\\theta)=L(\\theta)+L_{\\mathrm{up}}(\\theta)$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/S04_01.png"
+  },
+  {
+    "slide": "S04",
+    "equation_index": 2,
+    "latex": "$L_{\\mathrm{up}}(\\theta)=\\frac{1}{N}\\sum_{j\\in D_{\\mathrm{up}}}\\epsilon_j\\ell_j(\\theta)$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/S04_02.png"
+  },
+  {
+    "slide": "S04",
+    "equation_index": 3,
+    "latex": "$\\nabla L_{\\mathrm{mod}}(\\theta^\\star_{\\mathrm{mod}})=0$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/S04_03.png"
+  },
+  {
+    "slide": "S05",
+    "equation_index": 1,
+    "latex": "$\\Delta\\theta\\simeq-[\\nabla^2L_{\\mathrm{mod}}(\\theta^\\star)]^{-1}\\nabla L_{\\mathrm{mod}}(\\theta^\\star)$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/S05_01.png"
+  },
+  {
+    "slide": "S05",
+    "equation_index": 2,
+    "latex": "$\\Delta\\theta\\simeq-[\\nabla^2L_{\\mathrm{mod}}(\\theta^\\star)]^{-1}\\nabla L_{\\mathrm{up}}(\\theta^\\star)$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/S05_02.png"
+  },
+  {
+    "slide": "S05",
+    "equation_index": 3,
+    "latex": "$\\Delta\\theta\\simeq-[\\nabla^2L(\\theta^\\star)]^{-1}\\nabla L_{\\mathrm{up}}(\\theta^\\star)$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/S05_03.png"
+  },
+  {
+    "slide": "S06",
+    "equation_index": 1,
+    "latex": "$\\theta^\\star_{\\mathrm{remain}}\\simeq\\theta^\\star-H_r^{-1}g_r$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/S06_01.png"
+  },
+  {
+    "slide": "S06",
+    "equation_index": 2,
+    "latex": "$H_r=\\sum_{i\\in D_{\\mathrm{remain}}}\\nabla^2\\ell_i(\\theta^\\star)$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/S06_02.png"
+  },
+  {
+    "slide": "S06",
+    "equation_index": 3,
+    "latex": "$g_r=\\sum_{i\\in D_{\\mathrm{remain}}}\\nabla\\ell_i(\\theta^\\star)$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/S06_03.png"
+  },
+  {
+    "slide": "X01",
+    "equation_index": 1,
+    "latex": "$\\theta_r=\\arg\\min_\\theta\\sum_{i\\in D_r}\\ell_i(\\theta),\\qquad\\theta_{r,\\epsilon}=\\arg\\min_\\theta\\sum_{i\\in D_r}\\epsilon_i\\ell_i(\\theta)$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/X01_01.png"
+  },
+  {
+    "slide": "S07",
+    "equation_index": 1,
+    "latex": "$L_{\\mathrm{test}}(\\theta^\\star+\\Delta\\theta)\\simeq L_{\\mathrm{test}}(\\theta^\\star)+v^T\\Delta\\theta$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/S07_01.png"
+  },
+  {
+    "slide": "S07",
+    "equation_index": 2,
+    "latex": "$v=\\frac{1}{N_{\\mathrm{test}}}\\sum_{j\\in D_{\\mathrm{test}}}\\nabla\\ell^j_{\\mathrm{test}}(\\theta^\\star)$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/S07_02.png"
+  },
+  {
+    "slide": "S07",
+    "equation_index": 3,
+    "latex": "$\\Delta\\theta_\\epsilon\\simeq-H_\\epsilon^{-1}\\sum_{i\\in D_{\\mathrm{remain}}}\\epsilon_i g_i$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/S07_03.png"
+  },
+  {
+    "slide": "S08",
+    "equation_index": 1,
+    "latex": "$\\widetilde m=-H_r^{-1}v,\\qquad a_i=\\widetilde m^Tg_i$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/S08_01.png"
+  },
+  {
+    "slide": "S08",
+    "equation_index": 2,
+    "latex": "$\\min_\\epsilon\\ \\sum_{i\\in D_{\\mathrm{remain}}}a_i\\epsilon_i$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/S08_02.png"
+  },
+  {
+    "slide": "S08",
+    "equation_index": 3,
+    "latex": "$\\frac{1}{N_{\\mathrm{remain}}}\\|\\epsilon-\\mathbf{1}\\|_1\\leq\\lambda_1,\\quad\\|\\epsilon-\\mathbf{1}\\|_\\infty\\leq\\lambda_\\infty$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/S08_03.png"
+  },
+  {
+    "slide": "S09",
+    "equation_index": 1,
+    "latex": "$\\min_\\theta L_{\\mathrm{gen}}(\\theta)=\\frac{1}{N_{\\mathrm{test}}}\\sum_i\\ell^i_{\\mathrm{gen}}(\\theta)$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/S09_01.png"
+  },
+  {
+    "slide": "S10",
+    "equation_index": 1,
+    "latex": "$\\min_{P_g,\\vartheta,s}\\ P_g^TQ_gP_g+c_g^TP_g+c_{ls}\\|s\\|_1$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/S10_01.png"
+  },
+  {
+    "slide": "S10",
+    "equation_index": 2,
+    "latex": "$B_{\\mathrm{bus}}\\vartheta=C_gP_g-C_l(\\widehat y-s)$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/S10_02.png"
+  },
+  {
+    "slide": "S10",
+    "equation_index": 3,
+    "latex": "$\\underline{P}_g\\leq P_g\\leq\\overline{P}_g,\\quad\\underline{P}_f\\leq B_f\\vartheta\\leq\\overline{P}_f$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/S10_03.png"
+  },
+  {
+    "slide": "S11",
+    "equation_index": 1,
+    "latex": "$\\min_{P_{ls},P_{gs},\\vartheta}\\ c_{ls2}\\|P_{ls}\\|_2^2+c_{gs2}\\|P_{gs}\\|_2^2+c_{ls1}\\|P_{ls}\\|_1+c_{gs1}\\|P_{gs}\\|_1$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/S11_01.png"
+  },
+  {
+    "slide": "S11",
+    "equation_index": 2,
+    "latex": "$B_{\\mathrm{bus}}\\vartheta=C_g(P_g^\\star-P_{gs})-C_l(y-P_{ls})$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/S11_02.png"
+  },
+  {
+    "slide": "S12",
+    "equation_index": 1,
+    "latex": "$\\ell_{\\mathrm{gen}}=P_g^TQ_gP_g+c_g^TP_g$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/S12_01.png"
+  },
+  {
+    "slide": "S12",
+    "equation_index": 2,
+    "latex": "$\\quad+c_{ls2}\\|P_{ls}\\|_2^2+c_{gs2}\\|P_{gs}\\|_2^2+c_{ls1}\\|P_{ls}\\|_1+c_{gs1}\\|P_{gs}\\|_1$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/S12_02.png"
+  },
+  {
+    "slide": "S13",
+    "equation_index": 1,
+    "latex": "$\\frac{\\partial\\ell_{\\mathrm{gen}}}{\\partial\\theta}=\\left[\\frac{\\partial\\ell}{\\partial P_g}+\\frac{\\partial\\ell}{\\partial P_{ls,gs}}\\frac{\\partial p_2^\\star}{\\partial P_g}\\right]\\frac{\\partial p_1^\\star}{\\partial\\widehat y}\\frac{\\partial f}{\\partial\\theta}$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/S13_01.png"
+  },
+  {
+    "slide": "S14",
+    "equation_index": 1,
+    "latex": "$G(u^\\star,a)=0,\\qquad u=(x,\\lambda,\\nu)$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/S14_01.png"
+  },
+  {
+    "slide": "S14",
+    "equation_index": 2,
+    "latex": "$G_u\\frac{\\partial u^\\star}{\\partial a}+G_a=0$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/S14_02.png"
+  },
+  {
+    "slide": "S14",
+    "equation_index": 3,
+    "latex": "$\\frac{\\partial u^\\star}{\\partial a}=-G_u^{-1}G_a$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/S14_03.png"
+  },
+  {
+    "slide": "S15",
+    "equation_index": 1,
+    "latex": "$H_r=\\sum_{i\\in D_{\\mathrm{remain}}}\\nabla^2\\ell_i(\\theta^\\star),\\qquad v=\\frac{1}{N_{\\mathrm{test}}}\\sum_j\\nabla\\ell^j_{\\mathrm{test}}(\\theta^\\star)$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/S15_01.png"
+  },
+  {
+    "slide": "S15",
+    "equation_index": 2,
+    "latex": "$H_r u=v,\\qquad\\widetilde m=-u$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/S15_02.png"
+  },
+  {
+    "slide": "S15",
+    "equation_index": 3,
+    "latex": "$a_i=\\widetilde m^Tg_i=-g_i^T u$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/S15_03.png"
+  },
+  {
+    "slide": "S17",
+    "equation_index": 1,
+    "latex": "$\\epsilon^\\star\\ \\rightarrow\\ \\theta^\\star_{\\mathrm{remain},\\epsilon}$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/S17_01.png"
+  },
+  {
+    "slide": "X02",
+    "equation_index": 1,
+    "latex": "$x\\ \\longrightarrow\\ h_\\phi(x)\\ \\longrightarrow\\ \\widehat y=W h_\\phi(x)+b\\ \\longrightarrow\\ p_1^*\\ \\longrightarrow\\ p_2^*\\ \\longrightarrow\\ C$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/X02_01.png"
+  },
+  {
+    "slide": "X02",
+    "equation_index": 2,
+    "latex": "$S_{\\mathrm{pred},k}=\\frac{\\partial\\widehat y}{\\partial x_k},\\qquad S_{C,k}=\\frac{\\partial C}{\\partial\\widehat y}\\frac{\\partial\\widehat y}{\\partial x_k}$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/X02_02.png"
+  },
+  {
+    "slide": "X03",
+    "equation_index": 1,
+    "latex": "$x^{(\\delta)}=x+\\delta\\sigma_k e_k,\\qquad\\delta\\in\\{-1,-0.5,0,0.5,1\\}$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/X03_01.png"
+  },
+  {
+    "slide": "X03",
+    "equation_index": 2,
+    "latex": "$\\frac{d\\theta^\\star}{dx_{ik}}=-H^{-1}\\frac{\\partial^2 L}{\\partial\\theta\\,\\partial x_{ik}},\\qquad\\frac{dC}{dx_{ik}}=-\\nabla_\\theta C^T H^{-1}\\frac{\\partial^2 L}{\\partial\\theta\\,\\partial x_{ik}}$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/X03_02.png"
+  },
+  {
+    "slide": "B03",
+    "equation_index": 1,
+    "latex": "$x^\\star(z)=\\arg\\min_{x\\geq0}\\ \\frac{1}{2}(x-z)^2=\\max(0,z)$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/B03_01.png"
+  },
+  {
+    "slide": "B03",
+    "equation_index": 2,
+    "latex": "$Q=1>0,\\qquad\\nabla(-x)=-1\\neq0$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/B03_02.png"
+  },
+  {
+    "slide": "B03",
+    "equation_index": 3,
+    "latex": "$\\frac{dx^\\star}{dz}=0\\ (z<0),\\qquad\\frac{dx^\\star}{dz}=1\\ (z>0)$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/B03_03.png"
+  },
+  {
+    "slide": "B04",
+    "equation_index": 1,
+    "latex": "$L(\\Theta)=\\frac{1}{N_{\\mathrm{sen}}n}\\|Y-X\\Theta\\|_F^2$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/B04_01.png"
+  },
+  {
+    "slide": "B04",
+    "equation_index": 2,
+    "latex": "$H\\propto\\operatorname{diag}(X^TX,\\ldots,X^TX)$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/B04_02.png"
+  },
+  {
+    "slide": "B04",
+    "equation_index": 3,
+    "latex": "$\\Theta^\\star=(X^TX)^{-1}X^TY$",
+    "provenance": "Explanatory math restatement, not an extracted paper equation or figure",
+    "png": "assets/equations/B04_03.png"
+  }
+]

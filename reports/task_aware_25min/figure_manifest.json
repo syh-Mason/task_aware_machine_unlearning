@@ -1,0 +1,207 @@
+[
+  {
+    "asset": "fig1",
+    "source_pdf_sha256": "24baa12c60fc48b88f6fc83988183d12a2991cb846b22179840f17fcf9568627",
+    "pdf_page": 3,
+    "journal_page": 7180,
+    "clip_points": [
+      70,
+      63,
+      265,
+      178
+    ],
+    "operation": "rectangular crop; no curve or number edited",
+    "used_on": [
+      "S02"
+    ]
+  },
+  {
+    "asset": "fig2",
+    "source_pdf_sha256": "24baa12c60fc48b88f6fc83988183d12a2991cb846b22179840f17fcf9568627",
+    "pdf_page": 5,
+    "journal_page": 7182,
+    "clip_points": [
+      305,
+      61,
+      556,
+      139
+    ],
+    "operation": "rectangular crop; no curve or number edited",
+    "used_on": [
+      "S09",
+      "S13"
+    ]
+  },
+  {
+    "asset": "fig3",
+    "source_pdf_sha256": "24baa12c60fc48b88f6fc83988183d12a2991cb846b22179840f17fcf9568627",
+    "pdf_page": 6,
+    "journal_page": 7183,
+    "clip_points": [
+      38,
+      62,
+      290,
+      132
+    ],
+    "operation": "rectangular crop; no curve or number edited",
+    "used_on": [
+      "S16"
+    ]
+  },
+  {
+    "asset": "fig4",
+    "source_pdf_sha256": "24baa12c60fc48b88f6fc83988183d12a2991cb846b22179840f17fcf9568627",
+    "pdf_page": 7,
+    "journal_page": 7184,
+    "clip_points": [
+      42,
+      62,
+      557,
+      188
+    ],
+    "operation": "rectangular crop; no curve or number edited",
+    "used_on": [
+      "S19"
+    ]
+  },
+  {
+    "asset": "fig5",
+    "source_pdf_sha256": "24baa12c60fc48b88f6fc83988183d12a2991cb846b22179840f17fcf9568627",
+    "pdf_page": 7,
+    "journal_page": 7184,
+    "clip_points": [
+      42,
+      237,
+      557,
+      371
+    ],
+    "operation": "rectangular crop; no curve or number edited",
+    "used_on": [
+      "S20"
+    ]
+  },
+  {
+    "asset": "fig6",
+    "source_pdf_sha256": "24baa12c60fc48b88f6fc83988183d12a2991cb846b22179840f17fcf9568627",
+    "pdf_page": 8,
+    "journal_page": 7185,
+    "clip_points": [
+      37,
+      63,
+      553,
+      177
+    ],
+    "operation": "rectangular crop; no curve or number edited",
+    "used_on": [
+      "S21"
+    ]
+  },
+  {
+    "asset": "fig7",
+    "source_pdf_sha256": "24baa12c60fc48b88f6fc83988183d12a2991cb846b22179840f17fcf9568627",
+    "pdf_page": 8,
+    "journal_page": 7185,
+    "clip_points": [
+      301,
+      220,
+      553,
+      332
+    ],
+    "operation": "rectangular crop; no curve or number edited",
+    "used_on": [
+      "S22"
+    ]
+  },
+  {
+    "asset": "fig8",
+    "source_pdf_sha256": "24baa12c60fc48b88f6fc83988183d12a2991cb846b22179840f17fcf9568627",
+    "pdf_page": 11,
+    "journal_page": 7188,
+    "clip_points": [
+      42,
+      63,
+      557,
+      288
+    ],
+    "operation": "rectangular crop; no curve or number edited",
+    "used_on": [
+      "B01"
+    ]
+  },
+  {
+    "asset": "fig9",
+    "source_pdf_sha256": "24baa12c60fc48b88f6fc83988183d12a2991cb846b22179840f17fcf9568627",
+    "pdf_page": 11,
+    "journal_page": 7188,
+    "clip_points": [
+      42,
+      338,
+      557,
+      565
+    ],
+    "operation": "rectangular crop; no curve or number edited",
+    "used_on": [
+      "B02"
+    ]
+  },
+  {
+    "asset": "table2",
+    "source_pdf_sha256": "24baa12c60fc48b88f6fc83988183d12a2991cb846b22179840f17fcf9568627",
+    "pdf_page": 10,
+    "journal_page": 7187,
+    "clip_points": [
+      300,
+      62,
+      553,
+      183
+    ],
+    "operation": "rectangular crop; no curve or number edited",
+    "used_on": []
+  },
+  {
+    "asset": "table3",
+    "source_pdf_sha256": "24baa12c60fc48b88f6fc83988183d12a2991cb846b22179840f17fcf9568627",
+    "pdf_page": 10,
+    "journal_page": 7187,
+    "clip_points": [
+      300,
+      192,
+      553,
+      324
+    ],
+    "operation": "rectangular crop; no curve or number edited",
+    "used_on": []
+  },
+  {
+    "asset": "fig8_cost_top",
+    "source_pdf_sha256": "24baa12c60fc48b88f6fc83988183d12a2991cb846b22179840f17fcf9568627",
+    "pdf_page": 11,
+    "journal_page": 7188,
+    "clip_points": [
+      391,
+      63,
+      557,
+      175
+    ],
+    "operation": "rectangular crop; no curve or number edited",
+    "used_on": [
+      "S23"
+    ]
+  },
+  {
+    "asset": "fig8_cost_bottom",
+    "source_pdf_sha256": "24baa12c60fc48b88f6fc83988183d12a2991cb846b22179840f17fcf9568627",
+    "pdf_page": 11,
+    "journal_page": 7188,
+    "clip_points": [
+      391,
+      177,
+      557,
+      288
+    ],
+    "operation": "rectangular crop; no curve or number edited",
+    "used_on": [
+      "S23"
+    ]
+  }
+]
