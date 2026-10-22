@@ -1,5 +1,15 @@
 # 实验图表下载
 
+## Task-Aware 论文算法汇报（10–13 分钟工作稿）
+
+[下载 PPT / PDF / 讲稿 / 补图方法文本](task_aware_paper_talk.zip?raw=true) ·
+[材料目录与来源状态](../reports/task_aware_paper_talk/README.md)。
+
+12 张主讲、5 张备份，计划 11 分 50 秒；重点讲直接遗忘、PAMU、TAMU、KKT 与 iHVP。
+使用作者仓库原始流程图，尚未核对 v2 论文图号；论文全文与实验原图仍需上传 PDF。
+How to Speak 已取得 MIT 官方课程页源码，NSE 指南正文未取得；本稿明确标为待原文核验。
+可选新图只提供方法论文本，没有生成或补造实验曲线。
+
 ## 三条机器遗忘路线的研究报告
 
 [下载三份 Word/PDF 报告完整包](unlearning_three_reports.zip?raw=true) ·

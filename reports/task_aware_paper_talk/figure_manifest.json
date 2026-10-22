@@ -1,0 +1,28 @@
+{
+  "figures": [
+    {
+      "id": "A01",
+      "file": "assets/original/author_repository_unlearning.png",
+      "type": "unchanged_author_repository_original_image",
+      "sha256": "314983d8672cef2005a3b9f1468ecbb357a0f8218ff833d74bf1a8a5ee87a2e2",
+      "used_on": "S02",
+      "original_paper_figure_number": null
+    }
+  ],
+  "pending": [
+    {
+      "id": "R1",
+      "status": "requires_user_uploaded_v2_PDF"
+    },
+    {
+      "id": "R2",
+      "status": "requires_user_uploaded_v2_PDF"
+    }
+  ],
+  "proposed_explanatory_figures": [
+    "D1",
+    "D2",
+    "D3"
+  ],
+  "generated_explanatory_figures": []
+}

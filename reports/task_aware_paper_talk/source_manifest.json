@@ -1,0 +1,140 @@
+{
+  "status": "WORK_DRAFT_PENDING_ARXIV_V2_AND_NSE_PRIMARY_PAGE",
+  "date": "2026-10-22",
+  "timezone": "Asia/Shanghai",
+  "target_paper": "https://arxiv.org/html/2308.14412v2",
+  "requested_duration_minutes": [
+    10,
+    13
+  ],
+  "planned_main_seconds": 710,
+  "paper_full_text_read": false,
+  "paper_figure_numbers_verified": false,
+  "original_paper_experimental_figures_available": false,
+  "source_code_read": true,
+  "mit_official_course_page_source_read": true,
+  "mit_full_video_watched": false,
+  "mit_nse_page_read": false,
+  "new_experiment_runs": false,
+  "image_generation_called": false,
+  "original_author_image": {
+    "file": "assets/original/author_repository_unlearning.png",
+    "sha256": "314983d8672cef2005a3b9f1468ecbb357a0f8218ff833d74bf1a8a5ee87a2e2",
+    "url": "https://github.com/xuwkk/task_aware_machine_unlearning/blob/98a3e7bf177fe40d1d538e63a869578338d70c81/repo_src/unlearning.png",
+    "unchanged": true,
+    "paper_figure_identity": "not_verified"
+  },
+  "sources": [
+    {
+      "url": "https://github.com/xuwkk/task_aware_machine_unlearning/blob/98a3e7bf177fe40d1d538e63a869578338d70c81/readme.md",
+      "sha256": "24bc21dbdd2fc266fbee7e89c4dd1302bd1a3edb6d6d5ee2d32ba6c0648c0a4a",
+      "role": "author_source_read",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://github.com/xuwkk/task_aware_machine_unlearning/blob/98a3e7bf177fe40d1d538e63a869578338d70c81/eval_unchange.py",
+      "sha256": "428d2ce88657b0a6588a5c727cb586e01a94e785eec67484e125d28f160bec6b",
+      "role": "author_source_read",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://github.com/xuwkk/task_aware_machine_unlearning/blob/98a3e7bf177fe40d1d538e63a869578338d70c81/eval_unlearn.py",
+      "sha256": "df2ffe27c9c6f73eb3cce3fc6411dd1e2702baa879ed1a3da24d437443c4fc92",
+      "role": "author_source_read",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://github.com/xuwkk/task_aware_machine_unlearning/blob/98a3e7bf177fe40d1d538e63a869578338d70c81/utils/optimization.py",
+      "sha256": "a42fc4e936511aea3bd226d75c3c530db7dc98bd08bb08c4bb43ea6984cf3fd7",
+      "role": "author_source_read",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://github.com/xuwkk/task_aware_machine_unlearning/blob/98a3e7bf177fe40d1d538e63a869578338d70c81/utils/net.py",
+      "sha256": "43e46c69eea1e291b94fda00851775e4326b69c3eb2604b04ce0d193e38a6811",
+      "role": "author_source_read",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://github.com/xuwkk/task_aware_machine_unlearning/blob/98a3e7bf177fe40d1d538e63a869578338d70c81/func_operation.py",
+      "sha256": "0e8299f6214bf1dbb49aefc315ca09cbcf927726ef86f52150890c9011e68136",
+      "role": "author_source_read",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://github.com/mitocwcontent/res.tll-005-january-iap-2018/blob/b46fd4081b4a89d18d6efafef532e7a48e5a0d9e/content/pages/how-to-speak.md",
+      "sha256": "4d202394330609b36811fa179a800bc337265fefd3f739f58efce3da4f96d325",
+      "role": "MIT_official_course_source_read",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://github.com/mitocwcontent/res.tll-005-january-iap-2018/blob/b46fd4081b4a89d18d6efafef532e7a48e5a0d9e/content/resources/how-to-speak-1.md",
+      "sha256": "6e23179a021031a3111ae01d2678c40d2b9c9874daa7b739cc16965b4836231f",
+      "role": "MIT_official_course_source_read",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://github.com/mitocwcontent/res.tll-005-january-iap-2018/blob/b46fd4081b4a89d18d6efafef532e7a48e5a0d9e/data/course.json",
+      "sha256": "975f1880517fede3ddc0b780cd509a1ae16f0a4ca9663a1510fd26696d23917d",
+      "role": "MIT_official_course_source_read",
+      "accessed": "2026-10-22"
+    }
+  ],
+  "blocked_access": [
+    {
+      "key": "paper_html_v2",
+      "url": "https://arxiv.org/html/2308.14412v2",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "key": "paper_pdf_v2",
+      "url": "https://arxiv.org/pdf/2308.14412v2",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "key": "paper_ar5iv",
+      "url": "https://ar5iv.labs.arxiv.org/html/2308.14412",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "key": "mit_how_to_speak",
+      "url": "https://ocw.mit.edu/courses/res-tll-005-how-to-speak-january-iap-2018/pages/how-to-speak/",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "key": "mit_slideshow",
+      "url": "https://mitcommlab.mit.edu/nse/commkit/slideshow/",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "key": "mit_ocw_repo",
+      "url": "https://github.com/mitocwcontent/res-tll-005-how-to-speak-january-iap-2018",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "key": "mit_transcript",
+      "url": "https://ol-ocw-studio-app-production.s3.amazonaws.com/courses/res-tll-005-how-to-speak-january-iap-2018/9c908a2facaa35d7aafcdf1195166a46_Unzc731iCUY.srt",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "key": "paper_s2",
+      "url": "https://www.semanticscholar.org/paper/Task-Aware-Machine-Unlearning-and-Its-Application-in-Xu-Teng",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "key": "paper_export",
+      "url": "https://export.arxiv.org/pdf/2308.14412v2",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "key": "paper_arxiv_www",
+      "url": "https://www.arxiv.org/pdf/2308.14412v2",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "key": "mit_comm_sitemap",
+      "url": "https://mitcommlab.mit.edu/nse/wp-json/wp/v2/pages?slug=slideshow",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "status": "WORK_DRAFT_NOT_PRIMARY_PAPER_VERIFIED",
+  "slides_total": 17,
+  "main_slides": 12,
+  "backup_slides": 5,
+  "planned_seconds": 710,
+  "actual_spoken_duration_measured": false,
+  "notes_present_on_all_slides": true,
+  "original_author_image_used_on_slides": [
+    2
+  ],
+  "original_image_byte_identical": true,
+  "text_missing": [],
+  "out_of_page_text": [],
+  "original_paper_result_figures_present": false,
+  "arxiv_v2_full_text_read": false,
+  "generated_supplementary_figures": false,
+  "helper_documents": [
+    {
+      "file": "逐页讲稿与控时.pdf",
+      "pages": 6,
+      "sha256": "5c240433b23deef95a8f68ca13751ce47af220e2095bcf75862fe164ac9df17b"
+    },
+    {
+      "file": "待补图方法论文本.pdf",
+      "pages": 3,
+      "sha256": "185c12d7e37fff6a9f31bab079756993d9b30e0e8131d73ab17ca7cd9306b487"
+    }
+  ],
+  "contact_sheet": "/workspace/.cloud-setup/task-aware/task-aware-slides-qa/slides_contact.png",
+  "powerpoint_sha256": "cbaccf5cb3b20929ac692f09037ef66747e4bceceeb58c98658422983caabbee",
+  "pdf_sha256": "dbe52d65d0411db4745b8072799ba2ce2256cdc0a49f86cdbcc6077fd8505740"
+}
